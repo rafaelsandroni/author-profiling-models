@@ -17,7 +17,9 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import roc_curve, auc
 from sklearn.preprocessing import label_binarize
 
-from sklearn.pipeline import Pipeline
+# REPLACED from sklearn.pipeline import Pipeline
+from imblearn.pipeline import Pipeline
+
 from time import time
 
 # custom
@@ -74,7 +76,7 @@ def labelEncoder(y):
 
 #print(list(le.inverse_transform([1, 2])))
 
-def grid(X_train, X_test, y_train, y_test, n_classes):
+def grid(X_train, X_test, y_train, y_test, n_classes, sampling = False):
 
     # params
     #C_param_range = [0.001,0.01,0.1,1,10,100]
@@ -85,10 +87,10 @@ def grid(X_train, X_test, y_train, y_test, n_classes):
                 vect__max_features = [None, 50, 300, 1000, 3000])
                 # vect__ngram_range = [(1, 1), (3, 5)],                    
                 
-    
     pipeline = Pipeline([
         ('vect', CountVectorizer(stop_words=pt_stopwords)),
         ('tfidf', TfidfTransformer()),
+        #('smote', SMOTE()),
         ('clf', LogisticRegression()),
     ])
     
@@ -137,13 +139,13 @@ def grid(X_train, X_test, y_train, y_test, n_classes):
     #return result_table
     return (acc, f1, cm)
 
-def run(task = None):
+def run(task = None, dataset = None):
     if task == None:
         return False
     
     results = []
     
-    datasets = getDatasets(task,'df')
+    datasets = getDatasets(task,'df', dataset)
 
     for i in datasets.iterrows():    
         name = i[1]['dataset_name']

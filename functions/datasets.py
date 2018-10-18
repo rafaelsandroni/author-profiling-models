@@ -15,7 +15,7 @@ import os
 
 #%%
 
-def getDatasets(task = None, file_type = '_'):
+def getDatasets(task = None, file_type = '_', dataset_name = None):
     if task == None:
         return
     
@@ -42,6 +42,10 @@ def getDatasets(task = None, file_type = '_'):
 
     # check if datasets task exists
     datasets = datasets[pd.notnull(datasets['training'])]
+    
+    if dataset_name != None:
+        datasets = datasets[datasets.dataset_name.str.lower() == dataset_name.lower()]
+    
     return datasets
 
 
