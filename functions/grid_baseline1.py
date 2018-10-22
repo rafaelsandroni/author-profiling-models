@@ -23,7 +23,7 @@ from imblearn.pipeline import Pipeline
 from time import time
 
 # custom
-from utils.datasets import getDatasets
+from functions.datasets import getDatasets
 
 
 import nltk
