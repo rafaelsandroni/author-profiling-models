@@ -10,18 +10,20 @@ import os
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer, TfidfTransformer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, f1_score, classification_report, confusion_matrix
-from sklearn.learning_curve import validation_curve
-from sklearn.cross_validation import train_test_split
+# from sklearn.learning_curve import validation_curve
+from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import roc_curve, auc
 from sklearn.preprocessing import label_binarize
 
-from sklearn.pipeline import Pipeline
+# REPLACED from sklearn.pipeline import Pipeline
+from imblearn.pipeline import Pipeline
+
 from time import time
 
 # custom
-from utils.datasets import getDatasets
+from functions.datasets import getDatasets
 
 
 import nltk
@@ -64,33 +66,37 @@ def roc(y_test, y_score, n_classes = 2):
     plt.legend(loc="lower right")
     plt.show()
 
-def labelEncoder(y):
-    le = preprocessing.LabelEncoder()
-    le.fit(y)
-
-    # print('>> classes', list(le.classes_))
-
-    return (le.transform(y), len(le.classes_))
 
 #print(list(le.inverse_transform([1, 2])))
 
-def grid(X_train, X_test, y_train, y_test, n_classes):
-
-    # params
-    #C_param_range = [0.001,0.01,0.1,1,10,100]
-    params_grid = dict(
-                clf__C = np.linspace(1e-4, 1e4, num=8),
-                clf__penalty = ['l1','l2'],                  
-                vect__max_df = [0.8, 0.9, 1.0],
-                vect__max_features = [None, 50, 300, 1000, 3000])
-                # vect__ngram_range = [(1, 1), (3, 5)],                    
-                
+def reglog(X_train, X_test, y_train, y_test, n_classes):
+    # classifier
+    clf = LogisticRegression(verbose=1)
     
+    # params
+    params_grid = dict(
+            clf__C = np.linspace(1e-4, 1e4, num=8),
+            clf__penalty = ['l1','l2'],                  
+            vect__max_df = [0.8, 0.9, 1.0],
+            vect__max_features = [None, 50, 300, 1000, 3000])
+            # vect__ngram_range = [(1, 1), (3, 5)],          
+    
+    # pipeline
     pipeline = Pipeline([
         ('vect', CountVectorizer(stop_words=pt_stopwords)),
         ('tfidf', TfidfTransformer()),
-        ('clf', LogisticRegression()),
-    ])
+        ('smote', SMOTE()),
+        ('clf', clf),
+    ])    
+        
+    return grid(X_train, X_test, y_train, y_test, n_classes, pipeline, params_grid)
+
+def grid(X_train, X_test, y_train, y_test, n_classes, pipeline = None, params_grid = None):
+    
+    if pipeline == None or params_grid == None:
+        print("Pipeline not defined") if pipeline == None else 0
+        print("Params not defined") if params_grid == None else 0
+        return
     
     grid_search = GridSearchCV(pipeline, params_grid, scoring='accuracy')
     
@@ -101,9 +107,7 @@ def grid(X_train, X_test, y_train, y_test, n_classes):
     t0 = time()
     
     grid_search.fit(X_train, y_train)
-    
     print("done in %0.2fs and %0.1fmin" % ((time() - t0), ((time() - t0) / 60) ))
-
     print()
 
     print("Best score: %0.3f" % grid_search.best_score_)
@@ -131,6 +135,7 @@ def grid(X_train, X_test, y_train, y_test, n_classes):
     
     # plot curve ROC
     try:
+        print("ROC", y_test.shape, y_score.shape)
         roc(y_test, y_score, n_classes)
     except:
         print("Error plotting ROC curve")
@@ -138,55 +143,5 @@ def grid(X_train, X_test, y_train, y_test, n_classes):
     
     #return result_table
     return (acc, f1, cm)
-
-def run(task = None):
-    if task == None:
-        return False
-    
-    results = []
-    
-    datasets = getDatasets(task,'df')
-
-    for i in datasets.iterrows():    
-        name = i[1]['dataset_name']
-        label = task
-        print("Dataset: {0} and task: {1}".format(name, label))
-        print()
-        ds_path = i[1]['path']
-
-        # load training and test dataframes
-        training_path = ds_path + '/' + i[1]['training']
-        test_path = ds_path + '/' +  i[1]['test']
-        
-        df_training = pd.read_csv(training_path)#, usecols=cols)
-        df_test = pd.read_csv(test_path)#, usecols=cols)
-
-        print('training set: ', df_training.shape)        
-        print(df_training.groupby([label]).size())
-        print()
-        print('test set: ', df_test.shape)        
-        print(df_test.groupby([label]).size())
-        print()
-        # df_training.groupby([label]).size().plot(kind='bar',title='Corpus '+name+' training dataset classes distributions')
-        
-        X_train = df_training['text'].values
-        y_train, _ = labelEncoder(df_training[label].values)
-
-        X_test = df_test['text'].values
-        y_test, n_classes = labelEncoder(df_test[label].values)    
-        
-        del(df_test)
-        del(df_training)
-        
-        (acc, f1, cm) = grid(X_train, X_test, y_train, y_test, n_classes)
-        print()
-        
-        del(X_train)
-        del(X_test)
-        del(y_train)
-        del(y_test)
-        
-        print('\n+', '-'*60,'+\n')            
-        pass
 
 #pd.DataFrame(results).to_csv('/home/rafael/drive/Models/Reports/baseline1-reglog-tfidf.csv')

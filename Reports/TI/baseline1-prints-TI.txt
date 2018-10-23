@@ -1,0 +1,90 @@
+Dataset: b5post and task: TI
+
+training set:  (652, 3)
+TI
+no     390
+yes    262
+dtype: int64
+
+test set:  (163, 3)
+TI
+no     101
+yes     62
+dtype: int64
+
+Performing grid search...
+Pipeline steps: ['vect', 'tfidf', 'clf']
+done in 847.32s and 14.1min
+
+Best score: 0.715
+Best parameters set:
+	clf__C: 10000.0
+	clf__penalty: 'l1'
+	vect__max_df: 0.9
+	vect__max_features: None
+
+
+              precision    recall  f1-score   support
+
+           0       0.79      0.83      0.81       101
+           1       0.70      0.65      0.67        62
+
+   micro avg       0.76      0.76      0.76       163
+   macro avg       0.75      0.74      0.74       163
+weighted avg       0.76      0.76      0.76       163
+
+Accuracy 0.7607361963190185
+F1_score 0.758599305286265
+[[84 17]
+ [22 40]]
+(163, 1) (163,)
+Error plotting ROC curve
+
+
++ ------------------------------------------------------------ +
+
+Dataset: brmoral and task: TI
+
+training set:  (325, 3)
+TI
+N    107
+S    218
+dtype: int64
+
+test set:  (82, 3)
+TI
+N    23
+S    59
+dtype: int64
+
+Performing grid search...
+Pipeline steps: ['vect', 'tfidf', 'clf']
+done in 86.59s and 1.4min
+
+Best score: 0.720
+Best parameters set:
+	clf__C: 8571.428585714286
+	clf__penalty: 'l1'
+	vect__max_df: 0.8
+	vect__max_features: None
+
+
+              precision    recall  f1-score   support
+
+           0       0.38      0.26      0.31        23
+           1       0.74      0.83      0.78        59
+
+   micro avg       0.67      0.67      0.67        82
+   macro avg       0.56      0.55      0.55        82
+weighted avg       0.64      0.67      0.65        82
+
+Accuracy 0.6707317073170732
+F1_score 0.6504015009380862
+[[ 6 17]
+ [10 49]]
+(82, 1) (82,)
+Error plotting ROC curve
+
+
++ ------------------------------------------------------------ +
+
