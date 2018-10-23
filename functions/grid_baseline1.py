@@ -17,13 +17,13 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import roc_curve, auc
 from sklearn.preprocessing import label_binarize
 
-# REPLACED from sklearn.pipeline import Pipeline
-from imblearn.pipeline import Pipeline
+from sklearn.pipeline import Pipeline
+# from imblearn.pipeline import Pipeline
 
 from time import time
 
 # custom
-from utils.datasets import getDatasets
+from functions.datasets import getDatasets
 
 
 import nltk
@@ -80,7 +80,15 @@ def grid(X_train, X_test, y_train, y_test, n_classes, sampling = False):
 
     # params
     #C_param_range = [0.001,0.01,0.1,1,10,100]
-    params_grid = dict(
+    if True:
+        params_grid = dict(
+                clf__C = [1000, 2000],
+                clf__penalty = ['l1', 'l2'],
+                clf__max_iter = [1500],
+                vect__max_df = [0.9, 1.0],
+                vect__max_features = [None, 3000])
+    else:
+        params_grid = dict(
                 clf__C = np.linspace(1e-4, 1e4, num=8),
                 clf__penalty = ['l1','l2'],                  
                 vect__max_df = [0.8, 0.9, 1.0],
@@ -91,7 +99,7 @@ def grid(X_train, X_test, y_train, y_test, n_classes, sampling = False):
         ('vect', CountVectorizer(stop_words=pt_stopwords)),
         ('tfidf', TfidfTransformer()),
         #('smote', SMOTE()),
-        ('clf', LogisticRegression()),
+        ('clf', LogisticRegression(verbose=1)),
     ])
     
     grid_search = GridSearchCV(pipeline, params_grid, scoring='accuracy')

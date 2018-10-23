@@ -21,7 +21,7 @@ def getDatasets(task = None, file_type = '_', dataset_name = None):
     
     root = '/home/rafael/drive/Data/Dataframe/'
     columns = {'dataset_name': 0,'path': 0,'task': 0,'training': 0,'test': 0}
-    datasets_name = ['b5post', 'esic', 'brmoral', 'enblogs', 'brblogset', 'pan13']
+    datasets_name = ['b5post', 'esic', 'brmoral', 'enblogs', 'brblogset', 'pan13_en','pan13_es']
     datasets = pd.DataFrame(columns=columns)
     # mount dataset dataframe
     for ds in datasets_name:    
