@@ -1,0 +1,86 @@
+Datetime 2018-10-23 21:49:19.465634
+Dataset: brmoral and task: age
+
+training set:  (266, 3)
+age
+a17-22    91
+a25-29    92
+a31-46    83
+dtype: int64
+
+test set:  (67, 3)
+age
+a17-22    22
+a25-29    17
+a31-46    28
+dtype: int64
+
+n_classes: 3
+MLPClassifier
+Performing grid search...
+Pipeline steps: ['vect', 'tfidf', 'clf']
+done in 110.24s and 1.8min
+
+Best score: 0.372
+Best parameters set:
+	clf__alpha: 1e-05
+	clf__early_stopping: True
+	clf__hidden_layer_sizes: (30, 2)
+	clf__solver: 'lbfgs'
+	vect__ngram_range: (3, 4)
+Test evaluation
+             precision    recall  f1-score   support
+
+          0       0.00      0.00      0.00        22
+          1       0.00      0.00      0.00        17
+          2       0.42      1.00      0.59        28
+
+avg / total       0.17      0.42      0.25        67
+
+confusion matrix
+[[ 0  0 22]
+ [ 0  0 17]
+ [ 0  0 28]]
+Datetime 2018-10-23 21:59:57.398024
+Dataset: brmoral and task: age
+
+training set:  (266, 3)
+age
+a17-22    91
+a25-29    92
+a31-46    83
+dtype: int64
+
+test set:  (67, 3)
+age
+a17-22    22
+a25-29    17
+a31-46    28
+dtype: int64
+
+n_classes: 3
+MLPClassifier
+Performing grid search...
+Pipeline steps: ['vect', 'tfidf', 'clf']
+done in 95.87s and 1.6min
+
+Best score: 0.353
+Best parameters set:
+	clf__alpha: 1e-05
+	clf__early_stopping: True
+	clf__hidden_layer_sizes: (30, 2)
+	clf__solver: 'lbfgs'
+	vect__ngram_range: (3, 4)
+Test evaluation
+             precision    recall  f1-score   support
+
+          0       0.00      0.00      0.00        22
+          1       0.25      1.00      0.40        17
+          2       0.00      0.00      0.00        28
+
+avg / total       0.06      0.25      0.10        67
+
+confusion matrix
+[[ 0 22  0]
+ [ 0 17  0]
+ [ 0 28  0]]

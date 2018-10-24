@@ -1,0 +1,67 @@
+Datetime 2018-10-23 21:30:46.925856
+Dataset: brmoral and task: education
+
+training set:  (325, 3)
+education
+Básico + Superior incompleto           124
+Pós-graduação andamento ou completo    104
+Superior completo                       97
+dtype: int64
+
+test set:  (82, 3)
+education
+Básico + Superior incompleto           32
+Pós-graduação andamento ou completo    26
+Superior completo                      24
+dtype: int64
+
+n_classes: 3
+Performing grid search...
+Pipeline steps: ['vect', 'tfidf', 'clf']
+done in 12.48s and 0.2min
+
+Best score: 0.403
+Best parameters set:
+	clf__hidden_layer_sizes: (10, 4)
+	clf__random_state: 1
+	vect__max_features: None
+Datetime 2018-10-23 21:31:27.204196
+Dataset: brmoral and task: education
+
+training set:  (325, 3)
+education
+Básico + Superior incompleto           124
+Pós-graduação andamento ou completo    104
+Superior completo                       97
+dtype: int64
+
+test set:  (82, 3)
+education
+Básico + Superior incompleto           32
+Pós-graduação andamento ou completo    26
+Superior completo                      24
+dtype: int64
+
+n_classes: 3
+Performing grid search...
+Pipeline steps: ['vect', 'tfidf', 'clf']
+done in 11.62s and 0.2min
+
+Best score: 0.403
+Best parameters set:
+	clf__hidden_layer_sizes: (10, 4)
+	clf__random_state: 1
+	vect__max_features: None
+Test evaluation
+             precision    recall  f1-score   support
+
+          0       0.67      0.06      0.11        32
+          1       0.40      0.08      0.13        26
+          2       0.30      0.92      0.45        24
+
+avg / total       0.47      0.32      0.22        82
+
+confusion matrix
+[[ 2  1 29]
+ [ 1  2 23]
+ [ 0  2 22]]
