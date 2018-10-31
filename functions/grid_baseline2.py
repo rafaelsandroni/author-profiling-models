@@ -1,5 +1,4 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 #import seaborn as sns
 import numpy as np
 from scipy.stats import norm
@@ -9,139 +8,184 @@ import os
 
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer, TfidfTransformer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, f1_score, classification_report, confusion_matrix
+from sklearn.neural_network import MLPClassifier
+
 # from sklearn.learning_curve import validation_curve
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import roc_curve, auc
-from sklearn.preprocessing import label_binarize
-
-# REPLACED from sklearn.pipeline import Pipeline
-from imblearn.pipeline import Pipeline
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.pipeline import Pipeline
+# from imblearn.pipeline import Pipeline
 
 from time import time
 
 # custom
 from functions.datasets import getDatasets
-
+from functions.metrics import evaluator, reportPath
 
 import nltk
-
 from nltk.corpus import stopwords
 
 pt_stopwords = stopwords.words('portuguese')
 en_stopwords = stopwords.words('english')
 all_stopwords = en_stopwords + pt_stopwords
 
-def roc(y_test, y_score, n_classes = 2):
-    
-    y_test = label_binarize(y_test, classes=[x for x in range(n_classes)])
+from sklearn.pipeline import Pipeline
+from gensim.sklearn_api import W2VTransformer
+import gensim
 
-    print(y_test.shape, y_score.shape)
-    
-    # Compute ROC curve and ROC area for each class
-    fpr = dict()
-    tpr = dict()
-    roc_auc = dict()
-    for i in range(n_classes):
-        # fpr[i], tpr[i], _ = roc_curve(y_test, y_score, pos_label=1)
-        fpr[i], tpr[i], _ = roc_curve(y_test[:, i], y_score[:, i])
-        roc_auc[i] = auc(fpr[i], tpr[i])
+from collections import defaultdict
+from sklearn.base import BaseEstimator, TransformerMixin
 
-    # Compute micro-average ROC curve and ROC area
-    fpr["micro"], tpr["micro"], _ = roc_curve(y_test.ravel(), y_score.ravel())
-    roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
-    
-    plt.figure()
-    lw = 2
-    plt.plot(fpr[1], tpr[1], color='darkorange',
-             lw=lw, label='ROC curve (area = %0.2f)' % roc_auc[1])
-    plt.plot([0, 1], [0, 1], color='navy', lw=lw, linestyle='--')
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.title('ROC - Receiver operating characteristic')
-    plt.legend(loc="lower right")
-    plt.show()
+from gensim.test.utils import common_texts
+from gensim.sklearn_api import W2VTransformer
 
-
-#print(list(le.inverse_transform([1, 2])))
-
-def reglog(X_train, X_test, y_train, y_test, n_classes):
-    # classifier
-    clf = LogisticRegression(verbose=1)
-    
-    # params
-    params_grid = dict(
-            clf__C = np.linspace(1e-4, 1e4, num=8),
-            clf__penalty = ['l1','l2'],                  
-            vect__max_df = [0.8, 0.9, 1.0],
-            vect__max_features = [None, 50, 300, 1000, 3000])
-            # vect__ngram_range = [(1, 1), (3, 5)],          
-    
-    # pipeline
-    pipeline = Pipeline([
-        ('vect', CountVectorizer(stop_words=pt_stopwords)),
-        ('tfidf', TfidfTransformer()),
-        ('smote', SMOTE()),
-        ('clf', clf),
-    ])    
+class MeanEmbeddingVectorizer(BaseEstimator, TransformerMixin):
+    def __init__(self, model, dim = 100):
+        self.word2vec = []
+        self.dim = dim
         
-    return grid(X_train, X_test, y_train, y_test, n_classes, pipeline, params_grid)
+        if model != None:
+            self.word2vec = dict(zip(model.wv.index2word, model.wv.syn0))
+            self.dim = model.wv.vector_size
 
-def grid(X_train, X_test, y_train, y_test, n_classes, pipeline = None, params_grid = None):
-    
-    if pipeline == None or params_grid == None:
-        print("Pipeline not defined") if pipeline == None else 0
-        print("Params not defined") if params_grid == None else 0
-        return
-    
-    grid_search = GridSearchCV(pipeline, params_grid, scoring='accuracy')
-    
-    #print('best params', best_model.best_params_)
-    #print('best scores', best_model.best_score_)
-    print("Performing grid search...")    
-    print("Pipeline steps:", [name for name, _ in pipeline.steps])    
-    t0 = time()
-    
-    grid_search.fit(X_train, y_train)
-    print("done in %0.2fs and %0.1fmin" % ((time() - t0), ((time() - t0) / 60) ))
-    print()
+    def fit(self, X, y):
+        model = gensim.models.Word2Vec(X, size=self.dim, window=5, min_count=1, workers=4)
+        self.word2vec = dict(zip(model.wv.index2word, model.wv.syn0))        
+        return self
 
-    print("Best score: %0.3f" % grid_search.best_score_)
-    print("Best parameters set:")
-    best_parameters = grid_search.best_estimator_.get_params()
-    for param_name in sorted(params_grid.keys()):
-        print("\t%s: %r" % (param_name, best_parameters[param_name]))
+    def transform(self, X):
+        return np.array([
+            np.mean([self.word2vec[w] for w in words if w in self.word2vec]
+                    or [np.zeros(self.dim)], axis=0)
+            for words in X
+        ])
     
-    y_score = grid_search.decision_function(X_test)
-    
-    print()
-    y_pred = grid_search.predict(X_test) 
-    print()
-    # Saving accuracy score in table
-    acc = accuracy_score(y_test,y_pred)
-    f1 = f1_score(y_test,y_pred,average='weighted')
-    #cm = result_table.iloc[j,3] = str(confusion_matrix(y_test, y_pred))
-    cm = confusion_matrix(y_test, y_pred)
-    #result_table.iloc[j,4] = classification_report(y_test, y_pred)
+class TfidfEmbeddingVectorizer(BaseEstimator, TransformerMixin):
+    def __init__(self, model, dim = 100):
+        
+        self.word2vec = []
+        self.dim = dim
+        
+        if model != None:
+            self.word2vec = dict(zip(model.wv.index2word, model.wv.syn0))
+            self.dim = model.wv.vector_size
+        
+        self.word2weight = None
 
-    print(classification_report(y_test, y_pred))
-    print('Accuracy', accuracy_score(y_test,y_pred))
-    print('F1_score', f1_score(y_test,y_pred,average='weighted'))       
-    print(confusion_matrix(y_test, y_pred))
-    
-    # plot curve ROC
-    try:
-        print("ROC", y_test.shape, y_score.shape)
-        roc(y_test, y_score, n_classes)
-    except:
-        print("Error plotting ROC curve")
-        pass
-    
-    #return result_table
-    return (acc, f1, cm)
+    def fit(self, X, y):
+        model = gensim.models.Word2Vec(X, size=self.dim, window=5, min_count=1, workers=4)
+        self.word2vec = dict(zip(model.wv.index2word, model.wv.syn0))
+        
+        tfidf = TfidfVectorizer(analyzer=lambda x: x)
+        tfidf.fit(X)
+        # if a word was never seen - it must be at least as infrequent
+        # as any of the known words - so the default idf is the max of 
+        # known idf's
+        max_idf = max(tfidf.idf_)
+        self.word2weight = defaultdict(
+            lambda: max_idf,
+            [(w, tfidf.idf_[i]) for w, i in tfidf.vocabulary_.items()])
 
-#pd.DataFrame(results).to_csv('/home/rafael/drive/Models/Reports/baseline1-reglog-tfidf.csv')
+        return self
+
+    def transform(self, X):
+        return np.array([
+                np.mean([self.word2vec[w] * self.word2weight[w]
+                         for w in words if w in self.word2vec] or
+                        [np.zeros(self.dim)], axis=0)
+                for words in X
+            ])
+
+class Model:
+
+    def __init__(self, task, dataset_name, f):
+        self.task = task
+        self.dataset_name = dataset_name
+        self.f = f
+        self.n_classes = 0
+    
+    def tokens(self, X):
+        return np.asarray([nltk.word_tokenize(x) for x in X])
+        
+    def word2vec(self, X_tokens_list, dim = 100):        
+        return gensim.models.Word2Vec(X_tokens_list, size=dim, window=5, min_count=1, workers=4)
+        
+    def mlp(self, X_train, y_train, X_test, y_test, n_classes):
+    
+        self.n_classes = n_classes
+        
+        print("MLPClassifier w/ Embeddings")
+        print("MLPClassifier w/ Embeddings", file=self.f)
+
+        # classifier    
+        clf = MLPClassifier()    
+
+        # w2v 
+        X_train = self.tokens(X_train)
+        X_test = self.tokens(X_test)
+        
+        w2v = self.word2vec(X_train)
+        
+        # params
+        params_grid = dict(
+                clf__activation = ['tanh','relu'],
+                clf__solver = ['lbfgs','adam'],
+                clf__max_iter = [200,500,1000],
+                clf__hidden_layer_sizes = [(5,2),(30, 2),(50,10)],
+                clf__early_stopping = [True],
+                clf__alpha = [1e-1, 1e-2, 1e-3, 1e-4, 1e-5],
+                w2v__dim = [10, 50, 100])
+                #clf__penalty = ['l1','l2'],                  
+                # w2v__word2vec = [dict(zip(w2v.wv.index2word, w2v.wv.syn0))])
+                #vect__max_features = [None, 3000])            
+
+        # What is the vector representation of the word 'graph'?
+        #wordvecs = model.fit(common_texts).transform(['graph', 'system'])
+        
+        # pipeline
+        pipeline = Pipeline([
+            # ('vect', CountVectorizer(stop_words=pt_stopwords)),            
+            # ('tfidf', TfidfTransformer()),
+            # ('smote', SMOTE()),
+            ('w2v_tfidf', TfidfEmbeddingVectorizer(model=w2v)),
+            #('word2vec', W2VTransformer(size=10, min_count=1, seed=1)),
+            # ('min/max scaler', MinMaxScaler(feature_range=(0.0, 1.0))),
+            ('clf', clf),
+        ])
+
+        return self.grid(X_train, y_train, X_test, y_test, pipeline, params_grid)
+
+    def grid(self, X_train, y_train, X_test, y_test, pipeline = None, params_grid = None):
+
+        if pipeline == None or params_grid == None:
+            print("Pipeline not defined") if pipeline == None else 0
+            print("Params not defined") if params_grid == None else 0
+            return
+
+        gridsearch = GridSearchCV(pipeline, params_grid, scoring='accuracy')    
+
+        print("Performing grid search...", file=self.f)    
+        print("Pipeline steps:", [name for name, _ in pipeline.steps], file=self.f)    
+        t0 = time()
+
+        gridsearch.fit(X_train, y_train)
+        
+        print("done in %0.2fs and %0.1fmin" % ((time() - t0), ((time() - t0) / 60) ), file=self.f)        
+        print("done in %0.2fs and %0.1fmin" % ((time() - t0), ((time() - t0) / 60) ))
+
+        print("Best score: %0.3f" % gridsearch.best_score_, file=self.f)        
+        print("Best score: %0.3f" % gridsearch.best_score_)
+        
+        print("Best parameters set:", file=self.f)
+        print("Best parameters set:")
+        try:
+            best_parameters = gridsearch.best_estimator_.get_params()
+            for param_name in sorted(params_grid.keys()):
+                print("\t%s: %r" % (param_name, best_parameters[param_name]), file=self.f)
+                print("\t%s: %r" % (param_name, best_parameters[param_name]))
+        except:
+            pass
+
+        evaluator(gridsearch, X_test, y_test, self.n_classes, self.task, self.dataset_name, self.f)

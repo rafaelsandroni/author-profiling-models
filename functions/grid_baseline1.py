@@ -17,8 +17,8 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import roc_curve, auc
 from sklearn.preprocessing import label_binarize
 
-# REPLACED from sklearn.pipeline import Pipeline
-from imblearn.pipeline import Pipeline
+from sklearn.pipeline import Pipeline
+# from imblearn.pipeline import Pipeline
 
 from time import time
 
