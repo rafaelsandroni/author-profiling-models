@@ -149,7 +149,7 @@ class Model:
             # ('vect', CountVectorizer(stop_words=pt_stopwords)),            
             # ('tfidf', TfidfTransformer()),
             # ('smote', SMOTE()),
-            ('w2v', TfidfEmbeddingVectorizer(model=w2v)),
+            ('w2v_tfidf', TfidfEmbeddingVectorizer(model=w2v)),
             #('word2vec', W2VTransformer(size=10, min_count=1, seed=1)),
             # ('min/max scaler', MinMaxScaler(feature_range=(0.0, 1.0))),
             ('clf', clf),
@@ -172,12 +172,10 @@ class Model:
 
         gridsearch.fit(X_train, y_train)
         
-        print("done in %0.2fs and %0.1fmin" % ((time() - t0), ((time() - t0) / 60) ), file=self.f)
-        print(file=self.f)
+        print("done in %0.2fs and %0.1fmin" % ((time() - t0), ((time() - t0) / 60) ), file=self.f)        
         print("done in %0.2fs and %0.1fmin" % ((time() - t0), ((time() - t0) / 60) ))
 
-        print("Best score: %0.3f" % gridsearch.best_score_, file=self.f)
-        
+        print("Best score: %0.3f" % gridsearch.best_score_, file=self.f)        
         print("Best score: %0.3f" % gridsearch.best_score_)
         
         print("Best parameters set:", file=self.f)

@@ -166,3 +166,85 @@ avg / total       0.82      0.82      0.82       204
 confusion matrix
 [[99 14]
  [23 68]]
+Datetime 2018-10-24 01:17:36.167789
+Dataset: b5post and task: gender
+
+training set:  (815, 3)
+gender
+female    465
+male      350
+dtype: int64
+
+test set:  (204, 3)
+gender
+female    113
+male       91
+dtype: int64
+
+n_classes: 2
+MLPClassifier w/ Embeddings
+Performing grid search...
+Pipeline steps: ['w2v', 'clf']
+done in 26125.45s and 435.4min
+
+Best score: 0.783
+Best parameters set:
+	clf__activation: 'tanh'
+	clf__alpha: 0.01
+	clf__early_stopping: True
+	clf__hidden_layer_sizes: (5, 2)
+	clf__max_iter: 500
+	clf__solver: 'lbfgs'
+	w2v__dim: 100
+Test evaluation
+             precision    recall  f1-score   support
+
+          0       0.81      0.85      0.83       113
+          1       0.80      0.76      0.78        91
+
+avg / total       0.81      0.81      0.81       204
+
+confusion matrix
+[[96 17]
+ [22 69]]
+Datetime 2018-10-24 01:41:50.876013
+Dataset: b5post and task: gender
+
+training set:  (815, 3)
+gender
+female    465
+male      350
+dtype: int64
+
+test set:  (204, 3)
+gender
+female    113
+male       91
+dtype: int64
+
+n_classes: 2
+MLPClassifier w/ Embeddings
+Performing grid search...
+Pipeline steps: ['w2v', 'clf']
+done in 115074.99s and 1917.9min
+
+Best score: 0.789
+Best parameters set:
+	clf__activation: 'tanh'
+	clf__alpha: 0.1
+	clf__early_stopping: True
+	clf__hidden_layer_sizes: (50, 10)
+	clf__max_iter: 200
+	clf__solver: 'lbfgs'
+	w2v__dim: 100
+Test evaluation
+             precision    recall  f1-score   support
+
+          0       0.81      0.86      0.83       113
+          1       0.81      0.75      0.78        91
+
+avg / total       0.81      0.81      0.81       204
+
+confusion matrix
+[[97 16]
+ [23 68]]
