@@ -41,11 +41,14 @@ def ROC(y_test, y_score, n_classes, task, dataset_name):
         plt.ylabel('True Positive Rate')
         plt.title('ROC - Receiver operating characteristic')
         plt.legend(loc="lower right")
-        directory = './Reports/'+ task + '/imgs/' 
+        
+        directory = './Reports/'+ task + '/' + dataset_name + '/'
+        
         checkFolder(directory)
         filename =  dataset_name + '_ROC_curve_class_'+ str(i) +'.pdf'
         filename = directory + filename
-        plt.savefig(filename)     
+        
+        plt.savefig(filename)        
 
     if n_classes > 2:
 
@@ -94,8 +97,11 @@ def ROC(y_test, y_score, n_classes, task, dataset_name):
         plt.title('ROC - Receiver operating characteristic')
         plt.legend(loc="lower right")  
         
-        directory = './Reports/'+ task + '/imgs/' 
+        directory = './Reports/'+ task + '/' + dataset_name + '/'
         checkFolder(directory)
         filename =  dataset_name + '_ROC_curve.pdf'
         filename = directory + filename
+        
         plt.savefig(filename)
+        
+    return roc_auc
