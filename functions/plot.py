@@ -46,7 +46,7 @@ def ROC(y_test, y_score, n_classes, task, dataset_name, classes_name):
         directory = './Reports/'+ task + '/' + dataset_name + '/'
         
         checkFolder(directory)
-        filename =  dataset_name + '_ROC_curve_class_'+ str(classes_name[i]) +'.pdf'
+        filename =  'ROC_curve_class_'+ str(classes_name[i]) +'.pdf'
         filename = directory + filename
         
         plt.savefig(filename)        
@@ -100,7 +100,7 @@ def ROC(y_test, y_score, n_classes, task, dataset_name, classes_name):
 
     directory = './Reports/'+ task + '/' + dataset_name + '/'
     checkFolder(directory)
-    filename =  dataset_name + '_ROC_curve.pdf'
+    filename =  'ROC_curve.pdf'
     filename = directory + filename
 
     plt.savefig(filename)
@@ -141,7 +141,7 @@ def plot_confusion_matrix(cm, classes, task, dataset_name, normalize=False, titl
     
     directory = './Reports/'+ task + '/' + dataset_name + '/'
     checkFolder(directory)
-    filename =  dataset_name + '_confusion_matrix.pdf'
+    filename = 'confusion_matrix.pdf'
     filename = directory + filename
     
     plt.savefig(filename)
