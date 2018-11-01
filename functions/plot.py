@@ -50,6 +50,7 @@ def ROC(y_test, y_score, n_classes, task, dataset_name, classes_name):
         filename = directory + filename
         
         plt.savefig(filename)        
+        plt.gcf().clear()
 
 
 
@@ -104,7 +105,8 @@ def ROC(y_test, y_score, n_classes, task, dataset_name, classes_name):
     filename = directory + filename
 
     plt.savefig(filename)
-        
+    plt.gcf().clear()
+    
     return roc_auc
 
 
@@ -148,3 +150,4 @@ def plot_confusion_matrix(cm, classes, task, dataset_name, normalize=False, titl
     filename = directory + filename
     
     plt.savefig(filename)
+    plt.gcf().clear()
