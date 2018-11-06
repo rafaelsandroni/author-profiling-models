@@ -276,4 +276,16 @@ if __name__ == '__main__':
     RUNS           = 5
     VAL_SIZE       = 0.2
     
-    run('relig')
+    # run('relig')
+    
+    # run('education')
+    
+    # run('professional')
+    
+    # run('region')
+    
+    # run('polit')
+    
+    run('age', 'enblogs')
+    
+    # run('gender')

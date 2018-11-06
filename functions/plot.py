@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 import itertools
+import matplotlib.pyplot as plt
 
 def checkFolder(directory):    
     if not os.path.exists(directory):
@@ -112,7 +113,6 @@ def ROC(y_test, y_score, n_classes, task, dataset_name, classes_name):
 
 def plot_confusion_matrix(cm, classes, task, dataset_name, normalize=False, title='Confusion matrix', cmap=plt.cm.Blues):
     
-    import matplotlib.pyplot as plt
 
     """
     This function prints and plots the confusion matrix.
