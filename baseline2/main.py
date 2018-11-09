@@ -1,5 +1,6 @@
 from Models.functions.datasets import getDatasets
 from Models.functions.plot import ROC, plot_confusion_matrix
+from Models.functions.preprocessing import clean
 
 import keras, os, pickle, re, sklearn, string, tensorflow
 # print('Keras version: \t\t%s' % keras.__version__)
@@ -27,7 +28,7 @@ from keras.wrappers.scikit_learn import KerasClassifier
 
 import cnn_model
 from sklearn.model_selection import StratifiedKFold
-
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
@@ -39,60 +40,16 @@ def labelEncoder(y):
 
     return (le.transform(y), len(le.classes_), list(le.classes_))
 
-def clean(doc):
-    """
-    Cleaning a document by several methods:
-        - Lowercase
-        - Removing whitespaces
-        - Removing numbers
-        - Removing stopwords
-        - Removing punctuations
-        - Removing short words
-    """
-    stop_words = set(stopwords.words('portuguese'))
-    
-    # Lowercase
-    doc = doc.lower()
-    # Remove numbers
-    doc = re.sub(r"[0-9]+", "", doc)
-    # Split in tokens
-    tokens = doc.split()
-    # Remove Stopwords
-    tokens = [w for w in tokens if not w in stop_words]
-    # Remove punctuation
-    tokens = [w.translate(str.maketrans('', '', string.punctuation)) for w in tokens]
-    # Tokens with less then two characters will be ignored
-    tokens = [word for word in tokens if len(word) > 1]
-    return ' '.join(tokens)
-
-
-def read_files(path):
-    documents = list()
-    # Read in all files in directory
-    if os.path.isdir(path):
-        for filename in os.listdir(path):
-            with open('%s/%s' % (path, filename)) as f:
-                doc = f.read()
-                doc = clean_doc(doc)
-                documents.append(doc)
-    
-    # Read in all lines in a txt file
-    if os.path.isfile(path):        
-        with open(path, encoding='iso-8859-1') as f:
-            doc = f.readlines()
-            for line in doc:
-                documents.append(clean_doc(line))
-    return documents
-    
 def checkFolder(directory):    
     if not os.path.exists(directory):
         os.makedirs(directory)
     
-def max_length(lines):
+def length(text):
     """
     Calculate the maximum document length
     """
-    return max([len(s.split()) for s in lines])
+    result = [len(x.split()) for x in text]
+    return np.min(result), np.max(result), np.mean(result)
 
 
 def transform(text):
@@ -101,7 +58,7 @@ def transform(text):
     tokenizer.fit_on_texts(text)
     sequences = tokenizer.texts_to_sequences(text)
 
-    length = max_length(text)
+    _, length,_ = length(text)
     word_index = tokenizer.word_index
 
     # result = [len(x.split()) for x in text]
@@ -117,7 +74,7 @@ def transform(text):
     return X
     
 
-def create_model(emb_layer):
+def create_model(emb_layer = None, max_features = None):
     
     model = cnn_model.build_cnn(
             embedding_layer=emb_layer,
@@ -125,7 +82,7 @@ def create_model(emb_layer):
             embedding_dim=EMBEDDING_DIM,
             filter_sizes=FILTER_SIZES,
             feature_maps=FEATURE_MAPS,
-            max_seq_length=MAX_SEQ_LENGTH,
+            max_seq_length=max_features or MAX_FEATURES,
             dropout_rate=DROPOUT_RATE
     )
     
@@ -148,38 +105,61 @@ def cnn1(X, y):
     emb_layer = None
     #if USE_GLOVE:
         #emb_layer = create_glove_embeddings()
-    model = create_model(emb_layer)
-    #K = StratifiedKFold(n_splits=2)
 
-    X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
-
-
-    history = model.fit(
-        X_train, y_train,
-        epochs=NB_EPOCHS,
-        batch_size=BATCH_SIZE,
-        verbose=1,
-        validation_data=(X_val, y_val),
-        callbacks=[ModelCheckpoint('model-%i.h5', monitor='val_loss',
-                                   verbose=0, save_best_only=True, mode='min'),
-                   ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
-                   #EarlyStopping(monitor='val_loss', min_delta=0.1, patience=4, verbose=1)
-                  ]
-    )
-
-    score = model.evaluate(X_val, y_val, verbose=1)
-    test_loss.append(score[0])
-    test_accs.append(score[1])
-
-    y_pred = model.predict(X_val, verbose=1)
-
-    predicted_y.extend(y_pred)
-    expected_y.extend(y_val)
-
-    histories.append(history.history)
+    _, _, mean_length = length(X)
     
+    MAX_FEATURES = int(mean_length)
+    
+    vec = TfidfVectorizer(max_features=MAX_FEATURES)
+
+    #model = create_model(emb_layer)    
+    
+    K = StratifiedKFold(n_splits=10)
+
+    for train_index, test_index in K.split(X, y):
+
+        X_train, X_test = X[train_index], X[test_index]
+        y_train, y_test = y[train_index], y[test_index]
+        
+        X_train = vec.fit_transform(X_train)
+        X_test = vec.transform(X_test)
+        
+        """
+        history = model.fit(
+            X_train, y_train,
+            epochs=NB_EPOCHS,
+            batch_size=BATCH_SIZE,
+            verbose=1,
+            # validation_data=(X_val, y_val),
+            validation_split=0.2,
+            callbacks=[#ModelCheckpoint('model-%i.h5', monitor='val_loss',verbose=0, save_best_only=True, mode='min'),
+                       ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
+                       EarlyStopping(monitor='val_loss', min_delta=0.1, patience=4, verbose=1)
+                      ]
+        )
+        """        
+        
+        model = KerasClassifier(build_fn=create_model, 
+                            max_features=MAX_FEATURES,
+                            epochs=NB_EPOCHS,
+                            batch_size=BATCH_SIZE,
+                            verbose=0,
+                            #validation_data=(X_val, y_val),
+                            validation_split=0.2,
+                            callbacks=[#ModelCheckpoint('model-%i.h5', monitor='val_loss', verbose=1, save_best_only=True, mode='min'),
+                                ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
+                                EarlyStopping(monitor='val_loss', min_delta=0.1, patience=4, verbose=1)
+                            ])
+
+        history = model.fit(X_train, y_train)
+        histories.append(history.history)
+
+        y_pred = model.predict(X_test, verbose=1)
+        predicted_y.extend(y_pred)
+        expected_y.extend(y_test)
+
     expected_y = np.asarray(expected_y)
-    score_y = np.asarray(predicted_y) # probabilistics
+    score_y = np.asarray(predicted_y) # probabilistics    
     predicted_y = np.asarray(predicted_y).round() # estimated
     
     return expected_y, predicted_y, score_y, histories
@@ -203,8 +183,6 @@ def run(task, dataset_name = None):
         X = df_training['text'].values
         y, n_classes, classes_name = labelEncoder(df_training[label].values)
         
-        X = transform(X)
-        
         # cnn model
         (expected_y, predicted_y, score_y, histories) = cnn1(X, y)
         
@@ -213,12 +191,13 @@ def run(task, dataset_name = None):
         
         checkFolder(directory)
         
-        with open(directory + '/history_cnn1.pkl', 'wb') as f:
+        with open(directory + '/histories_cnn1.pkl', 'wb') as f:
             pickle.dump(histories, f)
             
         # save arrays        
         np.save(directory + '/expected_cnn1.numpy', expected_y)
         np.save(directory + '/predicted_cnn1.numpy', predicted_y)
+        np.save(directory + '/score_cnn1.numpy', score_y)
         
         evaluate(expected_y, predicted_y, score_y, classes_name, n_classes, task, dataset_name)
 
@@ -249,11 +228,10 @@ def evaluate(expected_y, predicted_y, score_y, classes_name, n_classes, task, da
 
     directory = './Reports/' + task + '/' + dataset_name + '/'
     report.to_csv(directory + 'report.csv')
-    cm.to_csv(directory + 'confusion_matrix.csv')    
+    cm.to_csv(directory + 'confusion_matrix.csv')
     
     print(report)
-    
-    
+    print()
     
     
 if __name__ == '__main__':    
@@ -263,6 +241,7 @@ if __name__ == '__main__':
     MAX_NUM_WORDS  = 50000 #15000
     EMBEDDING_DIM  = 300
     MAX_SEQ_LENGTH = 3200 #200
+    MAX_FEATURES   = 3200
     USE_GLOVE      = False
 
     # MODEL
@@ -276,16 +255,17 @@ if __name__ == '__main__':
     RUNS           = 5
     VAL_SIZE       = 0.2
     
-    # run('relig')
+    run('relig')
     
-    # run('education')
+    run('polit')
     
-    # run('professional')
+    run('education')
     
-    # run('region')
+    run('professional')
     
-    # run('polit')
+    run('region')    
     
-    run('age', 'enblogs')
     
-    # run('gender')
+    run('age')
+    
+    run('gender')

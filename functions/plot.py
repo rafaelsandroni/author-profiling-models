@@ -12,8 +12,11 @@ def checkFolder(directory):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-def ROC(y_test, y_score, n_classes, task, dataset_name, classes_name):
-
+def ROC(y_test, y_score, n_classes, task = None, dataset_name = None, classes_name = None):
+    
+    if classes_name is None:
+        classes_name = [i for i in n_classes]
+        
     # Compute ROC curve and ROC area for each class
     y_test_bkp = y_test
     y_test = label_binarize(y_test, classes=[x for x in range(n_classes)])
@@ -43,14 +46,16 @@ def ROC(y_test, y_score, n_classes, task, dataset_name, classes_name):
         plt.ylabel('True Positive Rate')
         plt.title('ROC - Receiver operating characteristic')
         plt.legend(loc="lower right")
+        if task != None and dataset_name != None:
+            directory = './Reports/'+ task + '/' + dataset_name + '/'        
+            checkFolder(directory)
+            filename =  'ROC_curve_class_'+ str(classes_name[i]) +'.pdf'
+            filename = directory + filename
         
-        directory = './Reports/'+ task + '/' + dataset_name + '/'
-        
-        checkFolder(directory)
-        filename =  'ROC_curve_class_'+ str(classes_name[i]) +'.pdf'
-        filename = directory + filename
-        
-        plt.savefig(filename)        
+            plt.savefig(filename)        
+        else:
+            plt.show()
+            
         plt.gcf().clear()
 
 
@@ -90,7 +95,7 @@ def ROC(y_test, y_score, n_classes, task, dataset_name, classes_name):
     for i, color in zip(range(n_classes), colors):
         plt.plot(fpr[i], tpr[i], color=color, lw=lw,
                  label='ROC curve of class {0} (area = {1:0.2f})'
-                 ''.format(i, roc_auc[i]))
+                 ''.format(classes_name[i], roc_auc[i]))
 
     plt.plot([0, 1], [0, 1], 'k--', lw=lw)
     plt.xlim([0.0, 1.0])
@@ -99,19 +104,23 @@ def ROC(y_test, y_score, n_classes, task, dataset_name, classes_name):
     plt.ylabel('True Positive Rate')
     plt.title('ROC - Receiver operating characteristic')
     plt.legend(loc="lower right")  
+    
+    if task != None and dataset_name != None:
+        directory = './Reports/'+ task + '/' + dataset_name + '/'
+        checkFolder(directory)
+        filename =  'ROC_curve.pdf'
+        filename = directory + filename
 
-    directory = './Reports/'+ task + '/' + dataset_name + '/'
-    checkFolder(directory)
-    filename =  'ROC_curve.pdf'
-    filename = directory + filename
-
-    plt.savefig(filename)
+        plt.savefig(filename)
+    else:
+        plt.show()
+        
     plt.gcf().clear()
     
     return roc_auc
 
 
-def plot_confusion_matrix(cm, classes, task, dataset_name, normalize=False, title='Confusion matrix', cmap=plt.cm.Blues):
+def plot_confusion_matrix(cm, classes, task = None, dataset_name = None, normalize=False, title='Confusion matrix', cmap=plt.cm.Blues):
     
 
     """
@@ -143,11 +152,13 @@ def plot_confusion_matrix(cm, classes, task, dataset_name, normalize=False, titl
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
     plt.tight_layout()
-    
-    directory = './Reports/'+ task + '/' + dataset_name + '/'
-    checkFolder(directory)
-    filename = 'confusion_matrix.pdf'
-    filename = directory + filename
-    
-    plt.savefig(filename)
+    if task != None and dataset_name != None:
+        directory = './Reports/'+ task + '/' + dataset_name + '/'
+        checkFolder(directory)
+        filename = 'confusion_matrix.pdf'
+        filename = directory + filename    
+        plt.savefig(filename)
+    else:
+        plt.show()
+        
     plt.gcf().clear()
