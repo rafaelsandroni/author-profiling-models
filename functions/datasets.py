@@ -15,11 +15,11 @@ import os
 
 #%%
 
-def getDatasets(task = None, file_type = '_', dataset_name = None):
+def getDatasets(task = None, file_type = '_', dataset_name = None, root = None):
     if task == None:
         return
     
-    root = '/home/rafael/drive/Data/Dataframe/'
+    root = root or '/home/rafael/drive/Data/Dataframe/'
     columns = {'dataset_name': 0,'path': 0,'task': 0,'training': 0,'test': 0}
     datasets_name = ['b5post', 'esic', 'brmoral', 'enblogs', 'brblogset', 'pan13_en','pan13_es']
     datasets = pd.DataFrame(columns=columns)
@@ -50,3 +50,31 @@ def getDatasets(task = None, file_type = '_', dataset_name = None):
 
 
 
+def loadDataframe(task, dataset):
+    if task == None:
+        return False
+    
+    results = []
+    
+    datasets = getDatasets(task,'df', dataset)
+
+    for i in datasets.iterrows():    
+        name = i[1]['dataset_name']
+        label = task        
+        ds_path = i[1]['path']
+
+        # load training and test dataframes
+        training_path = ds_path + '/' + i[1]['training']
+        test_path = ds_path + '/' +  i[1]['test']
+        
+        df_training = pd.read_csv(training_path)#, usecols=cols)
+        df_test = pd.read_csv(test_path)#, usecols=cols)
+    
+        # X_train = df_training['text'].values
+        # y_train, _ = labelEncoder(df_training[label].values)
+
+        # X_test = df_test['text'].values
+        # y_test, n_classes = labelEncoder(df_test[label].values)    
+        df = pd.concat([df_training, df_test])
+        
+    return df
