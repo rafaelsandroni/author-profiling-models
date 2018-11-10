@@ -39,3 +39,17 @@ def clean(doc, lang = 'portuguese'):
     # Tokens with less then two characters will be ignored
     tokens = [word for word in tokens if len(word) > 1]
     return ' '.join(tokens)
+
+
+
+
+from sklearn import preprocessing
+
+def labelEncoder(y):
+    le = preprocessing.LabelEncoder()
+    le.fit(y)
+
+    # print('>> classes', list(le.classes_))
+
+    return (le.transform(y), len(le.classes_), le.classes_)
+
