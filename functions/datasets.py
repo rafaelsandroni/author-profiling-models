@@ -50,13 +50,13 @@ def getDatasets(task = None, file_type = '_', dataset_name = None, root = None):
 
 
 
-def loadDataframe(task, dataset):
+def loadDataframe(task, dataset, root = None):
     if task == None:
         return False
     
     results = []
     
-    datasets = getDatasets(task,'df', dataset)
+    datasets = getDatasets(task,'df', dataset, root)
 
     for i in datasets.iterrows():    
         name = i[1]['dataset_name']
