@@ -86,21 +86,23 @@ def load(task, dataset_name, root = None):
   datasets = getDatasets(task,'df', dataset_name, root = None)
 
   for i in datasets.iterrows():
-      name = i[1]['dataset_name']
-      label = task
-      ds_path = i[1]['path']
+      pass
+    
+  name = i[1]['dataset_name']
+  label = task
+  ds_path = i[1]['path']
 
-      # load training and test dataframes
-      training_path = ds_path + '/' + i[1]['training']
-      test_path = ds_path + '/' +  i[1]['test']
+  # load training and test dataframes
+  training_path = ds_path + '/' + i[1]['training']
+  test_path = ds_path + '/' +  i[1]['test']
 
-      df_training = pd.read_csv(training_path)#, usecols=cols)
-      df_test = pd.read_csv(test_path)#, usecols=cols)
+  df_training = pd.read_csv(training_path)#, usecols=cols)
+  df_test = pd.read_csv(test_path)#, usecols=cols)
 
-      X_train = df_training['text'].values
-      y_train = df_training[task].values
+  X_train = df_training['text'].values
+  y_train = df_training[task].values
 
-      X_test = df_test['text'].values
-      y_test = df_test[task].values
+  X_test = df_test['text'].values
+  y_test = df_test[task].values
 
   return (X_train, X_test, y_train, y_test)
