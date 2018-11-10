@@ -84,7 +84,9 @@ def loadDataframe(task, dataset, root = None):
 def load(task, dataset_name, root = None):
 
     datasets = getDatasets(task,'df', dataset_name, root = None)
-
+    
+    X_train, X_test, y_train, y_test = []
+    
     for i in datasets.iterrows():    
 
         name = i[1]['dataset_name']
@@ -104,6 +106,4 @@ def load(task, dataset_name, root = None):
         X_test = df_test['text'].values
         y_test = df_test[label].values
 
-        return (X_train, X_test, y_train, y_test)
-
-    return None
+    return (X_train, X_test, y_train, y_test)
