@@ -57,7 +57,7 @@ def length(text):
 def transform(text):
 
     tokenizer = Tokenizer(num_words=MAX_NUM_WORDS)
-    tokenizer.fit_on_texts(text)
+    tokenizer.fit_on_texts(text, mode='tfidf')
     sequences = tokenizer.texts_to_sequences(text)
 
     _, length,_ = length(text)
@@ -112,11 +112,11 @@ def cnn1(X, y):
     
     # MAX_FEATURES = int(mean_length)
     
-    vec = TfidfVectorizer()# use total words, instead of max_features=MAX_FEATURES)
+    vec = TfidfVectorizer(max_features=MAX_FEATURES)
 
     #model = create_model(emb_layer)    
     
-    K = StratifiedKFold(n_splits=10)
+    K = StratifiedKFold(n_splits=2)
 
     for train_index, test_index in K.split(X, y):
 
@@ -126,7 +126,7 @@ def cnn1(X, y):
         X_train = vec.fit_transform(X_train)
         X_test = vec.transform(X_test)
 
-        MAX_FEATURES = X_train.shape[1] # dim of tfidf matrix
+        # MAX_FEATURES = X_train.shape[1] # dim of tfidf matrix
         
         """
         history = model.fit(
