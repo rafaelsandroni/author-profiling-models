@@ -60,10 +60,10 @@ def transform(text):
     tokenizer.fit_on_texts(text)
     sequences = tokenizer.texts_to_sequences(text)
 
-    _, length,_ = length(text)
+    _, arr_length,_ = length(text)
     word_index = tokenizer.word_index
 
-    MAX_SEQ_LENGTH = np.max(length)
+    MAX_SEQ_LENGTH = np.max(arr_length)
     MAX_NUM_WORDS = len(word_index)
 
     result = [len(x.split()) for x in text]
