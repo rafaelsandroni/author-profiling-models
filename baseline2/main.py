@@ -3,6 +3,8 @@ from Models.functions.plot import ROC, plot_confusion_matrix
 from Models.functions.preprocessing import clean
 from Models.functions.cnn_model import build_cnn
 
+import sys
+
 import keras, os, pickle, re, sklearn, string, tensorflow
 # print('Keras version: \t\t%s' % keras.__version__)
 # print('Scikit version: \t%s' % sklearn.__version__)
