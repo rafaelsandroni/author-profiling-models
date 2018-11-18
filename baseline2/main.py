@@ -64,10 +64,10 @@ def transform(text, max_num_words = None, max_seq_length = None):
     word_index = tokenizer.word_index
 
     # MAX_SEQ_LENGTH = np.max(arr_length)
-    if max_seq_length is None:
+    if max_seq_length == None:
         MAX_SEQ_LENGTH = np.max(arr_length)
 
-    if max_num_words is None:
+    if max_num_words == None:
         MAX_NUM_WORDS = len(word_index)
 
     result = [len(x.split()) for x in text]
@@ -77,14 +77,15 @@ def transform(text, max_num_words = None, max_seq_length = None):
 
     # Padding all sequences to same length of `MAX_SEQ_LENGTH`
     X = pad_sequences(sequences, maxlen=MAX_SEQ_LENGTH, padding='post')
+
     return X, MAX_NUM_WORDS, MAX_SEQ_LENGTH
     
 
-def create_model(emb_layer = None, max_seq_length = None):
+def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
     
     model = build_cnn(
             embedding_layer=emb_layer,
-            num_words=MAX_NUM_WORDS,
+            num_words=max_num_words or MAX_NUM_WORDS,
             embedding_dim=EMBEDDING_DIM,
             filter_sizes=FILTER_SIZES,
             feature_maps=FEATURE_MAPS,
@@ -126,8 +127,8 @@ def cnn1(X, y):
         y_train, y_test = y[train_index], y[test_index]
         
         X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH = transform(X_train)
-        #vec.fit_transform(X_train)
-        X_test, _ = transform(X_test, MAX_NUM_WORDS, MAX_SEQ_LENGTH) #vec.transform(X_test)
+
+        X_test, _, _ = transform(X_test, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
       
         """
         history = model.fit(
@@ -144,6 +145,7 @@ def cnn1(X, y):
         )
         """        
         model = KerasClassifier(build_fn=create_model, 
+                            max_num_words=MAX_NUM_WORDS,
                             max_seq_length=MAX_SEQ_LENGTH,
                             epochs=NB_EPOCHS,
                             batch_size=BATCH_SIZE,
