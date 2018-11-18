@@ -57,18 +57,18 @@ def length(text):
 def transform(text):
 
     tokenizer = Tokenizer()#num_words=MAX_NUM_WORDS)
-    tokenizer.fit_on_texts(text, mode='tfidf')
+    tokenizer.fit_on_texts(text)
     sequences = tokenizer.texts_to_sequences(text)
 
     _, length,_ = length(text)
     word_index = tokenizer.word_index
 
-    # result = [len(x.split()) for x in text]
+    MAX_SEQ_LENGTH = np.max(length)
+    MAX_NUM_WORDS = len(word_index)
+
+    result = [len(x.split()) for x in text]
     print('Text informations:')
-    print('max length: %i / min length: %i / mean length: %i / limit length: %i' % (np.max(result),
-                                                                                     np.min(result),
-                                                                                     np.mean(result),
-                                                                                     MAX_SEQ_LENGTH))
+    print('max length: %i / min length: %i / mean length: %i / limit length: %i' % (np.max(result), np.min(result), np.mean(result), MAX_SEQ_LENGTH))
      print('vocabulary size: %i / limit: %i' % (len(word_index), MAX_NUM_WORDS))
 
     # Padding all sequences to same length of `MAX_SEQ_LENGTH`
