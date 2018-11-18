@@ -1,6 +1,7 @@
 from Models.functions.datasets import getDatasets
 from Models.functions.plot import ROC, plot_confusion_matrix
 from Models.functions.preprocessing import clean
+from Models.functions.cnn_model import build_cnn
 
 import keras, os, pickle, re, sklearn, string, tensorflow
 # print('Keras version: \t\t%s' % keras.__version__)
@@ -26,7 +27,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import GridSearchCV
 from keras.wrappers.scikit_learn import KerasClassifier
 
-import cnn_model
 from sklearn.model_selection import StratifiedKFold
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.metrics import classification_report
@@ -76,7 +76,7 @@ def transform(text):
 
 def create_model(emb_layer = None, max_features = None):
     
-    model = cnn_model.build_cnn(
+    model = build_cnn(
             embedding_layer=emb_layer,
             num_words=MAX_NUM_WORDS,
             embedding_dim=EMBEDDING_DIM,
@@ -106,11 +106,11 @@ def cnn1(X, y):
     #if USE_GLOVE:
         #emb_layer = create_glove_embeddings()
 
-    _, _, mean_length = length(X)
+    # _, _, mean_length = length(X)
     
-    MAX_FEATURES = int(mean_length)
+    # MAX_FEATURES = int(mean_length)
     
-    vec = TfidfVectorizer(max_features=MAX_FEATURES)
+    vec = TfidfVectorizer()# use total words, instead of max_features=MAX_FEATURES)
 
     #model = create_model(emb_layer)    
     
@@ -123,6 +123,8 @@ def cnn1(X, y):
         
         X_train = vec.fit_transform(X_train)
         X_test = vec.transform(X_test)
+
+        MAX_FEATURES = X_train.shape[1] # dim of tfidf matrix
         
         """
         history = model.fit(
@@ -255,17 +257,6 @@ if __name__ == '__main__':
     RUNS           = 5
     VAL_SIZE       = 0.2
     
-    run('relig')
+    run('age','b5post')
     
-    run('polit')
-    
-    run('education')
-    
-    run('professional')
-    
-    run('region')    
-    
-    
-    run('age')
-    
-    run('gender')
+    run('gender','b5post')
