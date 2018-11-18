@@ -166,9 +166,9 @@ def cnn1(X, y):
     
     return expected_y, predicted_y, score_y, histories
     
-def run(task, dataset_name = None):
+def run(task, dataset_name = None, root = None):
 
-    datasets = getDatasets(task,'df', dataset_name)
+    datasets = getDatasets(task,'df', dataset_name, root)
     for i in datasets.iterrows():
 
         dataset_name = i[1]['dataset_name']
@@ -238,6 +238,9 @@ def evaluate(expected_y, predicted_y, score_y, classes_name, n_classes, task, da
     
 if __name__ == '__main__':    
 
+    task = sys.argv[1]
+    dataset_name = sys.argv[2]
+    root = sys.argv[3]
 
     # EMBEDDING
     MAX_NUM_WORDS  = 50000 #15000
@@ -257,6 +260,4 @@ if __name__ == '__main__':
     RUNS           = 5
     VAL_SIZE       = 0.2
     
-    run('age','b5post')
-    
-    run('gender','b5post')
+    run(task, dataset_name, root)
