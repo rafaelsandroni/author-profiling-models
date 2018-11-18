@@ -262,4 +262,6 @@ if __name__ == '__main__':
     RUNS           = 5
     VAL_SIZE       = 0.2
     
+    print(task, dataset_name, root)
+
     run(task, dataset_name, root)
