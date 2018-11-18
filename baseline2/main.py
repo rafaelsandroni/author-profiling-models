@@ -112,7 +112,7 @@ def cnn1(X, y):
     
     MAX_FEATURES = int(mean_length)
     
-    vec = TfidfVectorizer()#max_features=MAX_FEATURES)
+    #vec = TfidfVectorizer()#max_features=MAX_FEATURES)
 
     #model = create_model(emb_layer)    
     
@@ -123,8 +123,8 @@ def cnn1(X, y):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
         
-        X_train = vec.fit_transform(X_train)
-        X_test = vec.transform(X_test)
+        X_train = transform(X_train) #vec.fit_transform(X_train)
+        X_test = transform(X_test) #vec.transform(X_test)
 
         MAX_FEATURES = X_train.shape[1] # dim of tfidf matrix
         
