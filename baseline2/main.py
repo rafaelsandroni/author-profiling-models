@@ -76,7 +76,7 @@ def transform(text):
     return X
     
 
-def create_model(emb_layer = None, max_features = None):
+def create_model(emb_layer = None, max_seq_length = None):
     
     model = build_cnn(
             embedding_layer=emb_layer,
@@ -84,7 +84,7 @@ def create_model(emb_layer = None, max_features = None):
             embedding_dim=EMBEDDING_DIM,
             filter_sizes=FILTER_SIZES,
             feature_maps=FEATURE_MAPS,
-            max_seq_length=MAX_SEQ_LENGTH, #max_features or MAX_FEATURES,
+            max_seq_length=max_seq_length or MAX_SEQ_LENGTH,
             dropout_rate=DROPOUT_RATE
     )
     
@@ -126,7 +126,7 @@ def cnn1(X, y):
         X_train = transform(X_train) #vec.fit_transform(X_train)
         X_test = transform(X_test) #vec.transform(X_test)
 
-        MAX_FEATURES = X_train.shape[1] # dim of tfidf matrix
+        MAX_SEQ_LENGTH = X_train.shape[1] # dim of tfidf matrix
         
         """
         history = model.fit(
@@ -144,7 +144,7 @@ def cnn1(X, y):
         """        
         
         model = KerasClassifier(build_fn=create_model, 
-                            max_features=MAX_FEATURES,
+                            max_seq_length=MAX_SEQ_LENGTH,
                             epochs=NB_EPOCHS,
                             batch_size=BATCH_SIZE,
                             verbose=0,
