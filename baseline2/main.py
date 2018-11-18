@@ -6,9 +6,9 @@ from Models.functions.cnn_model import build_cnn
 import sys
 
 import keras, os, pickle, re, sklearn, string, tensorflow
-# print('Keras version: \t\t%s' % keras.__version__)
-# print('Scikit version: \t%s' % sklearn.__version__)
-# print('TensorFlow version: \t%s' % tensorflow.__version__)
+print('Keras version: \t\t%s' % keras.__version__)
+print('Scikit version: \t%s' % sklearn.__version__)
+print('TensorFlow version: \t%s' % tensorflow.__version__)
 
 import numpy as np
 import pandas as pd
@@ -56,7 +56,7 @@ def length(text):
 
 def transform(text):
 
-    tokenizer = Tokenizer(num_words=MAX_NUM_WORDS)
+    tokenizer = Tokenizer()#num_words=MAX_NUM_WORDS)
     tokenizer.fit_on_texts(text, mode='tfidf')
     sequences = tokenizer.texts_to_sequences(text)
 
@@ -64,12 +64,12 @@ def transform(text):
     word_index = tokenizer.word_index
 
     # result = [len(x.split()) for x in text]
-    # print('Text informations:')
-    # print('max length: %i / min length: %i / mean length: %i / limit length: %i' % (np.max(result),
-    #                                                                                 np.min(result),
-    #                                                                                 np.mean(result),
-    #                                                                                 MAX_SEQ_LENGTH))
-    # print('vocabulary size: %i / limit: %i' % (len(word_index), MAX_NUM_WORDS))
+    print('Text informations:')
+    print('max length: %i / min length: %i / mean length: %i / limit length: %i' % (np.max(result),
+                                                                                     np.min(result),
+                                                                                     np.mean(result),
+                                                                                     MAX_SEQ_LENGTH))
+     print('vocabulary size: %i / limit: %i' % (len(word_index), MAX_NUM_WORDS))
 
     # Padding all sequences to same length of `MAX_SEQ_LENGTH`
     X = pad_sequences(sequences, maxlen=MAX_SEQ_LENGTH, padding='post')
@@ -84,7 +84,7 @@ def create_model(emb_layer = None, max_features = None):
             embedding_dim=EMBEDDING_DIM,
             filter_sizes=FILTER_SIZES,
             feature_maps=FEATURE_MAPS,
-            max_seq_length=max_features or MAX_FEATURES,
+            max_seq_length=MAX_SEQ_LENGTH, #max_features or MAX_FEATURES,
             dropout_rate=DROPOUT_RATE
     )
     
@@ -108,11 +108,11 @@ def cnn1(X, y):
     #if USE_GLOVE:
         #emb_layer = create_glove_embeddings()
 
-    # _, _, mean_length = length(X)
+    _, _, mean_length = length(X)
     
-    # MAX_FEATURES = int(mean_length)
+    MAX_FEATURES = int(mean_length)
     
-    vec = TfidfVectorizer(max_features=MAX_FEATURES)
+    vec = TfidfVectorizer()#max_features=MAX_FEATURES)
 
     #model = create_model(emb_layer)    
     
@@ -126,7 +126,7 @@ def cnn1(X, y):
         X_train = vec.fit_transform(X_train)
         X_test = vec.transform(X_test)
 
-        # MAX_FEATURES = X_train.shape[1] # dim of tfidf matrix
+        MAX_FEATURES = X_train.shape[1] # dim of tfidf matrix
         
         """
         history = model.fit(
@@ -227,6 +227,8 @@ def evaluate(expected_y, predicted_y, score_y, classes_name, n_classes, task, da
 
     # compute confusion matrix
     c_matrix = confusion_matrix(expected_y, predicted_y)
+    print("confusion-matrix")
+    print(c_matrix)
     plot_confusion_matrix(c_matrix, classes_name, task, dataset_name, True)
     cm = pd.DataFrame(c_matrix, columns=classes_name, index=classes_name)
 
