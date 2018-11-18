@@ -69,7 +69,7 @@ def transform(text):
     result = [len(x.split()) for x in text]
     print('Text informations:')
     print('max length: %i / min length: %i / mean length: %i / limit length: %i' % (np.max(result), np.min(result), np.mean(result), MAX_SEQ_LENGTH))
-     print('vocabulary size: %i / limit: %i' % (len(word_index), MAX_NUM_WORDS))
+    print('vocabulary size: %i / limit: %i' % (len(word_index), MAX_NUM_WORDS))
 
     # Padding all sequences to same length of `MAX_SEQ_LENGTH`
     X = pad_sequences(sequences, maxlen=MAX_SEQ_LENGTH, padding='post')
