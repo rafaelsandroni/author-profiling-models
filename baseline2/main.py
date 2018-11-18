@@ -54,17 +54,18 @@ def length(text):
     return np.min(result), np.max(result), np.mean(result)
 
 
-def transform(text):
+def transform(text, max_num_words = None, max_seq_length = None):
 
-    tokenizer = Tokenizer()#num_words=MAX_NUM_WORDS)
+    tokenizer = Tokenizer(num_words=max_num_words)
     tokenizer.fit_on_texts(text)
     sequences = tokenizer.texts_to_sequences(text)
 
     _, arr_length,_ = length(text)
     word_index = tokenizer.word_index
 
-    MAX_SEQ_LENGTH = np.max(arr_length)
-    MAX_NUM_WORDS = len(word_index)
+    # MAX_SEQ_LENGTH = np.max(arr_length)
+    if max_seq_length is None:
+        max_seq_length = np.max(arr_length)
 
     result = [len(x.split()) for x in text]
     print('Text informations:')
@@ -72,8 +73,8 @@ def transform(text):
     print('vocabulary size: %i / limit: %i' % (len(word_index), MAX_NUM_WORDS))
 
     # Padding all sequences to same length of `MAX_SEQ_LENGTH`
-    X = pad_sequences(sequences, maxlen=MAX_SEQ_LENGTH, padding='post')
-    return X
+    X = pad_sequences(sequences, maxlen=max_seq_length, padding='post')
+    return X, max_seq_length
     
 
 def create_model(emb_layer = None, max_seq_length = None):
@@ -110,7 +111,7 @@ def cnn1(X, y):
 
     _, _, mean_length = length(X)
     
-    MAX_FEATURES = int(mean_length)
+    #MAX_FEATURES = int(mean_length)
     
     #vec = TfidfVectorizer()#max_features=MAX_FEATURES)
 
@@ -123,11 +124,10 @@ def cnn1(X, y):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
         
-        X_train = transform(X_train) #vec.fit_transform(X_train)
-        X_test = transform(X_test) #vec.transform(X_test)
+        X_train, max_seq_length = transform(X_train) #vec.fit_transform(X_train)
+        X_test, _ = transform(X_test, max_seq_length) #vec.transform(X_test)
 
-        MAX_SEQ_LENGTH = X_train.shape[1] # dim of tfidf matrix
-        
+        MAX_SEQ_LENGTH = max_seq_length
         """
         history = model.fit(
             X_train, y_train,
@@ -142,7 +142,6 @@ def cnn1(X, y):
                       ]
         )
         """        
-        
         model = KerasClassifier(build_fn=create_model, 
                             max_seq_length=MAX_SEQ_LENGTH,
                             epochs=NB_EPOCHS,
