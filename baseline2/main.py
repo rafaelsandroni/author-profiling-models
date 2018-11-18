@@ -65,7 +65,10 @@ def transform(text, max_num_words = None, max_seq_length = None):
 
     # MAX_SEQ_LENGTH = np.max(arr_length)
     if max_seq_length is None:
-        max_seq_length = np.max(arr_length)
+        MAX_SEQ_LENGTH = np.max(arr_length)
+
+    if max_num_words is None:
+        MAX_NUM_WORDS = len(word_index)
 
     result = [len(x.split()) for x in text]
     print('Text informations:')
@@ -73,8 +76,8 @@ def transform(text, max_num_words = None, max_seq_length = None):
     print('vocabulary size: %i / limit: %i' % (len(word_index), MAX_NUM_WORDS))
 
     # Padding all sequences to same length of `MAX_SEQ_LENGTH`
-    X = pad_sequences(sequences, maxlen=max_seq_length, padding='post')
-    return X, max_seq_length
+    X = pad_sequences(sequences, maxlen=MAX_SEQ_LENGTH, padding='post')
+    return X, MAX_NUM_WORDS, MAX_SEQ_LENGTH
     
 
 def create_model(emb_layer = None, max_seq_length = None):
@@ -109,8 +112,6 @@ def cnn1(X, y):
     #if USE_GLOVE:
         #emb_layer = create_glove_embeddings()
 
-    _, _, mean_length = length(X)
-    
     #MAX_FEATURES = int(mean_length)
     
     #vec = TfidfVectorizer()#max_features=MAX_FEATURES)
@@ -124,10 +125,10 @@ def cnn1(X, y):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
         
-        X_train, max_seq_length = transform(X_train) #vec.fit_transform(X_train)
-        X_test, _ = transform(X_test, max_seq_length) #vec.transform(X_test)
-
-        MAX_SEQ_LENGTH = max_seq_length
+        X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH = transform(X_train)
+        #vec.fit_transform(X_train)
+        X_test, _ = transform(X_test, MAX_NUM_WORDS, MAX_SEQ_LENGTH) #vec.transform(X_test)
+      
         """
         history = model.fit(
             X_train, y_train,
