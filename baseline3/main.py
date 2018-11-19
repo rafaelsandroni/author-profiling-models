@@ -199,8 +199,8 @@ def nn(X, y):
         )
         """        
         model = KerasClassifier(build_fn=create_model, 
-                            max_num_words=_MAX_NUM_WORDS,
-                            max_seq_length=_MAX_SEQ_LENGTH,
+                            max_num_words=MAX_NUM_WORDS,
+                            max_seq_length=MAX_SEQ_LENGTH,
                             epochs=NB_EPOCHS,
                             batch_size=BATCH_SIZE,
                             verbose=0,
