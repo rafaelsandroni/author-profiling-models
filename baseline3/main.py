@@ -208,12 +208,11 @@ def run(task, dataset_name = None, root = None):
 
         for ix in range(len(X)):
             sent_text = nltk.sent_tokenize(X[ix])
-            for each_sent in sent_text:
-                for sent in each_sent:                
-                    new_X.append(sent)
-                    new_y.append(y[ix])
+            for each_sent in sent_text:                              
+                new_X.append(str(each_sent))
+                new_y.append(y[ix])
 
-        new = pd.DataFrame({"text": [new_X], "target": [new_y]})
+        new = pd.DataFrame({"text": new_X, "target": new_y})
 
         new['text'] = new['text'].apply(clean)
 
