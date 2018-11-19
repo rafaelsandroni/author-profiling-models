@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import html
 
 def clean(doc, lang = 'portuguese'):
-    print(type(doc), doc)
+    
     """
     Cleaning a document by several methods:
         - Lowercase
