@@ -95,17 +95,20 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_ma
 
     model = Sequential()
 
-    model.add(Embedding(input_dim=num_words + 1, output_dim=64, input_length=max_seq_length, trainable=True))
-    
+    # model.add(Embedding(input_dim=num_words + 1, output_dim=64, input_length=max_seq_length, trainable=True))
+    model.add(Embedding(num_words + 1, 64, input_length=max_seq_length))
+
     for ix in range(len(filter_sizes)):
         feature_map = feature_maps[ix]
         filter_size = filter_sizes[ix]
 
         model.add(
-            Conv1D(feature_map, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
+            #Conv1D(feature_map, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
+            Conv1D(feature_map, kernel_size=filter_size, activation='relu')
         )
         model.add(
-            MaxPooling1D(pool_size=2, strides=1, padding='valid')
+            #MaxPooling1D(pool_size=2, strides=1, padding='valid')
+            MaxPooling1D(filter_size)
         )
         model.add(
             Flatten()
