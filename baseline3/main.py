@@ -74,10 +74,13 @@ def to_sequence(tokenizer, preprocessor, index, text):
     return indexes
 
 
-def transform_simple_cnn(text, num_words = None, max_seq_length = None):
+def transform_simple_cnn(text, num_words = None, max_seq_length = None, vectorizer = None):
 
-    vectorizer = CountVectorizer(binary=True, lowercase=True, min_df=3, max_df=0.9, max_features=num_words)
-    X_onehot = vectorizer.fit_transform(text)
+    if vectorizer == None:
+        vectorizer = CountVectorizer(binary=True, min_df=3, max_df=0.9, max_features=num_words)
+        X_onehot = vectorizer.fit_transform(text)
+    else:
+        X_onehot = vectorizer.transform(text)
 
     word2idx = {word: idx for idx, word in enumerate(vectorizer.get_feature_names())}
     tokenize = vectorizer.build_tokenizer()
@@ -136,6 +139,7 @@ def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
             max_seq_length=max_seq_length or MAX_SEQ_LENGTH,
             dropout_rate=DROPOUT_RATE
     )
+    """
     model = build_simple_cnn(
             num_words=max_num_words or MAX_NUM_WORDS,
             max_seq_length=max_seq_length or MAX_SEQ_LENGTH
@@ -144,6 +148,7 @@ def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
     model = build_dnn(
             num_words=max_num_words or MAX_NUM_words
     )
+    """
 
     optimizer = Adadelta(lr=1e-4)
 
@@ -164,14 +169,6 @@ def nn(X, y):
     expected_y = []
 
     emb_layer = None
-    #if USE_GLOVE:
-        #emb_layer = create_glove_embeddings()
-
-    #MAX_FEATURES = int(mean_length)
-    
-    #vec = TfidfVectorizer()#max_features=MAX_FEATURES)
-
-    #model = create_model(emb_layer)    
     
     K = StratifiedKFold(n_splits=2)
 
@@ -180,35 +177,20 @@ def nn(X, y):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
 
-        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH = transform_onehot(X_train, None, None)
+        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform_simple_cnn(X_train, None, None, None)
 
-        X_test, _, _ = transform_onehot(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH)
+        X_test, _, _ = transform_simple_cnn(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
       
-        """
-        history = model.fit(
-            X_train, y_train,
-            epochs=NB_EPOCHS,
-            batch_size=BATCH_SIZE,
-            verbose=1,
-            # validation_data=(X_val, y_val),
-            validation_split=0.2,
-            callbacks=[#ModelCheckpoint('model-%i.h5', monitor='val_loss',verbose=0, save_best_only=True, mode='min'),
-                       ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
-                       EarlyStopping(monitor='val_loss', min_delta=0.1, patience=4, verbose=1)
-                      ]
-        )
-        """        
         model = KerasClassifier(build_fn=create_model, 
-                            max_num_words=MAX_NUM_WORDS,
-                            max_seq_length=MAX_SEQ_LENGTH,
+                            max_num_words=_MAX_NUM_WORDS,
+                            max_seq_length=_MAX_SEQ_LENGTH,
                             epochs=NB_EPOCHS,
                             batch_size=BATCH_SIZE,
                             verbose=0,
-                            #validation_data=(X_val, y_val),
                             validation_split=0.1,
                             callbacks=[#ModelCheckpoint('model-%i.h5', monitor='val_loss', verbose=1, save_best_only=True, mode='min'),
-                                ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
-                                EarlyStopping(monitor='val_loss', min_delta=0.1, patience=4, verbose=1)
+                                #ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
+                                EarlyStopping(monitor='val_loss', min_delta=0.01, patience=4, verbose=1)
                             ])
 
         history = model.fit(X_train, y_train)
