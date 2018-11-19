@@ -122,8 +122,16 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_ma
             Flatten()
         )
 
-    model.add(Conv1D(64, 5, activation='relu'))
+    model.add(Conv1D(filters=emb_dim, kernel_size=5, activation='relu', strides=1, padding='same'))
     model.add(MaxPooling1D(5))
+    model.add(Flatten())
+
+    model.add(Conv1D(filters=emb_dim, kernel_size=4, activation='relu'))
+    model.add(MaxPooling1D(4))
+    model.add(Flatten())
+
+    model.add(Conv1D(filters=emb_dim, kernel_size=3, activation='relu'))
+    model.add(MaxPooling1D(3))
     model.add(Flatten())
 
     if dropout_rate:
