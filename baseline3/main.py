@@ -209,9 +209,11 @@ def run(task, dataset_name = None, root = None):
                 new_X.append(sent_text)
                 new_Y.append(y[ix])
 
-        print(new_X.shape, new_Y.shape)
-        X = new_X
-        Y = new_Y
+        X = np.asarray(new_X)
+        y = np.asarray(new_Y)
+
+        print(X.shape, Y.shape)
+
         # cnn model
         (expected_y, predicted_y, score_y, histories) = nn(X, y)
         
