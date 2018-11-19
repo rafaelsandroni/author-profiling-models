@@ -180,7 +180,7 @@ def nn(X, y):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
 
-        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH = transform(X_train, MAX_NUM_WORDS = None, MAX_SEQ_LENGTH = None)
+        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH = transform_onehot(X_train, MAX_NUM_WORDS = None, MAX_SEQ_LENGTH = None)
 
         X_test, _, _ = transform_onehot(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH)
       
