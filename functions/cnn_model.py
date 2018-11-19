@@ -106,7 +106,7 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_ma
 
         if ix == 0:
             conv = Conv1D(feature_map, kernel_size=filter_size, activation='relu', input_shape(max_seq_length,))
-        else
+        else:
             conv = Conv1D(feature_map, kernel_size=filter_size, activation='relu')
 
         model.add(
