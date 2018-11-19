@@ -101,7 +101,7 @@ def nn(X, y):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
 
-        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform_onehot(X_train, None, None, None)
+        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform_onehot(X_train, MAX_NUM_WORDS, None, None)
 
         X_test, _, _, _ = transform_onehot(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
       
@@ -223,7 +223,7 @@ if __name__ == '__main__':
     global MAX_NUM_WORDS, MAX_SEQ_LENGTH
 
     # EMBEDDING
-    MAX_NUM_WORDS  = 30000 #15000
+    MAX_NUM_WORDS  = 5000 #15000
     EMBEDDING_DIM  = 300
     MAX_SEQ_LENGTH = 3200 #200
     USE_GLOVE      = False
