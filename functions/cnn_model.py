@@ -118,13 +118,11 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_ma
         filter_size = filter_sizes[ix]
 
         if ix == 0:
-            model.add(
-                Conv1D(emb_dim, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03),input_shape=(emb_dim, max_seq_length)
-            )
+            conv = Conv1D(emb_dim, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03),input_shape=(emb_dim, max_seq_length))
         else:
-            model.add(        
-                Conv1D(emb_dim, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
-            )
+            conv = Conv1D(emb_dim, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
+                
+        model.add( conv )
 
         model.add(
             #MaxPooling1D(pool_size=2, strides=1, padding='valid')
