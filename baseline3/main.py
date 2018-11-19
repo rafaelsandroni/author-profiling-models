@@ -212,7 +212,7 @@ def run(task, dataset_name = None, root = None):
         X = np.asarray(new_X)
         y = np.asarray(new_Y)
 
-        print(X.shape, Y.shape)
+        print(X.shape, y.shape)
 
         # cnn model
         (expected_y, predicted_y, score_y, histories) = nn(X, y)
