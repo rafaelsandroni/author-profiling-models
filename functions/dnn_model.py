@@ -86,35 +86,3 @@ def create_channel(x, filter_size, feature_map):
     x = MaxPooling1D(pool_size=2, strides=1, padding='valid')(x)
     x = Flatten()(x)
     return x
-
-
-
-# SIMPLE CNN
-
-def build_simple_cnn(num_words, max_seq_length):
-
-    model = Sequential()
-
-    model.add(Embedding(num_words + 1,
-                    64,  # Embedding size
-                    input_length=max_seq_length))
-
-    model.add(Conv1D(64, 5, activation='relu'))
-    model.add(MaxPooling1D(5))
-    model.add(Flatten())
-    model.add(Dense(units=64, activation='relu'))
-    model.add(Dense(units=1, activation='sigmoid')) 
-
-    return model
-
-# DNN MODEL
-
-
-def build_dnn(num_words):
-
-    model = Sequential()
-
-    model.add(Dense(units=500, activation='relu', input_dim=num_words))
-    model.add(Dense(units=1, activation='sigmoid'))
-
-    return model
