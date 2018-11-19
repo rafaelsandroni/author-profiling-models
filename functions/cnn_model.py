@@ -95,6 +95,8 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_ma
 
     model = Sequential()
 
+    model.add(Input(shape=(max_seq_length,), dtype='int32'))
+
     # model.add(Embedding(input_dim=num_words + 1, output_dim=64, input_length=max_seq_length, trainable=True))
     model.add(Embedding(num_words + 1, 64, input_length=max_seq_length))
 
