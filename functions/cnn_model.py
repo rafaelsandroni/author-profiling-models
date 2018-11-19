@@ -102,7 +102,7 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_ma
         filter_size = filter_sizes[ix]
 
         model.add(
-            Conv1D(feature_map, kernel_size=filter_size, activation-'relu', strides=1, padding='same', kernel_regularizer-regularizers.l2(0.03))
+            Conv1D(feature_map, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
         )
         model.add(
             MaxPooling1D(pool_size=2, strides=1, padding='valid')
