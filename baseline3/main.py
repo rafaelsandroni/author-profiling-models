@@ -48,7 +48,28 @@ def labelEncoder(y):
 def checkFolder(directory):    
     if not os.path.exists(directory):
         os.makedirs(directory)
-    
+
+def plot_acc_loss(title, histories, key_acc, key_loss):
+    fig, (ax1, ax2) = plt.subplots(1, 2)
+    # Accuracy
+    ax1.set_title('Model accuracy (%s)' % title)
+    names = []
+    for i, model in enumerate(histories):
+        ax1.plot(model[key_acc])
+        ax1.set_xlabel('epoch')
+        names.append('Model %i' % (i+1))
+        ax1.set_ylabel('accuracy')
+    ax1.legend(names, loc='lower right')
+    # Loss
+    ax2.set_title('Model loss (%s)' % title)
+    for model in histories:
+        ax2.plot(model[key_loss])
+        ax2.set_xlabel('epoch')
+        ax2.set_ylabel('loss')
+    ax2.legend(names, loc='upper right')
+    fig.set_size_inches(20, 5)
+    plt.show()
+
 def length(text):
     """
     Calculate the maximum document length
@@ -147,6 +168,9 @@ def nn(X, y):
         expected_y.extend(y_test)
 
     train_val_metrics(histories)
+
+    plot_acc_loss('training', histories, 'acc', 'loss')
+    plot_acc_loss('validation', histories, 'val_acc', 'val_loss')
 
     expected_y = np.asarray(expected_y)
     score_y = np.asarray(predicted_y) # probabilistics    
