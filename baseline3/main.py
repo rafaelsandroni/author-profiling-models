@@ -200,13 +200,14 @@ def run(task, dataset_name = None, root = None):
         y, n_classes, classes_name = labelEncoder(df_training[label].values)
         print(X.shape, y.shape)
 
+        # split X into a list of sentences, and for each sentences attach target info
         new_X = []
         new_Y = []
         for ix in range(len(X)):
             sent_text = nltk.sent_tokenize(X[ix])
             for each_sent in sent_text:
                 new_X.append(sent_text)
-                new_y.append(y[ix])
+                new_Y.append(y[ix])
 
         print(new_X.shape, new_Y.shape)
         X = new_X
