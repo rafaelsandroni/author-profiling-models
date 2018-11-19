@@ -179,7 +179,7 @@ def nn(X, y):
 
         X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform_simple_cnn(X_train, None, None, None)
 
-        X_test, _, _ = transform_simple_cnn(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
+        X_test, _, _, _ = transform_simple_cnn(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
       
         model = KerasClassifier(build_fn=create_model, 
                             max_num_words=_MAX_NUM_WORDS,
