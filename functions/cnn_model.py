@@ -113,25 +113,19 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_ma
 
     model.add(Embedding(input_dim=num_words + 1, output_dim=emb_dim, input_length=max_seq_length, trainable=True))
 
-    for ix in range(len(filter_sizes)):
-        break
-        feature_map = feature_maps[ix]
-        filter_size = filter_sizes[ix]
-
-        if ix == 0:
-            conv = Conv1D(emb_dim, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03),input_shape=(emb_dim, max_seq_length, ))
-        else:
-            conv = Conv1D(emb_dim, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
+    conv = Conv1D(emb_dim, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
                 
-        model.add( conv )
+    model.add(
+        conv 
+    )
 
-        model.add(
-            #MaxPooling1D(pool_size=2, strides=1, padding='valid')
-            MaxPooling1D(filter_size)
-        )
-        model.add(
-            Flatten()
-        )
+    model.add(
+        MaxPooling1D(5)#filter_size)
+    )
+
+    model.add(
+        Flatten()
+    )
 
     if dropout_rate:
         model.add(Dropout(dropout_rate))
