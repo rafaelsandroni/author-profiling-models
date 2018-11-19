@@ -97,7 +97,7 @@ def transform_simple_cnn(text, num_words = None, max_seq_length = None, vectoriz
 
     X_sequences = pad_sequences(X_sequences, maxlen=max_seq_length, value=num_words)
 
-    return X_sequences, num_words, max_seq_length
+    return X_sequences, num_words, max_seq_length, vectorizer
 
 def transform(text, max_num_words = None, max_seq_length = None):
 
