@@ -57,17 +57,6 @@ def length(text):
     return np.min(result), np.max(result), np.mean(result)
 
 
-def transform_onehot(text, num_words = None, tmp = None):
-
-    vectorizer = CountVectorizer(binary=True, lowercase=True, min_df=3, max_df=0.9, max_features=num_words)
-    X_onehot = vectorizer.fit_transform(text)
-
-    if num_words == None:
-        num_words = len(vectorizer.get_feature_names())
-
-    return X_onehot, num_words, None
-
-
 def to_sequence(tokenizer, preprocessor, index, text):
     words = tokenizer(preprocessor(text))
     indexes = [index[word] for word in words if word in index]

@@ -91,17 +91,33 @@ def create_channel(x, filter_size, feature_map):
 
 # SIMPLE CNN
 
-def build_simple_cnn(num_words, max_seq_length):
+def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_maps=[100,100,100], dropout_rate=None):
 
     model = Sequential()
 
-    model.add(Embedding(num_words + 1,
-                    64,  # Embedding size
-                    input_length=max_seq_length))
+    model.add(Embedding(input_dim=num_words + 1, output_dim=64, input_length=max_seq_length, trainable=True)
+    
+    for ix in range(len(filter_sizes)):
 
-    model.add(Conv1D(64, 5, activation='relu'))
-    model.add(MaxPooling1D(5))
-    model.add(Flatten())
+        feature_map = feature_maps[ix]
+        filter_size = filter_sizes[ix]
+
+        model.add(
+            Conv1D(feature_map, kernel_size=filter_size, activation-'relu', strides=1, padding='same', kernel_regularizer-regularizers.l2(0.03))
+        )
+        model.add(
+            MaxPooling1D(pool_size=2, strides=1, padding='valid')
+        )
+        model.add(
+            Flatten()
+        )
+
+    #model.add(Conv1D(64, 5, activation='relu'))
+    #model.add(MaxPooling1D(5))
+    #model.add(Flatten())
+    if dropout_rate:
+        model.add(Dropout(dropout_rate))
+
     model.add(Dense(units=64, activation='relu'))
     model.add(Dense(units=1, activation='sigmoid')) 
 
