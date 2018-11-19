@@ -57,10 +57,44 @@ def length(text):
     return np.min(result), np.max(result), np.mean(result)
 
 
-def transform_onehot(text):
-    vectorizer = CountVectorizer(binary=True, lowercase=True, min_df=3, max_df=0.9, max_features=None)
+def transform_onehot(text, num_words = None, tmp = None):
+
+    vectorizer = CountVectorizer(binary=True, lowercase=True, min_df=3, max_df=0.9, max_features=num_words)
     X_onehot = vectorizer.fit_transform(text)
-    return X_onehot
+
+    if num_words == None:
+        num_words = len(vectorizer.get_feature_names())
+
+    return X_onehot, num_words, None
+
+
+def to_sequence(tokenizer, preprocessor, index, text):
+    words = tokenizer(preprocessor(text))
+    indexes = [index[word] for word in words if word in index]
+    return indexes
+
+
+def transform_simple_cnn(text, num_words = None, max_seq_length = None):
+
+    vectorizer = CountVectorizer(binary=True, lowercase=True, min_df=3, max_df=0.9, max_features=num_words)
+    X_onehot = vectorizer.fit_transform(text)
+
+    word2idx = {word: idx for idx, word in enumerate(vectorizer.get_feature_names())}
+    tokenize = vectorizer.build_tokenizer()
+    preprocess = vectorizer.build_preprocessor()
+
+    X_sequences = [to_sequence(tokenize, preprocess, word2idx, x) for x in text]
+    
+    # Compute the max lenght of a text
+    if max_seq_length == None:
+        max_seq_length = len(max(X_sequences, key=len))
+
+    if num_words == None:
+        num_words = len(vectorizer.get_feature_names())
+
+    X_sequences = pad_sequences(X_sequences, maxlen=max_seq_length, value=num_words)
+
+    return X_sequences, num_words, max_seq_length
 
 def transform(text, max_num_words = None, max_seq_length = None):
 
@@ -102,6 +136,10 @@ def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
             max_seq_length=max_seq_length or MAX_SEQ_LENGTH,
             dropout_rate=DROPOUT_RATE
     )
+    model = build_simple_cnn(
+            num_words=max_num_words or MAX_NUM_WORDS,
+            max_seq_length=max_seq_length or MAX_SEQ_LENGTH
+    )
     """
     model = build_dnn(
             num_words=max_num_words or MAX_NUM_words
@@ -141,10 +179,10 @@ def nn(X, y):
 
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
-        
-        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH = transform(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
 
-        X_test, _, _ = transform(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH)
+        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH = transform(X_train, MAX_NUM_WORDS = None, MAX_SEQ_LENGTH = None)
+
+        X_test, _, _ = transform_onehot(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH)
       
         """
         history = model.fit(
