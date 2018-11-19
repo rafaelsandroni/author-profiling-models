@@ -36,6 +36,7 @@ from sklearn.metrics import confusion_matrix
 
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
+import nltk
 
 # Preprocessing
 
@@ -197,7 +198,19 @@ def run(task, dataset_name = None, root = None):
         df_training['text'] = df_training['text'].apply(clean)
         X = df_training['text'].values
         y, n_classes, classes_name = labelEncoder(df_training[label].values)
-        
+        print(X.shape, y.shape)
+
+        new_X = []
+        new_Y = []
+        for ix in range(len(X)):
+            sent_text = nltk.sent_tokenize(X[ix])
+            for each_sent in sent_text:
+                new_X.append(sent_text)
+                new_y.append(y[ix])
+
+        print(new_X.shape, new_Y.shape)
+        X = new_X
+        Y = new_Y
         # cnn model
         (expected_y, predicted_y, score_y, histories) = nn(X, y)
         
