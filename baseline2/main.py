@@ -92,7 +92,7 @@ def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
             max_seq_length=max_seq_length or MAX_SEQ_LENGTH,
             dropout_rate=DROPOUT_RATE
     )
-    optimizer = Adadelta(lr=1e-4, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
+    optimizer = Adadelta(lr=1e-4)
 
     model.compile(
             loss='binary_crossentropy',
