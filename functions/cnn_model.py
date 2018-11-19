@@ -149,8 +149,8 @@ def build_dnn(num_words):
 
     model.add(Dense(units=int(num_words / 2), activation='relu', input_dim=num_words))
 
-    model.add(Dense(units=128, activation='relu')
-    model.add(Dense(units=64, activation='relu')
+    model.add(Dense(units=128, activation='relu'))
+    model.add(Dense(units=64, activation='relu'))
 
     model.add(Dense(units=1, activation='sigmoid'))
 
