@@ -93,8 +93,22 @@ def create_channel(x, filter_size, feature_map):
 
 def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_maps=[100,100,100], dropout_rate=None):
 
-    model = Sequential()
+    __version__ = '2.0.0'
+
     emb_dim = 64
+
+    print('Creating CNN %s' % __version__)
+    print('#############################################')
+    #print('Embedding:    %s pre-trained embedding' % ('using' if embedding_layer else 'no'))
+    print('Vocabulary size: %s' % num_words)
+    print('Embedding dim: %s' % emb_dim)
+    print('Filter sizes: %s' % filter_sizes)
+    print('Feature maps: %s' % feature_maps)
+    print('Max sequence: %i' % max_seq_length)
+    print('#############################################')
+
+
+    model = Sequential()
     # model.add(Input(shape=(max_seq_length,), dtype='int32'))
 
     model.add(Embedding(input_dim=num_words + 1, output_dim=64, input_length=max_seq_length, trainable=True))
@@ -104,9 +118,14 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_ma
         feature_map = feature_maps[ix]
         filter_size = filter_sizes[ix]
 
-        model.add(
-            Conv1D(emb_dim, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
-        )
+        if ix == 0:
+            model.add(
+                Conv1D(emb_dim, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03),input_shape=(emb_dim, max_seq_length)
+            )
+        else:
+             model.add(
+                Conv1D(emb_dim, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
+            )
 
         model.add(
             #MaxPooling1D(pool_size=2, strides=1, padding='valid')
