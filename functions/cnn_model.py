@@ -18,7 +18,7 @@ from keras.models import Model, Sequential
 __version__ = '0.0.1'
 
 def build_cnn(embedding_layer=None, num_words=None,
-              embedding_dim=None, filter_sizes=[3,4,5],
+              embedding_dim=None, filter_sizes=[3,4,5,6],
               feature_maps=[100,100,100], max_seq_length=100, dropout_rate=None):
     """
     Building a CNN for text classification
@@ -62,8 +62,10 @@ def build_cnn(embedding_layer=None, num_words=None,
     channels = []
     x_in = Input(shape=(max_seq_length,), dtype='int32')
     emb_layer = embedding_layer(x_in)
+
     if dropout_rate:
         emb_layer  = Dropout(dropout_rate)(emb_layer)
+
     for ix in range(len(filter_sizes)):
         x = create_channel(emb_layer, filter_sizes[ix], feature_maps[ix])
         channels.append(x)
@@ -72,6 +74,7 @@ def build_cnn(embedding_layer=None, num_words=None,
     x = concatenate(channels)
     if dropout_rate:
         x = Dropout(dropout_rate)(x)
+
     x = Activation('relu')(x)
     x = Dense(1, activation='sigmoid')(x)
     
@@ -144,9 +147,11 @@ def build_dnn(num_words):
 
     model = Sequential()
 
-    model.add(Dense(units=500, activation='relu', input_dim=num_words))
-    #model.add(Dense(units=400, activation='relu')
-    #model.add(Dense(units=200, activation='relu')
+    model.add(Dense(units=int(num_words / 2), activation='relu', input_dim=num_words))
+
+    model.add(Dense(units=128, activation='relu')
+    model.add(Dense(units=64, activation='relu')
+
     model.add(Dense(units=1, activation='sigmoid'))
 
     return model

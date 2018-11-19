@@ -118,7 +118,6 @@ def transform(text, max_num_words = None, max_seq_length = None):
 def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
     
     # CNN
-    """
     model = build_cnn(
             embedding_layer=emb_layer,
             num_words=max_num_words or MAX_NUM_WORDS,
@@ -128,16 +127,6 @@ def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
             max_seq_length=max_seq_length or MAX_SEQ_LENGTH,
             dropout_rate=DROPOUT_RATE
     )
-    """
-    model = build_simple_cnn(
-            num_words=max_num_words or MAX_NUM_WORDS,
-            max_seq_length=max_seq_length or MAX_SEQ_LENGTH
-    )
-    """
-    model = build_dnn(
-            num_words=max_num_words or MAX_NUM_words
-    )
-    """
 
     optimizer = Adadelta(lr=1e-4)
 
@@ -288,17 +277,17 @@ if __name__ == '__main__':
 
     # EMBEDDING
     MAX_NUM_WORDS  = 5000 #15000
-    EMBEDDING_DIM  = 300
+    EMBEDDING_DIM  = 100
     MAX_SEQ_LENGTH = 3200 #200
     USE_GLOVE      = False
 
     # MODEL
     FILTER_SIZES   = [3,4,5]
-    FEATURE_MAPS   = [10,10,10]
+    FEATURE_MAPS   = [100,100,100,100]
     DROPOUT_RATE   = 0.5
 
     # LEARNING
-    BATCH_SIZE     = 16
+    BATCH_SIZE     = 32
     NB_EPOCHS      = 40
     RUNS           = 5
     VAL_SIZE       = 0.2
