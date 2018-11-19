@@ -97,10 +97,10 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_ma
     emb_dim = 64
     # model.add(Input(shape=(max_seq_length,), dtype='int32'))
 
-    # model.add(Embedding(input_dim=num_words + 1, output_dim=64, input_length=max_seq_length, trainable=True))
-    model.add(Embedding(num_words + 1, emb_dim, input_length=max_seq_length))
+    model.add(Embedding(input_dim=num_words + 1, output_dim=64, input_length=max_seq_length, trainable=True))
 
     for ix in range(len(filter_sizes)):
+        break
         feature_map = feature_maps[ix]
         filter_size = filter_sizes[ix]
 
@@ -122,9 +122,10 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_ma
             Flatten()
         )
 
-    #model.add(Conv1D(64, 5, activation='relu'))
-    #model.add(MaxPooling1D(5))
-    #model.add(Flatten())
+    model.add(Conv1D(64, 5, activation='relu'))
+    model.add(MaxPooling1D(5))
+    model.add(Flatten())
+
     if dropout_rate:
         model.add(Dropout(dropout_rate))
 
