@@ -283,7 +283,7 @@ if __name__ == '__main__':
 
     # MODEL
     FILTER_SIZES   = [3,4,5]
-    FEATURE_MAPS   = [100,100,100,100]
+    FEATURE_MAPS   = [100,100,100]
     DROPOUT_RATE   = 0.5
 
     # LEARNING
