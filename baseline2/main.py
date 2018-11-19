@@ -260,6 +260,8 @@ if __name__ == '__main__':
     dataset_name = sys.argv[2]
     root = sys.argv[3]
 
+    global MAX_NUM_WORDS, MAX_SEQ_LENGTH
+
     # EMBEDDING
     MAX_NUM_WORDS  = 30000 #15000
     EMBEDDING_DIM  = 300
