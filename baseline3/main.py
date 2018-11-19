@@ -66,7 +66,7 @@ def to_sequence(tokenizer, preprocessor, index, text):
 def transform_simple_cnn(text, num_words = None, max_seq_length = None, vectorizer = None):
 
     if vectorizer == None:
-        vectorizer = CountVectorizer(binary=True, min_df=3, max_df=0.9, max_features=num_words)
+        vectorizer = TfidfVectorizer(min_df=3, max_df=0.9, max_features=num_words)
         X_onehot = vectorizer.fit_transform(text)
     else:
         X_onehot = vectorizer.transform(text)
@@ -94,12 +94,12 @@ def transform(text, max_num_words = None, max_seq_length = None):
     tokenizer.fit_on_texts(text)
     sequences = tokenizer.texts_to_sequences(text)
 
-    _, arr_length,_ = length(text)
+    _, max_length,_ = length(text)
     word_index = tokenizer.word_index
 
     # MAX_SEQ_LENGTH = np.max(arr_length)
     if max_seq_length == None:
-        max_seq_length = np.max(arr_length)
+        max_seq_length = max_length
 
     if max_num_words == None:
         max_num_words = len(word_index)
@@ -155,9 +155,9 @@ def nn(X, y):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
 
-        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform_simple_cnn(X_train, MAX_NUM_WORDS, None, None)
+        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH = transform_simple_cnn(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
 
-        X_test, _, _, _ = transform_simple_cnn(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
+        X_test, _, _ = transform_simple_cnn(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH)
       
         model = KerasClassifier(build_fn=create_model, 
                             max_num_words=_MAX_NUM_WORDS,
@@ -276,14 +276,14 @@ if __name__ == '__main__':
     global MAX_NUM_WORDS, MAX_SEQ_LENGTH
 
     # EMBEDDING
-    MAX_NUM_WORDS  = 5000 #15000
+    MAX_NUM_WORDS  = 25000 #15000
     EMBEDDING_DIM  = 100
-    MAX_SEQ_LENGTH = 3200 #200
+    MAX_SEQ_LENGTH = 200 #200
     USE_GLOVE      = False
 
     # MODEL
-    FILTER_SIZES   = [3,4,5]
-    FEATURE_MAPS   = [100,100,100]
+    FILTER_SIZES   = [3,4,5,6]
+    FEATURE_MAPS   = [100,100,100,100]
     DROPOUT_RATE   = 0.5
 
     # LEARNING
