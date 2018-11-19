@@ -208,11 +208,13 @@ def run(task, dataset_name = None, root = None):
             for each_sent in sent_text:
                 new = new.append({"text": each_sent, "target": y[ix]}, ignore_index=True)
 
+        new['text'] = new['text'].apply(clean)
+
         X = new["text"].values
         y = new["target"].values
 
         print(X.shape, y.shape)
-        break
+        
         # cnn model
         (expected_y, predicted_y, score_y, histories) = nn(X, y)
         
