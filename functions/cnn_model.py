@@ -95,10 +95,9 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_ma
 
     model = Sequential()
 
-    model.add(Embedding(input_dim=num_words + 1, output_dim=64, input_length=max_seq_length, trainable=True)
+    model.add(Embedding(input_dim=num_words + 1, output_dim=64, input_length=max_seq_length, trainable=True))
     
     for ix in range(len(filter_sizes)):
-
         feature_map = feature_maps[ix]
         filter_size = filter_sizes[ix]
 
