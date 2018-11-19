@@ -57,15 +57,18 @@ def length(text):
     return np.min(result), np.max(result), np.mean(result)
 
 
-def transform_onehot(text, num_words = None, tmp = None):
+def transform_onehot(text, num_words = None, tmp = None, vectorizer = None):
 
-    vectorizer = CountVectorizer(binary=True, lowercase=True, min_df=3, max_df=0.9, max_features=num_words)
-    X_onehot = vectorizer.fit_transform(text)
+    if vectorizer == None:
+        vectorizer = CountVectorizer(binary=True, lowercase=True, min_df=3, max_df=0.9, max_features=num_words)
+        X_onehot = vectorizer.fit_transform(text)
+    else:
+        X_onehot = vectorizer.transform(text)
 
     if num_words == None:
         num_words = len(vectorizer.get_feature_names())
 
-    return X_onehot, num_words, None
+    return X_onehot, num_words, None, vectorizer
 
 
 def to_sequence(tokenizer, preprocessor, index, text):
@@ -180,9 +183,9 @@ def nn(X, y):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
 
-        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH = transform_onehot(X_train, None, None)
+        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform_onehot(X_train, None, None, None)
 
-        X_test, _, _ = transform_onehot(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH)
+        X_test, _, _ = transform_onehot(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
       
         """
         history = model.fit(
