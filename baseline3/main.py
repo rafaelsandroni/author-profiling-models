@@ -56,38 +56,6 @@ def length(text):
     result = [len(x.split()) for x in text]
     return np.min(result), np.max(result), np.mean(result)
 
-
-def to_sequence(tokenizer, preprocessor, index, text):
-    words = tokenizer(preprocessor(text))
-    indexes = [index[word] for word in words if word in index]
-    return indexes
-
-
-def transform_simple_cnn(text, num_words = None, max_seq_length = None, vectorizer = None):
-
-    if vectorizer == None:
-        vectorizer = TfidfVectorizer(min_df=3, max_df=0.9, max_features=num_words)
-        X_onehot = vectorizer.fit_transform(text)
-    else:
-        X_onehot = vectorizer.transform(text)
-
-    word2idx = {word: idx for idx, word in enumerate(vectorizer.get_feature_names())}
-    tokenize = vectorizer.build_tokenizer()
-    preprocess = vectorizer.build_preprocessor()
-
-    X_sequences = [to_sequence(tokenize, preprocess, word2idx, x) for x in text]
-    
-    # Compute the max lenght of a text
-    if max_seq_length == None:
-        max_seq_length = len(max(X_sequences, key=len))
-
-    if num_words == None:
-        num_words = len(vectorizer.get_feature_names())
-
-    X_sequences = pad_sequences(X_sequences, maxlen=max_seq_length, value=num_words)
-
-    return X_sequences, num_words, max_seq_length, vectorizer
-
 def transform(text, max_num_words = None, max_seq_length = None):
 
     tokenizer = Tokenizer(num_words=max_num_words)
@@ -155,9 +123,9 @@ def nn(X, y):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
 
-        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH = transform_simple_cnn(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
+        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH = transform(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
 
-        X_test, _, _ = transform_simple_cnn(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH)
+        X_test, _, _ = transform(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH)
       
         model = KerasClassifier(build_fn=create_model, 
                             max_num_words=_MAX_NUM_WORDS,
