@@ -1,7 +1,7 @@
 from Models.functions.datasets import getDatasets
 from Models.functions.plot import ROC, plot_confusion_matrix
 from Models.functions.preprocessing import clean
-from Models.functions.cnn_model import build_cnn
+from Models.functions.cnn_model import build_cnn, build_dnn
 
 import sys
 
@@ -20,7 +20,7 @@ from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, EarlyStopping
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 from keras.models import load_model
-from keras.layers import Embedding
+from keras.layers import Embedding, Dense
 from keras.optimizers import Adadelta
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
@@ -33,6 +33,9 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
+
+from sklearn.feature_extraction.text import CountVectorizer
+from nltk.corpus import stopwords
 
 # Preprocessing
 
@@ -53,6 +56,11 @@ def length(text):
     result = [len(x.split()) for x in text]
     return np.min(result), np.max(result), np.mean(result)
 
+
+def transform_onehot(text):
+    vectorizer = CountVectorizer(binary=True, lowercase=True, min_df=3, max_df=0.9, max_features=None)
+    X_onehot = vectorizer.fit_transform(text)
+    return X_onehot
 
 def transform(text, max_num_words = None, max_seq_length = None):
 
@@ -83,6 +91,8 @@ def transform(text, max_num_words = None, max_seq_length = None):
 
 def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
     
+    # CNN
+    """
     model = build_cnn(
             embedding_layer=emb_layer,
             num_words=max_num_words or MAX_NUM_WORDS,
@@ -92,6 +102,11 @@ def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
             max_seq_length=max_seq_length or MAX_SEQ_LENGTH,
             dropout_rate=DROPOUT_RATE
     )
+    """
+    model = build_dnn(
+            num_words=max_num_words or MAX_NUM_words
+    )
+
     optimizer = Adadelta(lr=1e-4)
 
     model.compile(
@@ -100,8 +115,8 @@ def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
             metrics=['accuracy']
     )
     return model
-    
-def cnn1(X, y):    
+
+def nn(X, y):    
 
     histories = []
     test_loss = []
@@ -193,7 +208,7 @@ def run(task, dataset_name = None, root = None):
         y, n_classes, classes_name = labelEncoder(df_training[label].values)
         
         # cnn model
-        (expected_y, predicted_y, score_y, histories) = cnn1(X, y)
+        (expected_y, predicted_y, score_y, histories) = nn(X, y)
         
         # save model
         directory = './Reports/'+task+'/'+dataset_name+'/'
@@ -265,7 +280,7 @@ if __name__ == '__main__':
     # EMBEDDING
     MAX_NUM_WORDS  = 30000 #15000
     EMBEDDING_DIM  = 300
-    MAX_SEQ_LENGTH = 200 #200
+    MAX_SEQ_LENGTH = 3200 #200
     USE_GLOVE      = False
 
     # MODEL
