@@ -92,10 +92,11 @@ def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
             max_seq_length=max_seq_length or MAX_SEQ_LENGTH,
             dropout_rate=DROPOUT_RATE
     )
-    
+    optimizer = Adamdelta(lr=1e-4, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
+
     model.compile(
             loss='binary_crossentropy',
-            optimizer=Adadelta(clipvalue=3),
+            optimizer=optimizer,
             metrics=['accuracy']
     )
     return model
@@ -126,7 +127,7 @@ def cnn1(X, y):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
         
-        X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH = transform(X_train)
+        X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH = transform(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
 
         X_test, _, _ = transform(X_test, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
       
@@ -151,7 +152,7 @@ def cnn1(X, y):
                             batch_size=BATCH_SIZE,
                             verbose=0,
                             #validation_data=(X_val, y_val),
-                            validation_split=0.2,
+                            validation_split=0.1,
                             callbacks=[#ModelCheckpoint('model-%i.h5', monitor='val_loss', verbose=1, save_best_only=True, mode='min'),
                                 ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
                                 EarlyStopping(monitor='val_loss', min_delta=0.1, patience=4, verbose=1)
@@ -163,6 +164,8 @@ def cnn1(X, y):
         y_pred = model.predict(X_test, verbose=1)
         predicted_y.extend(y_pred)
         expected_y.extend(y_test)
+
+    train_val_metrics(histories)
 
     expected_y = np.asarray(expected_y)
     score_y = np.asarray(predicted_y) # probabilistics    
@@ -240,7 +243,16 @@ def evaluate(expected_y, predicted_y, score_y, classes_name, n_classes, task, da
     
     print(report)
     print()
-    
+
+def train_val_metrics(histories):
+    print('Training: \t%0.4f loss / %0.4f acc' % (get_avg(histories, 'loss'), get_avg(histories, 'acc')))
+    print('Validation: \t%0.4f loss / %0.4f acc' % (get_avg(histories, 'val_loss'), get_avg(histories, 'val_acc')))
+
+def get_avg(histories, his_key):
+    tmp = []
+    for history in histories:
+        tmp.append(history[his_key][np.argmin(history['val_loss'])])
+    return np.mean(tmp)
     
 if __name__ == '__main__':    
 
@@ -249,10 +261,9 @@ if __name__ == '__main__':
     root = sys.argv[3]
 
     # EMBEDDING
-    MAX_NUM_WORDS  = 50000 #15000
+    MAX_NUM_WORDS  = 30000 #15000
     EMBEDDING_DIM  = 300
-    MAX_SEQ_LENGTH = 3200 #200
-    MAX_FEATURES   = 3200
+    MAX_SEQ_LENGTH = 200 #200
     USE_GLOVE      = False
 
     # MODEL
@@ -261,7 +272,7 @@ if __name__ == '__main__':
     DROPOUT_RATE   = 0.5
 
     # LEARNING
-    BATCH_SIZE     = 20
+    BATCH_SIZE     = 16
     NB_EPOCHS      = 40
     RUNS           = 5
     VAL_SIZE       = 0.2
