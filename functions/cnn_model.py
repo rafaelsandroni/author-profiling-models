@@ -94,18 +94,18 @@ def create_channel(x, filter_size, feature_map):
 def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_maps=[100,100,100], dropout_rate=None):
 
     model = Sequential()
-
+    emb_dim = 64
     # model.add(Input(shape=(max_seq_length,), dtype='int32'))
 
     # model.add(Embedding(input_dim=num_words + 1, output_dim=64, input_length=max_seq_length, trainable=True))
-    model.add(Embedding(num_words + 1, 64, input_length=max_seq_length))
+    model.add(Embedding(num_words + 1, emb_dim, input_length=max_seq_length))
 
     for ix in range(len(filter_sizes)):
         feature_map = feature_maps[ix]
         filter_size = filter_sizes[ix]
 
         if ix == 0:
-            conv = Conv1D(filters=feature_map, kernel_size=filter_size, activation='relu', input_shape=(max_seq_length,))
+            conv = Conv1D(filters=feature_map, kernel_size=filter_size, activation='relu', input_shape=(max_seq_length, emb_dim,))
         else:
             conv = Conv1D(filters=feature_map, kernel_size=filter_size, activation='relu')
 
