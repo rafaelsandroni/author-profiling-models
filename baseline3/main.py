@@ -195,25 +195,24 @@ def run(task, dataset_name = None, root = None):
 
         df_training = pd.read_csv(training_path)#, usecols=cols)        
 
-        df_training['text'] = df_training['text'].apply(clean)
+        #df_training['text'] = df_training['text'].apply(clean)
         X = df_training['text'].values
         y, n_classes, classes_name = labelEncoder(df_training[label].values)
         print(X.shape, y.shape)
 
         # split X into a list of sentences, and for each sentences attach target info
-        new_X = []
-        new_Y = []
+        new = pd.DataFrame({"text": [], "target": []})
+
         for ix in range(len(X)):
             sent_text = nltk.sent_tokenize(X[ix])
             for each_sent in sent_text:
-                new_X.append(sent_text)
-                new_Y.append(y[ix])
+                new = new.append({"text": each_sent, "target": y[ix]}, ignore_index=True)
 
-        X = np.asarray(new_X)
-        y = np.asarray(new_Y)
+        X = new["text"].values
+        y = new["target"].values
 
         print(X.shape, y.shape)
-
+        break
         # cnn model
         (expected_y, predicted_y, score_y, histories) = nn(X, y)
         
