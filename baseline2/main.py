@@ -185,7 +185,7 @@ def nn(X, y):
 
         X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform_onehot(X_train, None, None, None)
 
-        X_test, _, _ = transform_onehot(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
+        X_test, _, _, _ = transform_onehot(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
       
         """
         history = model.fit(
