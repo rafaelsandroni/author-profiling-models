@@ -115,6 +115,8 @@ def build_dnn(num_words):
     model = Sequential()
 
     model.add(Dense(units=500, activation='relu', input_dim=num_words))
+    #model.add(Dense(units=400, activation='relu')
+    #model.add(Dense(units=200, activation='relu')
     model.add(Dense(units=1, activation='sigmoid'))
 
     return model
