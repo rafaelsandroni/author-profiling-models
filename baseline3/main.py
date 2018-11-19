@@ -68,6 +68,7 @@ def plot_acc_loss(title, histories, key_acc, key_loss):
         ax2.set_ylabel('loss')
     ax2.legend(names, loc='upper right')
     fig.set_size_inches(20, 5)
+    plt.savefig("plot_"+title+".pdf")
     plt.show()
 
 def length(text):
