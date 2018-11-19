@@ -202,15 +202,16 @@ def run(task, dataset_name = None, root = None):
 
         # split X into a list of sentences, and for each sentences attach target info
         new = pd.DataFrame({"text": [], "target": []})
+        
         new_X = []
         new_y = []
 
         for ix in range(len(X)):
             sent_text = nltk.sent_tokenize(X[ix])
             for each_sent in sent_text:
-                #new = new.append({"text": each_sent, "target": y[ix]}, ignore_index=True)
-                new_X.append(each_sent)
-                new_y.append(y[ix])
+                for sent in each_sent:                
+                    new_X.append(sent)
+                    new_y.append(y[ix])
 
         new = pd.DataFrame({"text": [new_X], "target": [new_y]})
 
