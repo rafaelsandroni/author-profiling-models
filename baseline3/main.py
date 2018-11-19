@@ -1,7 +1,7 @@
 from Models.functions.datasets import getDatasets
 from Models.functions.plot import ROC, plot_confusion_matrix
 from Models.functions.preprocessing import clean
-from Models.functions.cnn_model import build_cnn, build_dnn
+from Models.functions.cnn_model import build_cnn, build_dnn, build_simple_cnn
 
 import sys
 
