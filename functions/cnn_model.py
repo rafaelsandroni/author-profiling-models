@@ -13,7 +13,7 @@ from keras.layers import Activation, Input, Dense, Flatten, Dropout, Embedding
 from keras.layers.convolutional import Conv1D, MaxPooling1D
 from keras.layers.merge import concatenate
 from keras import regularizers
-from keras.models import Model
+from keras.models import Model, Sequential
 
 __version__ = '0.0.1'
 
