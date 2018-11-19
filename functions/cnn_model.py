@@ -113,7 +113,7 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_ma
 
     model.add(Embedding(input_dim=num_words + 1, output_dim=emb_dim, input_length=max_seq_length, trainable=True))
 
-    conv = Conv1D(emb_dim, kernel_size=filter_size, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
+    conv = Conv1D(emb_dim, kernel_size=filter_sizes, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
                 
     model.add(
         conv 
