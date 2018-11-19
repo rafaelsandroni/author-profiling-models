@@ -113,24 +113,26 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=5, feature_maps=[10
 
     model.add(Embedding(input_dim=num_words + 1, output_dim=emb_dim, input_length=max_seq_length, trainable=True))
 
-    conv = Conv1D(emb_dim, kernel_size=filter_sizes, activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
+    conv1 = Conv1D(emb_dim, kernel_size=filter_sizes[0], activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
+    conv2 = Conv1D(emb_dim, kernel_size=filter_sizes[1], activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
+    conv3 = Conv1D(emb_dim, kernel_size=filter_sizes[2], activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
                 
-    model.add(
-        conv 
-    )
+    model.add(conv)
+    model.add(MaxPooling1D(5))
+    model.add(Flatten())
 
-    model.add(
-        MaxPooling1D(5)#filter_size)
-    )
+    model.add(conv2)
+    model.add(MaxPooling1D(5))
+    model.add(Flatten())
 
-    model.add(
-        Flatten()
-    )
+    model.add(conv3)
+    model.add(MaxPooling1D(5))
+    model.add(Flatten())
 
     if dropout_rate:
         model.add(Dropout(dropout_rate))
 
-    model.add(Dense(units=64, activation='relu'))
+    model.add(Activation('relu'))
     model.add(Dense(units=1, activation='sigmoid')) 
 
     return model
