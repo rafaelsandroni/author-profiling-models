@@ -65,20 +65,20 @@ def transform(text, max_num_words = None, max_seq_length = None):
 
     # MAX_SEQ_LENGTH = np.max(arr_length)
     if max_seq_length == None:
-        MAX_SEQ_LENGTH = np.max(arr_length)
+        max_seq_length = np.max(arr_length)
 
     if max_num_words == None:
-        MAX_NUM_WORDS = len(word_index)
+        max_num_words = len(word_index)
 
     result = [len(x.split()) for x in text]
     print('Text informations:')
-    print('max length: %i / min length: %i / mean length: %i / limit length: %i' % (np.max(result), np.min(result), np.mean(result), MAX_SEQ_LENGTH))
-    print('vocabulary size: %i / limit: %i' % (len(word_index), MAX_NUM_WORDS))
+    print('max length: %i / min length: %i / mean length: %i / limit length: %i' % (np.max(result), np.min(result), np.mean(result), max_seq_length))
+    print('vocabulary size: %i / limit: %i' % (len(word_index), max_num_words))
 
     # Padding all sequences to same length of `MAX_SEQ_LENGTH`
-    X = pad_sequences(sequences, maxlen=MAX_SEQ_LENGTH, padding='post')
+    X = pad_sequences(sequences, maxlen=max_seq_length, padding='post')
 
-    return X, MAX_NUM_WORDS, MAX_SEQ_LENGTH
+    return X, max_num_words, max_seq_length
     
 
 def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
