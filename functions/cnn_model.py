@@ -91,7 +91,7 @@ def create_channel(x, filter_size, feature_map):
 
 # SIMPLE CNN
 
-def build_simple_cnn(num_words, max_seq_length, filter_sizes=5, feature_maps=[100,100,100], dropout_rate=None):
+def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_maps=[100,100,100], dropout_rate=None):
 
     __version__ = '2.0.0'
 
