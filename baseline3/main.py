@@ -158,8 +158,8 @@ def nn(X, y):
                             verbose=0,
                             validation_split=0.1,
                             callbacks=[#ModelCheckpoint('model-%i.h5', monitor='val_loss', verbose=1, save_best_only=True, mode='min'),
-                                #ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
-                                EarlyStopping(monitor='val_loss', min_delta=0.01, patience=4, verbose=1)
+                                ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
+                                EarlyStopping(monitor='val_loss', min_delta=0.005, patience=4, verbose=1)
                             ])
 
         history = model.fit(X_train, y_train)
@@ -273,7 +273,7 @@ if __name__ == '__main__':
 
     # EMBEDDING
     MAX_NUM_WORDS  = 15000
-    EMBEDDING_DIM  = 300
+    EMBEDDING_DIM  = 10
     MAX_SEQ_LENGTH = 200
     USE_GLOVE      = False
 
