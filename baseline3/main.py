@@ -38,6 +38,12 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 import nltk
 
+from imblearn.over_sampling import SMOTE, ADASYN
+
+# Synthetic Minority Oversampling Technique (SMOTE)
+def oversampling(X, y)
+    X_resampled, y_resampled = SMOTE().fit_resample(X, y)
+
 # Preprocessing
 
 def labelEncoder(y):
@@ -153,8 +159,12 @@ def nn(X, y):
         X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
 
         X_test, _, _, _ = transform(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
+        
+        if USE_EMB == TRUE:
+            embbedding_layer(X_train, X_test, vect)
       
         model = KerasClassifier(build_fn=create_model, 
+                            emb_layer=None,
                             max_num_words=_MAX_NUM_WORDS,
                             max_seq_length=_MAX_SEQ_LENGTH,
                             epochs=NB_EPOCHS,
@@ -200,8 +210,9 @@ def run(task, dataset_name = None, root = None):
         X = df_training['text'].values
         y, n_classes, classes_name = labelEncoder(df_training[label].values)
 
-        print(X.shape, y.shape)
-
+        print("ORIGINAL", X.shape, y.shape)
+        X, y = oversampling(X, y)
+        print("OVERSAMPLING", X.shape, y.shape)
         # cnn model
         (expected_y, predicted_y, score_y, histories) = nn(X, y)
         
@@ -279,7 +290,7 @@ if __name__ == '__main__':
     MAX_NUM_WORDS  = None
     EMBEDDING_DIM  = 100
     MAX_SEQ_LENGTH = None
-    USE_GLOVE      = False
+    USE_EMB        = False
 
     # MODEL
     FILTER_SIZES   = [7,5,6]
