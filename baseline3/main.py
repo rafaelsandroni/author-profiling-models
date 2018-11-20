@@ -93,6 +93,7 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
 
     print('training embeddings...')
 
+    """
     model = gensim.models.Word2Vec(
         text,
         size=EMBEDDING_DIM,
@@ -103,16 +104,16 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
     model.train(text, total_examples=len(text), epochs=10)
     embeddings_index = model.wv
     embeddings_index = {}
+    """
+    with ZipFile('../../Data/Embeddings/word2vec_pt_skip_s100.zip') as myzip:
+        f = open(myzip.open('skip_s100.txt'))
+        for line in f:
+            values = line.split()
+            word = values[0]
+            coefs = np.asarray(values[1:], dtype='float32')
+            embeddings_index[word] = coefs
+        f.close()
 
-    """
-    f = open('glove.6B.%id.txt' % EMBEDDING_DIM)
-    for line in f:
-        values = line.split()
-        word = values[0]
-        coefs = np.asarray(values[1:], dtype='float32')
-        embeddings_index[word] = coefs
-    f.close()
-    """
     print('Found %s word vectors in embedding' % len(embeddings_index))
 
     embedding_matrix = np.zeros((max_num_words, EMBEDDING_DIM))
