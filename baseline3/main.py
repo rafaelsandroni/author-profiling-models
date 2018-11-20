@@ -204,7 +204,7 @@ def nn(X, y):
         X_test, _, _, _ = transform(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
 
         if USE_EMBEDDINGS == True:
-            embedding_layer = create_embedding(X, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
+            embedding_layer = create_embeddings(X, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
 
         X_train, y_train = oversampling(X_train, y_train)
         X_test,  y_test  = oversampling(X_test,  y_test)
