@@ -122,7 +122,7 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
     embedding_matrix = np.zeros((max_num_words, EMBEDDING_DIM))
 
     for word, i in tokenizer.word_index.items():
-        if i >= MAX_NUM_WORDS:
+        if i >= max_num_words:
             continue
         embedding_vector = embeddings_index.get(word)
         if embedding_vector is not None:
