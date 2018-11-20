@@ -278,7 +278,7 @@ if __name__ == '__main__':
     USE_GLOVE      = False
 
     # MODEL
-    FILTER_SIZES   = [3,4,5]
+    FILTER_SIZES   = [7,5,6]
     FEATURE_MAPS   = [10,10,10]
     DROPOUT_RATE   = 0.5
 
