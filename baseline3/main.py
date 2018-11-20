@@ -159,7 +159,10 @@ def nn(X, y):
         X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
 
         X_test, _, _, _ = transform(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
-        
+
+        X_train, y_train = oversampling(X_train, y_train)
+        X_test,  y_test  = oversampling(X_test,  y_test)
+
         if USE_EMB == TRUE:
             embbedding_layer(X_train, X_test, vect)
       
@@ -211,8 +214,7 @@ def run(task, dataset_name = None, root = None):
         y, n_classes, classes_name = labelEncoder(df_training[label].values)
 
         print("ORIGINAL", X.shape, y.shape)
-        X, y = oversampling(X, y)
-        print("OVERSAMPLING", X.shape, y.shape)
+
         # cnn model
         (expected_y, predicted_y, score_y, histories) = nn(X, y)
         
