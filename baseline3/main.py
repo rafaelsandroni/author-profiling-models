@@ -90,6 +90,7 @@ def length(text):
     return np.min(result), np.max(result), np.mean(result)
 
 def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
+
     print('training embeddings...')
 
     model = gensim.models.Word2Vec(
@@ -100,7 +101,7 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
         workers=10)
 
     model.train(text, total_examples=len(text), epochs=10)
-    embeddings_index = model.vw
+    embeddings_index = model.wv
     embeddings_index = {}
 
     """
