@@ -76,9 +76,6 @@ def plot_acc_loss(title, histories, key_acc, key_loss, task, dataset_name):
     plt.show()
 
 def length(text):
-    """
-    Calculate the maximum document length
-    """
     result = [len(x.split()) for x in text]
     return np.min(result), np.max(result), np.mean(result)
 
@@ -88,12 +85,12 @@ def transform(text, max_num_words = None, max_seq_length = None):
     tokenizer.fit_on_texts(text)
     sequences = tokenizer.texts_to_sequences(text)
 
-    _, max_length,_ = length(text)
+    _, max_length, mean_length = length(text)
     word_index = tokenizer.word_index
 
     # MAX_SEQ_LENGTH = np.max(arr_length)
     if max_seq_length == None:
-        max_seq_length = max_length
+        max_seq_length = mean_length
 
     if max_num_words == None:
         max_num_words = len(word_index)
