@@ -50,7 +50,10 @@ def checkFolder(directory):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-def plot_acc_loss(title, histories, key_acc, key_loss):
+def plot_acc_loss(title, histories, key_acc, key_loss, task, dataset_name):
+
+    directory = './Reports/' + task + '/' + dataset_name + '/'
+
     fig, (ax1, ax2) = plt.subplots(1, 2)
     # Accuracy
     ax1.set_title('Model accuracy (%s)' % title)
@@ -69,7 +72,7 @@ def plot_acc_loss(title, histories, key_acc, key_loss):
         ax2.set_ylabel('loss')
     ax2.legend(names, loc='upper right')
     fig.set_size_inches(20, 5)
-    plt.savefig("plot_"+title+".pdf")
+    plt.savefig(directory + "/plot_"+title+".pdf")
     plt.show()
 
 def length(text):
@@ -171,9 +174,6 @@ def nn(X, y):
 
     train_val_metrics(histories)
 
-    plot_acc_loss('training', histories, 'acc', 'loss')
-    plot_acc_loss('validation', histories, 'val_acc', 'val_loss')
-
     expected_y = np.asarray(expected_y)
     score_y = np.asarray(predicted_y) # probabilistics    
     predicted_y = np.asarray(predicted_y).round() # estimated
@@ -217,10 +217,13 @@ def run(task, dataset_name = None, root = None):
         np.save(directory + '/predicted_cnn1.numpy', predicted_y)
         np.save(directory + '/score_cnn1.numpy', score_y)
         
-        evaluate(expected_y, predicted_y, score_y, classes_name, n_classes, task, dataset_name)
+        evaluate(expected_y, predicted_y, score_y, histories, classes_name, n_classes, task, dataset_name)
 
         
-def evaluate(expected_y, predicted_y, score_y, classes_name, n_classes, task, dataset_name):
+def evaluate(expected_y, predicted_y, score_y, histories, classes_name, n_classes, task, dataset_name):
+
+    plot_acc_loss('training', histories, 'acc', 'loss', task, dataset_name)
+    plot_acc_loss('validation', histories, 'val_acc', 'val_loss', task, dataset_name)
 
     # report
     report = pd.DataFrame(
@@ -274,7 +277,7 @@ if __name__ == '__main__':
     # EMBEDDING
     MAX_NUM_WORDS  = 15000
     EMBEDDING_DIM  = 10
-    MAX_SEQ_LENGTH = 200
+    MAX_SEQ_LENGTH = 1000
     USE_GLOVE      = False
 
     # MODEL
@@ -283,8 +286,8 @@ if __name__ == '__main__':
     DROPOUT_RATE   = 0.5
 
     # LEARNING
-    BATCH_SIZE     = 200
-    NB_EPOCHS      = 40
+    BATCH_SIZE     = 1000
+    NB_EPOCHS      = 100
     RUNS           = 5
     VAL_SIZE       = 0.2
     
