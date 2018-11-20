@@ -99,7 +99,7 @@ def transform_tfidf(text, max_num_words = None, max_seq_length = None, vect = No
 
         a = tfidf.toarray()
         b = a#a[:, :, newaxis]
-        b = b.astype(numpy.float64)
+        b = b.astype(np.float64)
 
         print(b.shape)
         if max_seq_length == None:
