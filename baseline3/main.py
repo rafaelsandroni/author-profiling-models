@@ -88,6 +88,34 @@ def length(text):
     result = [len(x.split()) for x in text]
     return np.min(result), np.max(result), np.mean(result)
 
+def create_glove_embeddings():
+    print('training embeddings...')
+
+    embeddings_index = {}
+    f = open('glove.6B.%id.txt' % EMBEDDING_DIM)
+    for line in f:
+        values = line.split()
+        word = values[0]
+        coefs = np.asarray(values[1:], dtype='float32')
+        embeddings_index[word] = coefs
+    f.close()
+    print('Found %s word vectors in embedding' % len(embeddings_index))
+
+    embedding_matrix = np.zeros((max_num_words, EMBEDDING_DIM))
+
+    for word, i in tokenizer.word_index.items():
+        if i >= MAX_NUM_WORDS:
+            continue
+        embedding_vector = embeddings_index.get(word)
+        if embedding_vector is not None:
+            embedding_matrix[i] = embedding_vector
+
+    return Embedding(input_dim=max_num_words, output_dim=EMBEDDING_DIM,
+                     input_length=max_seq_length,
+                     weights=[embedding_matrix],
+                     trainable=True
+                    )
+
 def transform(text, max_num_words = None, max_seq_length = None, vect = None):
 
 
@@ -294,12 +322,12 @@ if __name__ == '__main__':
 
     # EMBEDDING
     MAX_NUM_WORDS  = None
-    EMBEDDING_DIM  = 1
+    EMBEDDING_DIM  = 10
     MAX_SEQ_LENGTH = None
     USE_EMB        = False
 
     # MODEL
-    FILTER_SIZES   = [7,5,6]
+    FILTER_SIZES   = [1,2,3]
     FEATURE_MAPS   = [10,10,10]
     DROPOUT_RATE   = 0.5
 
