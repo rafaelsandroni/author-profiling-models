@@ -277,7 +277,7 @@ if __name__ == '__main__':
     # EMBEDDING
     MAX_NUM_WORDS  = 15000
     EMBEDDING_DIM  = 10
-    MAX_SEQ_LENGTH = 1000
+    MAX_SEQ_LENGTH = None
     USE_GLOVE      = False
 
     # MODEL
