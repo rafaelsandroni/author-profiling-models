@@ -191,6 +191,11 @@ def nn(X, y):
         X_train, y_train = oversampling(X_train, y_train)
         X_test,  y_test  = oversampling(X_test,  y_test)
 
+        print(type(X_train))
+
+        X_train = np.array(X_train).astype(np.float64)
+        X_test = np.array(X_test).astype(np.float64)
+
         #if USE_EMB == True:
         #    embbedding_layer(X_train, X_test, vect)
       
