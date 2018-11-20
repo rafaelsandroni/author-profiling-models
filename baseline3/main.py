@@ -127,9 +127,10 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
         embedding_vector = embeddings_index.get(word)
         if embedding_vector is not None:
             embedding_matrix[i] = embedding_vector
-    
-    print(i, embedding_matrix[i])
+ 
+
     print(word, embedding_index.get(word))
+    print(i-1, embedding_matrix[i-1])
 
     return Embedding(input_dim=max_num_words, output_dim=EMBEDDING_DIM,
                      input_length=max_seq_length,
