@@ -10,7 +10,8 @@ print('Keras version: \t\t%s' % keras.__version__)
 print('Scikit version: \t%s' % sklearn.__version__)
 print('TensorFlow version: \t%s' % tensorflow.__version__)
 
-import numpy as np import zeros, newaxis
+import numpy as np 
+from numpy import zeros, newaxis
 
 import pandas as pd
 import matplotlib.pyplot as plt
