@@ -41,6 +41,7 @@ from nltk.corpus import stopwords
 import nltk
 
 from imblearn.over_sampling import SMOTE, ADASYN
+import gensim
 
 # Synthetic Minority Oversampling Technique (SMOTE)
 def oversampling(X, y):
@@ -88,10 +89,21 @@ def length(text):
     result = [len(x.split()) for x in text]
     return np.min(result), np.max(result), np.mean(result)
 
-def create_glove_embeddings():
+def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
     print('training embeddings...')
 
+    model = gensim.models.Word2Vec(
+        text,
+        size=EMBEDDING_DIM,
+        window=10,
+        min_count=2,
+        workers=10)
+
+    model.train(text, total_examples=len(text), epochs=10)
+    embeddings_index = model.vw
     embeddings_index = {}
+
+    """
     f = open('glove.6B.%id.txt' % EMBEDDING_DIM)
     for line in f:
         values = line.split()
@@ -99,6 +111,7 @@ def create_glove_embeddings():
         coefs = np.asarray(values[1:], dtype='float32')
         embeddings_index[word] = coefs
     f.close()
+    """
     print('Found %s word vectors in embedding' % len(embeddings_index))
 
     embedding_matrix = np.zeros((max_num_words, EMBEDDING_DIM))
@@ -190,14 +203,14 @@ def nn(X, y):
 
         X_test, _, _, _ = transform(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
 
+        if USE_EMBEDDINGS == True:
+            embedding_layer = create_embedding(X, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
+
         X_train, y_train = oversampling(X_train, y_train)
         X_test,  y_test  = oversampling(X_test,  y_test)
 
-        #if USE_EMB == True:
-        #    embbedding_layer(X_train, X_test, vect)
-      
         model = KerasClassifier(build_fn=create_model, 
-                            emb_layer=None,
+                            emb_layer=embedding_layer,
                             max_num_words=_MAX_NUM_WORDS,
                             max_seq_length=_MAX_SEQ_LENGTH,
                             epochs=NB_EPOCHS,
