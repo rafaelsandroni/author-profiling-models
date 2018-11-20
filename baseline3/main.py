@@ -335,7 +335,7 @@ if __name__ == '__main__':
     MAX_NUM_WORDS  = None
     EMBEDDING_DIM  = 100
     MAX_SEQ_LENGTH = None
-    USE_EMB        = False
+    USE_EMBEDDINGS = True
 
     # MODEL
     FILTER_SIZES   = [7,7,7,6,6,6]
