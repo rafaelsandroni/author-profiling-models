@@ -116,15 +116,13 @@ def create_glove_embeddings():
                      trainable=True
                     )
 
-def transform(text, max_num_words = None, max_seq_length = None, vect = None):
+def transform(text, max_num_words = None, max_seq_length = None, tokenizer = None):
 
 
-    if vect == None:
-        vect = TfidfVectorizer(max_features=max_num_words)
-        #vect.fit_transform(text)
+    if tokenizer == None:
+        tokenizer = Tokenizer(num_words=max_num_words)
+        tokenizer.fit_on_texts(text)
 
-    tokenizer = Tokenizer(num_words=max_num_words)
-    tokenizer.fit_on_texts(text)
     sequences = tokenizer.texts_to_sequences(text)
 
     _, max_length, mean_length = length(text)
@@ -145,7 +143,7 @@ def transform(text, max_num_words = None, max_seq_length = None, vect = None):
     # Padding all sequences to same length of `max_seq_length`
     X = pad_sequences(sequences, maxlen=max_seq_length, padding='post')
 
-    return X, max_num_words, max_seq_length, vect
+    return X, max_num_words, max_seq_length, tokenizer
     
 
 def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
