@@ -164,8 +164,8 @@ def nn(X, y):
         X_train, y_train = oversampling(X_train, y_train)
         X_test,  y_test  = oversampling(X_test,  y_test)
 
-        if USE_EMB == TRUE:
-            embbedding_layer(X_train, X_test, vect)
+        #if USE_EMB == True:
+        #    embbedding_layer(X_train, X_test, vect)
       
         model = KerasClassifier(build_fn=create_model, 
                             emb_layer=None,
