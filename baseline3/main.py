@@ -100,6 +100,7 @@ def transform_tfidf(text, max_num_words = None, max_seq_length = None, vect = No
         a = tfidf.toarray()
         print(a[30])
         b = a[:, :, newaxis]
+        b = b.astype(numpy.float64)
         #b = a
         print(b[30])
         print(b.shape)
