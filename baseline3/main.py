@@ -41,7 +41,7 @@ import nltk
 from imblearn.over_sampling import SMOTE, ADASYN
 
 # Synthetic Minority Oversampling Technique (SMOTE)
-def oversampling(X, y)
+def oversampling(X, y):
     X_resampled, y_resampled = SMOTE().fit_resample(X, y)
 
 # Preprocessing
