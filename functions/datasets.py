@@ -20,6 +20,7 @@ def getDatasets(task = None, file_type = '_', dataset_name = None, root = None):
         return
     
     root = root or '/home/rafael/drive/Data/Dataframe/'
+    print("loading from", root)
     columns = {'dataset_name': 0,'path': 0,'task': 0,'training': 0,'test': 0}
     datasets_name = ['b5post', 'esic', 'brmoral', 'enblogs', 'brblogset', 'pan13_en','pan13_es']
     datasets = pd.DataFrame(columns=columns)
@@ -85,7 +86,7 @@ def load(task, dataset_name, root = None):
 
     datasets = getDatasets(task,'df', dataset_name, root = None)
     
-    X_train = X_test = y_train = y_test = []
+    X_train, X_test, y_train, y_test = [], [], [], []
     
     for i in datasets.iterrows():    
 
@@ -105,5 +106,7 @@ def load(task, dataset_name, root = None):
 
         X_test = df_test['text'].values
         y_test = df_test[label].values
+
+        print(X_train.shape)
 
     return (X_train, X_test, y_train, y_test)
