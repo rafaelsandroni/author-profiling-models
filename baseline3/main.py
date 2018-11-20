@@ -139,7 +139,7 @@ def nn(X, y):
 
     emb_layer = None
     
-    K = StratifiedKFold(n_splits=2)
+    K = StratifiedKFold(n_splits=3)
 
     for train_index, test_index in K.split(X, y):
 
@@ -284,7 +284,7 @@ if __name__ == '__main__':
 
     # LEARNING
     BATCH_SIZE     = 1000
-    NB_EPOCHS      = 100
+    NB_EPOCHS      = 1000
     RUNS           = 5
     VAL_SIZE       = 0.2
     
