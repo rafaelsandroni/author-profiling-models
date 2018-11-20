@@ -107,7 +107,7 @@ def transform_tfidf(text, max_num_words = None, max_seq_length = None, vect = No
             max_seq_length = b.shape[1]
 
         if max_num_words == None:
-            max_num_words = vect.vocabulary_
+            max_num_words = len(vect.vocabulary_)
 
         X = pad_sequences(b, maxlen=max_seq_length, padding='post')
 
