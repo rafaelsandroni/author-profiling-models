@@ -119,7 +119,7 @@ def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
             dropout_rate=DROPOUT_RATE
     )
 
-    optimizer = Adadelta(lr=1e-4)
+    optimizer = Adadelta(clipvalue=3)
 
     model.compile(
             loss='binary_crossentropy',
@@ -198,29 +198,9 @@ def run(task, dataset_name = None, root = None):
         #df_training['text'] = df_training['text'].apply(clean)
         X = df_training['text'].values
         y, n_classes, classes_name = labelEncoder(df_training[label].values)
-        print(X.shape, y.shape)
-
-        # split X into a list of sentences, and for each sentences attach target info
-        new = pd.DataFrame({"text": [], "target": []})
-        
-        new_X = []
-        new_y = []
-
-        for ix in range(len(X)):
-            sent_text = nltk.sent_tokenize(X[ix])
-            for each_sent in sent_text:                              
-                new_X.append(str(each_sent))
-                new_y.append(y[ix])
-
-        new = pd.DataFrame({"text": new_X, "target": new_y})
-
-        new['text'] = new['text'].apply(clean)
-
-        X = new["text"].values
-        y = new["target"].values
 
         print(X.shape, y.shape)
-        
+
         # cnn model
         (expected_y, predicted_y, score_y, histories) = nn(X, y)
         
@@ -292,18 +272,18 @@ if __name__ == '__main__':
     global MAX_NUM_WORDS, MAX_SEQ_LENGTH
 
     # EMBEDDING
-    MAX_NUM_WORDS  = 25000 #15000
-    EMBEDDING_DIM  = 100
-    MAX_SEQ_LENGTH = 200 #200
+    MAX_NUM_WORDS  = 15000
+    EMBEDDING_DIM  = 300
+    MAX_SEQ_LENGTH = 200
     USE_GLOVE      = False
 
     # MODEL
-    FILTER_SIZES   = [3,4,5,6]
-    FEATURE_MAPS   = [100,100,100,100]
+    FILTER_SIZES   = [3,4,5]
+    FEATURE_MAPS   = [10,10,10]
     DROPOUT_RATE   = 0.5
 
     # LEARNING
-    BATCH_SIZE     = 32
+    BATCH_SIZE     = 200
     NB_EPOCHS      = 40
     RUNS           = 5
     VAL_SIZE       = 0.2
