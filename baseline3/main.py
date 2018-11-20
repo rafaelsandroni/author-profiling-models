@@ -102,7 +102,16 @@ def transform_tfidf(text, max_num_words = None, max_seq_length = None, vect = No
         #b = a[:, :, newaxis]
         b = a
 
-        return b, b.shape[1], b.shape[0], vect
+        print(b.shape)
+        if max_seq_length == None
+            max_seq_length = b.shape[1]
+
+        if max_num_words == None:
+            max_num_words = vect.vocabulary_
+
+        X = pad_sequences(b, maxlen=max_seq_length, padding='post')
+
+        return X, max_num_words, max_seq_length, vect
 
 def transform(text, max_num_words = None, max_seq_length = None, vect = None):
 
