@@ -98,11 +98,9 @@ def transform_tfidf(text, max_num_words = None, max_seq_length = None, vect = No
             tfidf = vect.transform(text)
 
         a = tfidf.toarray()
-        print(a[30])
-        b = a[:, :, newaxis]
+        b = a#a[:, :, newaxis]
         b = b.astype(numpy.float64)
-        #b = a
-        print(b[30])
+
         print(b.shape)
         if max_seq_length == None:
             max_seq_length = b.shape[1]
