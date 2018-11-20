@@ -82,7 +82,8 @@ def length(text):
 def transform(text, max_num_words = None, max_seq_length = None, vect = None):
 
     if vect == None:
-        vect = TfidfVectorizer.fit_transform(text, max_features=max_num_words)
+        vect = TfidfVectorizer(max_features=max_num_words)
+        #vect.fit_transform(text)
 
     tokenizer = Tokenizer(num_words=max_num_words)
     tokenizer.fit_on_texts(text)
@@ -276,7 +277,7 @@ if __name__ == '__main__':
 
     # EMBEDDING
     MAX_NUM_WORDS  = None
-    EMBEDDING_DIM  = 2
+    EMBEDDING_DIM  = 100
     MAX_SEQ_LENGTH = None
     USE_GLOVE      = False
 
@@ -286,7 +287,7 @@ if __name__ == '__main__':
     DROPOUT_RATE   = 0.5
 
     # LEARNING
-    BATCH_SIZE     = 10
+    BATCH_SIZE     = 100
     NB_EPOCHS      = 1000
     RUNS           = 5
     VAL_SIZE       = 0.2

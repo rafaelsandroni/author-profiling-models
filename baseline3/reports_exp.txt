@@ -1,0 +1,34 @@
+Creating CNN 0.0.1
+#############################################
+Embedding:    no pre-trained embedding
+Vocabulary size: 15000
+Embedding dim: 10
+Filter sizes: [7, 5, 6]
+Feature maps: [10, 10, 10]
+Max sequence: 2862
+#############################################
+Epoch 00059: early stopping
+271/271 [==============================] - 0s 812us/step
+Training: 	0.7874 loss / 0.6335 acc
+Validation: 	0.8777 loss / 0.6667 acc
+
+#batch size = 1000
+#emb = 2
+
+Creating CNN 0.0.1
+#############################################
+Embedding:    no pre-trained embedding
+Vocabulary size: 61066
+Embedding dim: 2
+Filter sizes: [7, 5, 6]
+Feature maps: [10, 10, 10]
+Max sequence: 2862
+#############################################
+Epoch 00006: early stopping
+271/271 [==============================] - 0s 630us/step
+Training: 	0.9812 loss / 0.5870 acc
+Validation: 	0.9676 loss / 0.5212 acc
+
+
+#batch size = 10
+#emb dim = 2
