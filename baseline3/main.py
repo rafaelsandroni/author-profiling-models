@@ -320,7 +320,7 @@ if __name__ == '__main__':
 
     # EMBEDDING
     MAX_NUM_WORDS  = None
-    EMBEDDING_DIM  = 10
+    EMBEDDING_DIM  = 100
     MAX_SEQ_LENGTH = None
     USE_EMB        = False
 

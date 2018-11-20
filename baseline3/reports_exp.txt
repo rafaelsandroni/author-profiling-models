@@ -63,3 +63,19 @@ Epoch 00023: early stopping
 310/310 [==============================] - 0s 834us/step
 Training: 	0.7777 loss / 0.6159 acc
 Validation: 	0.7507 loss / 0.7419 acc
+
+
+#embedding trainable
+Creating CNN 0.0.2
+#############################################
+Embedding:    no pre-trained embedding
+Vocabulary size: 61066
+Embedding dim: 10
+Filter sizes: [2, 3, 4]
+Feature maps: [10, 10, 10]
+Max sequence: 2862
+#############################################
+Epoch 00009: early stopping
+310/310 [==============================] - 0s 565us/step
+Training: 	1.0782 loss / 0.6105 acc
+Validation: 	1.0718 loss / 0.8710 acc
