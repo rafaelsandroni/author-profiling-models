@@ -286,7 +286,7 @@ if __name__ == '__main__':
     DROPOUT_RATE   = 0.5
 
     # LEARNING
-    BATCH_SIZE     = 1000
+    BATCH_SIZE     = 10
     NB_EPOCHS      = 1000
     RUNS           = 5
     VAL_SIZE       = 0.2
