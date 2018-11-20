@@ -4,6 +4,7 @@ from Models.functions.preprocessing import clean
 from Models.functions.cnn_model import build_cnn, build_dnn, build_simple_cnn
 
 import sys
+import ZipFile
 
 import keras, os, pickle, re, sklearn, string, tensorflow
 print('Keras version: \t\t%s' % keras.__version__)
