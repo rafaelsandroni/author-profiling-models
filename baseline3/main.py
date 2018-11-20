@@ -90,7 +90,7 @@ def transform(text, max_num_words = None, max_seq_length = None):
 
     # MAX_SEQ_LENGTH = np.max(arr_length)
     if max_seq_length == None:
-        max_seq_length = mean_length
+        max_seq_length = int(mean_length)
 
     if max_num_words == None:
         max_num_words = len(word_index)
