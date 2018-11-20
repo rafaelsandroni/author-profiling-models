@@ -61,11 +61,10 @@ def build_cnn(embedding_layer=None, num_words=None,
     
     channels = []
     x_in = Input(shape=(max_seq_length,1), dtype='int32')
-    emb_layer = x_in
-    #embedding_layer(x_in)
+    emb_layer = embedding_layer(x_in)
 
-    #if dropout_rate:
-        #emb_layer  = Dropout(dropout_rate)(emb_layer)
+    if dropout_rate:
+        emb_layer  = Dropout(dropout_rate)(emb_layer)
 
     for ix in range(len(filter_sizes)):
         x = create_channel(emb_layer, filter_sizes[ix], feature_maps[ix])
