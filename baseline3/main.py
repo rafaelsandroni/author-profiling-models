@@ -79,7 +79,10 @@ def length(text):
     result = [len(x.split()) for x in text]
     return np.min(result), np.max(result), np.mean(result)
 
-def transform(text, max_num_words = None, max_seq_length = None):
+def transform(text, max_num_words = None, max_seq_length = None, vect = None):
+
+    if vect == None:
+        vect = TfidfVectorizer.fit_transform(text, max_features=max_num_words)
 
     tokenizer = Tokenizer(num_words=max_num_words)
     tokenizer.fit_on_texts(text)
@@ -103,7 +106,7 @@ def transform(text, max_num_words = None, max_seq_length = None):
     # Padding all sequences to same length of `max_seq_length`
     X = pad_sequences(sequences, maxlen=max_seq_length, padding='post')
 
-    return X, max_num_words, max_seq_length
+    return X, max_num_words, max_seq_length, vect
     
 
 def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
@@ -146,9 +149,9 @@ def nn(X, y):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
 
-        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH = transform(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
+        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
 
-        X_test, _, _ = transform(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH)
+        X_test, _, _ = transform(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
       
         model = KerasClassifier(build_fn=create_model, 
                             max_num_words=_MAX_NUM_WORDS,
