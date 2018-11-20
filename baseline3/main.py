@@ -4,7 +4,7 @@ from Models.functions.preprocessing import clean
 from Models.functions.cnn_model import build_cnn, build_dnn, build_simple_cnn
 
 import sys
-import ZipFile
+import zipfile36 as zipfile
 
 import keras, os, pickle, re, sklearn, string, tensorflow
 print('Keras version: \t\t%s' % keras.__version__)
@@ -106,7 +106,7 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
     embeddings_index = model.wv
     embeddings_index = {}
     """
-    with ZipFile('../../Data/Embeddings/word2vec_pt_skip_s100.zip') as myzip:
+    with zipfile.ZipFile('../../Data/Embeddings/word2vec_pt_skip_s100.zip') as myzip:
         f = open(myzip.open('skip_s100.txt'))
         for line in f:
             values = line.split()
