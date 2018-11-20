@@ -161,8 +161,7 @@ def nn(X, y):
                                 ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
                                 EarlyStopping(monitor='val_loss', min_delta=0.005, patience=4, verbose=1)
                             ])
-        clf = GridSearchCV(model, parameters, cv=5)
-
+        # fitting
         history = model.fit(X_train, y_train)
         histories.append(history.history)
 
