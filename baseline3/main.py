@@ -108,7 +108,7 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
     """
     path_cloud = '../../gdrive/My Drive/Mestrado/Data/Embeddings/'
     with zipfile.ZipFile(path_cloud + '/word2vec_pt_skip_s100.zip') as myzip:
-        f = open(myzip.open('skip_s100.txt'))
+        f = myzip.open('skip_s100.txt')
         for line in f:
             values = line.split()
             word = values[0]
