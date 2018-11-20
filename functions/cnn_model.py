@@ -15,7 +15,7 @@ from keras.layers.merge import concatenate
 from keras import regularizers
 from keras.models import Model, Sequential
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 def build_cnn(embedding_layer=None, num_words=None,
               embedding_dim=None, filter_sizes=[3,4,5,6],
@@ -60,11 +60,12 @@ def build_cnn(embedding_layer=None, num_words=None,
                                    )
     
     channels = []
-    x_in = Input(shape=(max_seq_length,), dtype='int32')
-    emb_layer = embedding_layer(x_in)
+    x_in = Input(shape=(max_seq_length,1), dtype='int32')
+    emb_layer = x_in
+    #embedding_layer(x_in)
 
-    if dropout_rate:
-        emb_layer  = Dropout(dropout_rate)(emb_layer)
+    #if dropout_rate:
+        #emb_layer  = Dropout(dropout_rate)(emb_layer)
 
     for ix in range(len(filter_sizes)):
         x = create_channel(emb_layer, filter_sizes[ix], feature_maps[ix])
