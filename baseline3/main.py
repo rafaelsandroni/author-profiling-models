@@ -98,7 +98,8 @@ def transform_tfidf(text, max_num_words = None, max_seq_length = None, vect = No
 
         a = tfidf.toarray()
 
-        b = a[:, :, newaxis]
+        #b = a[:, :, newaxis]
+        b = a
 
         return b, b.shape[1], b.shape[0], vect
 
