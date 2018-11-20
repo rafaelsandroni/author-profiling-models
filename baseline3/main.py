@@ -98,10 +98,10 @@ def transform_tfidf(text, max_num_words = None, max_seq_length = None, vect = No
             tfidf = vect.transform(text)
 
         a = tfidf.toarray()
-
-        #b = a[:, :, newaxis]
-        b = a
-
+        print(a[30])
+        b = a[:, :, newaxis]
+        #b = a
+        print(b[30])
         print(b.shape)
         if max_seq_length == None:
             max_seq_length = b.shape[1]
@@ -109,8 +109,8 @@ def transform_tfidf(text, max_num_words = None, max_seq_length = None, vect = No
         if max_num_words == None:
             max_num_words = len(vect.vocabulary_)
 
-        X = pad_sequences(b, maxlen=max_seq_length, padding='post')
-
+        #X = pad_sequences(b, maxlen=max_seq_length, padding='post')
+        X = b
         return X, max_num_words, max_seq_length, vect
 
 def transform(text, max_num_words = None, max_seq_length = None, vect = None):
