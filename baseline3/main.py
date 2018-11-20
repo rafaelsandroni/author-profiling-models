@@ -103,7 +103,7 @@ def transform_tfidf(text, max_num_words = None, max_seq_length = None, vect = No
         b = a
 
         print(b.shape)
-        if max_seq_length == None
+        if max_seq_length == None:
             max_seq_length = b.shape[1]
 
         if max_num_words == None:
