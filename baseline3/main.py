@@ -88,30 +88,6 @@ def length(text):
     result = [len(x.split()) for x in text]
     return np.min(result), np.max(result), np.mean(result)
 
-
-def transform_tfidf(text, max_num_words = None, max_seq_length = None, vect = None):
-
-        if vect == None:
-            vect = TfidfVectorizer(use_idf=True, min_df=0.2, max_df=0.9, max_features=max_num_words)
-            tfidf = vect.fit_transform(text)
-        else:
-            tfidf = vect.transform(text)
-
-        a = tfidf.toarray()
-        b = a#a[:, :, newaxis]
-        b = b.astype(np.float64)
-
-        print(b.shape)
-        if max_seq_length == None:
-            max_seq_length = b.shape[1]
-
-        if max_num_words == None:
-            max_num_words = len(vect.vocabulary_)
-
-        #X = pad_sequences(b, maxlen=max_seq_length, padding='post')
-        X = b
-        return X, max_num_words, max_seq_length, vect
-
 def transform(text, max_num_words = None, max_seq_length = None, vect = None):
 
 
@@ -184,17 +160,12 @@ def nn(X, y):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
 
-        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform_tfidf(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
+        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
 
-        X_test, _, _, _ = transform_tfidf(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
+        X_test, _, _, _ = transform(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
 
         X_train, y_train = oversampling(X_train, y_train)
         X_test,  y_test  = oversampling(X_test,  y_test)
-
-        print(type(X_train))
-
-        X_train = np.array(X_train).astype(np.float64)
-        X_test = np.array(X_test).astype(np.float64)
 
         #if USE_EMB == True:
         #    embbedding_layer(X_train, X_test, vect)
