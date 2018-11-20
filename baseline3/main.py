@@ -343,7 +343,7 @@ if __name__ == '__main__':
     USE_EMBEDDINGS = True
 
     # MODEL
-    FILTER_SIZES   = [7,7,7,6,6,6]
+    FILTER_SIZES   = [7,7,7]
     FEATURE_MAPS   = [10,10,10]
     DROPOUT_RATE   = 0.5
 
