@@ -52,15 +52,10 @@ import multiprocessing
 from sklearn import utils
 from gensim.models import KeyedVectors
 
-
 def train_vectors(X, y):
 
-	try:
-		all_x_w2v = [TaggedDocument(doc.split(), [i]) for i, doc in enumerate(X)]
-	except:
-		print("trying without .split()")
-		all_x_w2v = [TaggedDocument(doc, [i]) for i, doc in enumerate(X)]
-	
+    all_x_w2v = [TaggedDocument(doc.split(), [i]) for i, doc in enumerate(X)]
+
     # CBOW
     """
     cores = multiprocessing.cpu_count()
