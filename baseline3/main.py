@@ -79,7 +79,7 @@ def train_vectors(X, y):
         model_ug_sg.min_alpha = model_ug_sg.alpha
 
     #model_ug_cbow.save('/content/w2v_model_ug_cbow.word2vec')
-    model_ug_sg.save('/content/w2v_model_ug_sg.word2vec')
+    model_ug_sg.save('/content/gdrive/My Drive/Mestrado/Embeddings/w2v_model_ug_sg.word2vec')
 
 # Synthetic Minority Oversampling Technique (SMOTE)
 def oversampling(X, y):
@@ -132,7 +132,7 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
     print('training embeddings...')
 
     #model_ug_cbow = KeyedVectors.load('/content/w2v_model_ug_cbow.word2vec')
-    model_ug_sg = KeyedVectors.load('/content/w2v_model_ug_sg.word2vec')
+    model_ug_sg = KeyedVectors.load('/content/gdrive/My Drive/Mestrado/Embeddings/w2v_model_ug_sg.word2vec')
 
     print("Vocab keys", len(model_ug_sg.wv.vocab.keys()))
 
@@ -152,10 +152,12 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
         if embedding_vector is not None:
             embedding_matrix[i] = embedding_vector
 
+    print("weights", len(embedding_matrix))
+
     return Embedding(input_dim=max_num_words, output_dim=EMBEDDING_DIM,
                      input_length=max_seq_length,
                      weights=[embedding_matrix],
-                     trainable=False
+                     trainable=True
                     )
 
 def transform(text, max_num_words = None, max_seq_length = None, tokenizer = None):
@@ -172,7 +174,7 @@ def transform(text, max_num_words = None, max_seq_length = None, tokenizer = Non
 
     # MAX_SEQ_LENGTH = np.max(arr_length)
     if max_seq_length == None:
-        max_seq_length = int(mean_length)
+        max_seq_length = int(max_length)
 
     if max_num_words == None:
         max_num_words = len(word_index)
