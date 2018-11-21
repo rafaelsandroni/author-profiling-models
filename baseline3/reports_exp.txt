@@ -134,3 +134,21 @@ confusion-matrix
 Normalized confusion matrix
 [[0.91182796 0.08817204]
  [0.87311828 0.12688172]]
+
+
+
+#############################################
+USING MEAN/2 LENGTH
+Vocabulary size: 61066
+Embedding dim: 100
+Filter sizes: [7, 7, 7]
+Feature maps: [10, 10, 10]
+Max sequence: 1431
+Training: 	1.3024 loss / 0.7730 acc
+Validation: 	1.3598 loss / 0.8065 acc
+confusion-matrix
+[[401  64]
+ [344 121]]
+Normalized confusion matrix
+[[0.86236559 0.13763441]
+ [0.73978495 0.26021505]]

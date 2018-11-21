@@ -174,7 +174,7 @@ def transform(text, max_num_words = None, max_seq_length = None, tokenizer = Non
 
     # MAX_SEQ_LENGTH = np.max(arr_length)
     if max_seq_length == None:
-        max_seq_length = int(mean_length/2)
+        max_seq_length = int(mean_length)
 
     if max_num_words == None:
         max_num_words = len(word_index)
@@ -371,7 +371,7 @@ if __name__ == '__main__':
     USE_EMBEDDINGS = True
 
     # MODEL
-    FILTER_SIZES   = [7,7,7]
+    FILTER_SIZES   = [2,3,4]
     FEATURE_MAPS   = [10,10,10]
     DROPOUT_RATE   = 0.5
 
