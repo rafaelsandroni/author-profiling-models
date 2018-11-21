@@ -52,11 +52,15 @@ import multiprocessing
 from sklearn import utils
 from gensim.models import KeyedVectors
 
-def tagged_text(X): return [TaggedDocument(doc, [i]) for i, doc in enumerate(X)]
 
 def train_vectors(X, y):
-    all_x_w2v = labelize_text(X, y)
 
+	try:
+		all_x_w2v = [TaggedDocument(doc.split(), [i]) for i, doc in enumerate(X)]
+	except:
+		print("trying without .split()")
+		all_x_w2v = [TaggedDocument(doc, [i]) for i, doc in enumerate(X)]
+	
     # CBOW
     """
     cores = multiprocessing.cpu_count()
@@ -72,7 +76,7 @@ def train_vectors(X, y):
     #SKIPGRAM
 
     model_ug_sg = Word2Vec(sg=1, size=100, negative=5, window=2, min_count=2, workers=cores, alpha=0.065, min_alpha=0.065)
-    model_ug_sg.build_vocab([x.words for x in tqdm(all_x_w2v)])
+    model_ug_sg.build_vocab([x.words for x in all_x_w2v])
 
     for epoch in range(30):
         model_ug_sg.train(utils.shuffle([x.words for x in all_x_w2v]), total_examples=len(all_x_w2v), epochs=1)
