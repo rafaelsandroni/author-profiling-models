@@ -55,7 +55,7 @@ from gensim.models import KeyedVectors
 def labelize_text(X, y):
     result = []
     for idx in range(len(X)):
-        result.append(TaggedDocument(X[idx].split(), [i[idx]))
+        result.append(TaggedDocument(X[idx].split(), [y[idx] +"_"+ idx]))
     return result
 
 def train_vectors(X, y):
