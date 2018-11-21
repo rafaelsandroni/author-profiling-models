@@ -112,9 +112,9 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
         f = myzip.open('skip_s100.txt')
         for line in f:
             values = line.split()
-            word = values[0]
+            word1 = values[0]
             coefs = np.asarray(values[1:], dtype='float32')
-            embeddings_index[word] = coefs
+            embeddings_index[word1] = coefs
         f.close()
 
     print('Found %s word vectors in embedding' % len(embeddings_index))
@@ -128,9 +128,10 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
         if embedding_vector is not None:
             embedding_matrix[i] = embedding_vector
  
-
+    print(word1, embeddings_index.get(word1))
     print(word, embeddings_index.get(word))
-    print(i-1, embedding_matrix[i-1])
+    if word is not None:
+        print(i, embedding_matrix[i])
 
     return Embedding(input_dim=max_num_words, output_dim=EMBEDDING_DIM,
                      input_length=max_seq_length,
