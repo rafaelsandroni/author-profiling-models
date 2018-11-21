@@ -56,9 +56,9 @@ def train_vectors(X, y):
 
     all_x_w2v = [TaggedDocument(doc.split(), [i]) for i, doc in enumerate(X)]
 
+    cores = multiprocessing.cpu_count()
     # CBOW
     """
-    cores = multiprocessing.cpu_count()
     model_ug_cbow = Word2Vec(sg=0, size=100, negative=5, window=2, min_count=2, workers=cores, alpha=0.065, min_alpha=0.065)
     model_ug_cbow.build_vocab([x.words for x in tqdm(all_x_w2v)])
 
