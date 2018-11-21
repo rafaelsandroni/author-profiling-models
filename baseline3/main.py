@@ -137,7 +137,7 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
     print("Vocab keys", len(model_ug_sg.wv.vocab.keys()))
 
     embeddings_index = {}
-    for w in model_ug_cbow.wv.vocab.keys():
+    for w in model_ug_sg.wv.vocab.keys():
         #embeddings_index[w] = np.append(model_ug_cbow.wv[w],model_ug_sg.wv[w])
         embeddings_index[w] = model_ug_sg.wv[w]
 
