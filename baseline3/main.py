@@ -130,8 +130,9 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
  
     print(word1, embeddings_index.get(word1))
     print(word, embeddings_index.get(word))
-    if word is not None:
-        print(i, embedding_matrix[i])
+    if embedding_vector is not None:
+        print(np.array_equal(embedding_matrix[i] ,embeddings_index.get(word)))
+
 
     return Embedding(input_dim=max_num_words, output_dim=EMBEDDING_DIM,
                      input_length=max_seq_length,
