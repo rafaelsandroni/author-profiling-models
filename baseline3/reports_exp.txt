@@ -102,6 +102,7 @@ Normalized confusion matrix
  [0.60215054 0.39784946]]
 
 #############################################
+MEAN LENGTH
 Vocabulary size: 61066
 Embedding dim: 100
 Filter sizes: [7, 7, 7]
@@ -115,3 +116,21 @@ confusion-matrix
 Normalized confusion matrix
 [[0.68817204 0.31182796]
  [0.47956989 0.52043011]]
+
+#############################################
+USING MAX LENGTH
+Vocabulary size: 61066
+Embedding dim: 100
+Filter sizes: [7, 7, 7]
+Feature maps: [10, 10, 10]
+Max sequence: 18069
+Training: 	4.2348 loss / 0.5938 acc
+Validation: 	1.5539 loss / 0.7097 acc
+<matplotlib.figure.Figure at 0x7f96c565b2b0>
+<matplotlib.figure.Figure at 0x7f96c50d9320>
+confusion-matrix
+[[424  41]
+ [406  59]]
+Normalized confusion matrix
+[[0.91182796 0.08817204]
+ [0.87311828 0.12688172]]

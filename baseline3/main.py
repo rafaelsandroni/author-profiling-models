@@ -174,7 +174,7 @@ def transform(text, max_num_words = None, max_seq_length = None, tokenizer = Non
 
     # MAX_SEQ_LENGTH = np.max(arr_length)
     if max_seq_length == None:
-        max_seq_length = int(max_length)
+        max_seq_length = int(mean_length/2)
 
     if max_num_words == None:
         max_num_words = len(word_index)
