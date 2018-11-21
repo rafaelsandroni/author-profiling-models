@@ -42,7 +42,50 @@ from nltk.corpus import stopwords
 import nltk
 
 from imblearn.over_sampling import SMOTE, ADASYN
+
+#from tqdm import tqdm
+#tqdm.pandas(desc="progress-bar")
 import gensim
+from gensim.models.word2vec import Word2Vec
+from gensim.models.doc2vec import TaggedDocument
+import multiprocessing
+from sklearn import utils
+from gensim.models import KeyedVectors
+
+def labelize_text(X, y):
+    result = []
+    for idx in range(len(X)):
+        result.append(TaggedDocument(X[idx].split(), [i[idx]))
+    return result
+
+def train_vectors(X, y):
+    all_x_w2v = labelize_text(X, y)
+
+    # CBOW
+    """
+    cores = multiprocessing.cpu_count()
+    model_ug_cbow = Word2Vec(sg=0, size=100, negative=5, window=2, min_count=2, workers=cores, alpha=0.065, min_alpha=0.065)
+    model_ug_cbow.build_vocab([x.words for x in tqdm(all_x_w2v)])
+
+    %%time
+    for epoch in range(30):
+        model_ug_cbow.train(utils.shuffle([x.words for x in tqdm(all_x_w2v)]), total_examples=len(all_x_w2v), epochs=1)
+        model_ug_cbow.alpha -= 0.002
+        model_ug_cbow.min_alpha = model_ug_cbow.alpha
+    """
+    #SKIPGRAM
+
+    model_ug_sg = Word2Vec(sg=1, size=100, negative=5, window=2, min_count=2, workers=cores, alpha=0.065, min_alpha=0.065)
+    model_ug_sg.build_vocab([x.words for x in tqdm(all_x_w2v)])
+
+    %%time
+    for epoch in range(30):
+        model_ug_sg.train(utils.shuffle([x.words for x in all_x_w2v]), total_examples=len(all_x_w2v), epochs=1)
+        model_ug_sg.alpha -= 0.002
+        model_ug_sg.min_alpha = model_ug_sg.alpha
+
+    #model_ug_cbow.save('/content/w2v_model_ug_cbow.word2vec')
+    model_ug_sg.save('/content/w2v_model_ug_sg.word2vec')
 
 # Synthetic Minority Oversampling Technique (SMOTE)
 def oversampling(X, y):
@@ -94,50 +137,31 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
 
     print('training embeddings...')
 
-    """
-    model = gensim.models.Word2Vec(
-        text,
-        size=EMBEDDING_DIM,
-        window=10,
-        min_count=2,
-        workers=10)
+    #model_ug_cbow = KeyedVectors.load('/content/w2v_model_ug_cbow.word2vec')
+    model_ug_sg = KeyedVectors.load('/content/w2v_model_ug_sg.word2vec')
 
-    model.train(text, total_examples=len(text), epochs=10)
-    embeddings_index = model.wv
-    """
+    print("Vocab keys", len(model_ug_sg.wv.vocab.keys()))
 
     embeddings_index = {}
-    path_cloud = '../../gdrive/My Drive/Mestrado/Data/Embeddings/'
-    with zipfile.ZipFile(path_cloud + '/fasttext_pt_skip_s100.zip') as myzip:
-        f = myzip.open('skip_s100.txt')
-        for line in f:
-            values = line.split()
-            word1 = values[0]
-            coefs = np.asarray(values[1:], dtype='float32')
-            embeddings_index[word1] = coefs
-        f.close()
+    for w in model_ug_cbow.wv.vocab.keys():
+        #embeddings_index[w] = np.append(model_ug_cbow.wv[w],model_ug_sg.wv[w])
+        embeddings_index[w] = model_ug_sg.wv[w]
 
-    print('Found %s word vectors in embedding' % len(embeddings_index))
-
-    embedding_matrix = np.zeros((max_num_words, EMBEDDING_DIM))
-
+    print('Found %s word vectors.' % len(embeddings_index))
+    
+    num_words = max_num_words
+    embedding_matrix = np.zeros((num_words, 100))
     for word, i in tokenizer.word_index.items():
-        if i >= max_num_words:
+        if i >= num_words:
             continue
         embedding_vector = embeddings_index.get(word)
         if embedding_vector is not None:
             embedding_matrix[i] = embedding_vector
- 
-    print(word1, embeddings_index.get(word1))
-    print(word, embeddings_index.get(word))
-    if embedding_vector is not None:
-        print(np.array_equal(embedding_matrix[i] ,embeddings_index.get(word)))
-
 
     return Embedding(input_dim=max_num_words, output_dim=EMBEDDING_DIM,
                      input_length=max_seq_length,
                      weights=[embedding_matrix],
-                     trainable=True
+                     trainable=False
                     )
 
 def transform(text, max_num_words = None, max_seq_length = None, tokenizer = None):
@@ -202,7 +226,9 @@ def nn(X, y):
     expected_y = []
 
     emb_layer = None
-    
+
+    train_vectors(X, y)
+
     K = StratifiedKFold(n_splits=3)
 
     for train_index, test_index in K.split(X, y):
