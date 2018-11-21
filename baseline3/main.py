@@ -78,7 +78,6 @@ def train_vectors(X, y):
     model_ug_sg = Word2Vec(sg=1, size=100, negative=5, window=2, min_count=2, workers=cores, alpha=0.065, min_alpha=0.065)
     model_ug_sg.build_vocab([x.words for x in tqdm(all_x_w2v)])
 
-    %%time
     for epoch in range(30):
         model_ug_sg.train(utils.shuffle([x.words for x in all_x_w2v]), total_examples=len(all_x_w2v), epochs=1)
         model_ug_sg.alpha -= 0.002
