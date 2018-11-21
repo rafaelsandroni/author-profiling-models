@@ -70,7 +70,7 @@ def train_vectors(X, y):
     """
     #SKIPGRAM
 
-    model_ug_sg = Word2Vec(sg=1, size=100, negative=5, window=2, min_count=2, workers=cores, alpha=0.065, min_alpha=0.065)
+    model_ug_sg = Word2Vec(sg=1, size=EMBEDDING_DIM, negative=5, window=2, min_count=2, workers=cores, alpha=0.065, min_alpha=0.065)
     model_ug_sg.build_vocab([x.words for x in all_x_w2v])
 
     for epoch in range(30):
@@ -79,7 +79,7 @@ def train_vectors(X, y):
         model_ug_sg.min_alpha = model_ug_sg.alpha
 
     #model_ug_cbow.save('/content/w2v_model_ug_cbow.word2vec')
-    model_ug_sg.save('/content/gdrive/My Drive/Mestrado/Data/Embeddings/w2v_model_ug_sg.word2vec')
+    model_ug_sg.save('/content/gdrive/My Drive/Mestrado/Data/Embeddings/'+g_dataset_name+'_w2v_model_ug_sg_'+EMBEDDING_DIM+'.word2vec')
 
 # Synthetic Minority Oversampling Technique (SMOTE)
 def oversampling(X, y):
@@ -132,7 +132,7 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
     print('training embeddings...')
 
     #model_ug_cbow = KeyedVectors.load('/content/w2v_model_ug_cbow.word2vec')
-    model_ug_sg = KeyedVectors.load('/content/gdrive/My Drive/Mestrado/Data/Embeddings/w2v_model_ug_sg.word2vec')
+    model_ug_sg = KeyedVectors.load('/content/gdrive/My Drive/Mestrado/Data/Embeddings/'+g_dataset_name+'_w2v_model_ug_sg_'+EMBEDDING_DIM+'.word2vec')
 
     print("Vocab keys", len(model_ug_sg.wv.vocab.keys()))
 
@@ -144,7 +144,7 @@ def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
     print('Found %s word vectors.' % len(embeddings_index))
     
     num_words = max_num_words
-    embedding_matrix = np.zeros((num_words, 100))
+    embedding_matrix = np.zeros((num_words, EMBEDDING_DIM))
     for word, i in tokenizer.word_index.items():
         if i >= num_words:
             continue
@@ -358,11 +358,11 @@ def get_avg(histories, his_key):
     
 if __name__ == '__main__':    
 
-    task = sys.argv[1]
-    dataset_name = sys.argv[2]
-    root = sys.argv[3]
+    global MAX_NUM_WORDS, MAX_SEQ_LENGTH, g_task, g_dataset_name, g_root
 
-    global MAX_NUM_WORDS, MAX_SEQ_LENGTH
+    g_task = task = sys.argv[1]
+    g_dataset_name = dataset_name = sys.argv[2]
+    g_root = root = sys.argv[3]
 
     # EMBEDDING
     MAX_NUM_WORDS  = None
@@ -371,7 +371,7 @@ if __name__ == '__main__':
     USE_EMBEDDINGS = True
 
     # MODEL
-    FILTER_SIZES   = [2,3,4]
+    FILTER_SIZES   = [1,2,3]
     FEATURE_MAPS   = [10,10,10]
     DROPOUT_RATE   = 0.5
 
