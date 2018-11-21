@@ -87,7 +87,6 @@ Validation: 	1.0718 loss / 0.8710 acc
 ## USING TRAINED VECTORES
 
 Creating CNN 0.0.2
-Embedding:    using pre-trained embedding
 Vocabulary size: 61066
 Embedding dim: 100
 Filter sizes: [7, 7, 7]
@@ -103,13 +102,11 @@ Normalized confusion matrix
  [0.60215054 0.39784946]]
 
 #############################################
-Embedding:    using pre-trained embedding
 Vocabulary size: 61066
 Embedding dim: 100
 Filter sizes: [7, 7, 7]
 Feature maps: [10, 10, 10]
 Max sequence: 2862
-#############################################
 Training: 	2.6332 loss / 0.7109 acc
 Validation: 	1.2383 loss / 0.9731 acc
 confusion-matrix
