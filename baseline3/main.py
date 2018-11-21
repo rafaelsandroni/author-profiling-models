@@ -52,11 +52,7 @@ import multiprocessing
 from sklearn import utils
 from gensim.models import KeyedVectors
 
-def labelize_text(X, y):
-    result = []
-    for idx in range(len(X)):
-        result.append(TaggedDocument(X[idx].split(), [y[idx] +"_"+ idx]))
-    return result
+def tagged_text(X): return [TaggedDocument(doc, [i]) for i, doc in enumerate(X)]
 
 def train_vectors(X, y):
     all_x_w2v = labelize_text(X, y)
