@@ -22,7 +22,7 @@ def getDatasets(task = None, file_type = '_', dataset_name = None, root = None):
     root = root or '/home/rafael/drive/Data/Dataframe/'
     print("loading from", root)
     columns = {'dataset_name': 0,'path': 0,'task': 0,'training': 0,'test': 0}
-    datasets_name = ['b5post', 'esic', 'brmoral', 'enblogs', 'brblogset', 'pan13_en','pan13_es']
+    datasets_name = ['b5post', 'esic', 'brmoral', 'enblogs', 'brblogset', 'pan13_en','pan13_es','smscorpus']
     datasets = pd.DataFrame(columns=columns)
     # mount dataset dataframe
     for ds in datasets_name:    
@@ -50,62 +50,28 @@ def getDatasets(task = None, file_type = '_', dataset_name = None, root = None):
     return datasets
 
 
-
-def loadDataframe(task, dataset, root = None):
-    if task == None:
-        return False
+def loadTrainTest(task, dataset_name, root, lang = "pt"):
     
-    results = []
-    
-    datasets = getDatasets(task,'df', dataset, root)
+    task = task.lower()
+    dataset_name = dataset_name.lower()
 
-    for i in datasets.iterrows():    
-        name = i[1]['dataset_name']
-        label = task        
-        ds_path = i[1]['path']
+    extension = "df"
 
-        # load training and test dataframes
-        training_path = ds_path + '/' + i[1]['training']
-        test_path = ds_path + '/' +  i[1]['test']
-        
-        df_training = pd.read_csv(training_path)#, usecols=cols)
-        df_test = pd.read_csv(test_path)#, usecols=cols)
-    
-        # X_train = df_training['text'].values
-        # y_train, _ = labelEncoder(df_training[label].values)
+    train_filename = "{0}_{1}_training_{2}.csv".format(task, lang, extension)
+    test_filename = "{0}_{1}_test_{2}.csv".format(task, lang, extension)
 
-        # X_test = df_test['text'].values
-        # y_test, n_classes = labelEncoder(df_test[label].values)    
-        #df = pd.concat([df_training, df_test])
-        # return (df_training, df_test)
-        
-    return (df_training, df_test)
+    root += "/"
+    root += dataset_name
+    root += "/"
 
-
-def load(task, dataset_name, root = None):
-
-    datasets = getDatasets(task,'df', dataset_name, root)
-    
-    X_train, X_test, y_train, y_test = [], [], [], []
-
-    arr = datasets.values
-    name = arr[0][0]
-    ds_path = arr[0][1]
-    label = arr[0][2]
-    training_file = arr[0][3]
-    test_file = arr[0][4]
+    df_training = pd.read_csv(root + training_filename)
+    df_test = pd.read_csv(root + test_filename)
 
     # load training and test dataframes
-    training_path = ds_path + '/' + training_file
-    test_path = ds_path + '/' +  test_file
-
-    df_training = pd.read_csv(training_path)#, usecols=cols)
-    df_test = pd.read_csv(test_path)#, usecols=cols)
-
     X_train = df_training['text'].values
-    y_train = df_training[label].values
+    y_train = df_training[task].values
 
     X_test = df_test['text'].values
-    y_test = df_test[label].values
+    y_test = df_test[task].values
 
     return (X_train, X_test, y_train, y_test)
