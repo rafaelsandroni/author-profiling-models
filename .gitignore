@@ -2,3 +2,4 @@ dist
 build
 Models.egg-info
 .ipynb_checkpoints
+Models

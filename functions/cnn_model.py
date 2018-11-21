@@ -56,7 +56,7 @@ def build_cnn(embedding_layer=None, num_words=None,
         embedding_layer = Embedding(input_dim=num_words, output_dim=embedding_dim,
                                     input_length=max_seq_length,
                                     weights=None,
-                                    trainable=True
+                                    trainable=False
                                    )
     
     channels = []
