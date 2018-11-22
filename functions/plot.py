@@ -1,16 +1,13 @@
 from scipy import interp
 from itertools import cycle
-from sklearn.metrics import roc_curve, auc
+from sklearn.metrics import roc_curve, auc, accuracy_score, classification_report, confusion_matrix
 from sklearn.preprocessing import label_binarize
 import matplotlib.pyplot as plt
 import numpy as np
 import os
 import itertools
 import matplotlib.pyplot as plt
-
-def checkFolder(directory):    
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+from Models.functions.utils import checkFolder
 
 def ROC(y_test, y_score, n_classes, task = None, dataset_name = None, classes_name = None):
     
@@ -166,7 +163,7 @@ def plot_confusion_matrix(cm, classes, task = None, dataset_name = None, normali
 
 
 
-def plot_history(history):
+def plot_history(history, directory = ''):
     loss_list = [s for s in history.history.keys() if 'loss' in s and 'val' not in s]
     val_loss_list = [s for s in history.history.keys() if 'loss' in s and 'val' in s]
     acc_list = [s for s in history.history.keys() if 'acc' in s and 'val' not in s]
@@ -176,6 +173,9 @@ def plot_history(history):
         print('Loss is missing in history')
         return 
     
+    ## check directory folder
+    checkFolder(directory)
+
     ## As loss always exists
     epochs = range(1,len(history.history[loss_list[0]]) + 1)
     
@@ -190,7 +190,10 @@ def plot_history(history):
     plt.xlabel('Epochs')
     plt.ylabel('Loss')
     plt.legend()
-    
+    #plt.show()
+    plt.savefig(directory + '/loss.pdf')
+    plt.gcf().clear()
+
     ## Accuracy
     plt.figure(2)
     for l in acc_list:
@@ -202,9 +205,12 @@ def plot_history(history):
     plt.xlabel('Epochs')
     plt.ylabel('Accuracy')
     plt.legend()
-    plt.show()
+    #plt.show()
+    plt.savefig(directory + '/accuracy.pdf')
+    plt.gcf().clear()
 
-def plot_confusion_matrix2(cm, classes,
+
+def plot_confusion_matrix2(cm, classes, directory = '',
                           normalize=False,
                           cmap=plt.cm.Blues):
     """
@@ -242,6 +248,7 @@ def full_multiclass_report(model,
                            x,
                            y_true,
                            classes,
+                           directory='',
                            batch_size=32,
                            binary=False):
 
@@ -263,8 +270,8 @@ def full_multiclass_report(model,
     print(classification_report(y_true,y_pred,digits=5))    
     
     # 5. Plot confusion matrix
-    cnf_matrix = confusion_matrix2(y_true,y_pred)
+    cnf_matrix = confusion_matrix(y_true,y_pred)
     print(cnf_matrix)
-    plot_confusion_matrix(cnf_matrix,classes=classes)
+    plot_confusion_matrix2(cnf_matrix,classes=classes, directory)
     
 
