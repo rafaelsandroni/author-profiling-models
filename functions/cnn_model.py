@@ -61,10 +61,13 @@ def build_cnn(embedding_layer=None, num_words=None,
     
     channels = []
     x_in = Input(shape=(max_seq_length,), dtype='int32')
-    emb_layer = embedding_layer(x_in)
+    print(x_in)
+    print(type(x_in.shape))
+    """
+    # emb_layer = embedding_layer(x_in)
 
-    if dropout_rate:
-        emb_layer  = Dropout(dropout_rate)(emb_layer)
+    # if dropout_rate:
+        # emb_layer  = Dropout(dropout_rate)(x_in) # emb_layer)
 
     for ix in range(len(filter_sizes)):
         x = create_channel(emb_layer, filter_sizes[ix], feature_maps[ix])
@@ -76,6 +79,7 @@ def build_cnn(embedding_layer=None, num_words=None,
         x = Dropout(dropout_rate)(x)
 
     x = Activation('relu')(x)
+    """
     x = Dense(1, activation='sigmoid')(x)
     
     return Model(inputs=x_in, outputs=x)

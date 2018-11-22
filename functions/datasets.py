@@ -57,7 +57,7 @@ def loadTrainTest(task, dataset_name, root, lang = "pt"):
 
     extension = "df"
 
-    train_filename = "{0}_{1}_training_{2}.csv".format(task, lang, extension)
+    training_filename = "{0}_{1}_training_{2}.csv".format(task, lang, extension)
     test_filename = "{0}_{1}_test_{2}.csv".format(task, lang, extension)
 
     root += "/"
