@@ -190,8 +190,8 @@ def plot_history(history, directory = ''):
     plt.xlabel('Epochs')
     plt.ylabel('Loss')
     plt.legend()
-    #plt.show()
     plt.savefig(directory + '/loss.pdf')
+    plt.show()
     plt.gcf().clear()
 
     ## Accuracy
@@ -205,8 +205,8 @@ def plot_history(history, directory = ''):
     plt.xlabel('Epochs')
     plt.ylabel('Accuracy')
     plt.legend()
-    #plt.show()
     plt.savefig(directory + '/accuracy.pdf')
+    plt.show()
     plt.gcf().clear()
 
 
@@ -272,6 +272,6 @@ def full_multiclass_report(model,
     # 5. Plot confusion matrix
     cnf_matrix = confusion_matrix(y_true,y_pred)
     print(cnf_matrix)
-    plot_confusion_matrix2(cnf_matrix,classes=classes, directory)
+    plot_confusion_matrix2(cnf_matrix,classes=classes,directory=directory)
     
 
