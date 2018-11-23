@@ -14,7 +14,7 @@ def listProblems():
 		'brblogset':	[['gender','age','education'],                          ['pt']],
 		'enblog':	[['gender','age'],                                      ['en']],
 		'pan13':	[['gender','age'],                                      ['en','es']],
-		'smscorpus':	[['gender','age'],                                      ['en']]
+		'smsCorpus':	[['gender','age'],                                      ['en']]
     }
 
     problems = []
