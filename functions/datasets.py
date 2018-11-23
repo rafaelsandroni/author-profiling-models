@@ -54,8 +54,8 @@ def loadTrainTest(task, dataset_name, root, lang = "pt", full_data = False, nrow
  
     if nrows is not None: print("loading {0} rows".format(nrows))
 
-    task = task.lower()
-    dataset_name = dataset_name.lower()
+    task = task
+    dataset_name = dataset_name#.lower()
 
     extension = "df"
     _task = task
