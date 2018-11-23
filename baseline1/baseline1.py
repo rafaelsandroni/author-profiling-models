@@ -83,8 +83,8 @@ def model(X, y, n_classes, classes_name, params):
         X_train = vect.fit_transform(X_train)
         X_test = vect.transform(X_test)
         
-        X_train, y_train = oversampling(X_train, y_train)
-        X_test, y_test = oversampling(X_test, y_test)
+        X_train, y_train = oversampling(X_train.toarray(), y_train)
+        X_test, y_test = oversampling(X_test.toarray(), y_test)
 
         clf = LogisticRegression(C=params.get('clf__C'), penalty=params.get('clf__penalty'), solver='liblinear')
         
@@ -94,8 +94,8 @@ def model(X, y, n_classes, classes_name, params):
         expected_y.extend(y_test)
         score_y.extend(clf.predict_proba(X_test))
 
-    # print("done in %0.2fs and %0.1fmin" % ((time() - t0), ((time() - t0) / 60) ))
-    # print()
+    print("done in %0.2fs and %0.1fmin" % ((time() - t0), ((time() - t0) / 60) ))
+    print()
     
     report = pd.DataFrame(classification_report(expected_y, predicted_y, digits=5, target_names=classes_name, output_dict=True))
     report = report.transpose()
