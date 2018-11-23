@@ -92,6 +92,7 @@ def loadTrainTest(task, dataset_name, root, lang = "pt", full_data = False, nrow
     return (X_train, X_test, y_train, y_test)
 
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
 
     #X,_,y,_ = loadTrainTest(task='gender',dataset_name='pan13',root='/home/rafael/USP/drive/Data/Dataframe',lang='es',nrows=100)
+
