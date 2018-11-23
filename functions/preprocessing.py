@@ -6,15 +6,6 @@ import html
 
 def clean(doc, lang = 'portuguese'):
     
-    """
-    Cleaning a document by several methods:
-        - Lowercase
-        - Removing whitespaces
-        - Removing numbers
-        - Removing stopwords
-        - Removing punctuations
-        - Removing short words
-    """
     stop_words = set(stopwords.words(lang))
     
     # Lowercase
@@ -33,12 +24,13 @@ def clean(doc, lang = 'portuguese'):
     # Remove Stopwords
     tokens = [w for w in tokens if not w in stop_words]
     # Remove punctuation
-    #tokens = [w.translate(str.maketrans('', '', string.punctuation)) for w in tokens]
+    # tokens = [w.translate(str.maketrans('', '', string.punctuation)) for w in tokens]
     # remove html codes
     tokens = [html.unescape(w) for w in tokens]
     
     # Tokens with less then two characters will be ignored
     tokens = [word for word in tokens if len(word) > 1]
+
     return ' '.join(tokens)
 
 
