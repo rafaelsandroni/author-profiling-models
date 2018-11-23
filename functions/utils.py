@@ -27,13 +27,3 @@ def listProblems():
 
     return problems
 
-
-if __name__ == '__main__':
-
-    # p = listProblems()
-
-    # print(p[0])
-
-    # for dataset_name, task, lang in p:
-    #     print(dataset_name, task, lang)
-
