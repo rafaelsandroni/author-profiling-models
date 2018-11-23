@@ -29,7 +29,7 @@ def clean(doc, lang = 'portuguese'):
     tokens = [html.unescape(w) for w in tokens]
     
     # Tokens with less then two characters will be ignored
-    tokens = [word for word in tokens if len(word) > 1]
+    # tokens = [word for word in tokens if len(word) > 1]
 
     return ' '.join(tokens)
 

@@ -18,7 +18,7 @@ from Models.functions.datasets import getDatasets, loadTrainTest
 from Models.functions.metrics import evaluator
 from Models.functions.plot import ROC, plot_confusion_matrix
 from Models.functions.preprocessing import clean, labelEncoder
-from Models.functions.utils import checkFolder
+from Models.functions.utils import checkFolder, listProblems
 
 from imblearn.over_sampling import SMOTE, ADASYN
 from collections import Counter
@@ -111,11 +111,11 @@ def run(task, dataset_name, root, lang):
     directory = './Reports/' + task + '/' + dataset_name + '_' + lang + '/'
     checkFolder(directory)
     
-    X, _, y, _ = loadTrainTest(task, dataset_name, root, lang)
+    X, _, y, _ = loadTrainTest(task=task, dataset_name=dataset_name, root=root, lang=lang)
     y, n_classes, classes_name = labelEncoder(y)    
 
     # clean text
-    X = X.apply(clean, language=lang)
+    X = X.apply(clean, lang=lang)
     
     params = getBestParams(task, dataset_name)    
     print("params: ", params)
@@ -142,61 +142,61 @@ def run(task, dataset_name, root, lang):
     np.save(directory + '/predicted_y.numpy', predicted_y)
     np.save(directory + '/score_y.numpy', score_y)
         
-    print("F-fold 10", task, dataset_name, lang)
-    print(display(report))
+    print("F-fold 10", task, dataset_name, lang, display(report))
     print()
-    print(cm)
+
     pass
 
 
 
 
-if __name__ == '__main__':
-
-	run("gender", "b5post", "/home/rafael//USP/drive/Data/Dataframe/", 'pt')
-	run("gender", "smscorpus", "/home/rafael//USP/drive/Data/Dataframe/", 'en')
-
-task = "gender"
-dataset_name = "smscorpus"
-root = "/home/rafael/GDrive/Data/Dataframe/"
-lang = "en"
-X, _, _, _ = loadTrainTest(task, dataset_name, root, lang)
-
-X.
-
-exit(0)
-
 import multiprocessing as mp
 import random
 import string
 
-random.seed(123)
+if __name__ == '__main__':
 
-# Define an output queue
-output = mp.Queue()
+	g_root = root = sys.argv[3]
+	g_task = task = sys.argv[1]
+	g_dataset_name = dataset_name = sys.argv[2]
+	g_lang = root = sys.argv[4]
 
-task_list = ['relig','polit','education','professional','region','TI','gender','age']
-dataset_list = ['brmoral','b5post','esic','brblogset','enblogs','pan13_en','pan13_es']
+	print("PARAMS")
+	print(sys.argv)
 
-args = []
-for task in task_list:
-    for ds in dataset_list:
-        d = getDatasets(task,'df', ds)
-        if len(d.values) > 0:
-            args.append([task, ds])
+	if g_task is not None:
+		run(g_task, g_dataset_name, g_root, g_lang)
+	else:
+		args = []
+		problems = listProblems()
 
-# Setup a list of processes that we want to run
-processes = [mp.Process(target=run, args=(x[0], x[1], output)) for x in args]
+		print("#####################################")
+		print(" RUNNING {0} PROBLEMS".format(len(problems)))
 
-# Run processes
-for p in processes:
-    p.start()
+		# create a list of tasks
 
-# Exit the completed processes
-for p in processes:
-    p.join()
+		# ['b5post', 'gender', 'pt']	
+		for task, dataset_name, lang in problems:
+			args.append([task, dataset_name, g_root, lang])
 
-# Get process results from the output queue
-results = [output.get() for p in processes]
+		random.seed(123)
 
-print(results)
+		# Define an output queue
+		output = mp.Queue()
+
+		# Setup a list of processes that we want to run
+		processes = [mp.Process(target=run, args=(x[0], x[1], x[2], x[3])) for x in args]
+
+		# Run processes
+		for p in processes:
+		    p.start()
+
+		# Exit the completed processes
+		for p in processes:
+		    p.join()
+
+		# Get process results from the output queue
+		results = [output.get() for p in processes]
+
+		print("###############################"
+		print("FINISHED")

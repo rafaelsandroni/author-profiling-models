@@ -50,28 +50,48 @@ def getDatasets(task = None, file_type = '_', dataset_name = None, root = None):
     return datasets
 
 
-def loadTrainTest(task, dataset_name, root, lang = "pt"):
-    
+def loadTrainTest(task, dataset_name, root, lang = "pt", full_data = False, nrows = 10):
+ 
+    if nrows is not None: print("loading {0} rows".format(nrows))
+
     task = task.lower()
     dataset_name = dataset_name.lower()
 
     extension = "df"
-
-    training_filename = "{0}_{1}_training_{2}.csv".format(task, lang, extension)
-    test_filename = "{0}_{1}_test_{2}.csv".format(task, lang, extension)
+    _task = task
+    _lang = lang
+    # TODO: create a separated .csv containing only text and other file containing labels
+    if dataset_name == 'pan13':
+        _task = 'gender-age'
+        _lang = 'en-es'
 
     root += "/"
     root += dataset_name
     root += "/"
 
-    df_training = pd.read_csv(root + training_filename)
-    df_test = pd.read_csv(root + test_filename)
+    # training data
+    training_filename = "{0}_{1}_training_{2}.csv".format(_task, _lang, extension)
+    df_training = pd.read_csv(root + training_filename, nrows=nrows)
 
-    # load training and test dataframes
-    X_train = df_training['text'].values
+    if dataset_name == 'pan13':
+        df_training = df_training[df_training.lang == lang]
+
+    # load dataframes
+    X_train = df_training['text']
     y_train = df_training[task].values
-
-    X_test = df_test['text'].values
-    y_test = df_test[task].values
+    
+    X_test, y_test = None, None
+    if full_data == True:
+        # test data
+        test_filename = "{0}_{1}_test_{2}.csv".format(_task, _lang, extension)
+        df_test = pd.read_csv(root + test_filename)
+        # load dataframes
+        X_test = df_test['text']
+        y_test = df_test[task].values
 
     return (X_train, X_test, y_train, y_test)
+
+
+if __name__ == '__main__':
+
+    #X,_,y,_ = loadTrainTest(task='gender',dataset_name='pan13',root='/home/rafael/USP/drive/Data/Dataframe',lang='es',nrows=100)
