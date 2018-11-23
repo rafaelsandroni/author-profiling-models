@@ -117,7 +117,8 @@ def run(task, dataset_name, root, lang):
 
     # clean text
     X = X.apply(clean, lang=lang)
-    
+    X = X.values
+
     params = getBestParams(task, dataset_name)    
     print("params: ", params)
 
@@ -143,7 +144,7 @@ def run(task, dataset_name, root, lang):
     np.save(directory + '/predicted_y.numpy', predicted_y)
     np.save(directory + '/score_y.numpy', score_y)
         
-    print("F-fold 10", task, dataset_name, lang, display(report))
+    print("F-fold 10", task, dataset_name, lang, report)
     print()
 
     pass
