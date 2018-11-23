@@ -50,7 +50,7 @@ def getDatasets(task = None, file_type = '_', dataset_name = None, root = None):
     return datasets
 
 
-def loadTrainTest(task, dataset_name, root, lang = "pt", full_data = False, nrows = 10):
+def loadTrainTest(task, dataset_name, root, lang = "pt", full_data = False, nrows = None):
  
     if nrows is not None: print("loading {0} rows".format(nrows))
 
