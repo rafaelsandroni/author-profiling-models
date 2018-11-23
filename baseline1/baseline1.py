@@ -167,19 +167,15 @@ if __name__ == '__main__':
     if g_task is not None:
     	run(g_task, g_dataset_name, g_root, g_lang)
     else:
-    	args = []
-    	problems = listProblems()
+        args = []
+        problems = listProblems()
+        print("############################################")
+        print(" RUNNING {0} PROBLEMS".format(len(problems)))
 
-    	print("#####################################")
-    	print(" RUNNING {0} PROBLEMS".format(len(problems)))
+        # create a list of tasks
+        for task, dataset_name, lang in problems:
+            args.append([task, dataset_name, g_root, lang])
 
-    	# create a list of tasks
-
-    	# ['b5post', 'gender', 'pt']	
-    	for task, dataset_name, lang in problems:
-    	    args.append([task, dataset_name, g_root, lang])
-
-        random.seed(123)
         # Define an output queue
         output = mp.Queue()
 
