@@ -26,7 +26,12 @@ from collections import Counter
 
 # Synthetic Minority Oversampling Technique (SMOTE)
 def oversampling(X, y):    
-    X_resampled, y_resampled = SMOTE(random_state=42).fit_resample(X, y)    
+    try:
+        X_resampled, y_resampled = SMOTE(random_state=42).fit_resample(X, y)    
+    except:
+        # TODO: 
+        # ValueError: Expected n_neighbors <= n_samples,  but n_samples = 3, n_neighbors = 6
+        X_resampled, y_resampled = X, y
     #return X, y
     return X_resampled, y_resampled        
 
@@ -86,7 +91,7 @@ def model(X, y, n_classes, classes_name, params):
         X_train, y_train = oversampling(X_train.toarray(), y_train)
         X_test, y_test = oversampling(X_test.toarray(), y_test)
 
-        clf = LogisticRegression(C=params.get('clf__C'), penalty=params.get('clf__penalty'), solver='liblinear')
+        clf = LogisticRegression(C=params.get('clf__C'), penalty=params.get('clf__penalty'), solver='liblinear', multi_class='auto')
         
         clf.fit(X_train, y_train)
         
@@ -111,7 +116,8 @@ def run(task, dataset_name, root, lang):
     
     directory = './Reports/' + task + '/' + dataset_name + '_' + lang + '/'
     checkFolder(directory)
-    
+    print(directory)
+
     X, _, y, _ = loadTrainTest(task=task, dataset_name=dataset_name, root=root, lang=lang)
     y, n_classes, classes_name = labelEncoder(y)    
 
@@ -144,7 +150,8 @@ def run(task, dataset_name, root, lang):
     np.save(directory + '/predicted_y.numpy', predicted_y)
     np.save(directory + '/score_y.numpy', score_y)
         
-    print("F-fold 10", task, dataset_name, lang, report)
+    print("F-fold 10", task, dataset_name, lang)
+    print(report)
     print()
 
     pass
