@@ -4,8 +4,12 @@ import numpy as np
 from bs4 import BeautifulSoup
 import html
 
-def clean(doc, lang = 'portuguese'):
-    
+languages = {'pt': 'portuguese', 'en': 'english', 'es': 'spanish'}
+
+def clean(doc, lang = 'pt'):
+
+    lang = languages[lang]
+
     stop_words = set(stopwords.words(lang))
     
     # Lowercase
