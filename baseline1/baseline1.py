@@ -180,8 +180,10 @@ if __name__ == '__main__':
 
         # create a list of tasks
         for task, dataset_name, lang in problems:
-            args.append([task, dataset_name, g_root, lang])
+            #args.append([task, dataset_name, g_root, lang])
+            run(task, dataset_name, g_root, lang)
 
+        """
         # Define an output queue
         output = mp.Queue()
 
@@ -198,6 +200,6 @@ if __name__ == '__main__':
 
         # Get process results from the output queue
         results = [output.get() for p in processes]
-
+        """
         print("###############################")
         print("FINISHED")
