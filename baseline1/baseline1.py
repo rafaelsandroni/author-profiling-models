@@ -166,7 +166,7 @@ if __name__ == '__main__':
         g_dataset_name = dataset_name = sys.argv[3]
         g_lang = root = sys.argv[4]
 
-    	run(g_task, g_dataset_name, g_root, g_lang)
+        run(g_task, g_dataset_name, g_root, g_lang)
     except:
         pass
 
