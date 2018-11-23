@@ -178,7 +178,7 @@ if __name__ == '__main__':
     	# ['b5post', 'gender', 'pt']	
     	for task, dataset_name, lang in problems:
     	    args.append([task, dataset_name, g_root, lang])
-            
+
         random.seed(123)
         # Define an output queue
         output = mp.Queue()
@@ -186,13 +186,13 @@ if __name__ == '__main__':
         # Setup a list of processes that we want to run
         processes = [mp.Process(target=run, args=(x[0], x[1], x[2], x[3])) for x in args]
 
-	    # Run processes
+        # Run processes
         for p in processes:
             p.start()
 
         # Exit the completed processes
         for p in processes:
-	    p.join()
+            p.join()
 
         # Get process results from the output queue
         results = [output.get() for p in processes]
