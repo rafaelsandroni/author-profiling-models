@@ -158,16 +158,20 @@ import string
 if __name__ == '__main__':
 
     g_root = root = sys.argv[1]
-    g_task = task = sys.argv[2]
-    g_dataset_name = dataset_name = sys.argv[3]
-    g_lang = root = sys.argv[4]
 
-    print("PARAMS")
     print(sys.argv)
 
-    if g_task is not None:
+    try:
+        g_task = task = sys.argv[2]
+        g_dataset_name = dataset_name = sys.argv[3]
+        g_lang = root = sys.argv[4]
+
     	run(g_task, g_dataset_name, g_root, g_lang)
-    else:
+    except:
+        pass
+
+    if True:
+
         args = []
         problems = listProblems()
         print("############################################")
