@@ -3,7 +3,7 @@
 git_username="rafaelsandroni"
 git_password="Sandroni09!"
 git_url="github.com/rafaelsandroni/models.git"
-msg="reports baseline1"
+msg="Update reports"
 
 git config --global user.email $git_username
 git config --global user.name "Rafael"
