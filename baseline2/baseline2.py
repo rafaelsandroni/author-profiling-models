@@ -247,7 +247,7 @@ def run(task, dataset_name, root, lang):
     ## Then train it and display the results
     history = model.fit(X_train,
                         y_train,
-                        epochs=100#params['epochs'],
+                        epochs=100,#params['epochs'],
                         validation_split=0.2,
                         #batch_size=params['batch_size'],
                         verbose = 0,
