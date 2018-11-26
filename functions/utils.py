@@ -8,10 +8,10 @@ def checkFolder(directory):
 def listProblems():
 
     corpus = {
-		#'b5post':       [['gender','age','relig','TI'],                         ['pt']],
+		'b5post':       [['gender','age','relig','TI'],                         ['pt']],
 		#'brmoral':      [['gender','age','relig','education','TI','polit'],     ['pt']],
-		'esic':		[['gender','age','education','professional','region'],  ['pt']],
-		#'brblogset':	[['gender','age','education'],                          ['pt']],
+		#'esic':		[['gender','age','education','professional','region'],  ['pt']],
+		'brblogset':	[['gender','age','education'],                          ['pt']],
 		'enblog':	[['gender','age'],                                      ['en']],
 		'pan13':	[['gender','age'],                                      ['en','es']],
 		'smsCorpus':	[['gender','age'],                                      ['en']]
