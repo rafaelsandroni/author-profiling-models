@@ -51,7 +51,8 @@ def ROC(y_test, y_score, n_classes, task = None, dataset_name = None, classes_na
         
             plt.savefig(filename)        
         else:
-            plt.show()
+            #plt.show()
+            pass
             
         plt.gcf().clear()
 
@@ -110,16 +111,16 @@ def ROC(y_test, y_score, n_classes, task = None, dataset_name = None, classes_na
 
         plt.savefig(filename)
     else:
-        plt.show()
+        #plt.show()
+        pass
         
     plt.gcf().clear()
     
     return roc_auc
 
 
-def plot_confusion_matrix(cm, classes, task = None, dataset_name = None, normalize=False, title='Confusion matrix', cmap=plt.cm.Blues):
+def plot_confusion_matrix(cm, classes, directory = '/', task = None, dataset_name = None, normalize=False, title='Confusion matrix', cmap=plt.cm.Blues):
     
-
     """
     This function prints and plots the confusion matrix.
     Normalization can be applied by setting `normalize=True`.
@@ -156,7 +157,8 @@ def plot_confusion_matrix(cm, classes, task = None, dataset_name = None, normali
         filename = directory + filename    
         plt.savefig(filename)
     else:
-        plt.show()
+        # plt.show()
+        pass
         
     plt.gcf().clear()
 
@@ -241,6 +243,7 @@ def plot_confusion_matrix2(cm, classes, directory = '',
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
     plt.savefig(directory+'/confusion_matrix.pdf')
+    # plt.savefig(directory+'/cm_plot.pdf')
     #plt.show()
     
 ## multiclass or binary report

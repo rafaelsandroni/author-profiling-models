@@ -124,8 +124,6 @@ dataset_name = "brblogset"
 lang = "pt"
 root = "/home/rafael/GDrive/Data/Dataframe/"
 
-
-
 # Synthetic Minority Oversampling Technique (SMOTE)
 def oversampling(X, y):
     #X_resampled, y_resampled = SMOTE().fit_resample(X, y)
@@ -134,7 +132,7 @@ def oversampling(X, y):
 
 def run(task, dataset_name, root, lang):
         
-    X, _, y, _ = loadTrainTest(task, dataset_name, "/home/rafael/GDrive/Data/Dataframe/", lang)
+    X, _, y, _ = loadTrainTest(task, dataset_name, root, lang)
 
     y, n, classes_names = labelEncoder(y)
 
@@ -271,3 +269,18 @@ def run(task, dataset_name, root, lang):
                         #batch_size=32,
                         #binary= )
         
+import sys
+if __name__ == '__main__':
+    task = sys.argv[1] or None
+    dataset_name = sys.argv[2] or None
+    root = sys.argv[3] or None
+    lang = sys.argv[4] or None
+
+    if task == None or dataset_name == None or root == None or lang == None:
+        task = "gender"
+        dataset_name = "brblogset"
+        lang = "pt"
+        root = "/home/rafael/GDrive/Data/Dataframe/"
+
+    run(task, dataset_name, root, lang)
+

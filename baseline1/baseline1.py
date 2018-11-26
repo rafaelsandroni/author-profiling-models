@@ -17,12 +17,15 @@ from sklearn.linear_model import LogisticRegression
 # loading custom functions
 from Models.functions.datasets import getDatasets, loadTrainTest
 from Models.functions.metrics import evaluator
-from Models.functions.plot import ROC, plot_confusion_matrix
+from Models.functions.plot import ROC, plot_confusion_matrix2
 from Models.functions.preprocessing import clean, labelEncoder
 from Models.functions.utils import checkFolder, listProblems
 
 from imblearn.over_sampling import SMOTE, ADASYN
 from collections import Counter
+
+import nltk
+nltk.download('stopwords')
 
 # Synthetic Minority Oversampling Technique (SMOTE)
 def oversampling(X, y):    
@@ -33,7 +36,7 @@ def oversampling(X, y):
         # ValueError: Expected n_neighbors <= n_samples,  but n_samples = 3, n_neighbors = 6
         X_resampled, y_resampled = X, y
     #return X, y
-    return X_resampled, y_resampled        
+    return X,y#X_resampled, y_resampled        
 
 def getBestParams(task, dataset_name):
     baseline = 'baseline1'
@@ -48,12 +51,12 @@ def getBestParams(task, dataset_name):
     
     best_params = baseline1[(baseline1['Name'] == dataset_name) & (baseline1['Task'] == task)]
     
-    
+    best_params = []
     if len(best_params) < 1: return dict(
                 clf__C =  1428.5715142857143,
                 clf__penalty =  'l2',
                 vect__max_df =  0.8,
-                vect__max_features =  None,
+                vect__max_features = 4000,
                 vect__stop_words = None)
     
     max_features = best_params['max features'].values[0]
@@ -88,8 +91,8 @@ def model(X, y, n_classes, classes_name, params):
         X_train = vect.fit_transform(X_train)
         X_test = vect.transform(X_test)
         
-        X_train, y_train = oversampling(X_train.toarray(), y_train)
-        X_test, y_test = oversampling(X_test.toarray(), y_test)
+        X_train, y_train = oversampling(X_train, y_train)
+        X_test, y_test = oversampling(X_test, y_test)
 
         clf = LogisticRegression(C=params.get('clf__C'), penalty=params.get('clf__penalty'), solver='liblinear', multi_class='auto')
         
@@ -120,7 +123,7 @@ def run(task, dataset_name, root, lang):
 
     X, _, y, _ = loadTrainTest(task=task, dataset_name=dataset_name, root=root, lang=lang)
     y, n_classes, classes_name = labelEncoder(y)    
-
+    del _
     # clean text
     X = X.apply(clean, lang=lang)
     X = X.values
@@ -130,6 +133,8 @@ def run(task, dataset_name, root, lang):
 
     report, expected_y, predicted_y, score_y = model(X, y, n_classes, classes_name, params)
 
+    del X
+    del y
     # TODO: compute ROC score after processing, with expected_y and score_y
     # get ROC
     # roc_c = ROC(expected_y, score_y, n_classes, task, dataset_name+'_'+lang, classes_name)
@@ -141,7 +146,10 @@ def run(task, dataset_name, root, lang):
 
     # compute confusion matrix
     c_matrix = confusion_matrix(expected_y, predicted_y)
-    plot_confusion_matrix(c_matrix, classes_name, task, dataset_name+'_'+lang, True)
+    try:
+        plot_confusion_matrix2(c_matrix, classes=classes_name, directory=directory, normalize=True)
+    except:
+        pass
     cm = pd.DataFrame(c_matrix, columns=classes_name, index=classes_name)
     
     report.to_csv(directory + 'report.csv')
