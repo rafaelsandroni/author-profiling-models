@@ -187,7 +187,7 @@ def run(task, dataset_name, root, lang):
 
     params_grid = dict(
                         filters = [[10],[50],[100]],
-                        kernel_size = [[1],[2],[3],[8],[16],[32],[64]],
+                        kernel_size = [[1],[2],[4],[16],[64]],
                         strides = [[1],[2],[3]],
                         dropout_rate = [0.1,0.5],
                         pool_size = [[8]],
