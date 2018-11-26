@@ -191,8 +191,8 @@ def plot_history(history, directory = ''):
     plt.ylabel('Loss')
     plt.legend()
     plt.savefig(directory + '/loss.pdf')
-    plt.show()
-    plt.gcf().clear()
+    #plt.show()
+    #plt.gcf().clear()
 
     ## Accuracy
     plt.figure(2)
@@ -206,8 +206,8 @@ def plot_history(history, directory = ''):
     plt.ylabel('Accuracy')
     plt.legend()
     plt.savefig(directory + '/accuracy.pdf')
-    plt.show()
-    plt.gcf().clear()
+    #plt.show()
+    #plt.gcf().clear()
 
 
 def plot_confusion_matrix2(cm, classes, directory = '',
@@ -240,7 +240,8 @@ def plot_confusion_matrix2(cm, classes, directory = '',
     plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
-    plt.show()
+    plt.savefig(directory+'/confusion_matrix.pdf')
+    #plt.show()
     
 ## multiclass or binary report
 ## If binary (sigmoid output), set binary parameter to True
@@ -267,8 +268,12 @@ def full_multiclass_report(model,
     
     # 4. Print classification report
     print("Classification Report")
-    print(classification_report(y_true,y_pred,digits=5))    
-    
+    c_r = classification_report(y_true,y_pred,digits=5,output_dict=False)
+    print(c_r)
+
+    c_r = classification_report(y_true,y_pred,digits=5,output_dict=True)
+    pd.DataFrame(c_r).to_csv(directory +'/classification_report.csv')
+
     # 5. Plot confusion matrix
     cnf_matrix = confusion_matrix(y_true,y_pred)
     print(cnf_matrix)
