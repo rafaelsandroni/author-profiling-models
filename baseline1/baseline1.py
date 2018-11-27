@@ -36,7 +36,7 @@ def oversampling(X, y):
         # ValueError: Expected n_neighbors <= n_samples,  but n_samples = 3, n_neighbors = 6
         X_resampled, y_resampled = X, y
     #return X, y
-    return X,y#X_resampled, y_resampled        
+    return X_resampled, y_resampled        
 
 def getBestParams(task, dataset_name):
     baseline = 'baseline1'
@@ -54,14 +54,14 @@ def getBestParams(task, dataset_name):
     if len(best_params) < 1: return dict(
                 clf__C =  1428.5715142857143,
                 clf__penalty =  'l2',
-                vect__max_df =  0.8,
+                vect__max_df =  0.9,
                 vect__max_features = 4000,
                 vect__stop_words = None)
     
     max_features = best_params['max features'].values[0]
     
     model_params = {
-                    'vect__max_features': max_features if max_features != 'None' and not pd.isnull(max_features) else None,
+                    'vect__max_features': max_features if max_features != 'None' and not pd.isnull(max_features) else 3000,
                     'vect__max_df': best_params['max df'].values[0] if not pd.isnull(best_params['max df'].values[0]) else 1,
                     'clf__C': best_params['C'].values[0] if not pd.isnull(best_params['C'].values[0]) else 1000.0, 
                     'clf__penalty': best_params['P'].values[0] if not pd.isnull(best_params['P'].values[0]) else 'l2'
