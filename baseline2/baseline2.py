@@ -81,7 +81,7 @@ def create_model_simple(filters = [100], kernel_size = [50], strides = [100],
     model.add(Dense(units = n_classes, activation = 'softmax'))
 
     #TODO: test others foss functions: https://keras.io/losses/
-    model.compile(optimizer = 'adadelta', loss='sparse_categorical_crossentropy', metrics = ['accuracy'])
+    model.compile(optimizer = 'adadelta', loss='categorical_crossentropy', metrics = ['accuracy'])
     return model
 
 
@@ -101,7 +101,7 @@ def create_model(filters = [100], kernel_size = [50], strides = [100],
     
     model.add(MaxPooling1D(pool_size = pool_size[0], strides = 1))
     model.add(Activation('relu'))
-    
+    """
     model.add(Conv1D(filters = filters[1], 
                      kernel_size = kernel_size[1],
                      strides = strides[0], 
@@ -117,7 +117,7 @@ def create_model(filters = [100], kernel_size = [50], strides = [100],
     
     model.add(MaxPooling1D(pool_size = pool_size[2], strides = 1))
     model.add(Activation('relu'))
-
+    """
     model.add(Flatten())
     
     if dropout_rate is not None:
@@ -127,7 +127,6 @@ def create_model(filters = [100], kernel_size = [50], strides = [100],
     model.add(Dense(units = n_classes, activation = 'softmax'))
 
     #TODO: test others foss functions: https://keras.io/losses/
-    # sparse_categorical_entropy
     model.compile(optimizer = 'adadelta', loss='categorical_crossentropy', metrics = ['accuracy'])
     return model
 
@@ -274,12 +273,7 @@ def run(task, dataset_name, root, lang):
     plot_history(history, directory=directory)
     
     batch_size = 32
-    y_pred = model.predict(X_test, batch_size=batch_size)
-
-    print(y_test.shape, y_pred.shape)
-    print(y_test[1], y_pred[1])
-    
-    print("Acc", accuracy_score(y_test, y_pred))
+    y_predicted_proba = model.predict(X_test, batch_size=batch_size)
 
     full_multiclass_report(model,
                         X_test,
@@ -291,9 +285,8 @@ def run(task, dataset_name, root, lang):
                         #batch_size=32,
                         #binary= )
     
-    np.save(directory + "/y_predicted", y_pred)
-    np.save(directory + "/y_expected", y_test)
-    
+    np.save(directory + "/y_predicted_proba", y_predicted_proba)
+    np.save(directory + "/y_test", y_test)
     # results = results.append(pd.DataFrame(get_results(model)), ignore_index=True)
 
     # results.to_csv(results_dataframe)
