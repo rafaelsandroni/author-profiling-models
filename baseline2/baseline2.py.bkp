@@ -12,7 +12,7 @@ import pandas as pd
 from Models.functions.plot import plot_history, full_multiclass_report
 from Models.functions.preprocessing import clean, labelEncoder
 from Models.functions.datasets import loadTrainTest
-from Models.functions.utils import checkFolder, listProblems
+from Models.functions.utils import checkFolder
 
 from keras.layers import Activation, Input, Dense, Flatten, Dropout, Embedding
 from keras.layers.convolutional import Conv1D, MaxPooling1D
@@ -40,11 +40,7 @@ import collections, numpy
 import gc
 from time import time, sleep
 
-results_dataframe = "/reports_grid/results.csv"
-try:
-    results = pd.read_csv(results_dataframe)
-except:
-    results = pd.DataFrame()
+result = pd.DataFrame()
 
 # In[4]:
 
@@ -52,41 +48,29 @@ import numpy as np
 from keras.callbacks import Callback
 from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score
 
+class Metrics(Callback):
 
-
-
-def create_model_simple(filters = [100], kernel_size = [50], strides = [100], 
-                 dropout_rate = 0.5, pool_size = [5], dense_units = 512, max_len = 1000, n_classes = 2):
-
-    model = Sequential()
-
-    # conv 1
-    model.add(Conv1D(filters = filters[0], 
-                     kernel_size = kernel_size[0],
-                     strides = strides[0], 
-                     activation = 'relu', 
-                     input_shape = (max_len, 1) ))
-
-    # pooling layer 1
+    def on_train_begin(self, logs={}):
+        self.val_f1s = []
+        self.val_recalls = []
+        self.val_precisions = []
     
-    model.add(MaxPooling1D(pool_size = pool_size[0], strides = 1))
-    model.add(Activation('relu'))
-
-    model.add(Flatten())
-    
-    if dropout_rate is not None:
-        model.add(Dropout(dropout_rate))
-        
-    model.add(Dense(units = dense_units, activation = 'relu'))
-    model.add(Dense(units = n_classes, activation = 'softmax'))
-
-    #TODO: test others foss functions: https://keras.io/losses/
-    model.compile(optimizer = 'adadelta', loss='categorical_crossentropy', metrics = ['accuracy'])
-    return model
-
+    def on_epoch_end(self, epoch, logs={}):
+        val_predict = (np.asarray(self.model.predict(self.model.validation_data[0]))).round()
+        val_targ = self.model.validation_data[1]
+        _val_f1 = f1_score(val_targ, val_predict)
+        _val_recall = recall_score(val_targ, val_predict)
+        _val_precision = precision_score(val_targ, val_predict)
+        self.val_f1s.append(_val_f1)
+        self.val_recalls.append(_val_recall)
+        self.val_precisions.append(_val_precision)
+        print("— val_f1: %f — val_precision: %f — val_recall %f" %(_val_f1, _val_precision, _val_recall))
+        return
+ 
+metrics = Metrics()
 
 def create_model(filters = [100], kernel_size = [50], strides = [100], 
-                 dropout_rate = 0.5, pool_size = [5], dense_units = 512, max_len = 1000, n_classes = 2):
+                 dropout_rate = 0.5, pool_size = [5], dense_units = 100, max_len = 1000, n_classes = 2):
 
     model = Sequential()
 
@@ -98,26 +82,12 @@ def create_model(filters = [100], kernel_size = [50], strides = [100],
                      input_shape = (max_len, 1) ))
 
     # pooling layer 1
+    for i in range(len(pool_size)):
+        model.add(MaxPooling1D(pool_size = pool_size[i], strides = 1))
+        model.add(Activation('relu'))
     
-    model.add(MaxPooling1D(pool_size = pool_size[0], strides = 1))
-    model.add(Activation('relu'))
+    #model.add(Activation('relu'))
     
-    model.add(Conv1D(filters = filters[1], 
-                     kernel_size = kernel_size[1],
-                     strides = strides[0], 
-                     activation = 'relu'))
-    
-    model.add(MaxPooling1D(pool_size = pool_size[1], strides = 1))
-    model.add(Activation('relu'))
-
-    model.add(Conv1D(filters = filters[2], 
-                     kernel_size = kernel_size[2],
-                     strides = strides[0], 
-                     activation = 'relu'))
-    
-    model.add(MaxPooling1D(pool_size = pool_size[2], strides = 1))
-    model.add(Activation('relu'))
-
     model.add(Flatten())
     
     if dropout_rate is not None:
@@ -181,18 +151,16 @@ root = "/home/rafael/GDrive/Data/Dataframe/"
 
 # Synthetic Minority Oversampling Technique (SMOTE)
 def oversampling(X, y):
-    X_resampled, y_resampled = SMOTE().fit_resample(X, y)
-    return X_resampled, y_resampled
-    # return X, y
+    #X_resampled, y_resampled = SMOTE().fit_resample(X, y)
+    # return X_resampled, y_resampled
+    return X, y
 
 def run(task, dataset_name, root, lang):
     
-    directory='./Reports/'+task+'/'+dataset_name+'/'
+    directory='./reports_grid/'+task+'_'+dataset_name+'/'
     checkFolder(directory)
 
     X, _, y, _ = loadTrainTest(task, dataset_name, root, lang)
-
-    X = X.apply(clean, lang=lang)
 
     y, n_classes, classes_names = labelEncoder(y)    
 
@@ -226,21 +194,94 @@ def run(task, dataset_name, root, lang):
     garbage_collection() 
 
     # X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))
-    # X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))    
+    # X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
+
+    
 
     print("X", X_train.shape, X_test.shape, X_val.shape)
     print("y", y_train.shape, y_test.shape, y_val.shape)
 
     print(y_train[3])
+    # In[10]:
 
-    params = dict(
-        filters = [128, 128, 128],
-        kernel_size = [5, 5, 5],
-        strides = [3, 3, 3],
-        dropout_rate = 0.4,
-        pool_size = [8, 8, 4],
-        epochs = 50
+    #xid, yid = 1, 2
+    #plt.scatter(X_train[:,xid], X_train[:,yid],c=y_train)
+    #plt.ylabel(classes_names[0])
+    #plt.ylabel(classes_names[1])
+
+
+    # In[ ]:
+
+
+
+    CNN = KerasClassifier(
+                        build_fn=create_model, 
+                        epochs=1,
+                        max_len=X_train.shape[1],
+                        n_classes=n_classes,
+                        #batch_size=BATCH_SIZE,
+                        verbose=0,
+                        validation_split=0.1
+                    )
+
+    params_grid = dict(
+                        filters = [[10],[50],[100]],
+                        kernel_size = [[1],[2],[4],[16],[64]],
+                        strides = [[1],[2],[3]],
+                        dropout_rate = [0.1,0.5],
+                        pool_size = [[8]],
+                        epochs = [50]
+                        #batch_size = 100
+                    )
+
+    grid_search = GridSearchCV(
+                                CNN, 
+                                params_grid, 
+                                scoring='accuracy', cv=3, 
+                                return_train_score=True
+                            )
+
+    #print('best params', grid_search.best_params_)
+    """
+    print("Performing grid search...")
+
+    
+
+    t0 = time()
+
+    #histories = []
+    grid_search.fit(X_train, y_train)
+
+    print("done in %0.2fs and %0.1fmin" % ((time() - t0), ((time() - t0) / 60) ))
+    print()
+
+    print("Best parameters set:")
+    best_parameters = grid_search.best_estimator_.get_params()
+    for param_name in sorted(params_grid.keys()):
+        print("\t%s: %r" % (param_name, best_parameters[param_name]))
+        
+    pd.DataFrame(pd.DataFrame(grid_search.cv_results_)).to_csv(directory+'/grid_results.csv')
+
+    garbage_collection() 
+
+    #pd.DataFrame(get_results(grid_search, y_test, model.predict_classes(X_test))).to_csv(directory+'/grid_results.csv')
+
+    # In[ ]:
+
+    pd.DataFrame(best_parameters).to_csv('./best_params/'+task+'_'+dataset_name+'.csv')
+
+    # def run_model(best_params, X_train, X_test, y_train, y_test):
+    """
+    best_parameters = dict(
+        filters = [40],
+        kernel_size = [2],
+        strides = [3],
+        dropout_rate = 0.1,
+        pool_size = [8],
+        epochs = 100
     )
+
+    params = best_parameters
     
     ## create the model with the best params found
     model = create_model(
@@ -252,7 +293,6 @@ def run(task, dataset_name, root, lang):
                         dropout_rate=params['dropout_rate'],
                         pool_size=params['pool_size']
                         )
-    model.summary()
 
     ## Then train it and display the results
     history = model.fit(X_train,
@@ -263,15 +303,15 @@ def run(task, dataset_name, root, lang):
                         verbose = 1,
                         callbacks=[
                             #ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
+                            metrics,
                             EarlyStopping(monitor='val_loss', min_delta=0.01, patience=4, verbose=1)
                     ])
 
     # save y_predicted
 
+    model.summary()
 
     plot_history(history, directory=directory)
-
-    print(y_test.shape, y_test[1])
 
     full_multiclass_report(model,
                         X_test,
@@ -282,45 +322,23 @@ def run(task, dataset_name, root, lang):
                         )
                         #batch_size=32,
                         #binary= )
-    batch_size = 32
-    y_pred = model.predict(X_test, batch_size=batch_size)
-
-    np.save(directory + "/y_predicted", y_pred)
-    np.save(directory + "/y_expected", y_test)
-    
-    # results = results.append(pd.DataFrame(get_results(model)), ignore_index=True)
-
-    # results.to_csv(results_dataframe)
         
 import sys
 if __name__ == '__main__':
-    print(sys.argv)
-
     task = None
-    run_all = False
+    try:
+        task = sys.argv[1] or None
+        dataset_name = sys.argv[2] or None
+        root = sys.argv[3] or None
+        lang = sys.argv[4] or None
+    except:
+        pass
 
-    #try:
-    task = sys.argv[1] or None
-    dataset_name = sys.argv[2] or None
-    g_root = sys.argv[3] or None
-    lang = sys.argv[4] or None
+    if task == None:
+        task = "education"
+        dataset_name = "brblogset"
+        lang = "pt"
+        root = "/home/rafael/GDrive/Data/Dataframe/"
 
-    run(task, dataset_name, g_root, lang)
-    #except:
-    #    run_all = True
-    #    pass
-    """
-    if run_all == True:
-        args = []
-        problems = listProblems()
-        print("############################################")
-        print(" RUNNING {0} PROBLEMS".format(len(problems)))
-
-        # create a list of tasks
-        for task, dataset_name, lang in problems:
-            #args.append([task, dataset_name, g_root, lang])
-            run(task, dataset_name, g_root, lang)
-    """
-
-    
+    run(task, dataset_name, root, lang)
 

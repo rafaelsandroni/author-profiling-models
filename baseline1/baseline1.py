@@ -49,9 +49,8 @@ def getBestParams(task, dataset_name):
     baseline1['Task'] = baseline1['Task'].str.lower()
     baseline1['Name'] = baseline1['Name'].str.lower()
     
-    best_params = baseline1[(baseline1['Name'] == dataset_name) & (baseline1['Task'] == task)]
+    best_params = baseline1[(baseline1['Name'] == dataset_name) & (baseline1['Task'] == task)]    
     
-    best_params = []
     if len(best_params) < 1: return dict(
                 clf__C =  1428.5715142857143,
                 clf__penalty =  'l2',
