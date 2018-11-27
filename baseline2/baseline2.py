@@ -127,7 +127,8 @@ def create_model(filters = [100], kernel_size = [50], strides = [100],
     model.add(Dense(units = n_classes, activation = 'softmax'))
 
     #TODO: test others foss functions: https://keras.io/losses/
-    model.compile(optimizer = 'adadelta', loss='categorical_crossentropy', metrics = ['accuracy'])
+    # sparse_categorical_entropy
+    model.compile(optimizer = 'adadelta', loss='sparse_categorical_crossentropy', metrics = ['accuracy'])
     return model
 
 
@@ -270,8 +271,6 @@ def run(task, dataset_name, root, lang):
 
 
     plot_history(history, directory=directory)
-
-    print(y_test.shape, y_test[1])
 
     full_multiclass_report(model,
                         X_test,

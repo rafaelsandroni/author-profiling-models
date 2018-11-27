@@ -224,8 +224,10 @@ def full_multiclass_report(model,
         y_true = np.argmax(y_true,axis=1)
     
     # 2. Predict classes and stores in y_pred
-    y_pred = model.predict_classes(x, batch_size=batch_size)
-    
+    # y_pred = model.predict_classes(x, batch_size=batch_size)
+    y_pred = model.predict(x, batch_size=batch_size)
+    print(y_pred[0], y_test[0])
+
     # 3. Print accuracy score
     print("Accuracy : "+ str(accuracy_score(y_true,y_pred)))
     
