@@ -176,7 +176,7 @@ def garbage_collection():
 # In[6]:
 
 task = "gender"
-dataset_name = "brblogset"
+dataset_name = "brmoral"
 lang = "pt"
 root = "/home/rafael/GDrive/Data/Dataframe/"
 
@@ -213,6 +213,7 @@ def run(task, dataset_name, root, lang):
     #### Split train and test
 
     # In[9]:
+    
     y_resampled = to_categorical(y_resampled, n_classes)
 
     X_resampled = np.reshape(X_resampled, (X_resampled.shape[0], X_resampled.shape[1], 1))
@@ -271,6 +272,14 @@ def run(task, dataset_name, root, lang):
 
 
     plot_history(history, directory=directory)
+    
+    batch_size = 32
+    y_pred = model.predict(X_test, batch_size=batch_size)
+
+    print(y_test.shape, y_pred.shape)
+    print(y_test[1], y_pred[1])
+    
+    print("Acc", accuracy_score(y_test, y_pred))
 
     full_multiclass_report(model,
                         X_test,
@@ -281,9 +290,7 @@ def run(task, dataset_name, root, lang):
                         )
                         #batch_size=32,
                         #binary= )
-    batch_size = 32
-    y_pred = model.predict(X_test, batch_size=batch_size)
-
+    
     np.save(directory + "/y_predicted", y_pred)
     np.save(directory + "/y_expected", y_test)
     
