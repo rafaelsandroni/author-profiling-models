@@ -72,7 +72,7 @@ def getBestParams(task, dataset_name):
 def model(X, y, n_classes, classes_name, params):
     
     # pipeline.set_params(**params)    
-    vect = TfidfVectorizer(max_features=params.get('vect__max_features'), max_df=params.get('vect__max_df'))
+    vect = TfidfVectorizer(max_features=params.get('vect__max_features'), max_df=params.get('vect__max_df'), ngram_range=(1, 3), analyzer="word")
     
     K = StratifiedKFold(n_splits=10)
     
