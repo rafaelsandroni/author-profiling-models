@@ -72,7 +72,7 @@ def getBestParams(task, dataset_name):
 def model(X, y, n_classes, classes_name, params):
     
     # pipeline.set_params(**params)    
-    vect = TfidfVectorizer(max_features=params.get('vect__max_features'), max_df=params.get('vect__max_df'))
+    vect = TfidfVectorizer(max_features=params.get('vect__max_features'), max_df=params.get('vect__max_df'))#, ngram_range=(1, 3), analyzer="word")
     
     K = StratifiedKFold(n_splits=10)
     
@@ -90,8 +90,8 @@ def model(X, y, n_classes, classes_name, params):
         X_train = vect.fit_transform(X_train)
         X_test = vect.transform(X_test)
         
-        X_train, y_train = oversampling(X_train, y_train)
-        X_test, y_test = oversampling(X_test, y_test)
+        # X_train, y_train = oversampling(X_train, y_train)
+        # X_test, y_test = oversampling(X_test, y_test)
 
         clf = LogisticRegression(C=params.get('clf__C'), penalty=params.get('clf__penalty'), solver='liblinear', multi_class='auto')
         
