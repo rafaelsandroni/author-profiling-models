@@ -95,7 +95,8 @@ def create_model(filters = [100], kernel_size = [50], strides = [100],
                      kernel_size = kernel_size[0],
                      strides = strides[0], 
                      activation = 'relu', 
-                     input_shape = (max_len, 1) ))
+                     input_shape = (max_len, 1)))
+                     #activity_regularizer = regularizers.l2(0.2)))
 
     # pooling layer 1
     
@@ -105,7 +106,8 @@ def create_model(filters = [100], kernel_size = [50], strides = [100],
     model.add(Conv1D(filters = filters[1], 
                      kernel_size = kernel_size[1],
                      strides = strides[0], 
-                     activation = 'relu'))
+                     activation = 'relu',
+                     activity_regularizer = regularizers.l2(0.2)))
     
     model.add(MaxPooling1D(pool_size = pool_size[1], strides = 1))
     model.add(Activation('relu'))
@@ -113,7 +115,8 @@ def create_model(filters = [100], kernel_size = [50], strides = [100],
     model.add(Conv1D(filters = filters[2], 
                      kernel_size = kernel_size[2],
                      strides = strides[0], 
-                     activation = 'relu'))
+                     activation = 'relu',
+                     activity_regularizer = regularizers.l2(0.2)))
     
     model.add(MaxPooling1D(pool_size = pool_size[2], strides = 1))
     model.add(Activation('relu'))
@@ -177,11 +180,15 @@ def garbage_collection():
 task = "gender"
 dataset_name = "brmoral"
 lang = "pt"
-root = "/home/rafael/GDrive/Data/Dataframe/"
+root = "/home/rafael/Dataframe/"
 
 # Synthetic Minority Oversampling Technique (SMOTE)
 def oversampling(X, y):
-    X_resampled, y_resampled = SMOTE().fit_resample(X, y)
+    try:
+        X_resampled, y_resampled = SMOTE().fit_resample(X, y)
+    except:
+        X_resampled, y_resampled = X, y
+        
     return X_resampled, y_resampled
     # return X, y
 
@@ -209,10 +216,9 @@ def run(task, dataset_name, root, lang):
     print(collections.Counter(y), collections.Counter(y_resampled))
 
     garbage_collection() 
-    #### Split train and test
 
-    # In[9]:
-    
+    # In[9]:a
+
     y_resampled = to_categorical(y_resampled, n_classes)
 
     X_resampled = np.reshape(X_resampled, (X_resampled.shape[0], X_resampled.shape[1], 1))
@@ -221,7 +227,7 @@ def run(task, dataset_name, root, lang):
 
     X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, test_size = 0.2)
     # validation
-    validation_split = 0.2
+    validation_split = 0.1
     X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size = validation_split)
 
     garbage_collection() 
@@ -232,15 +238,14 @@ def run(task, dataset_name, root, lang):
     print("X", X_train.shape, X_test.shape, X_val.shape)
     print("y", y_train.shape, y_test.shape, y_val.shape)
 
-    print(y_train[3])
-
     params = dict(
-        filters = [128, 128, 128],
-        kernel_size = [5, 5, 5],
-        strides = [3, 3, 3],
+        filters = [100, 100, 100],
+        kernel_size = [10],
+        strides = [1, 1, 1],
         dropout_rate = 0.4,
-        pool_size = [8, 8, 4],
-        epochs = 50
+        pool_size = [4, 4, 4],
+        epochs = 100,
+        batch_size = 32
     )
     
     ## create the model with the best params found
@@ -260,7 +265,7 @@ def run(task, dataset_name, root, lang):
                         y_train,
                         epochs=params['epochs'],
                         validation_data=(X_val, y_val),
-                        #batch_size=params['batch_size'],
+                        batch_size=params['batch_size'],
                         verbose = 1,
                         callbacks=[
                             #ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
@@ -295,20 +300,19 @@ import sys
 if __name__ == '__main__':
     print(sys.argv)
 
-    task = None
-    run_all = False
+    run_all = True
 
     #try:
-    task = sys.argv[1] or None
-    dataset_name = sys.argv[2] or None
-    g_root = sys.argv[3] or None
-    lang = sys.argv[4] or None
+    #task = sys.argv[1] or None
+    #dataset_name = sys.argv[2] or None
+    g_root = sys.argv[1] or None
+    #lang = sys.argv[4] or None
 
-    run(task, dataset_name, g_root, lang)
+    #run(task, dataset_name, g_root, lang)
     #except:
     #    run_all = True
     #    pass
-    """
+    
     if run_all == True:
         args = []
         problems = listProblems()
@@ -318,8 +322,9 @@ if __name__ == '__main__':
         # create a list of tasks
         for task, dataset_name, lang in problems:
             #args.append([task, dataset_name, g_root, lang])
+            print("dataset:",dataset_name,"task:",task,"lang:",lang)
             run(task, dataset_name, g_root, lang)
-    """
+    
 
     
 
