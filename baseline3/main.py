@@ -1,10 +1,13 @@
-from Models.functions.datasets import getDatasets
+from Models.functions.datasets import loadTrainTest
 from Models.functions.plot import ROC, plot_confusion_matrix
-from Models.functions.preprocessing import clean
 from Models.functions.cnn_model import build_cnn, build_dnn, build_simple_cnn
+from Models.functions.plot import plot_history, full_multiclass_report
+from Models.functions.preprocessing import clean, labelEncoder, oversampling
+from Models.functions.utils import checkFolder, listProblems
+from Models.functions.transform import transform
+from Models.functions.vectors import train_vectors, create_embeddings
 
 import sys
-import zipfile36 as zipfile
 
 import keras, os, pickle, re, sklearn, string, tensorflow
 print('Keras version: \t\t%s' % keras.__version__)
@@ -41,7 +44,6 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 import nltk
 
-from imblearn.over_sampling import SMOTE, ADASYN
 
 #from tqdm import tqdm
 #tqdm.pandas(desc="progress-bar")
@@ -51,144 +53,6 @@ from gensim.models.doc2vec import TaggedDocument
 import multiprocessing
 from sklearn import utils
 from gensim.models import KeyedVectors
-
-def train_vectors(X, y):
-
-    all_x_w2v = [TaggedDocument(doc.split(), [i]) for i, doc in enumerate(X)]
-
-    cores = multiprocessing.cpu_count()
-    # CBOW
-    """
-    model_ug_cbow = Word2Vec(sg=0, size=100, negative=5, window=2, min_count=2, workers=cores, alpha=0.065, min_alpha=0.065)
-    model_ug_cbow.build_vocab([x.words for x in tqdm(all_x_w2v)])
-
-    %%time
-    for epoch in range(30):
-        model_ug_cbow.train(utils.shuffle([x.words for x in tqdm(all_x_w2v)]), total_examples=len(all_x_w2v), epochs=1)
-        model_ug_cbow.alpha -= 0.002
-        model_ug_cbow.min_alpha = model_ug_cbow.alpha
-    """
-    #SKIPGRAM
-
-    model_ug_sg = Word2Vec(sg=1, size=EMBEDDING_DIM, negative=5, window=2, min_count=2, workers=cores, alpha=0.065, min_alpha=0.065)
-    model_ug_sg.build_vocab([x.words for x in all_x_w2v])
-
-    for epoch in range(30):
-        model_ug_sg.train(utils.shuffle([x.words for x in all_x_w2v]), total_examples=len(all_x_w2v), epochs=1)
-        model_ug_sg.alpha -= 0.002
-        model_ug_sg.min_alpha = model_ug_sg.alpha
-
-    #model_ug_cbow.save('/content/w2v_model_ug_cbow.word2vec')
-    model_ug_sg.save('/content/gdrive/My Drive/Mestrado/Data/Embeddings/'+g_dataset_name+'_w2v_model_ug_sg_'+str(EMBEDDING_DIM)+'.word2vec')
-
-# Synthetic Minority Oversampling Technique (SMOTE)
-def oversampling(X, y):
-    X_resampled, y_resampled = SMOTE().fit_resample(X, y)
-    return X_resampled, y_resampled
-
-# Preprocessing
-
-def labelEncoder(y):
-    le = LabelEncoder()
-    le.fit(y)
-
-    return (le.transform(y), len(le.classes_), list(le.classes_))
-
-def checkFolder(directory):    
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-
-def plot_acc_loss(title, histories, key_acc, key_loss, task, dataset_name):
-
-    directory = './Reports/' + task + '/' + dataset_name + '/'
-
-    fig, (ax1, ax2) = plt.subplots(1, 2)
-    # Accuracy
-    ax1.set_title('Model accuracy (%s)' % title)
-    names = []
-    for i, model in enumerate(histories):
-        ax1.plot(model[key_acc])
-        ax1.set_xlabel('epoch')
-        names.append('Model %i' % (i+1))
-        ax1.set_ylabel('accuracy')
-    ax1.legend(names, loc='lower right')
-    # Loss
-    ax2.set_title('Model loss (%s)' % title)
-    for model in histories:
-        ax2.plot(model[key_loss])
-        ax2.set_xlabel('epoch')
-        ax2.set_ylabel('loss')
-    ax2.legend(names, loc='upper right')
-    fig.set_size_inches(20, 5)
-    plt.savefig(directory + "/plot_"+title+".pdf")
-    plt.show()
-
-def length(text):
-    result = [len(x.split()) for x in text]
-    return np.min(result), np.max(result), np.mean(result)
-
-def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
-
-    print('training embeddings...')
-
-    #model_ug_cbow = KeyedVectors.load('/content/w2v_model_ug_cbow.word2vec')
-    model_ug_sg = KeyedVectors.load('/content/gdrive/My Drive/Mestrado/Data/Embeddings/'+g_dataset_name+'_w2v_model_ug_sg_'+str(EMBEDDING_DIM)+'.word2vec')
-
-    print("Vocab keys", len(model_ug_sg.wv.vocab.keys()))
-
-    embeddings_index = {}
-    for w in model_ug_sg.wv.vocab.keys():
-        #embeddings_index[w] = np.append(model_ug_cbow.wv[w],model_ug_sg.wv[w])
-        embeddings_index[w] = model_ug_sg.wv[w]
-
-    print('Found %s word vectors.' % len(embeddings_index))
-    
-    num_words = max_num_words
-    embedding_matrix = np.zeros((num_words, EMBEDDING_DIM))
-    for word, i in tokenizer.word_index.items():
-        if i >= num_words:
-            continue
-        embedding_vector = embeddings_index.get(word)
-        if embedding_vector is not None:
-            embedding_matrix[i] = embedding_vector
-
-    print("weights", len(embedding_matrix))
-
-    return Embedding(input_dim=max_num_words, output_dim=EMBEDDING_DIM,
-                     input_length=max_seq_length,
-                     weights=[embedding_matrix],
-                     trainable=True
-                    )
-
-def transform(text, max_num_words = None, max_seq_length = None, tokenizer = None):
-
-
-    if tokenizer == None:
-        tokenizer = Tokenizer(num_words=max_num_words)
-        tokenizer.fit_on_texts(text)
-
-    sequences = tokenizer.texts_to_sequences(text)
-
-    _, max_length, mean_length = length(text)
-    word_index = tokenizer.word_index
-
-    # MAX_SEQ_LENGTH = np.max(arr_length)
-    if max_seq_length == None:
-        max_seq_length = int(mean_length)
-
-    if max_num_words == None:
-        max_num_words = len(word_index)
-
-    result = [len(x.split()) for x in text]
-    print('Text informations:')
-    print('max length: %i / min length: %i / mean length: %i / limit length: %i' % (np.max(result), np.min(result), np.mean(result), max_seq_length))
-    print('vocabulary size: %i / limit: %i' % (len(word_index), max_num_words))
-
-    # Padding all sequences to same length of `max_seq_length`
-    X = pad_sequences(sequences, maxlen=max_seq_length, padding='post')
-
-    return X, max_num_words, max_seq_length, tokenizer
-    
 
 def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
     
@@ -212,7 +76,7 @@ def create_model(emb_layer = None, max_num_words = None, max_seq_length = None):
     )
     return model
 
-def nn(X, y):    
+def nn(X, y, directory='./Reports/tmp/'):    
 
     histories = []
     test_loss = []
@@ -223,128 +87,105 @@ def nn(X, y):
 
     emb_layer = None
 
-    train_vectors(X, y)
+    #K = StratifiedKFold(n_splits=3)
 
-    K = StratifiedKFold(n_splits=3)
+    #for train_index, test_index in K.split(X, y):
 
-    for train_index, test_index in K.split(X, y):
+        #X_train, X_test = X[train_index], X[test_index]
+        #y_train, y_test = y[train_index], y[test_index]
 
-        X_train, X_test = X[train_index], X[test_index]
-        y_train, y_test = y[train_index], y[test_index]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)    
 
-        X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
+    X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)    
+    X_test, _, _, _ = transform(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
 
-        X_test, _, _, _ = transform(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
-
-        if USE_EMBEDDINGS == True:
-            embedding_layer = create_embeddings(X, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
-
+    if True:
         X_train, y_train = oversampling(X_train, y_train)
         X_test,  y_test  = oversampling(X_test,  y_test)
 
-        model = KerasClassifier(build_fn=create_model, 
-                            emb_layer=embedding_layer,
-                            max_num_words=_MAX_NUM_WORDS,
-                            max_seq_length=_MAX_SEQ_LENGTH,
-                            epochs=NB_EPOCHS,
-                            batch_size=BATCH_SIZE,
-                            verbose=0,
-                            validation_split=0.1,
-                            callbacks=[#ModelCheckpoint('model-%i.h5', monitor='val_loss', verbose=1, save_best_only=True, mode='min'),
-                                ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
-                                EarlyStopping(monitor='val_loss', min_delta=0.005, patience=4, verbose=1)
-                            ])
-        # fitting
-        history = model.fit(X_train, y_train)
-        histories.append(history.history)
+    # validation
+    validation_split = 0.1
+    X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size = validation_split)
 
-        y_pred = model.predict(X_test, verbose=1)
-        predicted_y.extend(y_pred)
-        expected_y.extend(y_test)
+    # create embedding layer
+    embedding_layer = create_embeddings(X, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
 
-    train_val_metrics(histories)
+    # create model
+    model = KerasClassifier(build_fn=create_model, 
+                        emb_layer=embedding_layer,
+                        max_num_words=_MAX_NUM_WORDS,
+                        max_seq_length=_MAX_SEQ_LENGTH,
+                        epochs=NB_EPOCHS,
+                        batch_size=BATCH_SIZE,
+                        verbose=0,
+                        validation_data=(X_val, y_val),
+                        callbacks=[#ModelCheckpoint('model-%i.h5', monitor='val_loss', verbose=1, save_best_only=True, mode='min'),
+                            ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
+                            EarlyStopping(monitor='val_loss', min_delta=0.005, patience=4, verbose=1)
+                        ])
+    # model fitting
+    history = model.fit(X_train, y_train)    
 
-    expected_y = np.asarray(expected_y)
-    score_y = np.asarray(predicted_y) # probabilistics    
-    predicted_y = np.asarray(predicted_y).round() # estimated
+    # predict probabilities
+    y_predicted_proba = model.predict(X_test, verbose=1)
+
+    # save train/val plots
+    plot_history(histories, directory=directory)
     
+    # save metrics
+    full_multiclass_report(model,
+                        X_test,
+                        y_test,
+                        classes=classes_names,
+                        directory=directory,
+                        plot=True
+                        )
+                        #batch_size=32,
+                        #binary= )
+    
+    np.save(directory + "/history", history)
+    np.save(directory + "/y_predicted_proba", y_predicted_proba)
+    np.save(directory + "/y_test", y_test)
+
     return expected_y, predicted_y, score_y, histories
+
+def run(task, dataset_name, root, lang):
     
-def run(task, dataset_name = None, root = None):
+    directory='./Reports/'+task+'/'+dataset_name+'/'
+    checkFolder(directory)
 
-    datasets = getDatasets(task,'df', dataset_name, root)
-    for i in datasets.iterrows():
+    X, _, y, _ = loadTrainTest(task, dataset_name, root, lang)
 
-        dataset_name = i[1]['dataset_name']
-        print("Task {0} and Dataset {1}".format(task, dataset_name))
-        label = task
-        ds_path = i[1]['path']
+    X = X.apply(clean, lang=lang)
 
-        # load training and test dataframes
-        training_path = ds_path + '/' + i[1]['training']        
+    y, n_classes, classes_names = labelEncoder(y)    
 
-        df_training = pd.read_csv(training_path)#, usecols=cols)        
-
-        #df_training['text'] = df_training['text'].apply(clean)
-        X = df_training['text'].values
-        y, n_classes, classes_name = labelEncoder(df_training[label].values)
-
-        print("ORIGINAL", X.shape, y.shape)
-
-        # cnn model
-        (expected_y, predicted_y, score_y, histories) = nn(X, y)
-        
-        # save model
-        directory = './Reports/'+task+'/'+dataset_name+'/'
-        
-        checkFolder(directory)
-        
-        with open(directory + '/histories_cnn1.pkl', 'wb') as f:
-            pickle.dump(histories, f)
-            
-        # save arrays        
-        np.save(directory + '/expected_cnn1.numpy', expected_y)
-        np.save(directory + '/predicted_cnn1.numpy', predicted_y)
-        np.save(directory + '/score_cnn1.numpy', score_y)
-        
-        evaluate(expected_y, predicted_y, score_y, histories, classes_name, n_classes, task, dataset_name)
-
-        
-def evaluate(expected_y, predicted_y, score_y, histories, classes_name, n_classes, task, dataset_name):
-
-    plot_acc_loss('training', histories, 'acc', 'loss', task, dataset_name)
-    plot_acc_loss('validation', histories, 'val_acc', 'val_loss', task, dataset_name)
-
-    # report
-    report = pd.DataFrame(
-        classification_report(expected_y, predicted_y, digits=5, target_names=classes_name, output_dict=True)
-    )
-    report = report.transpose()    
+    max_length = np.max([len(x.split(" ")) for x in X])
+    mean_length = np.mean([len(x.split(" ")) for x in X])
+    median_length = np.median([len(x.split(" ")) for x in X])
     
-    # compute ROC curve
-    try:
-        roc_c = ROC(expected_y, score_y, n_classes, task, dataset_name, classes_name)
-        report['roc'] = list(roc_c.values()) + [roc_c['macro']] * 3
-    except:
-        pass
+    if not os.path.exists('/home/rafael/Embeddings/'+dataset_name):
+        train_vectors(X, y)
 
-    # compute accuracy
-    accuracy = accuracy_score(expected_y, predicted_y)
-    report['accuracy'] = [accuracy] * (n_classes + 3)
-
-    # compute confusion matrix
-    c_matrix = confusion_matrix(expected_y, predicted_y)
-    print("confusion-matrix")
-    print(c_matrix)
-    plot_confusion_matrix(c_matrix, classes_name, task, dataset_name, True)
-    cm = pd.DataFrame(c_matrix, columns=classes_name, index=classes_name)
-
-    directory = './Reports/' + task + '/' + dataset_name + '/'
-    report.to_csv(directory + 'report.csv')
-    cm.to_csv(directory + 'confusion_matrix.csv')
+    # cnn model
+    nn(X, y, directory=directory)
+    """
+    (expected_y, predicted_y, score_y, histories) = nn(X, y)
     
-    print(report)
-    print()
+    # save model
+    
+    checkFolder(directory)
+    
+    with open(directory + '/histories_cnn1.pkl', 'wb') as f:
+        pickle.dump(histories, f)
+        
+    # save arrays        
+    np.save(directory + '/expected_cnn1.numpy', expected_y)
+    np.save(directory + '/predicted_cnn1.numpy', predicted_y)
+    np.save(directory + '/score_cnn1.numpy', score_y)
+    
+    evaluate(expected_y, predicted_y, score_y, histories, classes_name, n_classes, task, dataset_name)
+    """
 
 def train_val_metrics(histories):
     print('Training: \t%0.4f loss / %0.4f acc' % (get_avg(histories, 'loss'), get_avg(histories, 'acc')))
@@ -359,10 +200,15 @@ def get_avg(histories, his_key):
 if __name__ == '__main__':    
 
     global MAX_NUM_WORDS, MAX_SEQ_LENGTH, g_task, g_dataset_name, g_root
+    run_all = True
 
+    g_root = root = sys.argv[1]
+    """
     g_task = task = sys.argv[1]
     g_dataset_name = dataset_name = sys.argv[2]
-    g_root = root = sys.argv[3]
+    g_lang = dataset_name = sys.argv[3]
+    """
+    
 
     # EMBEDDING
     MAX_NUM_WORDS  = None
@@ -381,6 +227,15 @@ if __name__ == '__main__':
     RUNS           = 5
     VAL_SIZE       = 0.2
     
-    print(task, dataset_name, root)
+    
+    if run_all == True:
+        args = []
+        problems = listProblems()
+        print("############################################")
+        print(" RUNNING {0} PROBLEMS".format(len(problems)))
 
-    run(task, dataset_name, root)
+        # create a list of tasks
+        for task, dataset_name, lang in problems:
+            #args.append([task, dataset_name, g_root, lang])
+            print("dataset:",dataset_name,"task:",task,"lang:",lang)
+            run(task, dataset_name, g_root, lang)
