@@ -95,19 +95,20 @@ def get_avg(histories, his_key):
         tmp.append(history[his_key][np.argmin(history['val_loss'])])
     return np.mean(tmp)
     
-def run(task, dataset_name, root, lang):
+def run(task, dataset_name, root, lang, params = None, report_version = None):
 
-    params = dict(
-        features_maps = [10, 10, 10],
-        kernel_size = [3,4,5],
-        strides = [1, 1, 1],
-        dropout_rate = 0.3,            
-        epochs = 100,
-        batch_size = 32,
-        embedding_dim = 100,
-        max_seq_length = None,
-        max_num_words = None,
-    )
+    if params == None:
+        params = dict(
+            features_maps = [10],
+            kernel_size = [3],
+            strides = [1],
+            dropout_rate = 0.5,
+            epochs = 100,
+            batch_size = 32,
+            embedding_dim = 100,
+            max_seq_length = None,
+            max_num_words = None,
+        )
     
     histories = []
     test_loss = []
@@ -117,7 +118,11 @@ def run(task, dataset_name, root, lang):
     predicted_y_proba = []
     expected_y = []
 
-    directory='./Reports/'+task+'/'+dataset_name+'_'+lang+'/'
+    if report_version != None:
+        directory='./Reports'+ str(report_version) +'/'+task+'/'+dataset_name+'_'+lang+'/'
+    else:    
+        directory='./Reports/'+task+'/'+dataset_name+'_'+lang+'/'
+
     checkFolder(directory)
 
     X, _, y, _ = loadTrainTest(task, dataset_name, root, lang)

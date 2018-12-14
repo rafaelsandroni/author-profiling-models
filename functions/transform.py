@@ -6,8 +6,6 @@ from keras.preprocessing.sequence import pad_sequences
 def tokenizer_pad_sequence(text, max_num_words = None, max_seq_length = None, tokenizer = None):
 
     length = [len(x.split(" ")) for x in text]
-    
-    max_num_words = int(np.mean(length))
 
     if tokenizer == None:
         tokenizer = Tokenizer(num_words=max_num_words)
