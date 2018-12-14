@@ -173,11 +173,7 @@ def run(task, dataset_name = None, root = None):
         
 def evaluate(expected_y, predicted_y, score_y, classes_name, n_classes, task, dataset_name):
 
-    # report
-    report = pd.DataFrame(
-        classification_report(expected_y, predicted_y, digits=3, target_names=classes_name, output_dict=True)
-    )
-    report = report.transpose()    
+      
     
     # compute ROC curve
     try:

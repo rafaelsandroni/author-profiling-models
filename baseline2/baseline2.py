@@ -8,8 +8,9 @@
 
 import numpy as np
 import pandas as pd
+import pickle
 
-from Models.functions.plot import plot_history, full_multiclass_report
+from Models.functions.plot import plot_history, full_multiclass_report, plot_confusion_matrix
 from Models.functions.preprocessing import clean, labelEncoder
 from Models.functions.datasets import loadTrainTest
 from Models.functions.utils import checkFolder, listProblems
@@ -31,6 +32,8 @@ from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
+from sklearn.model_selection import StratifiedKFold
+from sklearn.metrics import roc_curve, auc, accuracy_score, classification_report, confusion_matrix
 
 import itertools
 import matplotlib.pyplot as plt
@@ -51,38 +54,6 @@ except:
 import numpy as np
 from keras.callbacks import Callback
 from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score
-
-
-
-
-def create_model_simple(filters = [100], kernel_size = [50], strides = [100], 
-                 dropout_rate = 0.5, pool_size = [5], dense_units = 512, max_len = 1000, n_classes = 2):
-
-    model = Sequential()
-
-    # conv 1
-    model.add(Conv1D(filters = filters[0], 
-                     kernel_size = kernel_size[0],
-                     strides = strides[0], 
-                     activation = 'relu', 
-                     input_shape = (max_len, 1) ))
-
-    # pooling layer 1
-    
-    model.add(MaxPooling1D(pool_size = pool_size[0], strides = 1))
-    model.add(Activation('relu'))
-
-    model.add(Flatten())
-    
-    if dropout_rate is not None:
-        model.add(Dropout(dropout_rate))
-        
-    model.add(Dense(units = dense_units, activation = 'relu'))
-    model.add(Dense(units = n_classes, activation = 'softmax'))
-
-    #TODO: test others foss functions: https://keras.io/losses/
-    model.compile(optimizer = 'adadelta', loss='categorical_crossentropy', metrics = ['accuracy'])
-    return model
 
 
 def create_model(filters = [100], kernel_size = [50], strides = [100], 
@@ -136,44 +107,11 @@ def create_model(filters = [100], kernel_size = [50], strides = [100],
 
 # In[5]:
 
-def get_results(model, y_espected, y_predicted):
-
-    config = model.get_config()
-
-    row = {}
-
-    conv_layers = np.sum([1 if i['class_name'] == "Conv1D" else 0 for i in config])
-    pooling_layers = np.sum([1 if i['class_name'] == "MaxPooling1D" else 0 for i in config])
-
-    row.update({ '_accuracy': accuracy_score(y_espected, y_predicted) })
-    row.update({ '_f1-score': f1_score(y_espected, y_predicted,average='weighted')})
-    row.update({ 'conv_layers': conv_layers })
-    row.update({ 'pooling_layers': pooling_layers })
-
-    _, _, fscore, support = precision_recall_fscore_support(y_espected, y_predicted)
-
-    [row.update({'_fscore_class_'+str(i[0]): i[1]}) for i in enumerate(fscore)]
-    [row.update({'_support_class_'+str(i[0]): i[1]}) for i in enumerate(support)]
-
-    idx = 1
-    for i in config:
-        if i['class_name'] == "Conv1D":
-            j = str(idx)
-            row.update({
-                'filters_'+j: i['config']['filters'],
-                'strides_'+j: i['config']['strides'],
-                'kernel_size_'+j: i['config']['kernel_size'],
-                'activation_'+j: i['config']['activation']
-            })
-        pass
-    return row
-
-
-def vectorizer(X, max_features=None): return TfidfVectorizer(max_features=int(max_features)).fit_transform(X).toarray()
 
 def garbage_collection(): 
     gc.collect()
-    sleep(2)
+    print("gargabe colletion...")
+    sleep(3)
 
 # In[6]:
 
@@ -192,109 +130,173 @@ def oversampling(X, y):
     return X_resampled, y_resampled
     # return X, y
 
-def run(task, dataset_name, root, lang):
+def train_val_metrics(histories):
+    print('Training: \t%0.4f loss / %0.4f acc' % (get_avg(histories, 'loss'), get_avg(histories, 'acc')))
+    print('Validation: \t%0.4f loss / %0.4f acc' % (get_avg(histories, 'val_loss'), get_avg(histories, 'val_acc')))
+
+def get_avg(histories, his_key):
+    tmp = []
+    for history in histories:
+        tmp.append(history[his_key][np.argmin(history['val_loss'])])
+    return np.mean(tmp)
     
-    directory='./Reports/'+task+'/'+dataset_name+'/'
+def run(task, dataset_name, root, lang):
+
+    histories = []
+    test_loss = []
+    test_accs = []
+
+    predicted_y = []
+    predicted_y_proba = []
+    expected_y = []
+
+    directory='./Reports/'+task+'/'+dataset_name+'_'+lang+'/'
     checkFolder(directory)
 
     X, _, y, _ = loadTrainTest(task, dataset_name, root, lang)
 
     X = X.apply(clean, lang=lang)
-
+    X = X.values # mandatory for pan13
+    
     y, n_classes, classes_names = labelEncoder(y)    
 
     max_length = np.max([len(x.split(" ")) for x in X])
     mean_length = np.mean([len(x.split(" ")) for x in X])
     median_length = np.median([len(x.split(" ")) for x in X])
 
+    if mean_length < 30:
+        mean_length = 30
+    elif mean_length > 1500 and median_length < 1500:
+        mean_length = median_length
+    elif mean_length > 1500 and median_length > 1500:
+        mean_length = 1300
+
     print("max: ", max_length, " / mean: ", mean_length, " / median: ", median_length)
+    
+    K = StratifiedKFold(n_splits=3)
+    idx = 0
+    for train_index, test_index in K.split(X, y):
 
-    X_tfidf = vectorizer(X, max_features=mean_length)
+        X_train, X_test = X[train_index], X[test_index]
+        y_train, y_test = y[train_index], y[test_index]
+        
+        # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2) 
+        vect = None
+        vect = TfidfVectorizer(max_features=int(mean_length))        
+        X_train = vect.fit_transform(X_train).toarray()
+        X_test = vect.transform(X_test).toarray()
 
-    X_resampled, y_resampled = oversampling(X_tfidf, y)
+        X_train, y_train = oversampling(X_train, y_train)
+        X_test,  y_test  = oversampling(X_test, y_test)
 
-    print(collections.Counter(y), collections.Counter(y_resampled))
+        y_train = to_categorical(y_train, n_classes)
+        y_test  = to_categorical(y_test, n_classes)
 
-    garbage_collection() 
+        X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))
+        X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
 
-    # In[9]:a
+        # validation
+        validation_split = 0.1
+        X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size = validation_split) 
 
-    y_resampled = to_categorical(y_resampled, n_classes)
+        params = dict(
+            filters = [100, 100, 100],
+            kernel_size = [10],
+            strides = [1, 1, 1],
+            dropout_rate = 0.4,
+            pool_size = [4, 4, 4],
+            epochs = 100,
+            batch_size = 12
+        )
+        
+        ## create the model with the best params found
+        #model = KerasClassifier(build_fn=create_model,
+        model = None
+        model = create_model(
+                                max_len=X_train.shape[1],
+                                n_classes=n_classes,
+                                filters=params['filters'],
+                                kernel_size=params['kernel_size'],
+                                strides=params['strides'],                        
+                                dropout_rate=params['dropout_rate'],
+                                pool_size=params['pool_size']
+                            )
 
-    X_resampled = np.reshape(X_resampled, (X_resampled.shape[0], X_resampled.shape[1], 1))
+        ## Then train it and display the results
+        history = model.fit(X_train,
+                            y_train,                            
+                            validation_data=(X_val, y_val),                            
+                            verbose = 1,
+                            batch_size=params['batch_size'],                                
+                            epochs=params['epochs'],
+                            callbacks=[
+                                #ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
+                                EarlyStopping(monitor='val_loss', min_delta=0.01, patience=4, verbose=0)
+                        ])        
+        
+        y_pred_proba = model.predict(X_test, batch_size=params['batch_size'])
+        predicted_y_proba.extend(y_pred_proba)
 
-    print(X.shape)
+        binary = False # True if len(classes) < 3 else False
+        # 1. Transform one-hot encoded y_test into their class number
+        if not binary:
+            y_test = np.argmax(y_test,axis=1)
+        
+        # 2. Predict classes and stores 
+        #y_pred = model.predict(X_test, batch_size=params['batch_size'])        
+        y_pred = y_pred_proba.argmax(axis=1)
+        
+        predicted_y.extend(y_pred)
+        expected_y.extend(y_test)
+        histories.append(history.history)
+        garbage_collection()
 
-    X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, test_size = 0.2)
-    # validation
-    validation_split = 0.1
-    X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size = validation_split)
+    del X, y, model, vect
 
-    garbage_collection() 
+    expected_y = np.array(expected_y)
+    predicted_y = np.array(predicted_y)
+    predicted_y_proba = np.array(predicted_y)
 
-    # X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))
-    # X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))    
+    np.save(directory + '/expected.numpy', expected_y)
+    np.save(directory + '/predicted.numpy', predicted_y)
+    np.save(directory + '/predicted_proba.numpy', predicted_y_proba)
+    with open(directory + '/histories.pkl', 'wb') as f:
+        pickle.dump(histories, f)
 
-    print("X", X_train.shape, X_test.shape, X_val.shape)
-    print("y", y_train.shape, y_test.shape, y_val.shape)
+    # metrics    
+    train_val_metrics(histories)
 
-    params = dict(
-        filters = [100, 100, 100],
-        kernel_size = [10],
-        strides = [1, 1, 1],
-        dropout_rate = 0.4,
-        pool_size = [4, 4, 4],
-        epochs = 100,
-        batch_size = 32
+    # plot_history(histories, directory)
+    
+    # y_pred = model.predict(x, batch_size=batch_size)
+
+    # 3. Print accuracy score
+    print("Accuracy : "+ str(accuracy_score(expected_y,predicted_y)))    
+    print("F1-Score : "+ str(f1_score(expected_y,predicted_y,average="macro")))    
+    print("")
+    
+    # 4. Print classification report
+    print("Classification Report")
+    report = pd.DataFrame(
+        classification_report(expected_y, predicted_y, digits=3, target_names=classes_names, output_dict=True)
     )
-    
-    ## create the model with the best params found
-    model = create_model(
-                        max_len=X_train.shape[1],
-                        n_classes=n_classes,
-                        filters=params['filters'],
-                        kernel_size=params['kernel_size'],
-                        strides=params['strides'],                        
-                        dropout_rate=params['dropout_rate'],
-                        pool_size=params['pool_size']
-                        )
-    model.summary()
+    report = report.transpose()
+    accuracy = accuracy_score(expected_y, predicted_y)
+    report['accuracy'] = [accuracy] * (n_classes + 3)    
+    report.to_csv(directory + '/report.csv')
+    print(report)
 
-    ## Then train it and display the results
-    history = model.fit(X_train,
-                        y_train,
-                        epochs=params['epochs'],
-                        validation_data=(X_val, y_val),
-                        batch_size=params['batch_size'],
-                        verbose = 1,
-                        callbacks=[
-                            #ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
-                            EarlyStopping(monitor='val_loss', min_delta=0.01, patience=4, verbose=1)
-                    ])
+    # 5. Plot confusion matrix
+    cnf_matrix = confusion_matrix(expected_y,predicted_y)    
+    np.save(directory + "/confusion_matrix", np.array(cnf_matrix))    
+    plot_confusion_matrix(cnf_matrix, classes=classes_names, directory=directory, normalize=True)
 
-    # save y_predicted
+    # 6. Clean memory
+    garbage_collection()
+    gc.collect()
 
-
-    plot_history(history, directory=directory)
-    
-    batch_size = 32
-    y_predicted_proba = model.predict(X_test, batch_size=batch_size)
-
-    full_multiclass_report(model,
-                        X_test,
-                        y_test,
-                        classes=classes_names,
-                        directory=directory,
-                        plot=True
-                        )
-                        #batch_size=32,
-                        #binary= )
-    
-    np.save(directory + "/y_predicted_proba", y_predicted_proba)
-    np.save(directory + "/y_test", y_test)
-    # results = results.append(pd.DataFrame(get_results(model)), ignore_index=True)
-
-    # results.to_csv(results_dataframe)
+    print("+"+"-"*50+"+")
+    print()
         
 import sys
 if __name__ == '__main__':
@@ -303,9 +305,15 @@ if __name__ == '__main__':
     run_all = True
 
     #try:
-    #task = sys.argv[1] or None
-    #dataset_name = sys.argv[2] or None
-    g_root = sys.argv[1] or None
+    #task = sys.argv[1] or None    
+    g_root              = sys.argv[1] or None
+
+    filter_dataset_name = sys.argv[2] or None
+
+    try:
+        filter_task         = sys.argv[3] or None
+    except:
+        filter_task = None
     #lang = sys.argv[4] or None
 
     #run(task, dataset_name, g_root, lang)
@@ -315,14 +323,15 @@ if __name__ == '__main__':
     
     if run_all == True:
         args = []
-        problems = listProblems()
+        problems = listProblems(filter_dataset_name, filter_task)
         print("############################################")
         print(" RUNNING {0} PROBLEMS".format(len(problems)))
 
         # create a list of tasks
         for task, dataset_name, lang in problems:
+
             #args.append([task, dataset_name, g_root, lang])
-            print("dataset:",dataset_name,"task:",task,"lang:",lang)
+            print(" Dataset: ",dataset_name," / Task:",task," / Lang:",lang)
             run(task, dataset_name, g_root, lang)
     
 
