@@ -3,8 +3,13 @@ import re, string
 import numpy as np
 from bs4 import BeautifulSoup
 import html
+from imblearn.over_sampling import SMOTE, ADASYN
 
 languages = {'pt': 'portuguese', 'en': 'english', 'es': 'spanish'}
+# Synthetic Minority Oversampling Technique (SMOTE)
+def oversampling(X, y):
+    X_resampled, y_resampled = SMOTE().fit_resample(X, y)
+    return X_resampled, y_resampled
 
 def clean(doc, lang = 'pt'):
 

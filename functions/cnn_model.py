@@ -6,7 +6,6 @@ This implementation is based on the original paper of Yoon Kim [1].
 # References
 - [1] [Convolutional Neural Networks for Sentence Classification](https://arxiv.org/abs/1408.5882)
 
-@author: Christopher Masch
 """
 
 from keras.layers import Activation, Input, Dense, Flatten, Dropout, Embedding
@@ -15,11 +14,14 @@ from keras.layers.merge import concatenate
 from keras import regularizers
 from keras.models import Model, Sequential
 
-__version__ = '0.0.2'
 
-def build_cnn(embedding_layer=None, num_words=None,
+
+def build_cnn1(embedding_layer=None, num_words=None,
               embedding_dim=None, filter_sizes=[3,4,5,6],
-              feature_maps=[100,100,100], max_seq_length=100, dropout_rate=None):
+              feature_maps=[100,100,100], max_seq_length=100, dropout_rate=None, n_classes = 2):
+
+    __version__ = 'b3/0.0.2'
+
     """
     Building a CNN for text classification
     
@@ -60,14 +62,12 @@ def build_cnn(embedding_layer=None, num_words=None,
                                    )
     
     channels = []
-    x_in = Input(shape=(max_seq_length,), dtype='int32')
-    print(x_in)
-    print(type(x_in.shape))
-    """
-    # emb_layer = embedding_layer(x_in)
+    x_in = Input(shape=(max_seq_length,), dtype='int32')    
+    
+    emb_layer = embedding_layer(x_in)
 
-    # if dropout_rate:
-        # emb_layer  = Dropout(dropout_rate)(x_in) # emb_layer)
+    if dropout_rate:
+        emb_layer  = Dropout(dropout_rate)(emb_layer)
 
     for ix in range(len(filter_sizes)):
         x = create_channel(emb_layer, filter_sizes[ix], feature_maps[ix])
@@ -79,8 +79,8 @@ def build_cnn(embedding_layer=None, num_words=None,
         x = Dropout(dropout_rate)(x)
 
     x = Activation('relu')(x)
-    """
-    x = Dense(1, activation='sigmoid')(x)
+    
+    x = Dense(n_classes, activation='sigmoid')(x)
     
     return Model(inputs=x_in, outputs=x)
     
@@ -98,7 +98,7 @@ def create_channel(x, filter_size, feature_map):
 
 # SIMPLE CNN
 
-def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_maps=[100,100,100], dropout_rate=None):
+def build_cnn2(num_words, max_seq_length, filter_sizes=[3,4,5], feature_maps=[100,100,100], dropout_rate=None):
 
     __version__ = '2.0.0'
 
@@ -147,7 +147,7 @@ def build_simple_cnn(num_words, max_seq_length, filter_sizes=[3,4,5], feature_ma
 # DNN MODEL
 
 
-def build_dnn(num_words):
+def build_dnn1(num_words):
 
     model = Sequential()
 
