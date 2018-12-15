@@ -215,7 +215,7 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         history = model.fit(X_train,
                             y_train,                            
                             validation_data=(X_val, y_val),                            
-                            verbose = 1,
+                            verbose = 0,
                             batch_size=params['batch_size'],                                
                             epochs=params['epochs'],
                             callbacks=[
@@ -267,8 +267,10 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
     # y_pred = model.predict(x, batch_size=batch_size)
 
     # 17. Print accuracy score
-    print("Accuracy : "+ str(accuracy_score(expected_y,predicted_y)))    
-    print("F1-Score : "+ str(f1_score(expected_y,predicted_y,average="macro")))    
+    acc = accuracy_score(expected_y,predicted_y)
+    print("Accuracy : "+ str(acc))    
+    f1 = f1_score(expected_y,predicted_y,average="macro")
+    print("F1-Score : "+ str(f1))
     print("")
     
     # 18. Classification report
@@ -293,6 +295,7 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
 
     print("+"+"-"*50+"+")
     print()
+    return acc, f1, cnf_matrix
         
 import sys
 if __name__ == '__main__':
