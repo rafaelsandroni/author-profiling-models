@@ -144,7 +144,7 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
     if mean_length < 50:
         mean_length = 50
 
-    MAX_NUM_WORDS = None
+    MAX_NUM_WORDS = params['max_num_words']
     MAX_SEQ_LENGTH = int(mean_length)
     # if word vectors is not created for the dataset
     if not os.path.exists('/home/rafael/GDrive/Embeddings/'+dataset_name):
@@ -160,14 +160,12 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]        
         vect = None        
-
         # 2. Oversampling
-        X_train, y_train = oversampling(X_train, y_train)
-        X_test,  y_test  = oversampling(X_test, y_test)
+        #X_test,  y_test  = oversampling(X_test, y_test)
 
         # 3. Categorical labels
-        y_train = to_categorical(y_train, n_classes)
-        y_test  = to_categorical(y_test, n_classes)
+        #y_train = to_categorical(y_train, n_classes)
+        #y_test  = to_categorical(y_test, n_classes)
         
         # 4. Define validation set
         validation_split = 0.1
@@ -178,6 +176,14 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         X_val, _, _, _                                  = tokenizer_pad_sequence(X_val,  _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
         X_test, _, _, _                                 = tokenizer_pad_sequence(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
         
+        X_train, y_train = oversampling(X_train, y_train)
+        X_test, y_test = oversampling(X_test, y_test)
+        X_val, y_val = oversampling(X_val, y_val)
+
+        y_train = to_categorical(y_train, n_classes)
+        y_test = to_categorical(y_test, n_classes)
+        y_val = to_categorical(y_val, n_classes)
+
         # 6. Create the embedding layer from trained vectors
         embedding_layer = create_embeddings(vect, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, name=dataset_name, embedding_dim=params['embedding_dim'])
 
