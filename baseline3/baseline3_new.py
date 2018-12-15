@@ -99,9 +99,9 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
 
     if params == None:
         params = dict(
-            features_maps = [10],
-            kernel_size = [3],
-            strides = [1],
+            features_maps = [10,10,10],
+            kernel_size = [3,4,5],
+            strides = [1,1,1],
             dropout_rate = 0.5,
             epochs = 100,
             batch_size = 32,
@@ -185,11 +185,12 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         y_val = to_categorical(y_val, n_classes)
 
         # 6. Create the embedding layer from trained vectors
-        embedding_layer = create_embeddings(vect, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, name=dataset_name, embedding_dim=params['embedding_dim'])
 
         # 7. Update params
         params['max_seq_length'] = _MAX_SEQ_LENGTH
-        params['max_num_words'] = _MAX_NUM_WORDS
+        params['max_num_words'] = _MAX_NUM_WORDS 
+
+        embedding_layer = create_embeddings(vect, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, name=dataset_name, embedding_dim=params['embedding_dim'])
 
         # 8. Create the CNN model with the best params        
         model = None        

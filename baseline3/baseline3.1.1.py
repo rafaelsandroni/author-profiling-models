@@ -16,7 +16,7 @@ params = dict(
             batch_size = 32,
             embedding_dim = 100,
             max_seq_length = None,
-            max_num_words = 2000
+            max_num_words = 50000#None
 )
 
 if __name__ == '__main__':
