@@ -1,0 +1,73 @@
+acc,cm,dataset,f1,n,params,task,tunning,v
+0.3989501312335958,"[[31 42 54]
+ [30 44 53]
+ [21 29 77]]",brmoral,0.3851546434047704,0.0,"{'max_num_words': 20, 'embedding_dim': 100, 'n_classes': 3, 'strides': [1, 1, 1], 'batch_size': 32, 'features_maps': [600, 600, 600], 'epochs': 100, 'max_seq_length': 302, 'kernel_size': [15, 15, 15], 'dropout_rate': 0.5}",age,features_maps,_grid
+0.4225721784776903,"[[40 52 35]
+ [40 52 35]
+ [28 30 69]]",brmoral,0.4192299857820962,1.0,"{'max_num_words': 20, 'embedding_dim': 100, 'n_classes': 3, 'strides': [1, 1, 1], 'batch_size': 32, 'features_maps': [300, 300, 300], 'epochs': 100, 'max_seq_length': 302, 'kernel_size': [15, 15, 15], 'dropout_rate': 0.5}",age,features_maps,_grid
+0.3727034120734909,"[[57 46 24]
+ [63 39 25]
+ [45 36 46]]",brmoral,0.3731138341169273,2.0,"{'max_num_words': 20, 'embedding_dim': 100, 'n_classes': 3, 'strides': [1, 1, 1], 'batch_size': 32, 'features_maps': [50, 50, 50], 'epochs': 100, 'max_seq_length': 302, 'kernel_size': [15, 15, 15], 'dropout_rate': 0.5}",age,features_maps,_grid
+0.3884514435695538,"[[68 24 35]
+ [62 31 34]
+ [59 19 49]]",brmoral,0.379612486092743,0.0,"{'batch_size': 32, 'dropout_rate': 0.5, 'max_seq_length': 302, 'kernel_size': [15, 15], 'max_num_words': 20, 'features_maps': [100, 100], 'strides': [1, 1, 1], 'epochs': 100, 'embedding_dim': 100, 'n_classes': 3}",age,features_maps,_grid
+0.4094488188976378,"[[31 49 47]
+ [38 51 38]
+ [21 32 74]]",brmoral,0.399006399006399,0.0,"{'max_num_words': 20, 'dropout_rate': 0.5, 'n_classes': 3, 'batch_size': 32, 'max_seq_length': 302, 'kernel_size': [15, 15], 'strides': [1, 1, 1], 'embedding_dim': 100, 'epochs': 100, 'features_maps': [100, 100]}",age,features_maps,_grid
+0.3884514435695538,"[[34 57 36]
+ [36 59 32]
+ [34 38 55]]",brmoral,0.3847670399983567,1.0,"{'max_num_words': 20, 'dropout_rate': 0.5, 'n_classes': 3, 'batch_size': 32, 'max_seq_length': 302, 'kernel_size': [5, 5], 'strides': [1, 1, 1], 'embedding_dim': 100, 'epochs': 100, 'features_maps': [100, 100]}",age,features_maps,_grid
+0.3884514435695538,"[[40 47 40]
+ [34 52 41]
+ [34 37 56]]",brmoral,0.3867017395049108,0.0,"{'n_classes': 3, 'features_maps': [100, 100], 'max_num_words': 20, 'batch_size': 32, 'max_seq_length': 302, 'strides': [1, 1, 1], 'dropout_rate': 0.5, 'embedding_dim': 100, 'kernel_size': [15, 15], 'epochs': 100}",age,features_maps,_grid
+0.3832020997375328,"[[35 37 55]
+ [42 26 59]
+ [27 15 85]]",brmoral,0.35938707741790193,1.0,"{'n_classes': 3, 'features_maps': [600, 600], 'max_num_words': 20, 'batch_size': 32, 'max_seq_length': 302, 'strides': [1, 1, 1], 'dropout_rate': 0.5, 'embedding_dim': 100, 'kernel_size': [15, 15], 'epochs': 100}",age,features_maps,_grid
+0.3910761154855643,"[[61 32 34]
+ [54 33 40]
+ [47 25 55]]",brmoral,0.3853267647191704,2.0,"{'n_classes': 3, 'features_maps': [20, 20], 'max_num_words': 20, 'batch_size': 32, 'max_seq_length': 302, 'strides': [1, 1, 1], 'dropout_rate': 0.5, 'embedding_dim': 100, 'kernel_size': [15, 15], 'epochs': 100}",age,features_maps,_grid
+0.4015748031496063,"[[61 32 34]
+ [66 40 21]
+ [39 36 52]]",brmoral,0.4004174096396884,0.0,"{'n_classes': 3, 'dropout_rate': 0.5, 'max_num_words': 20, 'optimizer': None, 'features_maps': [100, 100], 'batch_size': 32, 'strides': [2, 2], 'embedding_dim': 100, 'max_seq_length': 302, 'kernel_size': [15, 15], 'epochs': 100}",age,features_maps,_grid
+0.5173913043478261,"[[116 114]
+ [108 122]]",brmoral,0.5173091830368115,0.0,"{'features_maps': [100, 100], 'batch_size': 32, 'n_classes': 3, 'max_num_words': 20, 'epochs': 100, 'embedding_dim': 100, 'strides': [2, 2], 'max_seq_length': 302, 'kernel_size': [15, 15], 'dropout_rate': 0.5, 'optimizer': None}",gender,features_maps,_grid
+0.3727034120734909,"[[39 53 35]
+ [42 49 36]
+ [37 36 54]]",brmoral,0.37225003208830704,0.0,"{'features_maps': [100, 100], 'batch_size': 32, 'n_classes': 3, 'max_num_words': 20, 'epochs': 100, 'embedding_dim': 100, 'strides': [2, 2], 'max_seq_length': 302, 'kernel_size': [15, 15], 'dropout_rate': 0.5, 'optimizer': None}",age,features_maps,_grid
+0.3032407407407408,"[[44 23 77]
+ [57 18 69]
+ [51 24 69]]",brmoral,0.2846490717770589,0.0,"{'features_maps': [100, 100], 'batch_size': 32, 'n_classes': 3, 'max_num_words': 20, 'epochs': 100, 'embedding_dim': 100, 'strides': [2, 2], 'max_seq_length': 302, 'kernel_size': [15, 15], 'dropout_rate': 0.5, 'optimizer': None}",religion,features_maps,_grid
+0.3333333333333333,"[[33 43 53]
+ [26 45 58]
+ [29 49 51]]",brmoral,0.3310029313389893,0.0,"{'features_maps': [100, 100], 'batch_size': 32, 'n_classes': 3, 'max_num_words': 20, 'epochs': 100, 'embedding_dim': 100, 'strides': [2, 2], 'max_seq_length': 302, 'kernel_size': [15, 15], 'dropout_rate': 0.5, 'optimizer': None}",education,features_maps,_grid
+0.5811965811965812,"[[138  96]
+ [100 134]]",brmoral,0.5811659848042081,0.0,"{'features_maps': [100, 100], 'batch_size': 32, 'n_classes': 3, 'max_num_words': 20, 'epochs': 100, 'embedding_dim': 100, 'strides': [2, 2], 'max_seq_length': 302, 'kernel_size': [15, 15], 'dropout_rate': 0.5, 'optimizer': None}",it,features_maps,_grid
+0.30303030303030304,"[[62 27 43]
+ [72 22 38]
+ [72 24 36]]",brmoral,0.2902182260576438,0.0,"{'features_maps': [100, 100], 'batch_size': 32, 'n_classes': 3, 'max_num_words': 20, 'epochs': 100, 'embedding_dim': 100, 'strides': [2, 2], 'max_seq_length': 302, 'kernel_size': [15, 15], 'dropout_rate': 0.5, 'optimizer': None}",politics,features_maps,_grid
+0.5847826086956521,"[[170  60]
+ [131  99]]",brmoral,0.5746493737866663,0.0,"{'strides': [1, 1, 1], 'max_num_words': 1000, 'epochs': 100, 'batch_size': 32, 'optimizer': None, 'features_maps': [100, 100, 100], 'embedding_dim': 100, 'n_classes': 3, 'kernel_size': [15, 15, 15], 'dropout_rate': 0.5, 'max_seq_length': 302}",gender,kernel_size,_grid
+0.6717391304347826,"[[145  85]
+ [ 66 164]]",brmoral,0.6711781441873896,1.0,"{'strides': [1, 1, 1], 'max_num_words': 1000, 'epochs': 100, 'batch_size': 32, 'optimizer': None, 'features_maps': [100, 100, 100], 'embedding_dim': 100, 'n_classes': 3, 'kernel_size': [4, 5, 6], 'dropout_rate': 0.5, 'max_seq_length': 302}",gender,kernel_size,_grid
+0.6369565217391304,"[[166  64]
+ [103 127]]",brmoral,0.6343280384998025,2.0,"{'strides': [1, 1, 1], 'max_num_words': 1000, 'epochs': 100, 'batch_size': 32, 'optimizer': None, 'features_maps': [100, 100, 100], 'embedding_dim': 100, 'n_classes': 3, 'kernel_size': [7, 8, 9], 'dropout_rate': 0.5, 'max_seq_length': 302}",gender,kernel_size,_grid
+0.5847826086956521,"[[ 72 158]
+ [ 33 197]]",brmoral,0.5516775098864651,3.0,"{'strides': [1, 1, 1], 'max_num_words': 1000, 'epochs': 100, 'batch_size': 32, 'optimizer': None, 'features_maps': [100, 100, 100], 'embedding_dim': 100, 'n_classes': 3, 'kernel_size': [10, 15, 20], 'dropout_rate': 0.5, 'max_seq_length': 302}",gender,kernel_size,_grid
+0.3989501312335958,"[[41 35 51]
+ [37 38 52]
+ [33 21 73]]",brmoral,0.3900924675531548,0.0,"{'strides': [1, 1, 1], 'max_num_words': 1000, 'epochs': 100, 'batch_size': 32, 'optimizer': None, 'features_maps': [100, 100, 100], 'embedding_dim': 100, 'n_classes': 3, 'kernel_size': [15, 15, 15], 'dropout_rate': 0.5, 'max_seq_length': 302}",age,kernel_size,_grid
+0.36220472440944884,"[[16 61 50]
+ [15 64 48]
+ [10 59 58]]",brmoral,0.33731524870333907,1.0,"{'strides': [1, 1, 1], 'max_num_words': 1000, 'epochs': 100, 'batch_size': 32, 'optimizer': None, 'features_maps': [100, 100, 100], 'embedding_dim': 100, 'n_classes': 3, 'kernel_size': [4, 5, 6], 'dropout_rate': 0.5, 'max_seq_length': 302}",age,kernel_size,_grid
+0.34908136482939633,"[[10 43 74]
+ [ 8 43 76]
+ [ 5 42 80]]",brmoral,0.30625583566760034,2.0,"{'strides': [1, 1, 1], 'max_num_words': 1000, 'epochs': 100, 'batch_size': 32, 'optimizer': None, 'features_maps': [100, 100, 100], 'embedding_dim': 100, 'n_classes': 3, 'kernel_size': [7, 8, 9], 'dropout_rate': 0.5, 'max_seq_length': 302}",age,kernel_size,_grid
+0.4146981627296588,"[[38 35 54]
+ [28 32 67]
+ [21 18 88]]",brmoral,0.3936121677260806,3.0,"{'strides': [1, 1, 1], 'max_num_words': 1000, 'epochs': 100, 'batch_size': 32, 'optimizer': None, 'features_maps': [100, 100, 100], 'embedding_dim': 100, 'n_classes': 3, 'kernel_size': [10, 15, 20], 'dropout_rate': 0.5, 'max_seq_length': 302}",age,kernel_size,_grid
+0.3194444444444444,"[[72  0 72]
+ [65  3 76]
+ [81  0 63]]",brmoral,0.2645119864146733,0.0,"{'strides': [1, 1, 1], 'max_num_words': 1000, 'epochs': 100, 'batch_size': 32, 'optimizer': None, 'features_maps': [100, 100, 100], 'embedding_dim': 100, 'n_classes': 3, 'kernel_size': [15, 15, 15], 'dropout_rate': 0.5, 'max_seq_length': 302}",religion,kernel_size,_grid
+0.35185185185185186,"[[16 90 38]
+ [ 7 96 41]
+ [ 9 95 40]]",brmoral,0.3125884657354127,1.0,"{'strides': [1, 1, 1], 'max_num_words': 1000, 'epochs': 100, 'batch_size': 32, 'optimizer': None, 'features_maps': [100, 100, 100], 'embedding_dim': 100, 'n_classes': 3, 'kernel_size': [4, 5, 6], 'dropout_rate': 0.5, 'max_seq_length': 302}",religion,kernel_size,_grid

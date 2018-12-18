@@ -1,411 +1,88 @@
-from Models.functions.datasets import getDatasets
-from Models.functions.plot import ROC, plot_confusion_matrix
-from Models.functions.preprocessing import clean
-from Models.functions.cnn_model import build_cnn, build_dnn, build_simple_cnn
-
-import sys
-
-import keras, os, pickle, re, sklearn, string, tensorflow
-print('Keras version: \t\t%s' % keras.__version__)
-print('Scikit version: \t%s' % sklearn.__version__)
-print('TensorFlow version: \t%s' % tensorflow.__version__)
-
-import numpy as np 
-from numpy import zeros, newaxis
-
 import pandas as pd
-import matplotlib.pyplot as plt
+import baseline3_new
+from Models.functions.utils import listProblems
+import copy
 
-from nltk.corpus import stopwords
-from keras.utils import to_categorical
-from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, EarlyStopping
-from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
-from keras.models import load_model
-from keras.layers import Embedding, Dense
-from keras.optimizers import Adadelta
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import accuracy_score
+filter_task = None
+filter_dataset_name = "pan13"
+g_root = "/home/rafael/Dataframe/"
+g_lang = "en"
+report_version = '_grid'
+rp_file = "./Grid/"+ filter_dataset_name+"_"+report_version+".csv"
 
-from sklearn.model_selection import GridSearchCV
-from keras.wrappers.scikit_learn import KerasClassifier
+#brmoral (turned on age task)
+params = dict(
+            features_maps = [100,100],
+            kernel_size = [15,15],
+            strides = [2,2],
+            dropout_rate = 0.5,
+            epochs = 100,
+            batch_size = 32,
+            embedding_dim = 100,
+            max_seq_length = None,
+            max_num_words = 20,
+            optimizer = None
+        )
+params_pan13 = dict(
+        features_maps = [100,100,100],
+        kernel_size = [15,15,15],
+        strides = [1,1,1],
+        dropout_rate = 0.5,
+        epochs = 100,
+        batch_size = 32,
+        embedding_dim = 100,
+        max_seq_length = None,
+        max_num_words = 1000,
+        optimizer = None
+        )
+#max_num_words = [ 20, 500 ]
+features_maps = [1]
+kernel_size = [[15,15,15],[4,5,6],[7,8,9],[10,15,20]]
 
-from sklearn.model_selection import StratifiedKFold
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
-from sklearn.metrics import classification_report
-from sklearn.metrics import confusion_matrix
-
-from sklearn.feature_extraction.text import CountVectorizer
-from nltk.corpus import stopwords
-import nltk
-
-from imblearn.over_sampling import SMOTE, ADASYN
-from time import time
-
-#from tqdm import tqdm
-#tqdm.pandas(desc="progress-bar")
-import gensim
-from gensim.models.word2vec import Word2Vec
-from gensim.models.doc2vec import TaggedDocument
-import multiprocessing
-from sklearn import utils
-from gensim.models import KeyedVectors
-
-def train_vectors(X, y):
-
-    all_x_w2v = [TaggedDocument(doc.split(), [i]) for i, doc in enumerate(X)]
-
-    cores = multiprocessing.cpu_count()
-    # CBOW
-    """
-    model_ug_cbow = Word2Vec(sg=0, size=100, negative=5, window=2, min_count=2, workers=cores, alpha=0.065, min_alpha=0.065)
-    model_ug_cbow.build_vocab([x.words for x in tqdm(all_x_w2v)])
-
-    %%time
-    for epoch in range(30):
-        model_ug_cbow.train(utils.shuffle([x.words for x in tqdm(all_x_w2v)]), total_examples=len(all_x_w2v), epochs=1)
-        model_ug_cbow.alpha -= 0.002
-        model_ug_cbow.min_alpha = model_ug_cbow.alpha
-    """
-    #SKIPGRAM
-
-    model_ug_sg = Word2Vec(sg=1, size=EMBEDDING_DIM, negative=5, window=2, min_count=2, workers=cores, alpha=0.065, min_alpha=0.065)
-    model_ug_sg.build_vocab([x.words for x in all_x_w2v])
-
-    for epoch in range(30):
-        model_ug_sg.train(utils.shuffle([x.words for x in all_x_w2v]), total_examples=len(all_x_w2v), epochs=1)
-        model_ug_sg.alpha -= 0.002
-        model_ug_sg.min_alpha = model_ug_sg.alpha
-
-    #model_ug_cbow.save('/content/w2v_model_ug_cbow.word2vec')
-    model_ug_sg.save('/content/gdrive/My Drive/Mestrado/Data/Embeddings/'+g_dataset_name+'_w2v_model_ug_sg_'+str(EMBEDDING_DIM)+'.word2vec')
-
-# Synthetic Minority Oversampling Technique (SMOTE)
-def oversampling(X, y):
-    X_resampled, y_resampled = SMOTE().fit_resample(X, y)
-    return X_resampled, y_resampled
-
-# Preprocessing
-
-def labelEncoder(y):
-    le = LabelEncoder()
-    le.fit(y)
-
-    return (le.transform(y), len(le.classes_), list(le.classes_))
-
-def checkFolder(directory):    
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-
-def plot_acc_loss(title, histories, key_acc, key_loss, task, dataset_name):
-
-    directory = './Reports/' + task + '/' + dataset_name + '/'
-
-    fig, (ax1, ax2) = plt.subplots(1, 2)
-    # Accuracy
-    ax1.set_title('Model accuracy (%s)' % title)
-    names = []
-    for i, model in enumerate(histories):
-        ax1.plot(model[key_acc])
-        ax1.set_xlabel('epoch')
-        names.append('Model %i' % (i+1))
-        ax1.set_ylabel('accuracy')
-    ax1.legend(names, loc='lower right')
-    # Loss
-    ax2.set_title('Model loss (%s)' % title)
-    for model in histories:
-        ax2.plot(model[key_loss])
-        ax2.set_xlabel('epoch')
-        ax2.set_ylabel('loss')
-    ax2.legend(names, loc='upper right')
-    fig.set_size_inches(20, 5)
-    plt.savefig(directory + "/plot_"+title+".pdf")
-    plt.show()
-
-def length(text):
-    result = [len(x.split()) for x in text]
-    return np.min(result), np.max(result), np.mean(result)
-
-def create_embeddings(text, max_num_words, max_seq_length, tokenizer):
-
-    print('training embeddings...')
-
-    #model_ug_cbow = KeyedVectors.load('/content/w2v_model_ug_cbow.word2vec')
-    model_ug_sg = KeyedVectors.load('/content/gdrive/My Drive/Mestrado/Data/Embeddings/'+g_dataset_name+'_w2v_model_ug_sg_'+str(EMBEDDING_DIM)+'.word2vec')
-
-    print("Vocab keys", len(model_ug_sg.wv.vocab.keys()))
-
-    embeddings_index = {}
-    for w in model_ug_sg.wv.vocab.keys():
-        #embeddings_index[w] = np.append(model_ug_cbow.wv[w],model_ug_sg.wv[w])
-        embeddings_index[w] = model_ug_sg.wv[w]
-
-    print('Found %s word vectors.' % len(embeddings_index))
+# set params
+list_params = []
+tunning = "kernel_size"
+for i in range(len(kernel_size)):
+    params1 = copy.deepcopy(params_pan13)
+    #params1["features_maps"] = features_maps[i]    
+    #params1["max_num_words"] = max_num_words[j]
+    params1["kernel_size"] = kernel_size[i]
+    list_params.append(params1)
     
-    num_words = max_num_words
-    embedding_matrix = np.zeros((num_words, EMBEDDING_DIM))
-    for word, i in tokenizer.word_index.items():
-        if i >= num_words:
-            continue
-        embedding_vector = embeddings_index.get(word)
-        if embedding_vector is not None:
-            embedding_matrix[i] = embedding_vector
+import os
+if __name__ == '__main__':
 
-    print("weights", len(embedding_matrix))
+    if os.path.exists(rp_file):
+        rp = pd.read_csv(rp_file)
+    else:
+        rp = pd.DataFrame({"v": [], "tunning": [], "n": [], "dataset": [], "task": [], "params": [], "acc": [], "f1": [], "cm": []})
 
-    return Embedding(input_dim=max_num_words, output_dim=EMBEDDING_DIM,
-                     input_length=max_seq_length,
-                     weights=[embedding_matrix],
-                     trainable=True
-                    )
+    problems = listProblems(filter_dataset_name, filter_task)
+    print("############################################")
+    print(" RUNNING {0} PROBLEMS".format(len(problems)))
 
-def transform(text, max_num_words = None, max_seq_length = None, tokenizer = None):
+    for task, dataset_name, lang in problems:
+        if lang != g_lang: continue
 
+        print(" Dataset: ",dataset_name," / Task:",task," / Lang:",lang)
+        for n in range(len(list_params)):
+            print(n, list_params[n])
+            parameters = list_params[n]
 
-    if tokenizer == None:
-        tokenizer = Tokenizer(num_words=max_num_words)
-        tokenizer.fit_on_texts(text)
-
-    sequences = tokenizer.texts_to_sequences(text)
-
-    _, max_length, mean_length = length(text)
-    word_index = tokenizer.word_index
-
-    # MAX_SEQ_LENGTH = np.max(arr_length)
-    if max_seq_length == None:
-        max_seq_length = int(mean_length)
-
-    if max_num_words == None:
-        max_num_words = len(word_index)
-
-    result = [len(x.split()) for x in text]
-    print('Text informations:')
-    print('max length: %i / min length: %i / mean length: %i / limit length: %i' % (np.max(result), np.min(result), np.mean(result), max_seq_length))
-    print('vocabulary size: %i / limit: %i' % (len(word_index), max_num_words))
-
-    # Padding all sequences to same length of `max_seq_length`
-    X = pad_sequences(sequences, maxlen=max_seq_length, padding='post')
-
-    return X, max_num_words, max_seq_length, tokenizer
+            acc, f1, cm = baseline3_new.run(task, dataset_name, g_root, lang, parameters, report_version)
+            a = {
+                "v": report_version,
+                "tunning": tunning,
+                "n": n,
+                "dataset": dataset_name,
+                "task": task,
+                "params": parameters,
+                "acc": acc,                
+                "f1": f1,
+                "cm": cm
+            }
+            rp = rp.append(a, ignore_index=True)
     
+            rp.to_csv(rp_file, index=False)
 
-def create_model(emb_layer = None, max_num_words = None, max_seq_length = None, embedding_dim = 100, filter_sizes = [1], feature_maps = [10], dropout_rate = 0.5, optimizer = Adadelta(clipvalue=3)):
-    
-    # CNN
-    model = build_cnn(
-            embedding_layer=emb_layer,
-            num_words=max_num_words,
-            embedding_dim=embedding_dim,
-            filter_sizes=filter_sizes,
-            feature_maps=feature_maps,
-            max_seq_length=max_seq_length,
-            dropout_rate=dropout_rate
-    )
 
-    model.compile(
-            loss='binary_crossentropy',
-            optimizer=optimizer,
-            metrics=['accuracy']
-    )
-    return model
-
-def nn(X_train, X_test, y_train, y_test):    
-
-    histories = []
-    test_loss = []
-    test_accs = []
-
-    predicted_y = []
-    expected_y = []
-
-    emb_layer = None
-
-    train_vectors(np.concatenate((X_train, X_test), axis=0), np.concatenate((y_train, y_test), axis=0))
-
-    X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect = transform(X_train, MAX_NUM_WORDS, MAX_SEQ_LENGTH)
-
-    X_test, _, _, _ = transform(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
-
-    if USE_EMBEDDINGS == True:
-        embedding_layer = create_embeddings(X, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
-
-    X_train, y_train = oversampling(X_train, y_train)
-    X_test,  y_test  = oversampling(X_test,  y_test)
-
-    model = KerasClassifier(build_fn=create_model, 
-                            emb_layer=embedding_layer,
-                            max_num_words=_MAX_NUM_WORDS,
-                            max_seq_length=_MAX_SEQ_LENGTH,
-                            epochs=NB_EPOCHS,
-                            filter_size=FILTER_SIZES,
-                            feature_maps=FEATURE_MAPS,
-                            #batch_size=BATCH_SIZE,
-                            verbose=0,
-                            validation_split=0.1,
-                            callbacks=[#ModelCheckpoint('model-%i.h5', monitor='val_loss', verbose=1, save_best_only=True, mode='min'),
-                                ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
-                                EarlyStopping(monitor='val_loss', min_delta=0.005, patience=4, verbose=1)
-                            ])
-    t0 = time()
-
-    params_grid = dict(
-        # clf_embedding_dim = [EMBEDDING_DIM],
-        clf_filter_size = [[2,2,2],[3,3,3]],
-        clf_feature_maps = [[10,10,10], [100,100,100]],
-        clf_batch_size = [10, 100, 1000]
-    )
-
-    pipeline = Pipeline([('clf', model)])
-
-    grid_search = GridSearchCV(pipeline, params_grid, scoring='accuracy')
-
-    print("Performing grid search")
-
-    history = grid_search.fit(X_train, y_train)
-
-    print("done in %0.2fs and %0.1fmin" % ((time() - t0), ((time() - t0) / 60)))
-    print("Best score: ", grid_search.best_score_)
-    print("Best params: ")
-
-    best_params = grid_search.best_estimator_.get_params()
-    for param_name in sorted(params_grid.keys()):
-        print("\t%s: %r" % (param_name, best_params[param_name]))
-    
-    
-    directory = './Reports_grid/'+task+'/'+dataset_name+'/'
-    checkFolder(directory)
-
-    cv_results = grid_search.cv_results_
-    pd.DataFrame(cv_results).to_csv(directory + "grid_search_results.csv")
-
-    y_score = grid_search.decision_function(X_test)
-    y_pred = grid_search.predict(X_test)
-
-    histories.append(history.history)
-
-    predicted_y.extend(y_pred)
-    expected_y.extend(y_test)
-
-    train_val_metrics(histories)
-
-    expected_y = np.asarray(expected_y)
-    score_y = np.asarray(predicted_y) # probabilistics    
-    predicted_y = np.asarray(predicted_y).round() # estimated
-    
-    return expected_y, predicted_y, score_y, histories
-    
-def run(task, dataset_name = None, root = None):
-
-    datasets = getDatasets(task,'df', dataset_name, root)
-    for i in datasets.iterrows():
-
-        dataset_name = i[1]['dataset_name']
-        print("Task {0} and Dataset {1}".format(task, dataset_name))
-        label = task
-        ds_path = i[1]['path']
-
-        # load training and test dataframes
-        training_path = ds_path + '/' + i[1]['training']        
-
-        df_training = pd.read_csv(training_path)#, usecols=cols)        
-
-        #df_training['text'] = df_training['text'].apply(clean)
-        X = df_training['text'].values
-        y, n_classes, classes_name = labelEncoder(df_training[label].values)
-
-        print("ORIGINAL", X.shape, y.shape)
-
-        # cnn model
-        (expected_y, predicted_y, score_y, histories) = nn(X, y)
-        
-        # save model
-        directory = './Reports/'+task+'/'+dataset_name+'/'
-        
-        checkFolder(directory)
-        
-        with open(directory + '/histories_cnn1.pkl', 'wb') as f:
-            pickle.dump(histories, f)
-            
-        # save arrays        
-        np.save(directory + '/expected_cnn1.numpy', expected_y)
-        np.save(directory + '/predicted_cnn1.numpy', predicted_y)
-        np.save(directory + '/score_cnn1.numpy', score_y)
-        
-        evaluate(expected_y, predicted_y, score_y, histories, classes_name, n_classes, task, dataset_name)
-
-        
-def evaluate(expected_y, predicted_y, score_y, histories, classes_name, n_classes, task, dataset_name):
-
-    plot_acc_loss('training', histories, 'acc', 'loss', task, dataset_name)
-    plot_acc_loss('validation', histories, 'val_acc', 'val_loss', task, dataset_name)
-
-    # report
-    report = pd.DataFrame(
-        classification_report(expected_y, predicted_y, digits=5, target_names=classes_name, output_dict=True)
-    )
-    report = report.transpose()    
-    
-    # compute ROC curve
-    try:
-        roc_c = ROC(expected_y, score_y, n_classes, task, dataset_name, classes_name)
-        report['roc'] = list(roc_c.values()) + [roc_c['macro']] * 3
-    except:
-        pass
-
-    # compute accuracy
-    accuracy = accuracy_score(expected_y, predicted_y)
-    report['accuracy'] = [accuracy] * (n_classes + 3)
-
-    # compute confusion matrix
-    c_matrix = confusion_matrix(expected_y, predicted_y)
-    print("confusion-matrix")
-    print(c_matrix)
-    plot_confusion_matrix(c_matrix, classes_name, task, dataset_name, True)
-    cm = pd.DataFrame(c_matrix, columns=classes_name, index=classes_name)
-
-    directory = './Reports/' + task + '/' + dataset_name + '/'
-    report.to_csv(directory + 'report.csv')
-    cm.to_csv(directory + 'confusion_matrix.csv')
-    
-    print(report)
-    print()
-
-def train_val_metrics(histories):
-    print('Training: \t%0.4f loss / %0.4f acc' % (get_avg(histories, 'loss'), get_avg(histories, 'acc')))
-    print('Validation: \t%0.4f loss / %0.4f acc' % (get_avg(histories, 'val_loss'), get_avg(histories, 'val_acc')))
-
-def get_avg(histories, his_key):
-    tmp = []
-    for history in histories:
-        tmp.append(history[his_key][np.argmin(history['val_loss'])])
-    return np.mean(tmp)
-    
-if __name__ == '__main__':    
-
-    global MAX_NUM_WORDS, MAX_SEQ_LENGTH, g_task, g_dataset_name, g_root
-
-    g_task = task = sys.argv[1]
-    g_dataset_name = dataset_name = sys.argv[2]
-    g_root = root = sys.argv[3]
-
-    # EMBEDDING
-    MAX_NUM_WORDS  = None
-    EMBEDDING_DIM  = 10
-    MAX_SEQ_LENGTH = None
-    USE_EMBEDDINGS = True
-
-    # MODEL
-    FILTER_SIZES   = [1,2,3]
-    FEATURE_MAPS   = [10,10,10]
-    DROPOUT_RATE   = 0.5
-
-    # LEARNING
-    BATCH_SIZE     = 100
-    NB_EPOCHS      = 1000
-    RUNS           = 5
-    VAL_SIZE       = 0.2
-    
-    print(task, dataset_name, root)
-
-    run(task, dataset_name, root)
