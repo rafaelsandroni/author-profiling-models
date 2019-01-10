@@ -18,6 +18,7 @@ from Models.functions.utils import checkFolder, listProblems
 from keras.layers import Activation, Input, Dense, Flatten, Dropout, Embedding
 from keras.layers.convolutional import Conv1D, MaxPooling1D
 from keras.layers.merge import concatenate
+from keras.layers.recurrent import GRU
 from keras import regularizers
 from keras.models import Model, Sequential
 from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, EarlyStopping
@@ -55,11 +56,106 @@ except:
 import numpy as np
 from keras.callbacks import Callback
 from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score
-
+from keras import layers
 from Models.functions.cnn_model import build_cnn1
 
 from Models.functions.transform import tokenizer_pad_sequence
 from Models.functions.vectors import create_embeddings, train_vectors
+
+def create_rnn(embedding_layer, num_words = 1000, embedding_dim = 100, filter_sizes = [100], feature_maps = [15], strides = [100], 
+                 dropout_rate = 0.5, pool_size = [1], dense_units = 512, max_seq_length = 1000, n_classes = 2):
+
+    model = Sequential()    
+
+    if embedding_layer is None:        
+        embedding_layer = Embedding(input_dim=num_words, output_dim=embedding_dim,
+                                    input_length=max_seq_length,
+                                    weights=None,
+                                    trainable=True
+                                   )
+        print("Using no trained embeddings")                        
+    else:
+        print("Using pre-trained embeddings")
+
+    model.add(embedding_layer)
+
+    # model.add(GRU(input_dim=256, output_dim=256, return_sequences=True))
+    model.add(GRU(units=512, return_sequences=False, activation='relu'))
+    model.add(Dense(units = n_classes, activation = 'softmax'))
+
+    return model
+
+
+def create_model(embedding_layer, num_words = 1000, embedding_dim = 100, filter_sizes = [100], feature_maps = [15], strides = [100], 
+                 dropout_rate = 0.5, pool_size = [1], dense_units = 512, max_seq_length = 1000, n_classes = 2):
+
+    model = Sequential()    
+
+    if embedding_layer is None:        
+        embedding_layer = Embedding(input_dim=num_words, output_dim=embedding_dim,
+                                    input_length=max_seq_length,
+                                    weights=None,
+                                    trainable=True
+                                   )
+        print("Using no trained embeddings")                        
+    else:
+        print("Using pre-trained embeddings")
+
+    model.add(embedding_layer)
+    """
+    model.add(layers.GlobalMaxPool1D())
+
+    if dropout_rate is not None:
+        model.add(Dropout(dropout_rate))
+
+    model.add(layers.Dense(dense_units, activation='relu'))
+    model.add(layers.Dense(n_classes, activation='sigmoid'))
+    
+    return model
+    """
+    # conv 1
+    model.add(Conv1D(filters = filter_sizes[0],
+                    kernel_size = feature_maps[0],
+                    strides = strides[0], 
+                    activation = 'relu'))
+                    #activity_regularizer = regularizers.l2(0.2)))
+
+    # pooling layer 1
+    
+    model.add(MaxPooling1D(pool_size = pool_size[0], strides = 1))
+    model.add(Activation('relu'))
+    """
+    model.add(Conv1D(filters = filters[1], 
+                     kernel_size = kernel_size[1],
+                     strides = strides[0], 
+                     activation = 'relu',
+                     activity_regularizer = regularizers.l2(0.2)))
+    
+    model.add(MaxPooling1D(pool_size = pool_size[1], strides = 1))
+    model.add(Activation('relu'))
+
+    model.add(Conv1D(filters = filters[2], 
+                     kernel_size = kernel_size[2],
+                     strides = strides[0], 
+                     activation = 'relu',
+                     activity_regularizer = regularizers.l2(0.2)))
+    
+    model.add(MaxPooling1D(pool_size = pool_size[2], strides = 1))
+    model.add(Activation('relu'))
+    """
+    model.add(Flatten())
+    
+    if dropout_rate is not None:
+        model.add(Dropout(dropout_rate))
+        
+    model.add(Dense(units = dense_units, activation = 'relu'))
+    model.add(Dense(units = n_classes, activation = 'softmax'))
+
+    #TODO: test others foss functions: https://keras.io/losses/
+    # model.compile(optimizer = 'adadelta', loss='categorical_crossentropy', metrics = ['accuracy'])
+    return model
+
+
 
 def garbage_collection(): 
     gc.collect()
@@ -97,7 +193,7 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
 
     if params == None:
         params = dict(
-            features_maps = [10,10,10],
+            features_maps = [100,10,10],
             kernel_size = [3,4,5],
             strides = [1,1,1],
             dropout_rate = 0.5,
@@ -124,6 +220,12 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
     checkFolder(directory)
 
     X, _, y, _ = loadTrainTest(task, dataset_name, root, lang)
+    print("original len(X)", len(X))
+
+    # small sample
+    if len(X) > 6000:
+        X, _, y, _ = train_test_split(X, y, train_size = 6000)
+        print("sample len(X)", len(X))
 
     X = X.apply(clean, lang=lang)
     X = X.values # mandatory for pan13
@@ -138,17 +240,17 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
     if mean_length < 50:
         mean_length = 50
 
-    print("max: ", max_length, " / mean: ", mean_length, " / median: ", median_length)
-    if mean_length < 50:
-        mean_length = 50
-
-    MAX_NUM_WORDS = params['max_num_words']
+    MAX_NUM_WORDS = None
     MAX_SEQ_LENGTH = int(mean_length)
+
+    print("max: ", max_length, " / mean: ", mean_length, " / median: ", median_length, " / DEFINED: ", MAX_SEQ_LENGTH)
+
     # if word vectors is not created for the dataset
     if not os.path.exists('/home/rafael/GDrive/Embeddings/'+dataset_name):
-        train_vectors(X, name=dataset_name, embedding_dim=params['embedding_dim'])
+        #train_vectors(X, name=dataset_name, embedding_dim=params['embedding_dim'])
+        pass
 
-    K = StratifiedKFold(n_splits=3)
+    K = StratifiedKFold(n_splits=2)
     idx = 0
 
     # 0. Define cross validation KFolds
@@ -186,13 +288,16 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
 
         # 7. Update params
         params['max_seq_length'] = _MAX_SEQ_LENGTH
-        params['max_num_words'] = _MAX_NUM_WORDS 
+        params['max_num_words'] = _MAX_NUM_WORDS + 1
+        
+        vectors_filename = '/home/rafael/GDrive/Embeddings/fasttext_skip_s100.txt'
 
-        embedding_layer = create_embeddings(vect, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, name=dataset_name, embedding_dim=params['embedding_dim'])
+        embedding_layer = create_embeddings(vect, params['max_num_words'], params['max_seq_length'], name=dataset_name, embedding_dim=params['embedding_dim'], filename=vectors_filename)
 
         # 8. Create the CNN model with the best params        
         model = None        
-        model = build_cnn1(
+        #build_cnn1
+        model = create_rnn(
                 embedding_layer=embedding_layer,
                 num_words=params['max_num_words'],
                 embedding_dim=params['embedding_dim'],
@@ -209,11 +314,13 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
                 metrics=['accuracy']
         )
 
+        model.summary()
+
         # 8. Train the model
         history = model.fit(X_train,
                             y_train,                            
                             validation_data=(X_val, y_val),                            
-                            verbose = 0,
+                            verbose = 1,
                             batch_size=params['batch_size'],                                
                             epochs=params['epochs'],
                             callbacks=[
@@ -329,7 +436,7 @@ if __name__ == '__main__':
 
             #args.append([task, dataset_name, g_root, lang])
             print(" Dataset: ",dataset_name," / Task:",task," / Lang:",lang)
-            run(task, dataset_name, g_root, lang)
+            acc, f1, cnf_matrix = run(task, dataset_name, g_root, lang)
     
 
     

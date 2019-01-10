@@ -21,24 +21,14 @@ def train_vectors(X, name = 'tmp', embedding_dim = 100):
     all_x_w2v = [TaggedDocument(doc.split(), [i]) for i, doc in enumerate(X)]
 
     cores = multiprocessing.cpu_count()
-    # CBOW
-    """
-    model_ug_cbow = Word2Vec(sg=0, size=100, negative=5, window=2, min_count=2, workers=cores, alpha=0.065, min_alpha=0.065)
-    model_ug_cbow.build_vocab([x.words for x in tqdm(all_x_w2v)])
+    # CBOW sg=0
+    # SKIPGRAM sg=1
 
-    %%time
-    for epoch in range(30):
-        model_ug_cbow.train(utils.shuffle([x.words for x in tqdm(all_x_w2v)]), total_examples=len(all_x_w2v), epochs=1)
-        model_ug_cbow.alpha -= 0.002
-        model_ug_cbow.min_alpha = model_ug_cbow.alpha
-    """
-    #SKIPGRAM
-
-    model_ug_sg = Word2Vec(sg=1, size=embedding_dim, negative=5, window=2, min_count=2, workers=cores, alpha=0.065, min_alpha=0.065)
+    model_ug_sg = Word2Vec(sg=1, size=embedding_dim, negative=5, window=5, min_count=0, workers=cores, alpha=0.065, min_alpha=0.065)
     model_ug_sg.build_vocab([x.words for x in all_x_w2v])
 
     for epoch in range(30):
-        model_ug_sg.train(utils.shuffle([x.words for x in all_x_w2v]), total_examples=len(all_x_w2v), epochs=1)
+        model_ug_sg.train(utils.shuffle([x.words for x in all_x_w2v]), total_examples=len(all_x_w2v), epochs=3)
         model_ug_sg.alpha -= 0.002
         model_ug_sg.min_alpha = model_ug_sg.alpha
 
@@ -47,13 +37,16 @@ def train_vectors(X, name = 'tmp', embedding_dim = 100):
     model_ug_sg.save(vectorName)
 
 
-def create_embeddings(tokenizer, max_num_words, max_seq_length, name='prebuild', embedding_dim=100):
+def create_embeddings(tokenizer, max_num_words, max_seq_length, name='prebuild', embedding_dim=100, filename=None):
 
-    print('loading embeddings...')    
+    print('loading embeddings...')
     vectorName = vectorFilename(name, embedding_dim)
 
+    if filename is not None:
+        vectorName = filename
+
     #model_ug_cbow = KeyedVectors.load('/content/w2v_model_ug_cbow.word2vec')
-    model_ug_sg = KeyedVectors.load(vectorName)
+    model_ug_sg = KeyedVectors.load_word2vec_format(vectorName, binary=False, unicode_errors="ignore")
 
     print("Vocab keys", len(model_ug_sg.wv.vocab.keys()))
 
@@ -72,6 +65,8 @@ def create_embeddings(tokenizer, max_num_words, max_seq_length, name='prebuild',
         embedding_vector = embeddings_index.get(word)
         if embedding_vector is not None:
             embedding_matrix[i] = embedding_vector
+        else:
+            embedding_matrix[i] = np.zeros(embedding_dim)
 
     print("weights", len(embedding_matrix))
 

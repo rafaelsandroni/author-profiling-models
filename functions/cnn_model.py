@@ -17,8 +17,8 @@ from keras.models import Model, Sequential
 
 
 def build_cnn1(embedding_layer=None, num_words=None,
-              embedding_dim=None, filter_sizes=[3,4,5,6],
-              feature_maps=[100,100,100], max_seq_length=100, dropout_rate=None, n_classes = 2):
+              embedding_dim=None, filter_sizes=[3,4,5],
+              feature_maps=[100,100,100], max_seq_length=100, dropout_rate=None, n_classes = 2, dense_units = None, pool_size = [1,1,1], strides = 1):
 
     __version__ = 'b3/0.0.2'
 
@@ -66,31 +66,42 @@ def build_cnn1(embedding_layer=None, num_words=None,
     
     emb_layer = embedding_layer(x_in)
 
-    if dropout_rate:
-        emb_layer  = Dropout(dropout_rate)(emb_layer)
+    #if dropout_rate:
+        #emb_layer  = Dropout(dropout_rate)(emb_layer)
 
     for ix in range(len(filter_sizes)):
-        x = create_channel(emb_layer, filter_sizes[ix], feature_maps[ix])
+        x = create_channel(emb_layer, filter_sizes[ix], feature_maps[ix], pool_size[ix])
         channels.append(x)
     
     # Concatenate all channels
-    x = concatenate(channels)
+    if len(filter_sizes) > 1:
+        x = concatenate(channels)
+    else:
+        x = channels
+
     if dropout_rate:
         x = Dropout(dropout_rate)(x)
 
-    x = Activation('relu')(x)
-    
+    if dense_units != None:
+        if len(dense_units) > 1:
+            for d_units in dense_units:
+                x = Dense(units = d_units, activation = 'relu')(x)
+        else:
+            x = Dense(units = dense_units, activation = 'relu')(x)
+    else:
+        x = Activation('relu')(x)
+
     x = Dense(n_classes, activation='sigmoid')(x)
     
     return Model(inputs=x_in, outputs=x)
     
-def create_channel(x, filter_size, feature_map):
+def create_channel(x, filter_size, feature_map, pool_size, strides):
     """
     Creates a layer working channel wise
     """
-    x = Conv1D(feature_map, kernel_size=filter_size, activation='relu', strides=1,
+    x = Conv1D(feature_map, kernel_size=filter_size, activation='relu', strides=strides,
                padding='same', kernel_regularizer=regularizers.l2(0.03))(x)
-    x = MaxPooling1D(pool_size=2, strides=1, padding='valid')(x)
+    x = MaxPooling1D(pool_size=pool_size, strides=strides, padding='valid')(x)
     x = Flatten()(x)
     return x
 
@@ -98,51 +109,6 @@ def create_channel(x, filter_size, feature_map):
 
 # SIMPLE CNN
 
-def build_cnn2(num_words, max_seq_length, filter_sizes=[3,4,5], feature_maps=[100,100,100], dropout_rate=None):
-
-    __version__ = '2.0.0'
-
-    emb_dim = 64
-
-    print('Creating CNN %s' % __version__)
-    print('#############################################')
-    #print('Embedding:    %s pre-trained embedding' % ('using' if embedding_layer else 'no'))
-    print('Vocabulary size: %s' % num_words)
-    print('Embedding dim: %s' % emb_dim)
-    print('Filter sizes: %s' % filter_sizes)
-    print('Feature maps: %s' % feature_maps)
-    print('Max sequence: %i' % max_seq_length)
-    print('#############################################')
-
-
-    model = Sequential()
-    # model.add(Input(shape=(max_seq_length,), dtype='int32'))
-
-    model.add(Embedding(input_dim=num_words + 1, output_dim=emb_dim, input_length=max_seq_length, trainable=True))
-
-    conv1 = Conv1D(feature_map, kernel_size=filter_sizes[0], activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
-    conv2 = Conv1D(feature_map, kernel_size=filter_sizes[1], activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
-    conv3 = Conv1D(feature_map, kernel_size=filter_sizes[2], activation='relu', strides=1, padding='same', kernel_regularizer=regularizers.l2(0.03))
-                
-    model.add(conv1)
-    model.add(MaxPooling1D(pool_size=2, strides=1))
-    model.add(Flatten())
-
-    #model.add(conv2)
-    #model.add(MaxPooling1D(pool_size=2, strides=1))
-    #model.add(Flatten())
-
-    #model.add(conv3)
-    #model.add(MaxPooling1D(pool_size=2, strides=1))
-    #model.add(Flatten())
-
-    if dropout_rate:
-        model.add(Dropout(dropout_rate))
-
-    model.add(Activation('relu'))
-    model.add(Dense(units=1, activation='sigmoid')) 
-
-    return model
 
 # DNN MODEL
 

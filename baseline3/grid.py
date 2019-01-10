@@ -35,9 +35,9 @@ params_pan13 = dict(
         max_num_words = 1000,
         optimizer = None
         )
+
 #max_num_words = [ 20, 500 ]
-features_maps = [1]
-kernel_size = [[15,15,15],[4,5,6],[7,8,9],[10,15,20]]
+kernel_size = [[20,20,20], [15,15,15], [4,5,6], [2,3,4], [7,8,9], [10,15,20]]
 
 # set params
 list_params = []
@@ -76,6 +76,7 @@ if __name__ == '__main__':
                 "n": n,
                 "dataset": dataset_name,
                 "task": task,
+                "lang": lang,
                 "params": parameters,
                 "acc": acc,                
                 "f1": f1,
