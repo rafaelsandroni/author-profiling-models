@@ -45,12 +45,6 @@ import collections, numpy
 import gc
 from time import time, sleep
 
-results_dataframe = "/reports_grid/results.csv"
-try:
-    results = pd.read_csv(results_dataframe)
-except:
-    results = pd.DataFrame()
-
 # In[4]:
 
 import numpy as np
@@ -61,6 +55,16 @@ from Models.functions.cnn_model import build_cnn1
 
 from Models.functions.transform import tokenizer_pad_sequence
 from Models.functions.vectors import create_embeddings, train_vectors
+
+
+import tensorflow as tf
+from keras.backend.tensorflow_backend import set_session
+
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True  # dynamically grow the memory used on the GPU
+
+sess = tf.Session(config=config)
+set_session(sess)  # set this TensorFlow session as the default session for Keras
 
 def create_rnn(embedding_layer, num_words = 1000, embedding_dim = 100, filter_sizes = [100], feature_maps = [15], strides = [100], 
                  dropout_rate = 0.5, pool_size = [1], dense_units = 512, max_seq_length = 1000, n_classes = 2):
@@ -86,8 +90,8 @@ def create_rnn(embedding_layer, num_words = 1000, embedding_dim = 100, filter_si
     return model
 
 
-def create_model(embedding_layer, num_words = 1000, embedding_dim = 100, filter_sizes = [100], feature_maps = [15], strides = [100], 
-                 dropout_rate = 0.5, pool_size = [1], dense_units = 512, max_seq_length = 1000, n_classes = 2):
+def create_cnn(embedding_layer, num_words = 1000, embedding_dim = 100, filter_sizes = [100], feature_maps = [4], strides = [100], 
+                 dropout_rate = 0.5, pool_size = [1], dense_units = [512], max_seq_length = 1000, n_classes = 2):
 
     model = Sequential()    
 
@@ -102,38 +106,30 @@ def create_model(embedding_layer, num_words = 1000, embedding_dim = 100, filter_
         print("Using pre-trained embeddings")
 
     model.add(embedding_layer)
-    """
-    model.add(layers.GlobalMaxPool1D())
-
-    if dropout_rate is not None:
-        model.add(Dropout(dropout_rate))
-
-    model.add(layers.Dense(dense_units, activation='relu'))
-    model.add(layers.Dense(n_classes, activation='sigmoid'))
     
-    return model
-    """
     # conv 1
-    model.add(Conv1D(filters = filter_sizes[0],
-                    kernel_size = feature_maps[0],
+    model.add(Conv1D(filters = feature_maps[0],
+                    kernel_size = filter_sizes[0],
                     strides = strides[0], 
-                    activation = 'relu'))
-                    #activity_regularizer = regularizers.l2(0.2)))
+                    activation = 'relu',
+                    padding='same',
+                    activity_regularizer = regularizers.l2(0.3)))
 
     # pooling layer 1
     
-    model.add(MaxPooling1D(pool_size = pool_size[0], strides = 1))
+    model.add(MaxPooling1D(pool_size = pool_size[0], strides = 1, padding='valid'))
     model.add(Activation('relu'))
     """
-    model.add(Conv1D(filters = filters[1], 
-                     kernel_size = kernel_size[1],
+    model.add(Conv1D(filters = feature_maps[1], 
+                     kernel_size = filter_sizes[1],
                      strides = strides[0], 
                      activation = 'relu',
-                     activity_regularizer = regularizers.l2(0.2)))
+                     padding='same',
+                     activity_regularizer = regularizers.l2(0.3)))
     
-    model.add(MaxPooling1D(pool_size = pool_size[1], strides = 1))
+    model.add(MaxPooling1D(pool_size = pool_size[1], strides = 1, padding='valid'))
     model.add(Activation('relu'))
-
+    
     model.add(Conv1D(filters = filters[2], 
                      kernel_size = kernel_size[2],
                      strides = strides[0], 
@@ -148,7 +144,7 @@ def create_model(embedding_layer, num_words = 1000, embedding_dim = 100, filter_
     if dropout_rate is not None:
         model.add(Dropout(dropout_rate))
         
-    model.add(Dense(units = dense_units, activation = 'relu'))
+    model.add(Dense(units = dense_units[0], activation = 'relu'))
     model.add(Dense(units = n_classes, activation = 'softmax'))
 
     #TODO: test others foss functions: https://keras.io/losses/
@@ -164,11 +160,6 @@ def garbage_collection():
 
 # In[6]:
 
-task = "gender"
-dataset_name = "brmoral"
-lang = "pt"
-root = "/home/rafael/Dataframe/"
-
 # Synthetic Minority Oversampling Technique (SMOTE)
 def oversampling(X, y):
     try:
@@ -182,6 +173,7 @@ def oversampling(X, y):
 def train_val_metrics(histories):
     print('Training: \t%0.4f loss / %0.4f acc' % (get_avg(histories, 'loss'), get_avg(histories, 'acc')))
     print('Validation: \t%0.4f loss / %0.4f acc' % (get_avg(histories, 'val_loss'), get_avg(histories, 'val_acc')))
+    return (get_avg(histories, 'loss'), get_avg(histories, 'val_loss'), get_avg(histories, 'acc'),get_avg(histories, 'val_acc'))
 
 def get_avg(histories, his_key):
     tmp = []
@@ -213,9 +205,9 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
     expected_y = []
 
     if report_version != None:
-        directory='./Reports'+ str(report_version) +'/'+task+'/'+dataset_name+'_'+lang+'/'
+        directory = r'Reports'+ str(report_version) +'/'+task+'/'+dataset_name+'_'+lang+'/'
     else:    
-        directory='./Reports/'+task+'/'+dataset_name+'_'+lang+'/'
+        directory = r'Reports/'+task+'/'+dataset_name+'_'+lang+'/'
 
     checkFolder(directory)
 
@@ -240,13 +232,22 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
     if mean_length < 50:
         mean_length = 50
 
-    MAX_NUM_WORDS = None
-    MAX_SEQ_LENGTH = int(mean_length)
+    if params['max_num_words'] == None:
+        MAX_NUM_WORDS = None
+    else:
+        MAX_NUM_WORDS = params['max_num_words']
+
+    if params['max_seq_length'] == None:
+        MAX_SEQ_LENGTH = int(mean_length)
+    else:
+        MAX_SEQ_LENGTH = params['max_seq_length']
 
     print("max: ", max_length, " / mean: ", mean_length, " / median: ", median_length, " / DEFINED: ", MAX_SEQ_LENGTH)
 
     # if word vectors is not created for the dataset
-    if not os.path.exists('/home/rafael/GDrive/Embeddings/'+dataset_name):
+    #if not os.path.exists('/home/rafael/GDrive/Embeddings/'+dataset_name):
+    if not os.path.exists(r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/'+dataset_name):
+        
         #train_vectors(X, name=dataset_name, embedding_dim=params['embedding_dim'])
         pass
 
@@ -288,16 +289,21 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
 
         # 7. Update params
         params['max_seq_length'] = _MAX_SEQ_LENGTH
-        params['max_num_words'] = _MAX_NUM_WORDS + 1
+        if params['max_num_words'] == None:
+            params['max_num_words'] = _MAX_NUM_WORDS + 1        
         
-        vectors_filename = '/home/rafael/GDrive/Embeddings/fasttext_skip_s100.txt'
+        # vectors_filename = '\home/rafael/GDrive/Embeddings/fasttext_skip_s100.txt'
+        # if params['embedding_type'] is not None and params['embedding_type'] == 1:
+        # vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/fasttext/'+dataset_name+r'_sg_100dim.model'
+        vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/nilc/fasttext_pt_skip_s'+ str(params['embedding_dim']) +r'.txt'
+        embedding_type = 0
 
-        embedding_layer = create_embeddings(vect, params['max_num_words'], params['max_seq_length'], name=dataset_name, embedding_dim=params['embedding_dim'], filename=vectors_filename)
+        embedding_layer = None #create_embeddings(vect, params['max_num_words'], params['max_seq_length'], name=dataset_name, embedding_dim=params['embedding_dim'], filename=vectors_filename, type=embedding_type)
 
         # 8. Create the CNN model with the best params        
         model = None        
         #build_cnn1
-        model = create_rnn(
+        model = build_cnn1(
                 embedding_layer=embedding_layer,
                 num_words=params['max_num_words'],
                 embedding_dim=params['embedding_dim'],
@@ -305,7 +311,9 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
                 feature_maps=params['features_maps'],
                 max_seq_length=params['max_seq_length'],
                 dropout_rate=params['dropout_rate'],
-                n_classes=params['n_classes']
+                dense_units=params['dense_units'],
+                n_classes=params['n_classes'],
+                pool_size=params['pool_size']
         )
         optimizer = Adadelta(clipvalue=3)
         model.compile(
@@ -365,7 +373,7 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         pickle.dump(histories, f)
 
     # 16. Show metrics from training/validation model performance    
-    train_val_metrics(histories)
+    loss, val_loss, _, _ = train_val_metrics(histories)
 
     # plot_history(histories, directory)
     
@@ -400,7 +408,7 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
 
     print("+"+"-"*50+"+")
     print()
-    return acc, f1, cnf_matrix
+    return acc, f1, cnf_matrix, loss, val_loss
         
 import sys
 if __name__ == '__main__':

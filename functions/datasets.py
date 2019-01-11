@@ -65,9 +65,9 @@ def loadTrainTest(task, dataset_name, root, lang = "pt", full_data = False, nrow
         _task = 'gender-age'
         _lang = 'en-es'
 
-    root += "/"
+    root += "\\"
     root += dataset_name
-    root += "/"
+    root += "\\"
 
     # training data
     training_filename = "{0}_{1}_training_{2}.csv".format(_task, _lang, extension)

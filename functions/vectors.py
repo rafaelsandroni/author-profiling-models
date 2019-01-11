@@ -37,7 +37,7 @@ def train_vectors(X, name = 'tmp', embedding_dim = 100):
     model_ug_sg.save(vectorName)
 
 
-def create_embeddings(tokenizer, max_num_words, max_seq_length, name='prebuild', embedding_dim=100, filename=None):
+def create_embeddings(tokenizer, max_num_words, max_seq_length, name='prebuild', embedding_dim=100, filename=None, type=1):
 
     print('loading embeddings...')
     vectorName = vectorFilename(name, embedding_dim)
@@ -45,8 +45,10 @@ def create_embeddings(tokenizer, max_num_words, max_seq_length, name='prebuild',
     if filename is not None:
         vectorName = filename
 
-    #model_ug_cbow = KeyedVectors.load('/content/w2v_model_ug_cbow.word2vec')
-    model_ug_sg = KeyedVectors.load_word2vec_format(vectorName, binary=False, unicode_errors="ignore")
+    if type == 1:
+        model_ug_sg = Word2Vec.load(vectorName)
+    else:
+        model_ug_sg = KeyedVectors.load_word2vec_format(vectorName, binary=False, unicode_errors="ignore")
 
     print("Vocab keys", len(model_ug_sg.wv.vocab.keys()))
 

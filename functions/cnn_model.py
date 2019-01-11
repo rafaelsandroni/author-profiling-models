@@ -7,10 +7,18 @@ This implementation is based on the original paper of Yoon Kim [1].
 - [1] [Convolutional Neural Networks for Sentence Classification](https://arxiv.org/abs/1408.5882)
 
 """
+import tensorflow as tf
+from keras.backend.tensorflow_backend import set_session
+
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True  # dynamically grow the memory used on the GPU
+sess = tf.Session(config=config)
+set_session(sess)  # set this TensorFlow session as the default session for Keras
 
 from keras.layers import Activation, Input, Dense, Flatten, Dropout, Embedding
 from keras.layers.convolutional import Conv1D, MaxPooling1D
-from keras.layers.merge import concatenate
+from keras.layers.pooling import GlobalMaxPooling1D
+from keras.layers.merge import concatenate, add
 from keras import regularizers
 from keras.models import Model, Sequential
 
@@ -18,7 +26,8 @@ from keras.models import Model, Sequential
 
 def build_cnn1(embedding_layer=None, num_words=None,
               embedding_dim=None, filter_sizes=[3,4,5],
-              feature_maps=[100,100,100], max_seq_length=100, dropout_rate=None, n_classes = 2, dense_units = None, pool_size = [1,1,1], strides = 1):
+              feature_maps=[100,100,100], max_seq_length=100, dropout_rate = None, 
+              n_classes = 2, dense_units = None, pool_size = [1,1,1], strides = [1,1,1]):
 
     __version__ = 'b3/0.0.2'
 
@@ -52,13 +61,14 @@ def build_cnn1(embedding_layer=None, num_words=None,
     print('Filter sizes: %s' % filter_sizes)
     print('Feature maps: %s' % feature_maps)
     print('Max sequence: %i' % max_seq_length)
+    #print('Dropout rate: %f' % dropout_rate)
     print('#############################################')  
     
     if embedding_layer is None:
         embedding_layer = Embedding(input_dim=num_words, output_dim=embedding_dim,
                                     input_length=max_seq_length,
                                     weights=None,
-                                    trainable=False
+                                    trainable=True
                                    )
     
     channels = []
@@ -70,28 +80,25 @@ def build_cnn1(embedding_layer=None, num_words=None,
         #emb_layer  = Dropout(dropout_rate)(emb_layer)
 
     for ix in range(len(filter_sizes)):
-        x = create_channel(emb_layer, filter_sizes[ix], feature_maps[ix], pool_size[ix])
+        x = create_channel(emb_layer, filter_sizes[ix], feature_maps[ix], pool_size[ix], strides[ix])
         channels.append(x)
     
     # Concatenate all channels
     if len(filter_sizes) > 1:
         x = concatenate(channels)
     else:
-        x = channels
+        x = x
 
-    if dropout_rate:
+    if dropout_rate is not None:
         x = Dropout(dropout_rate)(x)
 
-    if dense_units != None:
-        if len(dense_units) > 1:
-            for d_units in dense_units:
-                x = Dense(units = d_units, activation = 'relu')(x)
-        else:
-            x = Dense(units = dense_units, activation = 'relu')(x)
+    if dense_units is not None:        
+        for d_units in dense_units:            
+            x = Dense(units = d_units, activation = 'relu')(x)
     else:
-        x = Activation('relu')(x)
+        x = Dense(units = 512, activation = 'relu')(x)
 
-    x = Dense(n_classes, activation='sigmoid')(x)
+    x = Dense(n_classes, activation='softmax')(x)
     
     return Model(inputs=x_in, outputs=x)
     
@@ -102,6 +109,11 @@ def create_channel(x, filter_size, feature_map, pool_size, strides):
     x = Conv1D(feature_map, kernel_size=filter_size, activation='relu', strides=strides,
                padding='same', kernel_regularizer=regularizers.l2(0.03))(x)
     x = MaxPooling1D(pool_size=pool_size, strides=strides, padding='valid')(x)
+    """
+    x = Conv1D(feature_map, kernel_size=filter_size, activation='relu', strides=strides,
+               padding='same', kernel_regularizer=regularizers.l2(0.03))(x)
+    x = MaxPooling1D(pool_size=pool_size, strides=strides, padding='valid')(x)    
+    """
     x = Flatten()(x)
     return x
 
