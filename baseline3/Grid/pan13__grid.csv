@@ -24,11 +24,11 @@ acc,cm,dataset,f1,n,params,task,tunning,v,lang
 0.5,"[[78867 39433]
  [78867 39433]]",pan13,0.4857137888752001,1.0,"{'embedding_dim': 100, 'max_num_words': 1000, 'strides': [1, 1, 1], 'max_seq_length': 413, 'n_classes': 3, 'features_maps': [100, 100, 100], 'epochs': 100, 'dropout_rate': 0.5, 'kernel_size': [15, 15, 15], 'batch_size': 32, 'optimizer': None}",gender,kernel_size,_grid,en
 0.5484530853761623,"[[75157 43143]
- [63693 54607]]",pan13,0.5450207814883592,2.0,"{'embedding_dim': 100, 'max_num_words': 1000, 'strides': [1, 1, 1], 'max_seq_length': 413, 'n_classes': 2, 'features_maps': [100, 100, 100], 'epochs': 100, 'dropout_rate': 0.5, 'kernel_size': [4, 5, 6], 'batch_size': 32, 'optimizer': None}",gender,kernel_size,_grid,en
+ [63693 54607]]",pan13,0.5450207814883592,2.0,"{'embedding_dim': 100, 'max_num_words': 1000, 'strides': [1, 1, 1], 'max_seq_length': 413, 'n_classes': 3, 'features_maps': [100, 100, 100], 'epochs': 100, 'dropout_rate': 0.5, 'kernel_size': [4, 5, 6], 'batch_size': 32, 'optimizer': None}",gender,kernel_size,_grid,en
 0.5559213863060017,"[[98333 19967]
- [85102 33198]]",pan13,0.5195057820889316,3.0,"{'embedding_dim': 100, 'max_num_words': 1000, 'strides': [1, 1, 1], 'max_seq_length': 413, 'n_classes': 2, 'features_maps': [100, 100, 100], 'epochs': 100, 'dropout_rate': 0.5, 'kernel_size': [2, 3, 4], 'batch_size': 32, 'optimizer': None}",gender,kernel_size,_grid,en
+ [85102 33198]]",pan13,0.5195057820889316,3.0,"{'embedding_dim': 100, 'max_num_words': 1000, 'strides': [1, 1, 1], 'max_seq_length': 413, 'n_classes': 3, 'features_maps': [100, 100, 100], 'epochs': 100, 'dropout_rate': 0.5, 'kernel_size': [2, 3, 4], 'batch_size': 32, 'optimizer': None}",gender,kernel_size,_grid,en
 0.5004945054945055,"[[118243     57]
- [118126    174]]",pan13,0.3348576943441529,4.0,"{'embedding_dim': 100, 'max_num_words': 1000, 'strides': [1, 1, 1], 'max_seq_length': 413, 'n_classes': 2, 'features_maps': [100, 100, 100], 'epochs': 100, 'dropout_rate': 0.5, 'kernel_size': [7, 8, 9], 'batch_size': 32, 'optimizer': None}",gender,kernel_size,_grid,en
+ [118126    174]]",pan13,0.3348576943441529,4.0,"{'embedding_dim': 100, 'max_num_words': 1000, 'strides': [1, 1, 1], 'max_seq_length': 413, 'n_classes': 3, 'features_maps': [100, 100, 100], 'epochs': 100, 'dropout_rate': 0.5, 'kernel_size': [7, 8, 9], 'batch_size': 32, 'optimizer': None}",gender,kernel_size,_grid,en
 0.5168850380388842,"[[71624 46676]
  [67629 50671]]",pan13,0.5130661855783238,5.0,"{'embedding_dim': 100, 'max_num_words': 1000, 'strides': [1, 1, 1], 'max_seq_length': 413, 'n_classes': 2, 'features_maps': [100, 100, 100], 'epochs': 100, 'dropout_rate': 0.5, 'kernel_size': [10, 15, 20], 'batch_size': 32, 'optimizer': None}",gender,kernel_size,_grid,en
 0.6234281437125748,"[[101635  14842  17123]
@@ -37,3 +37,12 @@ acc,cm,dataset,f1,n,params,task,tunning,v,lang
 0.6392265469061876,"[[102225  16034  15341]
  [ 35247  42129  56224]
  [  3344  18408 111848]]",pan13,0.6171918441565394,1.0,"{'embedding_dim': 100, 'max_num_words': 1000, 'strides': [1, 1, 1], 'max_seq_length': 413, 'n_classes': 3, 'features_maps': [100, 100, 100], 'epochs': 100, 'dropout_rate': 0.5, 'kernel_size': [15, 15, 15], 'batch_size': 32, 'optimizer': None}",age,kernel_size,_grid,en
+0.6380139720558883,"[[101116  17322  15162]
+ [ 34737  48447  50416]
+ [  5353  22094 106153]]",pan13,0.6229188871297361,2.0,"{'embedding_dim': 100, 'max_num_words': 1000, 'strides': [1, 1, 1], 'max_seq_length': 413, 'n_classes': 3, 'features_maps': [100, 100, 100], 'epochs': 100, 'dropout_rate': 0.5, 'kernel_size': [4, 5, 6], 'batch_size': 32, 'optimizer': None}",age,kernel_size,_grid,en
+0.6382809381237525,"[[101132  17130  15338]
+ [ 35486  46380  51734]
+ [  5895  19394 108311]]",pan13,0.6206886815759168,3.0,"{'embedding_dim': 100, 'max_num_words': 1000, 'strides': [1, 1, 1], 'max_seq_length': 413, 'n_classes': 3, 'features_maps': [100, 100, 100], 'epochs': 100, 'dropout_rate': 0.5, 'kernel_size': [2, 3, 4], 'batch_size': 32, 'optimizer': None}",age,kernel_size,_grid,en
+0.6397779441117765,"[[100536  17755  15309]
+ [ 33837  47058  52705]
+ [  3690  21081 108829]]",pan13,0.6233530619877947,4.0,"{'embedding_dim': 100, 'max_num_words': 1000, 'strides': [1, 1, 1], 'max_seq_length': 413, 'n_classes': 3, 'features_maps': [100, 100, 100], 'epochs': 100, 'dropout_rate': 0.5, 'kernel_size': [7, 8, 9], 'batch_size': 32, 'optimizer': None}",age,kernel_size,_grid,en
