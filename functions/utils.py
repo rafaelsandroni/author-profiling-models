@@ -25,7 +25,7 @@ def listProblems(filter_dataset_name = None, filter_task = None):
 
         for task in i[1][0]:
 
-            if filter_task != None and filter_task != task: continue
+            if filter_task != None and task not in filter_task: continue
 
             for lang in i[1][1]:
                 problems.append([task, dataset_name, lang])
