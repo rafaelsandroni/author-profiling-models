@@ -93,7 +93,7 @@ def build_cnn1(embedding_layer=None, num_words=None,
     #x = MaxPooling1D(pool_size=2, strides=1, padding='same')(x)
     x = GlobalMaxPooling1D()(x)
     #x = Flatten()(x)
-    
+
     if dropout_rate is not None:
         x = Dropout(dropout_rate)(x)
 
