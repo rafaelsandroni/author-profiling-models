@@ -89,6 +89,8 @@ def build_cnn1(embedding_layer=None, num_words=None,
     else:
         x = x
 
+    x = GlobalMaxPooling1D()(x)
+
     if dropout_rate is not None:
         x = Dropout(dropout_rate)(x)
 
@@ -114,7 +116,7 @@ def create_channel(x, filter_size, feature_map, pool_size, strides):
                padding='same', kernel_regularizer=regularizers.l2(0.03))(x)
     x = MaxPooling1D(pool_size=pool_size, strides=strides, padding='valid')(x)    
     """
-    x = Flatten()(x)
+    # x = Flatten()(x)
     return x
 
 
