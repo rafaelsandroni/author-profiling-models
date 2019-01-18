@@ -1,0 +1,332 @@
+acc,cm,dataset,f1,n,params,task,tunning,v,embeddings,lang,loss,val_loss
+0.5,"[[502   0]
+ [502   0]]",pan13,0.3333333333333333,0.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'optimizer': None, 'kernel_size': [7, 8], 'max_num_words': 10000, 'n_classes': 2, 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'epochs': 100, 'strides': [1], 'features_maps': [10, 10], 'max_seq_length': 409, 'batch_size': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935812045227397,0.6931472010299807
+0.5,"[[  0 526]
+ [  0 526]]",pan13,0.3333333333333333,1.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'optimizer': None, 'kernel_size': [7, 8], 'max_num_words': 10000, 'n_classes': 2, 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'epochs': 100, 'strides': [1], 'features_maps': [50, 50], 'max_seq_length': 412, 'batch_size': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6938898012135373,0.6931508349047767
+0.5,"[[  0 515]
+ [  0 515]]",pan13,0.3333333333333333,2.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'optimizer': None, 'kernel_size': [3, 4, 5], 'max_num_words': 10000, 'n_classes': 2, 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'epochs': 100, 'strides': [1], 'features_maps': [10, 10, 10], 'max_seq_length': 405, 'batch_size': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935169460444615,0.6931607127189636
+0.5,"[[  0 509]
+ [  0 509]]",pan13,0.3333333333333333,3.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'optimizer': None, 'kernel_size': [3, 4, 5], 'max_num_words': 10000, 'n_classes': 2, 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'epochs': 100, 'strides': [1], 'features_maps': [50, 50, 50], 'max_seq_length': 411, 'batch_size': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6965339717926917,0.6906875214486752
+0.5157170923379175,"[[243 266]
+ [227 282]]",pan13,0.5150052715347753,4.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'optimizer': None, 'kernel_size': [7, 8, 9], 'max_num_words': 10000, 'n_classes': 2, 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'epochs': 100, 'strides': [1], 'features_maps': [10, 10, 10], 'max_seq_length': 423, 'batch_size': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6948071621506421,0.690841945734891
+0.5,"[[505   0]
+ [505   0]]",pan13,0.3333333333333333,5.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'optimizer': None, 'kernel_size': [7, 8, 9], 'max_num_words': 10000, 'n_classes': 2, 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'epochs': 100, 'strides': [1], 'features_maps': [50, 50, 50], 'max_seq_length': 404, 'batch_size': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.695598894864126,0.6931197740814903
+0.5,"[[501   0]
+ [501   0]]",pan13,0.3333333333333333,6.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'optimizer': None, 'kernel_size': [3], 'max_num_words': 10000, 'n_classes': 2, 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'epochs': 100, 'strides': [1], 'features_maps': [10], 'max_seq_length': 406, 'batch_size': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935826475803669,0.6931480036841499
+0.5,"[[   0 5015]
+ [   0 5015]]",pan13,0.3333333333333333,0.0,"{'epochs': 100, 'max_seq_length': 200, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [7, 8], 'optimizer': None, 'features_maps': [10, 10], 'max_num_words': 1000, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6934205574387619,0.6931473612785339
+0.5,"[[   0 5012]
+ [   0 5012]]",pan13,0.3333333333333333,1.0,"{'epochs': 100, 'max_seq_length': 413, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [7, 8], 'optimizer': None, 'features_maps': [10, 10], 'max_num_words': 1000, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7052547923197804,0.6931475996971129
+0.5,"[[5016    0]
+ [5016    0]]",pan13,0.3333333333333333,2.0,"{'epochs': 100, 'max_seq_length': 200, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [7, 8], 'optimizer': None, 'features_maps': [10, 10], 'max_num_words': 10000, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6933716369125078,0.6931501478831595
+0.5,"[[5015    0]
+ [5015    0]]",pan13,0.3333333333333333,3.0,"{'epochs': 100, 'max_seq_length': 410, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [7, 8], 'optimizer': None, 'features_maps': [10, 10], 'max_num_words': 10000, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935313894553522,0.6931743621826172
+0.5465578989255869,"[[4129  897]
+ [3661 1365]]",pan13,0.5094695879601651,4.0,"{'epochs': 100, 'max_seq_length': 200, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [7, 8], 'optimizer': None, 'features_maps': [10, 10], 'max_num_words': 104548, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6913361665666353,0.6912972583629117
+0.5,"[[   0 5024]
+ [   0 5024]]",pan13,0.3333333333333333,5.0,"{'epochs': 100, 'max_seq_length': 413, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [7, 8], 'optimizer': None, 'features_maps': [10, 10], 'max_num_words': 101586, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935085433491085,0.6931485533714294
+0.527550409263326,"[[1578 3431]
+ [1302 3707]]",pan13,0.5052035850642449,6.0,"{'epochs': 100, 'max_seq_length': 200, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [7, 8], 'optimizer': None, 'features_maps': [50, 50], 'max_num_words': 1000, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.695848954444995,0.6939701197282323
+0.5,"[[   0 5002]
+ [   0 5002]]",pan13,0.3333333333333333,7.0,"{'epochs': 100, 'max_seq_length': 413, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [7, 8], 'optimizer': None, 'features_maps': [50, 50], 'max_num_words': 1000, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7316084323899759,0.6931488513946533
+0.5035942492012779,"[[3967 1041]
+ [3931 1077]]",pan13,0.458513096641842,8.0,"{'epochs': 100, 'max_seq_length': 200, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [7, 8], 'optimizer': None, 'features_maps': [50, 50], 'max_num_words': 10000, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6959702988732329,0.6887956384316232
+0.5,"[[   0 5052]
+ [   0 5052]]",pan13,0.3333333333333333,9.0,"{'epochs': 100, 'max_seq_length': 413, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [7, 8], 'optimizer': None, 'features_maps': [50, 50], 'max_num_words': 10000, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7252997103672628,0.6931471664216992
+0.546327459908929,"[[4175  876]
+ [3707 1344]]",pan13,0.5076614988180624,10.0,"{'epochs': 100, 'max_seq_length': 200, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [7, 8], 'optimizer': None, 'features_maps': [50, 50], 'max_num_words': 105421, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.694685189267645,0.684922446118723
+0.5,"[[   0 5040]
+ [   0 5040]]",pan13,0.3333333333333333,11.0,"{'epochs': 100, 'max_seq_length': 414, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [7, 8], 'optimizer': None, 'features_maps': [50, 50], 'max_num_words': 103963, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7274894623307404,0.693363764166832
+0.5,"[[5049    0]
+ [5049    0]]",pan13,0.3333333333333333,12.0,"{'epochs': 100, 'max_seq_length': 200, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [3, 4, 5], 'optimizer': None, 'features_maps': [10, 10, 10], 'max_num_words': 1000, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935089500930649,0.6931532025337219
+0.5,"[[   0 5022]
+ [   0 5022]]",pan13,0.3333333333333333,13.0,"{'epochs': 100, 'max_seq_length': 411, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [3, 4, 5], 'optimizer': None, 'features_maps': [10, 10, 10], 'max_num_words': 1000, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6932902235313807,0.6931778788566589
+0.5,"[[   0 5003]
+ [   0 5003]]",pan13,0.3333333333333333,14.0,"{'epochs': 100, 'max_seq_length': 200, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [3, 4, 5], 'optimizer': None, 'features_maps': [10, 10, 10], 'max_num_words': 10000, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7103962685135818,0.6852286752011325
+0.5,"[[   0 5005]
+ [   0 5005]]",pan13,0.3333333333333333,15.0,"{'epochs': 100, 'max_seq_length': 412, 'batch_size': 2, 'strides': [1], 'dropout_rate': 0.2, 'dense_units': [128], 'kernel_size': [3, 4, 5], 'optimizer': None, 'features_maps': [10, 10, 10], 'max_num_words': 10000, 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'n_classes': 2}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935135436744521,0.6931639909744263
+0.4772271386430679,"[[1969 2812  869]
+ [ 640 3561 1449]
+ [  59 3032 2559]]",pan13,0.4775583128069987,0.0,"{'strides': [1], 'embedding_dim': 100, 'n_classes': 3, 'max_seq_length': 200, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'features_maps': [10, 10], 'kernel_size': [7, 8], 'epochs': 100, 'dropout_rate': 0.2, 'max_num_words': 1000, 'batch_size': 2}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9897314451466442,0.944553353657222
+0.5555555555555556,"[[3770  611 1268]
+ [1265  726 3658]
+ [  89  641 4919]]",pan13,0.5084098847516522,1.0,"{'strides': [1], 'embedding_dim': 100, 'n_classes': 3, 'max_seq_length': 418, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'features_maps': [10, 10], 'kernel_size': [7, 8], 'epochs': 100, 'dropout_rate': 0.2, 'max_num_words': 1000, 'batch_size': 2}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9284547625136759,0.8534459446143122
+0.5154001664882863,"[[4433  810  363]
+ [2619 1973 1014]
+ [2487  857 2262]]",pan13,0.5005108217578192,2.0,"{'strides': [1], 'embedding_dim': 100, 'n_classes': 3, 'max_seq_length': 200, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'features_maps': [10, 10], 'kernel_size': [7, 8], 'epochs': 100, 'dropout_rate': 0.2, 'max_num_words': 10000, 'batch_size': 2}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0335526577126717,1.043270550089884
+0.3568383658969805,"[[ 469 2217 2944]
+ [ 121 3656 1853]
+ [   0 3728 1902]]",pan13,0.3131394104777759,3.0,"{'strides': [1], 'embedding_dim': 100, 'n_classes': 3, 'max_seq_length': 411, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'features_maps': [10, 10], 'kernel_size': [7, 8], 'epochs': 100, 'dropout_rate': 0.2, 'max_num_words': 10000, 'batch_size': 2}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0239318478215114,0.9472167256470908
+0.4362511052166225,"[[1580  486 3589]
+ [ 502  230 4923]
+ [  41   23 5591]]",pan13,0.3480548409798732,4.0,"{'strides': [1], 'embedding_dim': 100, 'n_classes': 3, 'max_seq_length': 200, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'features_maps': [10, 10], 'kernel_size': [7, 8], 'epochs': 100, 'dropout_rate': 0.2, 'max_num_words': 101545, 'batch_size': 2}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9812788877301843,0.9621331219442164
+0.5411023996198622,"[[1716  344  746]
+ [ 552  223 2031]
+ [  54  136 2616]]",pan13,0.478165036620936,0.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8], 'features_maps': [10, 10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9787163078116567,0.924598894077978
+0.5526501766784452,"[[1679  914  237]
+ [ 539 1526  765]
+ [  27 1316 1487]]",pan13,0.5614032532912727,1.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8], 'features_maps': [10, 10], 'n_classes': 3, 'max_seq_length': 410, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9501572023045124,0.8914313439880057
+0.4952651515151515,"[[1914  566  336]
+ [1100  814  902]
+ [ 752  608 1456]]",pan13,0.4829880183520426,2.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8], 'features_maps': [10, 10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0215648661408874,0.9884430140220491
+0.5248799906334153,"[[1555  404  888]
+ [ 533  220 2094]
+ [  23  116 2708]]",pan13,0.4614497132562017,3.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8], 'features_maps': [10, 10], 'n_classes': 3, 'max_seq_length': 407, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9519104080733344,0.8691420172269527
+0.5485592315901814,"[[1527  664  620]
+ [ 556 1156 1099]
+ [ 188  680 1943]]",pan13,0.5455357660202308,4.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8], 'features_maps': [10, 10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 67938, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.957915886389516,0.9146570502465354
+0.5749322013913454,"[[1999  451  377]
+ [ 700  840 1287]
+ [  91  699 2037]]",pan13,0.5615378404407814,5.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8], 'features_maps': [10, 10], 'n_classes': 3, 'max_seq_length': 415, 'embedding_dim': 100, 'max_num_words': 69900, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.93295664635813,0.8807363307681577
+0.5183491616836675,"[[1549  746  548]
+ [ 546  700 1597]
+ [  58  613 2172]]",pan13,0.5041325675647642,6.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8], 'features_maps': [50, 50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9386112418661616,0.8891655758095248
+0.547891350964975,"[[1603  950  245]
+ [ 580 1464  754]
+ [  37 1229 1532]]",pan13,0.5561516392958638,7.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8], 'features_maps': [50, 50], 'n_classes': 3, 'max_seq_length': 415, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9180329126335092,0.8572610429688996
+0.5788972251994761,"[[1926  646  227]
+ [ 670 1394  735]
+ [ 111 1147 1541]]",pan13,0.5822146465870155,8.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8], 'features_maps': [50, 50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9062423890452628,0.9144922103042956
+0.5454014939309056,"[[1375  888  593]
+ [ 426  798 1632]
+ [   8  348 2500]]",pan13,0.5251400708633599,9.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8], 'features_maps': [50, 50], 'n_classes': 3, 'max_seq_length': 415, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9162782298348774,0.9155927321567492
+0.572791519434629,"[[1971  585  274]
+ [ 800 1248  782]
+ [ 230  956 1644]]",pan13,0.5716080149384756,10.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8], 'features_maps': [50, 50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 68586, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9927495101579218,0.9035863251422104
+0.5559882005899704,"[[1972  680  173]
+ [ 703 1447  675]
+ [ 153 1379 1293]]",pan13,0.5585131549819359,11.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8], 'features_maps': [50, 50], 'n_classes': 3, 'max_seq_length': 411, 'embedding_dim': 100, 'max_num_words': 70750, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9274302598501596,0.9170509139973666
+0.5466856735566643,"[[1734  814  258]
+ [ 575 1421  810]
+ [  80 1279 1447]]",pan13,0.5537104131426449,12.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4, 5], 'features_maps': [10, 10, 10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9517120303624499,0.9059097886649148
+0.5807511737089202,"[[1668  706  466]
+ [ 550  995 1295]
+ [   7  548 2285]]",pan13,0.5711142049338401,13.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4, 5], 'features_maps': [10, 10, 10], 'n_classes': 3, 'max_seq_length': 406, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9032607976689426,0.8509872534136841
+0.5881052141527002,"[[1775  771  318]
+ [ 675 1172 1017]
+ [  99  659 2106]]",pan13,0.5842341941570965,14.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4, 5], 'features_maps': [10, 10, 10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.903446009552374,0.8677430195316301
+0.5767985195466111,"[[1907  429  546]
+ [ 725  458 1699]
+ [  28  232 2622]]",pan13,0.5312914839940821,15.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4, 5], 'features_maps': [10, 10, 10], 'n_classes': 3, 'max_seq_length': 413, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9033796628281736,0.8868897456552018
+0.6003808163751041,"[[2011  537  253]
+ [ 724 1228  849]
+ [ 108  887 1806]]",pan13,0.5985648929229082,16.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4, 5], 'features_maps': [10, 10, 10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 69322, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8861271764602886,0.8363609533200319
+0.5091770278271166,"[[1012 1220  583]
+ [ 278 1104 1433]
+ [   8  623 2184]]",pan13,0.4993214063811093,17.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4, 5], 'features_maps': [10, 10, 10], 'n_classes': 3, 'max_seq_length': 411, 'embedding_dim': 100, 'max_num_words': 70947, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9128779408563188,0.9238306650226352
+0.6131078224101479,"[[1957  418  463]
+ [ 667  814 1357]
+ [  41  348 2449]]",pan13,0.5896402075062254,18.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4, 5], 'features_maps': [50, 50, 50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8981146406873793,0.8744541444922939
+0.6043293115684882,"[[1966  562  290]
+ [ 606 1141 1071]
+ [  39  777 2002]]",pan13,0.6009262691542557,19.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4, 5], 'features_maps': [50, 50, 50], 'n_classes': 3, 'max_seq_length': 412, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8922618003422871,0.910143089323228
+0.6140227459256654,"[[2066  482  295]
+ [ 814 1029 1000]
+ [  54  647 2142]]",pan13,0.6029778104604727,20.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4, 5], 'features_maps': [50, 50, 50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.865462805048313,0.8286390731868134
+0.5797205302758868,"[[1998  526  267]
+ [ 749 1125  917]
+ [  79  981 1731]]",pan13,0.5776803486402059,21.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4, 5], 'features_maps': [50, 50, 50], 'n_classes': 3, 'max_seq_length': 414, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.90909646364857,0.8991721795408378
+0.5965721040189125,"[[1958  626  236]
+ [ 674 1247  899]
+ [  47  931 1842]]",pan13,0.5970290712885977,22.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4, 5], 'features_maps': [50, 50, 50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 69345, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.885269069909955,0.8482987851887704
+0.5499470525944229,"[[2189  281  363]
+ [ 913  692 1228]
+ [ 243  797 1793]]",pan13,0.5287075270029857,23.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4, 5], 'features_maps': [50, 50, 50], 'n_classes': 3, 'max_seq_length': 418, 'embedding_dim': 100, 'max_num_words': 70222, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8871560696987968,0.8457331220166515
+0.4576765907764157,"[[ 706 1373  776]
+ [ 216 1723  916]
+ [  13 1351 1491]]",pan13,0.4461190032371361,24.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8, 9], 'features_maps': [10, 10, 10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9661433908232849,0.9173883237385017
+0.5055281110326982,"[[1435  891  508]
+ [ 496  886 1452]
+ [  19  838 1977]]",pan13,0.5030248940185628,25.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8, 9], 'features_maps': [10, 10, 10], 'n_classes': 3, 'max_seq_length': 416, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9292745717103574,0.8671132943234259
+0.4705675008812126,"[[1401 1325  111]
+ [ 695 1819  323]
+ [ 108 1944  785]]",pan13,0.4673255301442689,26.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8, 9], 'features_maps': [10, 10, 10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9487807374647241,0.8774463348480052
+0.5224905303030303,"[[1184 1172  460]
+ [ 360 1064 1392]
+ [  10  640 2166]]",pan13,0.5165412844110053,27.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8, 9], 'features_maps': [10, 10, 10], 'n_classes': 3, 'max_seq_length': 407, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9099420015609144,0.9299798699342496
+0.5182412358882947,"[[2460  145  200]
+ [1553  630  622]
+ [1175  359 1271]]",pan13,0.4848013599014032,28.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8, 9], 'features_maps': [10, 10, 10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 70018, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,1.088626267514211,0.9876541063530206
+0.5531279847182426,"[[1799  796  197]
+ [ 576 1482  734]
+ [  56 1384 1352]]",pan13,0.5603113613590688,29.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8, 9], 'features_maps': [10, 10, 10], 'n_classes': 3, 'max_seq_length': 414, 'embedding_dim': 100, 'max_num_words': 70343, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9790649746579704,0.9305951053127997
+0.5797614830558507,"[[2093  400  330]
+ [ 915  899 1009]
+ [ 238  667 1918]]",pan13,0.5653664984171829,30.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8, 9], 'features_maps': [50, 50, 50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.954751368871138,0.9394941612970916
+0.5603780189009451,"[[2084  465  308]
+ [ 823  892 1142]
+ [ 112  918 1827]]",pan13,0.5508816504343704,31.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8, 9], 'features_maps': [50, 50, 50], 'n_classes': 3, 'max_seq_length': 418, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9291900427254858,0.9235785005184319
+0.5962290999644255,"[[2137  376  298]
+ [ 858 1003  950]
+ [ 232  691 1888]]",pan13,0.5845912084621281,32.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8, 9], 'features_maps': [50, 50, 50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9687183419416994,0.9424803950200696
+0.5477871939736346,"[[1486 1116  230]
+ [ 504 1518  810]
+ [  27 1155 1650]]",pan13,0.5563534819895883,33.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8, 9], 'features_maps': [50, 50, 50], 'n_classes': 3, 'max_seq_length': 407, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8710335045379863,0.9702152582732114
+0.5932525540508434,"[[1749  689  368]
+ [ 599 1114 1093]
+ [  57  618 2131]]",pan13,0.5878887683665545,34.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8, 9], 'features_maps': [50, 50, 50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 71357, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8928859680456889,0.8868407852165702
+0.6051170649287956,"[[2018  448  296]
+ [ 608 1009 1145]
+ [  62  713 1987]]",pan13,0.5972394429416711,35.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [7, 8, 9], 'features_maps': [50, 50, 50], 'n_classes': 3, 'max_seq_length': 411, 'embedding_dim': 100, 'max_num_words': 71519, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0881494144622736,0.8988095523996485
+0.5170115748860049,"[[1893  638  320]
+ [ 788 1112  951]
+ [ 149 1285 1417]]",pan13,0.5186408010188795,36.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3], 'features_maps': [10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9435596620235882,0.9293372542363744
+0.5312939521800282,"[[1192  869  783]
+ [ 388  930 1526]
+ [  16  417 2411]]",pan13,0.5140064198280463,37.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3], 'features_maps': [10], 'n_classes': 3, 'max_seq_length': 412, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9159524292789782,0.8638708516419362
+0.5285815102328864,"[[1126  742  966]
+ [ 368 1033 1433]
+ [  48  451 2335]]",pan13,0.5133325017942926,38.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3], 'features_maps': [10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9383386715958548,0.9272014043367912
+0.5608333333333333,"[[2011  126  663]
+ [ 683  115 2002]
+ [ 107  108 2585]]",pan13,0.4777870469750639,39.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3], 'features_maps': [10], 'n_classes': 3, 'max_seq_length': 412, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.903268148802388,0.8302932394737447
+0.5026661926768574,"[[1067 1027  719]
+ [ 324  787 1702]
+ [  30  395 2388]]",pan13,0.481347751091114,40.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3], 'features_maps': [10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 70116, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9567522851219378,0.9220179043470956
+0.5232937339855579,"[[1532  557  773]
+ [ 555  275 2032]
+ [  64  112 2686]]",pan13,0.4662805846130567,41.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3], 'features_maps': [10], 'n_classes': 3, 'max_seq_length': 415, 'embedding_dim': 100, 'max_num_words': 69729, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9366915787758948,0.8663235233982963
+0.5506172839506173,"[[1993   72  770]
+ [ 742   77 2016]
+ [ 121  101 2613]]",pan13,0.4616695200640895,42.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3], 'features_maps': [50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9011581551654034,0.8440756453244899
+0.6136283807516684,"[[2075  435  337]
+ [ 738  947 1162]
+ [  67  561 2219]]",pan13,0.5986846395519939,43.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3], 'features_maps': [50], 'n_classes': 3, 'max_seq_length': 411, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9063447090616988,0.8484501435196019
+0.5816714150047484,"[[1630  663  515]
+ [ 556  803 1449]
+ [  10  331 2467]]",pan13,0.5606053428555448,44.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3], 'features_maps': [50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.908045348262132,0.8571503165007477
+0.6107193229901271,"[[2244  327  265]
+ [ 828 1084  924]
+ [ 133  835 1868]]",pan13,0.6011665220494669,45.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3], 'features_maps': [50], 'n_classes': 3, 'max_seq_length': 418, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8722222454153487,0.8439267649566202
+0.5958260869565217,"[[1780  762  333]
+ [ 659 1318  898]
+ [  28  806 2041]]",pan13,0.5960134315622918,46.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3], 'features_maps': [50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 70470, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8781737834768756,0.872414401490173
+0.5774185992035605,"[[2017  233  596]
+ [ 661  290 1895]
+ [  35  188 2623]]",pan13,0.5159246893526827,47.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3], 'features_maps': [50], 'n_classes': 3, 'max_seq_length': 411, 'embedding_dim': 100, 'max_num_words': 72270, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.87890605334621,0.8644022101516923
+0.4583036350677121,"[[2480  108  218]
+ [2075  109  622]
+ [1372  165 1269]]",pan13,0.3842401576382215,48.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [8], 'features_maps': [10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0500592808242843,1.0586675297852721
+0.5559465165376496,"[[1806  361  675]
+ [ 671  236 1935]
+ [  41  103 2698]]",pan13,0.489741510962334,49.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [8], 'features_maps': [10], 'n_classes': 3, 'max_seq_length': 412, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9541916069270514,0.9171424160222996
+0.4043079096045198,"[[2420  408    4]
+ [1819 1010    3]
+ [2408  419    5]]",pan13,0.31558646035530485,50.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [8], 'features_maps': [10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0838281916572756,1.0294997596240545
+0.4261168384879725,"[[ 370 1405 1038]
+ [  91  468 2254]
+ [   0   55 2758]]",pan13,0.348604182528433,51.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [8], 'features_maps': [10], 'n_classes': 3, 'max_seq_length': 408, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9588410687477329,0.9189219929652128
+0.5268361581920904,"[[2090  531  211]
+ [1119 1059  654]
+ [ 854  651 1327]]",pan13,0.5173350565487752,52.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [8], 'features_maps': [10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 71441, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0284678867233028,1.0314103889079829
+0.5451524860567224,"[[1527 1095  187]
+ [ 454 1602  753]
+ [  21 1323 1465]]",pan13,0.5553064785128445,53.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [8], 'features_maps': [10], 'n_classes': 3, 'max_seq_length': 415, 'embedding_dim': 100, 'max_num_words': 70396, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9358763256681164,0.9498967044611476
+0.4101382488479263,"[[  59 1748 1014]
+ [  17  722 2082]
+ [   0  131 2690]]",pan13,0.3107089323611567,54.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [8], 'features_maps': [50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9492116475520676,0.8932908658103231
+0.5003571428571428,"[[1208 1187  405]
+ [ 363 1644  793]
+ [   5 1444 1351]]",pan13,0.5073261689366326,55.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [8], 'features_maps': [50], 'n_classes': 3, 'max_seq_length': 417, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9616607812945238,0.8847228713046396
+0.5601570867547304,"[[1725  735  341]
+ [ 599 1284  918]
+ [ 149  954 1698]]",pan13,0.5628976349679405,56.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [8], 'features_maps': [50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9732985125236692,0.9295166248366946
+0.5398655139289145,"[[1912  719  145]
+ [ 666 1475  635]
+ [ 105 1562 1109]]",pan13,0.5425242986891982,57.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [8], 'features_maps': [50], 'n_classes': 3, 'max_seq_length': 418, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9308153943961891,0.8645716442260891
+0.5411209439528024,"[[1743  827  255]
+ [ 645 1248  932]
+ [ 111 1119 1595]]",pan13,0.5461297888556397,58.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [8], 'features_maps': [50], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 68698, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9315551875151842,0.8873524496772073
+0.5602437880918893,"[[1734  880  230]
+ [ 626 1360  858]
+ [  66 1092 1686]]",pan13,0.5662308743488854,59.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [8], 'features_maps': [50], 'n_classes': 3, 'max_seq_length': 412, 'embedding_dim': 100, 'max_num_words': 68652, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9302518858447354,0.9364971344669659
+0.5664434261543885,"[[1951  526  360]
+ [ 762  961 1114]
+ [ 159  769 1909]]",pan13,0.5582297687491264,60.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4], 'features_maps': [10, 10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9298789280224471,0.8946986388771129
+0.5631250735380633,"[[2054  105  674]
+ [ 786  131 1916]
+ [ 129  103 2601]]",pan13,0.4796448426956068,61.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4], 'features_maps': [10, 10], 'n_classes': 3, 'max_seq_length': 410, 'embedding_dim': 100, 'max_num_words': 1000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8826778879904731,0.8868529556275216
+0.5485986881335718,"[[1983  478  334]
+ [ 807  839 1149]
+ [ 182  835 1778]]",pan13,0.5380292155050092,62.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4], 'features_maps': [10, 10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.909955657284663,0.8970885767677619
+0.5926193921852387,"[[1968  386  410]
+ [ 673  807 1284]
+ [  76  549 2139]]",pan13,0.5749275977996751,63.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4], 'features_maps': [10, 10], 'n_classes': 3, 'max_seq_length': 416, 'embedding_dim': 100, 'max_num_words': 10000, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8960735718304988,0.8594104190318905
+0.53737658674189,"[[1250 1347  239]
+ [ 411 1614  811]
+ [  25 1103 1708]]",pan13,0.5437776931422186,64.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4], 'features_maps': [10, 10], 'n_classes': 3, 'max_seq_length': 200, 'embedding_dim': 100, 'max_num_words': 69965, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9125122673285088,0.8226941833485207
+0.5614724803431023,"[[1978  630  190]
+ [ 638 1407  753]
+ [  50 1420 1328]]",pan13,0.5659536778843866,65.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'epochs': 100, 'kernel_size': [3, 4], 'features_maps': [10, 10], 'n_classes': 3, 'max_seq_length': 412, 'embedding_dim': 100, 'max_num_words': 70653, 'optimizer': None, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8901879673751208,0.8729232809535359
+0.5576968831786819,"[[ 716  443  242]
+ [ 227  437  737]
+ [   3  207 1191]]",pan13,0.5428222744888374,0.0,"{'batch_size': 2, 'kernel_size': [2, 3], 'features_maps': [10, 10], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 1000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 200, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.90997257905678,0.8644222754078943
+0.5617977528089888,"[[1017  210  197]
+ [ 351  335  738]
+ [  39  337 1048]]",pan13,0.5414081433060226,1.0,"{'batch_size': 2, 'kernel_size': [2, 3], 'features_maps': [10, 10], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 1000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 414, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9226304025097599,0.8934742130005537
+0.5924617196702002,"[[ 801  439  175]
+ [ 299  541  575]
+ [  24  218 1173]]",pan13,0.5826188520802534,2.0,"{'batch_size': 2, 'kernel_size': [2, 3], 'features_maps': [10, 10], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 10000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 200, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9071295068154928,0.8582307862383979
+0.567090395480226,"[[ 919  216  281]
+ [ 305  281  830]
+ [  11  196 1209]]",pan13,0.5356721838817272,3.0,"{'batch_size': 2, 'kernel_size': [2, 3], 'features_maps': [10, 10], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 10000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 410, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.89255871938543,0.8532032539930057
+0.5420494699646643,"[[ 565  643  207]
+ [ 202  706  507]
+ [  10  375 1030]]",pan13,0.5391469434726716,4.0,"{'batch_size': 2, 'kernel_size': [2, 3], 'features_maps': [10, 10], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 48102, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 200, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8873686085386974,0.860709995587111
+0.4864354800660533,"[[ 817  537   59]
+ [ 301  979  133]
+ [  62 1085  266]]",pan13,0.46743025621487266,5.0,"{'batch_size': 2, 'kernel_size': [2, 3], 'features_maps': [10, 10], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 47823, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 410, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8789585450579845,1.007429093377203
+0.600667143197522,"[[1148  148  103]
+ [ 445  578  376]
+ [ 102  502  795]]",pan13,0.5923214629833429,6.0,"{'batch_size': 2, 'kernel_size': [2, 3], 'features_maps': [50, 50], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 1000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 200, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8477209480775959,0.8399567993092926
+0.5943352059925093,"[[995 313 116]
+ [360 663 401]
+ [ 14 529 881]]",pan13,0.5965298779658118,7.0,"{'batch_size': 2, 'kernel_size': [2, 3], 'features_maps': [50, 50], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 1000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 410, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8430211268902935,0.7987602902783288
+0.5535168195718655,"[[ 773  437  207]
+ [ 326  514  577]
+ [  41  310 1066]]",pan13,0.5470232707809658,8.0,"{'batch_size': 2, 'kernel_size': [2, 3], 'features_maps': [50, 50], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 10000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 200, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9036799289570809,0.9102687311356694
+0.6251508568670046,"[[1017  210  154]
+ [ 301  462  618]
+ [  10  260 1111]]",pan13,0.610357187320378,9.0,"{'batch_size': 2, 'kernel_size': [2, 3], 'features_maps': [50, 50], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 10000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 415, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8368351334019711,0.7997927888207239
+0.5929078014184397,"[[1022  255  133]
+ [ 408  524  478]
+ [  44  404  962]]",pan13,0.5859637302331494,10.0,"{'batch_size': 2, 'kernel_size': [2, 3], 'features_maps': [50, 50], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 47819, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 200, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8622505709255148,0.8072510839927765
+0.557442793111583,"[[ 818  305  290]
+ [ 283  252  878]
+ [   5  115 1293]]",pan13,0.5195725985062032,11.0,"{'batch_size': 2, 'kernel_size': [2, 3], 'features_maps': [50, 50], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 49589, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 403, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8410312448490679,0.9154369319262712
+0.54632972322503,"[[971 256 158]
+ [391 496 498]
+ [101 481 803]]",pan13,0.5418316113059769,12.0,"{'batch_size': 2, 'kernel_size': [2, 3, 4], 'features_maps': [10, 10, 10], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 1000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 200, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8869590689881186,0.8575889431793271
+0.5685997171145686,"[[ 987  149  278]
+ [ 317  233  864]
+ [  31  191 1192]]",pan13,0.5295587607529638,13.0,"{'batch_size': 2, 'kernel_size': [2, 3, 4], 'features_maps': [10, 10, 10], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 1000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 412, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8745694868295939,0.8890735917392818
+0.5736543909348442,"[[ 717  540  155]
+ [ 232  631  549]
+ [   4  326 1082]]",pan13,0.5722804907847435,14.0,"{'batch_size': 2, 'kernel_size': [2, 3, 4], 'features_maps': [10, 10, 10], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 10000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 200, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8928400841308758,0.860183179077476
+0.5779645191409897,"[[845 481 102]
+ [253 778 397]
+ [ 17 558 853]]",pan13,0.5859151349018524,15.0,"{'batch_size': 2, 'kernel_size': [2, 3, 4], 'features_maps': [10, 10, 10], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 10000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 420, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8320051236295404,0.8158739398762653
+0.5432960893854749,"[[1155  189   88]
+ [ 578  603  251]
+ [ 334  522  576]]",pan13,0.5300707542518316,16.0,"{'batch_size': 2, 'kernel_size': [2, 3, 4], 'features_maps': [10, 10, 10], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 47327, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 200, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9436196455463826,0.8606737988180222
+0.5499526515151515,"[[917 321 170]
+ [305 545 558]
+ [ 36 511 861]]",pan13,0.5512929869382538,17.0,"{'batch_size': 2, 'kernel_size': [2, 3, 4], 'features_maps': [10, 10, 10], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 48626, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 410, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8747584519629505,0.9152943168324653
+0.5967894239848914,"[[1075  208  129]
+ [ 451  491  470]
+ [  80  370  962]]",pan13,0.5851194025931791,18.0,"{'batch_size': 2, 'kernel_size': [2, 3, 4], 'features_maps': [50, 50, 50], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 1000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 200, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8964863952694302,0.8220618755596324
+0.6171593366979091,"[[930 324 133]
+ [241 656 490]
+ [ 12 393 982]]",pan13,0.6185049465667855,19.0,"{'batch_size': 2, 'kernel_size': [2, 3, 4], 'features_maps': [50, 50, 50], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 1000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 409, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8424019957061192,0.8502158066212843
+0.6164058795637744,"[[1061  232  113]
+ [ 335  737  334]
+ [  29  575  802]]",pan13,0.617787534344779,20.0,"{'batch_size': 2, 'kernel_size': [2, 3, 4], 'features_maps': [50, 50, 50], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 10000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 200, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8507587930479017,0.8796002827584743
+0.5727765982543053,"[[1076  246   91]
+ [ 379  667  367]
+ [  36  692  685]]",pan13,0.5730183837888442,21.0,"{'batch_size': 2, 'kernel_size': [2, 3, 4], 'features_maps': [50, 50, 50], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 10000, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 413, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8692103755127407,0.8221766383790258
+0.5888731730315889,"[[1004  278  132]
+ [ 376  513  525]
+ [  47  386  981]]",pan13,0.5818788770731915,22.0,"{'batch_size': 2, 'kernel_size': [2, 3, 4], 'features_maps': [50, 50, 50], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 48684, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 200, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8590791691865217,0.8519660251785978
+0.5604761904761905,"[[830 459 111]
+ [253 765 382]
+ [  1 640 759]]",pan13,0.5698083875566825,23.0,"{'batch_size': 2, 'kernel_size': [2, 3, 4], 'features_maps': [50, 50, 50], 'epochs': 100, 'embedding_dim': 100, 'max_num_words': 47366, 'n_classes': 3, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'strides': [1], 'max_seq_length': 413, 'dense_units': [128]}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8368153391145444,0.9287098104303534
