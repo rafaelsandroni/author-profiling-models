@@ -15,10 +15,11 @@ config.gpu_options.allow_growth = True  # dynamically grow the memory used on th
 sess = tf.Session(config=config)
 set_session(sess)  # set this TensorFlow session as the default session for Keras
 
-from keras.layers import Activation, Input, Dense, Flatten, Dropout, Embedding
+from keras.layers import Activation, Input, Dense, Flatten, Dropout, Embedding, RepeatVector
 from keras.layers.convolutional import Conv1D, MaxPooling1D
 from keras.layers.pooling import GlobalMaxPooling1D
 from keras.layers.merge import concatenate, add
+from keras.layers.recurrent import GRU
 from keras import regularizers
 from keras.models import Model, Sequential
 
@@ -27,7 +28,7 @@ from keras.models import Model, Sequential
 def build_cnn1(embedding_layer=None, num_words=None,
               embedding_dim=None, filter_sizes=[3,4,5],
               feature_maps=[100,100,100], max_seq_length=100, dropout_rate = None, 
-              n_classes = 2, dense_units = None, pool_size = [1,1,1], strides = [1,1,1]):
+              n_classes = 2, dense_units = None, pool_size = [1,1,1], strides = [1,1,1], layers = False):
 
     __version__ = 'b3/0.0.2'
 
@@ -78,10 +79,10 @@ def build_cnn1(embedding_layer=None, num_words=None,
 
     #if dropout_rate:
         #emb_layer  = Dropout(dropout_rate)(emb_layer)
-
-    for ix in range(len(filter_sizes)):
+    
+    for ix in range(len(filter_sizes)):        
         x = create_channel(emb_layer, filter_sizes[ix], feature_maps[ix], pool_size[ix], strides[ix])
-        channels.append(x)
+        channels.append(x)        
     
     # Concatenate all channels
     if len(filter_sizes) > 1:
@@ -89,7 +90,9 @@ def build_cnn1(embedding_layer=None, num_words=None,
     else:
         x = x
 
+    #x = MaxPooling1D(pool_size=2, strides=1, padding='same')(x)
     x = GlobalMaxPooling1D()(x)
+    #x = Flatten()(x)
 
     if dropout_rate is not None:
         x = Dropout(dropout_rate)(x)
@@ -97,8 +100,6 @@ def build_cnn1(embedding_layer=None, num_words=None,
     if dense_units is not None:        
         for d_units in dense_units:            
             x = Dense(units = d_units, activation = 'relu')(x)
-    else:
-        x = Dense(units = 512, activation = 'relu')(x)
 
     x = Dense(n_classes, activation='softmax')(x)
     
@@ -111,6 +112,7 @@ def create_channel(x, filter_size, feature_map, pool_size, strides):
     x = Conv1D(feature_map, kernel_size=filter_size, activation='relu', strides=strides,
                padding='same', kernel_regularizer=regularizers.l2(0.03))(x)
     x = MaxPooling1D(pool_size=pool_size, strides=strides, padding='valid')(x)
+    # x = GlobalMaxPooling1D()(x)
     """
     x = Conv1D(feature_map, kernel_size=filter_size, activation='relu', strides=strides,
                padding='same', kernel_regularizer=regularizers.l2(0.03))(x)
