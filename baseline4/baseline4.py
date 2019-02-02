@@ -60,8 +60,11 @@ from Models.functions.vectors import create_embeddings, train_vectors
 import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
 
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True  # dynamically grow the memory used on the GPU
+config.gpu_options.per_process_gpu_memory_fraction = 0.9
 
 sess = tf.Session(config=config)
 set_session(sess)  # set this TensorFlow session as the default session for Keras
@@ -119,7 +122,7 @@ def create_cnn(embedding_layer, num_words = 1000, embedding_dim = 100, filter_si
     
     model.add(MaxPooling1D(pool_size = pool_size[0], strides = 1, padding='valid'))
     model.add(Activation('relu'))
-    """
+    
     model.add(Conv1D(filters = feature_maps[1], 
                      kernel_size = filter_sizes[1],
                      strides = strides[0], 
@@ -130,15 +133,8 @@ def create_cnn(embedding_layer, num_words = 1000, embedding_dim = 100, filter_si
     model.add(MaxPooling1D(pool_size = pool_size[1], strides = 1, padding='valid'))
     model.add(Activation('relu'))
     
-    model.add(Conv1D(filters = filters[2], 
-                     kernel_size = kernel_size[2],
-                     strides = strides[0], 
-                     activation = 'relu',
-                     activity_regularizer = regularizers.l2(0.2)))
-    
-    model.add(MaxPooling1D(pool_size = pool_size[2], strides = 1))
-    model.add(Activation('relu'))
-    """
+    model.add(GlobalMaxPooling1D())
+
     model.add(Flatten())
     
     if dropout_rate is not None:
@@ -215,8 +211,8 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
     print("original len(X)", len(X))
 
     # small sample
-    if len(X) > 6000:
-        X, _, y, _ = train_test_split(X, y, train_size = 6000)
+    if len(X) > 1200:
+        X, _, y, _ = train_test_split(X, y, train_size = 1200)
         print("sample len(X)", len(X))
 
     X = X.apply(clean, lang=lang)
@@ -294,11 +290,11 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         
         # vectors_filename = '\home/rafael/GDrive/Embeddings/fasttext_skip_s100.txt'
         # if params['embedding_type'] is not None and params['embedding_type'] == 1:
-        # vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/fasttext/'+dataset_name+r'_sg_100dim.model'
-        vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/nilc/fasttext_pt_skip_s'+ str(params['embedding_dim']) +r'.txt'
-        embedding_type = 0
+        vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/fasttext/'+dataset_name+r'_sg_'+ str(params['embedding_dim']) +'dim.model'
+        # vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/nilc/fasttext_pt_skip_s'+ str(params['embedding_dim']) +r'.txt'
+        embedding_type = 1
 
-        embedding_layer = None #create_embeddings(vect, params['max_num_words'], params['max_seq_length'], name=dataset_name, embedding_dim=params['embedding_dim'], filename=vectors_filename, type=embedding_type)
+        embedding_layer = create_embeddings(vect, params['max_num_words'], params['max_seq_length'], name=dataset_name, embedding_dim=params['embedding_dim'], filename=vectors_filename, type=embedding_type)
 
         # 8. Create the CNN model with the best params        
         model = None        
