@@ -1,393 +1,398 @@
 acc,cm,dataset,f1,n,params,task,tunning,v,embeddings,lang,loss,val_loss
-0.3333333333333333,"[[1362    0    0]
- [1362    0    0]
+0.3333333333333333,"[[1362    0    0]
+ [1362    0    0]
  [1362    0    0]]",smscorpus,0.16666666666666666,0.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 1000, 'features_maps': [10, 10], 'n_classes': 3, 'kernel_size': [2, 3], 'max_seq_length': 200, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0992656905794405,1.0934837636947632
-0.3333333333333333,"[[   0 1360    0]
- [   0 1360    0]
+0.3333333333333333,"[[   0 1360    0]
+ [   0 1360    0]
  [   0 1360    0]]",smscorpus,0.16666666666666666,1.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 1000, 'features_maps': [10, 10], 'n_classes': 3, 'kernel_size': [2, 3], 'max_seq_length': 50, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.1300394832359255,1.0739340963363648
-0.4172370088719897,"[[   0  162 1153]
- [   0  466  849]
+0.4172370088719897,"[[   0  162 1153]
+ [   0  466  849]
  [   0  135 1180]]",smscorpus,0.3244341627530677,2.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 10000, 'features_maps': [10, 10], 'n_classes': 3, 'kernel_size': [2, 3], 'max_seq_length': 200, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0490892673739305,1.0216427623915176
-0.3333333333333333,"[[   0    0 1364]
- [   0    0 1364]
+0.3333333333333333,"[[   0    0 1364]
+ [   0    0 1364]
  [   0    0 1364]]",smscorpus,0.16666666666666666,3.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 10000, 'features_maps': [10, 10], 'n_classes': 3, 'kernel_size': [2, 3], 'max_seq_length': 50, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.1313662806139488,1.0986183044758249
-0.3333333333333333,"[[   0 1321    0]
- [   0 1321    0]
+0.3333333333333333,"[[   0 1321    0]
+ [   0 1321    0]
  [   0 1321    0]]",smscorpus,0.16666666666666666,4.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 4448, 'features_maps': [10, 10], 'n_classes': 3, 'kernel_size': [2, 3], 'max_seq_length': 200, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0991420547333721,1.0895397787094117
-0.5303482587064676,"[[946 221 173]
- [471 644 225]
+0.5303482587064676,"[[946 221 173]
+ [471 644 225]
  [542 256 542]]",smscorpus,0.5241034019477516,5.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 4171, 'features_maps': [10, 10], 'n_classes': 3, 'kernel_size': [2, 3], 'max_seq_length': 50, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9783479135643232,0.8769874616169635
-0.4810438207779419,"[[1039  190  125]
- [ 508  687  159]
+0.4810438207779419,"[[1039  190  125]
+ [ 508  687  159]
  [ 804  322  228]]",smscorpus,0.4478090174456072,6.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 1000, 'features_maps': [50, 50], 'n_classes': 3, 'kernel_size': [2, 3], 'max_seq_length': 200, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,0.8811780268016985,1.0164586774494069
-0.3333333333333333,"[[   0    0 1358]
- [   0    0 1358]
+0.3333333333333333,"[[   0    0 1358]
+ [   0    0 1358]
  [   0    0 1358]]",smscorpus,0.16666666666666666,7.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 1000, 'features_maps': [50, 50], 'n_classes': 3, 'kernel_size': [2, 3], 'max_seq_length': 50, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0994002569289434,1.098621686299642
-0.3333333333333333,"[[   0    0 1315]
- [   0    0 1315]
+0.3333333333333333,"[[   0    0 1315]
+ [   0    0 1315]
  [   0    0 1315]]",smscorpus,0.16666666666666666,8.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 10000, 'features_maps': [50, 50], 'n_classes': 3, 'kernel_size': [2, 3], 'max_seq_length': 200, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0989617469839017,1.0828782768249512
-0.3333333333333333,"[[   0 1346    0]
- [   0 1346    0]
+0.3333333333333333,"[[   0 1346    0]
+ [   0 1346    0]
  [   0 1346    0]]",smscorpus,0.16666666666666666,9.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 10000, 'features_maps': [50, 50], 'n_classes': 3, 'kernel_size': [2, 3], 'max_seq_length': 50, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.1911600198027061,1.097438611794467
-0.4380883417813179,"[[1059  171  151]
- [ 653  553  175]
+0.4380883417813179,"[[1059  171  151]
+ [ 653  553  175]
  [ 935  243  203]]",smscorpus,0.4031412974843213,10.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 4323, 'features_maps': [50, 50], 'n_classes': 3, 'kernel_size': [2, 3], 'max_seq_length': 200, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9927716035697376,0.9537098935639212
-0.3333333333333333,"[[1369    0    0]
- [1369    0    0]
+0.3333333333333333,"[[1369    0    0]
+ [1369    0    0]
  [1369    0    0]]",smscorpus,0.16666666666666666,11.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 4335, 'features_maps': [50, 50], 'n_classes': 3, 'kernel_size': [2, 3], 'max_seq_length': 50, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.099129660339633,1.0875562324523926
-0.4603174603174603,"[[781 258 305]
- [285 792 267]
+0.4603174603174603,"[[781 258 305]
+ [285 792 267]
  [675 386 283]]",smscorpus,0.4444982676268523,12.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 1000, 'features_maps': [10, 10, 10], 'n_classes': 3, 'kernel_size': [2, 3, 4], 'max_seq_length': 200, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,0.973235137702399,0.9878886404037476
-0.4850506548060292,"[[666  85 598]
- [229 406 714]
+0.4850506548060292,"[[666  85 598]
+ [229 406 714]
  [302 156 891]]",smscorpus,0.4772254740332098,13.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 1000, 'features_maps': [10, 10, 10], 'n_classes': 3, 'kernel_size': [2, 3, 4], 'max_seq_length': 50, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9108539640214972,0.9649315295138208
-0.3980063214198882,"[[ 166  851  354]
- [  29 1251   91]
+0.3980063214198882,"[[ 166  851  354]
+ [  29 1251   91]
  [  46 1105  220]]",smscorpus,0.3228640740872478,14.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 10000, 'features_maps': [10, 10, 10], 'n_classes': 3, 'kernel_size': [2, 3, 4], 'max_seq_length': 200, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0514275385099128,0.9817895860671996
-0.44622093023255816,"[[854  99 423]
- [376 532 468]
+0.44622093023255816,"[[854  99 423]
+ [376 532 468]
  [726 194 456]]",smscorpus,0.4436487954031119,15.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 10000, 'features_maps': [10, 10, 10], 'n_classes': 3, 'kernel_size': [2, 3, 4], 'max_seq_length': 50, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9647525398203652,0.9140197277069092
-0.3333333333333333,"[[   0    0 1343]
- [   0    0 1343]
+0.3333333333333333,"[[   0    0 1343]
+ [   0    0 1343]
  [   0    0 1343]]",smscorpus,0.16666666666666666,16.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 4442, 'features_maps': [10, 10, 10], 'n_classes': 3, 'kernel_size': [2, 3, 4], 'max_seq_length': 200, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0991293566342926,1.0923971509933472
-0.3333333333333333,"[[   0    0 1358]
- [   0    0 1358]
+0.3333333333333333,"[[   0    0 1358]
+ [   0    0 1358]
  [   0    0 1358]]",smscorpus,0.16666666666666666,17.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 4429, 'features_maps': [10, 10, 10], 'n_classes': 3, 'kernel_size': [2, 3, 4], 'max_seq_length': 50, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0992816367757663,1.0906545763015747
-0.4943293885601578,"[[902 175 275]
- [432 530 390]
+0.4943293885601578,"[[902 175 275]
+ [432 530 390]
  [622 157 573]]",smscorpus,0.4888623719858176,18.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 1000, 'features_maps': [50, 50, 50], 'n_classes': 3, 'kernel_size': [2, 3, 4], 'max_seq_length': 200, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9867912352614392,0.9514093346595764
-0.4257852077001013,"[[1196   84   36]
- [ 773  443  100]
+0.4257852077001013,"[[1196   84   36]
+ [ 773  443  100]
  [1154  120   42]]",smscorpus,0.34881165925137303,19.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 1000, 'features_maps': [50, 50, 50], 'n_classes': 3, 'kernel_size': [2, 3, 4], 'max_seq_length': 50, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9714116605780364,0.9250785102844238
-0.3920682730923695,"[[   0   85 1243]
- [   0  415  913]
+0.3920682730923695,"[[   0   85 1243]
+ [   0  415  913]
  [   0  181 1147]]",smscorpus,0.3028327467732568,20.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 10000, 'features_maps': [50, 50, 50], 'n_classes': 3, 'kernel_size': [2, 3, 4], 'max_seq_length': 200, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0292943106837562,1.0307859908601251
-0.3333333333333333,"[[   0    0 1339]
- [   0    0 1339]
+0.3333333333333333,"[[   0    0 1339]
+ [   0    0 1339]
  [   0    0 1339]]",smscorpus,0.16666666666666666,21.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 10000, 'features_maps': [50, 50, 50], 'n_classes': 3, 'kernel_size': [2, 3, 4], 'max_seq_length': 50, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0992870498000338,1.0986167589823406
-0.4557620817843866,"[[947 106 292]
- [424 504 417]
+0.4557620817843866,"[[947 106 292]
+ [424 504 417]
  [813 144 388]]",smscorpus,0.4448989819856217,22.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 4306, 'features_maps': [50, 50, 50], 'n_classes': 3, 'kernel_size': [2, 3, 4], 'max_seq_length': 200, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,0.9525979968123748,1.0355832132120286
-0.4587132725430598,"[[986 200 130]
- [481 664 171]
+0.4587132725430598,"[[986 200 130]
+ [481 664 171]
  [931 224 161]]",smscorpus,0.42149297603232266,23.0,"{'dropout_rate': 0.2, 'dense_units': [128], 'pool_size': [3, 3, 3], 'embedding_dim': 100, 'optimizer': None, 'batch_size': 2, 'strides': [1], 'max_num_words': 4386, 'features_maps': [50, 50, 50], 'n_classes': 3, 'kernel_size': [2, 3, 4], 'max_seq_length': 50, 'epochs': 100}",age,test channels,_grid,nilc-fasttext-100dim,en,1.0307006825526757,0.9562821645736694
-0.5937682003494467,"[[1185  532]
+0.5937682003494467,"[[1185  532]
  [ 863  854]]",smscorpus,0.589958567277779,0.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [10, 10], 'kernel_size': [2, 3], 'strides': [1], 'max_seq_length': 200, 'dense_units': [128], 'epochs': 100, 'max_num_words': 1000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6619295602011216,0.6805584408681501
-0.5,"[[   0 1744]
+0.5,"[[   0 1744]
  [   0 1744]]",smscorpus,0.3333333333333333,1.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [10, 10], 'kernel_size': [2, 3], 'strides': [1], 'max_seq_length': 50, 'dense_units': [128], 'epochs': 100, 'max_num_words': 1000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936080424429286,0.6931625381112099
-0.5,"[[   0 1725]
+0.5,"[[   0 1725]
  [   0 1725]]",smscorpus,0.3333333333333333,2.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [10, 10], 'kernel_size': [2, 3], 'strides': [1], 'max_seq_length': 200, 'dense_units': [128], 'epochs': 100, 'max_num_words': 10000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6934797806838124,0.6931479180479325
-0.6127819548872181,"[[ 580 1149]
+0.6127819548872181,"[[ 580 1149]
  [ 190 1539]]",smscorpus,0.5805193709813562,3.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [10, 10], 'kernel_size': [2, 3], 'strides': [1], 'max_seq_length': 50, 'dense_units': [128], 'epochs': 100, 'max_num_words': 10000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6597000465882964,0.6540056003843036
-0.5,"[[1735    0]
+0.5,"[[1735    0]
  [1735    0]]",smscorpus,0.3333333333333333,4.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [10, 10], 'kernel_size': [2, 3], 'strides': [1], 'max_seq_length': 200, 'dense_units': [128], 'epochs': 100, 'max_num_words': 4409}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936863059382284,0.6931532831943553
-0.6106628242074928,"[[ 622 1113]
+0.6106628242074928,"[[ 622 1113]
  [ 238 1497]]",smscorpus,0.5842256619018161,5.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [10, 10], 'kernel_size': [2, 3], 'strides': [1], 'max_seq_length': 50, 'dense_units': [128], 'epochs': 100, 'max_num_words': 4466}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.660659056767071,0.6375975292849253
-0.6123147092360319,"[[ 624 1130]
+0.6123147092360319,"[[ 624 1130]
  [ 230 1524]]",smscorpus,0.5849988309042121,6.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [50, 50], 'kernel_size': [2, 3], 'strides': [1], 'max_seq_length': 200, 'dense_units': [128], 'epochs': 100, 'max_num_words': 1000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.636262512344316,0.670391867467917
-0.6153623188405797,"[[ 820  905]
+0.6153623188405797,"[[ 820  905]
  [ 422 1303]]",smscorpus,0.6076727038357606,7.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [50, 50], 'kernel_size': [2, 3], 'strides': [1], 'max_seq_length': 50, 'dense_units': [128], 'epochs': 100, 'max_num_words': 1000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6689218765634429,0.6705870240271746
-0.6000576701268743,"[[1127  607]
+0.6000576701268743,"[[1127  607]
  [ 780  954]]",smscorpus,0.5990599390935889,8.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [50, 50], 'kernel_size': [2, 3], 'strides': [1], 'max_seq_length': 200, 'dense_units': [128], 'epochs': 100, 'max_num_words': 10000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6777491779502901,0.6695882459966148
-0.6451612903225806,"[[1073  632]
+0.6451612903225806,"[[1073  632]
  [ 578 1127]]",smscorpus,0.6450722844472827,9.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [50, 50], 'kernel_size': [2, 3], 'strides': [1], 'max_seq_length': 50, 'dense_units': [128], 'epochs': 100, 'max_num_words': 10000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6316583204263577,0.6602972197498
-0.5988006853226727,"[[ 403 1348]
+0.5988006853226727,"[[ 403 1348]
  [  57 1694]]",smscorpus,0.5357025543148963,10.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [50, 50], 'kernel_size': [2, 3], 'strides': [1], 'max_seq_length': 200, 'dense_units': [128], 'epochs': 100, 'max_num_words': 4501}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6570683517835185,0.6185370025389335
-0.6033986175115207,"[[ 530 1206]
+0.6033986175115207,"[[ 530 1206]
  [ 171 1565]]",smscorpus,0.564718139175107,11.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [50, 50], 'kernel_size': [2, 3], 'strides': [1], 'max_seq_length': 50, 'dense_units': [128], 'epochs': 100, 'max_num_words': 4396}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6775066159081504,0.6712512045563338
-0.6273255813953489,"[[ 665 1055]
+0.6273255813953489,"[[ 665 1055]
  [ 227 1493]]",smscorpus,0.6044067392798862,12.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [10, 10, 10], 'kernel_size': [2, 3, 4], 'strides': [1], 'max_seq_length': 200, 'dense_units': [128], 'epochs': 100, 'max_num_words': 1000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6550256745130035,0.6407346609590012
-0.6079115764979639,"[[ 847  872]
+0.6079115764979639,"[[ 847  872]
  [ 476 1243]]",smscorpus,0.6026397261500187,13.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [10, 10, 10], 'kernel_size': [2, 3, 4], 'strides': [1], 'max_seq_length': 50, 'dense_units': [128], 'epochs': 100, 'max_num_words': 1000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6798157674359923,0.662164626157645
-0.5,"[[1715    0]
+0.5,"[[1715    0]
  [1715    0]]",smscorpus,0.3333333333333333,14.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [10, 10, 10], 'kernel_size': [2, 3, 4], 'strides': [1], 'max_seq_length': 200, 'dense_units': [128], 'epochs': 100, 'max_num_words': 10000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936860035986921,0.6931523084640503
-0.5,"[[1734    0]
+0.5,"[[1734    0]
  [1734    0]]",smscorpus,0.3333333333333333,15.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [10, 10, 10], 'kernel_size': [2, 3, 4], 'strides': [1], 'max_seq_length': 50, 'dense_units': [128], 'epochs': 100, 'max_num_words': 10000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6934818078757851,0.6931520897917952
-0.6297598125366141,"[[1008  699]
+0.6297598125366141,"[[1008  699]
  [ 565 1142]]",smscorpus,0.6291885500591194,16.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [10, 10, 10], 'kernel_size': [2, 3, 4], 'strides': [1], 'max_seq_length': 200, 'dense_units': [128], 'epochs': 100, 'max_num_words': 4313}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6100978459635149,0.6131812982357941
-0.6327716443927949,"[[ 930  791]
+0.6327716443927949,"[[ 930  791]
  [ 473 1248]]",smscorpus,0.6296101561010162,17.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [10, 10, 10], 'kernel_size': [2, 3, 4], 'strides': [1], 'max_seq_length': 50, 'dense_units': [128], 'epochs': 100, 'max_num_words': 4476}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6727161712026996,0.6831967014180133
-0.6142117376294591,"[[ 514 1224]
+0.6142117376294591,"[[ 514 1224]
  [ 117 1621]]",smscorpus,0.5706676361066789,18.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [50, 50, 50], 'kernel_size': [2, 3, 4], 'strides': [1], 'max_seq_length': 200, 'dense_units': [128], 'epochs': 100, 'max_num_words': 1000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6578023991843991,0.6314841991515605
-0.6166569936157864,"[[ 880  843]
+0.6166569936157864,"[[ 880  843]
  [ 478 1245]]",smscorpus,0.6123074606545174,19.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [50, 50, 50], 'kernel_size': [2, 3, 4], 'strides': [1], 'max_seq_length': 50, 'dense_units': [128], 'epochs': 100, 'max_num_words': 1000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6385708562813738,0.6349358807225325
-0.5,"[[   0 1734]
+0.5,"[[   0 1734]
  [   0 1734]]",smscorpus,0.3333333333333333,20.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [50, 50, 50], 'kernel_size': [2, 3, 4], 'strides': [1], 'max_seq_length': 200, 'dense_units': [128], 'epochs': 100, 'max_num_words': 10000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935053585820896,0.6931538411029955
-0.5,"[[1733    0]
+0.5,"[[1733    0]
  [1733    0]]",smscorpus,0.3333333333333333,21.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [50, 50, 50], 'kernel_size': [2, 3, 4], 'strides': [1], 'max_seq_length': 50, 'dense_units': [128], 'epochs': 100, 'max_num_words': 10000}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936282920898418,0.6931473612785339
-0.5,"[[   0 1707]
+0.5,"[[   0 1707]
  [   0 1707]]",smscorpus,0.3333333333333333,22.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [50, 50, 50], 'kernel_size': [2, 3, 4], 'strides': [1], 'max_seq_length': 200, 'dense_units': [128], 'epochs': 100, 'max_num_words': 4512}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936103580598328,0.6931485137518715
-0.6028389339513326,"[[ 524 1202]
+0.6028389339513326,"[[ 524 1202]
  [ 169 1557]]",smscorpus,0.5637756280062658,23.0,"{'embedding_dim': 100, 'dropout_rate': 0.2, 'batch_size': 2, 'n_classes': 2, 'pool_size': [3, 3, 3], 'optimizer': None, 'features_maps': [50, 50, 50], 'kernel_size': [2, 3, 4], 'strides': [1], 'max_seq_length': 50, 'dense_units': [128], 'epochs': 100, 'max_num_words': 4360}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6583571626570289,0.6389926823577441
-0.6170520231213873,"[[ 910  820]
+0.6170520231213873,"[[ 910  820]
  [ 505 1225]]",smscorpus,0.6138514829593911,0.0,"{'n_classes': 2, 'kernel_size': [2, 3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6058401413471766,0.6068180728526342
-0.602147417295415,"[[ 631 1092]
+0.602147417295415,"[[ 631 1092]
  [ 279 1444]]",smscorpus,0.5786973132653472,1.0,"{'n_classes': 2, 'kernel_size': [2, 3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6515849328697461,0.6569175136021592
-0.5,"[[1721    0]
+0.5,"[[1721    0]
  [1721    0]]",smscorpus,0.3333333333333333,2.0,"{'n_classes': 2, 'kernel_size': [2, 3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7283641339280925,0.6930936030162278
-0.6432664756446992,"[[1069  676]
+0.6432664756446992,"[[1069  676]
  [ 569 1176]]",smscorpus,0.6429308392524364,3.0,"{'n_classes': 2, 'kernel_size': [2, 3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6757987883217466,0.6671280576210273
-0.6252900232018561,"[[1060  664]
+0.6252900232018561,"[[1060  664]
  [ 628 1096]]",smscorpus,0.6252491712238698,4.0,"{'n_classes': 2, 'kernel_size': [2, 3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4421, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6639233237163918,0.6638293167626536
-0.6543739279588336,"[[1006  743]
+0.6543739279588336,"[[1006  743]
  [ 466 1283]]",smscorpus,0.6521929144624166,5.0,"{'n_classes': 2, 'kernel_size': [2, 3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4502, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6348114002761082,0.6652290807451521
-0.5,"[[1702    0]
+0.5,"[[1702    0]
  [1702    0]]",smscorpus,0.3333333333333333,6.0,"{'n_classes': 2, 'kernel_size': [2, 3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935683840579155,0.6931505014256734
-0.6008158508158508,"[[ 561 1155]
+0.6008158508158508,"[[ 561 1155]
  [ 215 1501]]",smscorpus,0.568441519724968,7.0,"{'n_classes': 2, 'kernel_size': [2, 3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.639102927947477,0.6617978040016059
-0.5,"[[   0 1725]
+0.5,"[[   0 1725]
  [   0 1725]]",smscorpus,0.3333333333333333,8.0,"{'n_classes': 2, 'kernel_size': [2, 3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6934009156879594,0.6931678272865631
-0.5,"[[1732    0]
+0.5,"[[1732    0]
  [1732    0]]",smscorpus,0.3333333333333333,9.0,"{'n_classes': 2, 'kernel_size': [2, 3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7925150368557732,0.6932173051747931
-0.6491024898668211,"[[ 962  765]
+0.6491024898668211,"[[ 962  765]
  [ 447 1280]]",smscorpus,0.6461027279416538,10.0,"{'n_classes': 2, 'kernel_size': [2, 3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4332, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6580502247388469,0.6409426474704423
-0.5,"[[1759    0]
+0.5,"[[1759    0]
  [1759    0]]",smscorpus,0.3333333333333333,11.0,"{'n_classes': 2, 'kernel_size': [2, 3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4567, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936208404694931,0.6931544338049513
-0.5,"[[   0 1708]
+0.5,"[[   0 1708]
  [   0 1708]]",smscorpus,0.3333333333333333,12.0,"{'n_classes': 2, 'kernel_size': [2, 3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935588769915828,0.6931564211845398
-0.5822935234699941,"[[ 466 1217]
+0.5822935234699941,"[[ 466 1217]
  [ 189 1494]]",smscorpus,0.5393247577281876,13.0,"{'n_classes': 2, 'kernel_size': [2, 3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6770089023660648,0.6875240555541082
-0.6214410226612435,"[[ 739  982]
+0.6214410226612435,"[[ 739  982]
  [ 321 1400]]",smscorpus,0.6069454972081276,14.0,"{'n_classes': 2, 'kernel_size': [2, 3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6526442189879446,0.6858852818946947
-0.6272515979081931,"[[ 659 1062]
+0.6272515979081931,"[[ 659 1062]
  [ 221 1500]]",smscorpus,0.6035858978788577,15.0,"{'n_classes': 2, 'kernel_size': [2, 3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6432591085722027,0.649753058862965
-0.5,"[[1757    0]
+0.5,"[[1757    0]
  [1757    0]]",smscorpus,0.3333333333333333,16.0,"{'n_classes': 2, 'kernel_size': [2, 3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4362, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935599066821401,0.6931471824645996
-0.6087719298245614,"[[ 648 1062]
+0.6087719298245614,"[[ 648 1062]
  [ 276 1434]]",smscorpus,0.5869551795515029,17.0,"{'n_classes': 2, 'kernel_size': [2, 3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4445, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6565560422944449,0.655457831359323
-0.611957796014068,"[[ 577 1129]
+0.611957796014068,"[[ 577 1129]
  [ 195 1511]]",smscorpus,0.5805250957621734,18.0,"{'n_classes': 2, 'kernel_size': [2, 3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6459996576614484,0.6166785996520158
-0.6249271986022131,"[[ 753  964]
+0.6249271986022131,"[[ 753  964]
  [ 324 1393]]",smscorpus,0.6114304830921441,19.0,"{'n_classes': 2, 'kernel_size': [2, 3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.5997199623767907,0.596963224387136
-0.5,"[[1733    0]
+0.5,"[[1733    0]
  [1733    0]]",smscorpus,0.3333333333333333,20.0,"{'n_classes': 2, 'kernel_size': [2, 3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935648820987067,0.6932352185249329
-0.5,"[[1721    0]
+0.5,"[[1721    0]
  [1721    0]]",smscorpus,0.3333333333333333,21.0,"{'n_classes': 2, 'kernel_size': [2, 3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935550332997698,0.6931486129760742
-0.6093023255813953,"[[ 548 1172]
+0.6093023255813953,"[[ 548 1172]
  [ 172 1548]]",smscorpus,0.5732388125830749,22.0,"{'n_classes': 2, 'kernel_size': [2, 3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4357, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6439009773223281,0.6197876085837682
-0.5,"[[   0 1721]
+0.5,"[[   0 1721]
  [   0 1721]]",smscorpus,0.3333333333333333,23.0,"{'n_classes': 2, 'kernel_size': [2, 3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4369, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6938093651262796,0.6931500470900274
-0.5,"[[1742    0]
+0.5,"[[1742    0]
  [1742    0]]",smscorpus,0.3333333333333333,24.0,"{'n_classes': 2, 'kernel_size': [7, 8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.693587390868836,0.6931472011139056
-0.5,"[[   0 1710]
+0.5,"[[   0 1710]
  [   0 1710]]",smscorpus,0.3333333333333333,25.0,"{'n_classes': 2, 'kernel_size': [7, 8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935988273833976,0.6931527256965637
-0.5,"[[   0 1729]
+0.5,"[[   0 1729]
  [   0 1729]]",smscorpus,0.3333333333333333,26.0,"{'n_classes': 2, 'kernel_size': [7, 8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936080738338883,0.6931491494178772
-0.5,"[[1739    0]
+0.5,"[[1739    0]
  [1739    0]]",smscorpus,0.3333333333333333,27.0,"{'n_classes': 2, 'kernel_size': [7, 8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935658590654799,0.6931549310684204
-0.5,"[[1716    0]
+0.5,"[[1716    0]
  [1716    0]]",smscorpus,0.3333333333333333,28.0,"{'n_classes': 2, 'kernel_size': [7, 8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4445, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935676591298015,0.6931477189064026
-0.6513575967648758,"[[1096  635]
+0.6513575967648758,"[[1096  635]
  [ 572 1159]]",smscorpus,0.6512421049995931,29.0,"{'n_classes': 2, 'kernel_size': [7, 8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4379, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6122682485909828,0.6466044803762304
-0.6238399071925754,"[[ 751  973]
+0.6238399071925754,"[[ 751  973]
  [ 324 1400]]",smscorpus,0.6100235596188639,30.0,"{'n_classes': 2, 'kernel_size': [7, 8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6594384406547629,0.6855027673991172
-0.5900405327156919,"[[ 656 1071]
+0.5900405327156919,"[[ 656 1071]
  [ 345 1382]]",smscorpus,0.5710912177805217,31.0,"{'n_classes': 2, 'kernel_size': [7, 8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6699861635508075,0.6715229284965386
-0.5,"[[1730    0]
+0.5,"[[1730    0]
  [1730    0]]",smscorpus,0.3333333333333333,32.0,"{'n_classes': 2, 'kernel_size': [7, 8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935909920395948,0.6931580305099487
-0.5,"[[   0 1732]
+0.5,"[[   0 1732]
  [   0 1732]]",smscorpus,0.3333333333333333,33.0,"{'n_classes': 2, 'kernel_size': [7, 8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.693573180854739,0.6931475575377302
-0.5,"[[1735    0]
+0.5,"[[1735    0]
  [1735    0]]",smscorpus,0.3333333333333333,34.0,"{'n_classes': 2, 'kernel_size': [7, 8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4481, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935467634882245,0.6931566596031189
-0.6025029797377831,"[[ 535 1143]
+0.6025029797377831,"[[ 535 1143]
  [ 191 1487]]",smscorpus,0.5677175305163014,35.0,"{'n_classes': 2, 'kernel_size': [7, 8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4254, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6597560684088243,0.6740703196769737
-0.5,"[[1720    0]
+0.5,"[[1720    0]
  [1720    0]]",smscorpus,0.3333333333333333,36.0,"{'n_classes': 2, 'kernel_size': [3, 4, 5], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936051818111059,0.6931635141372681
-0.5942790426152949,"[[ 468 1245]
+0.5942790426152949,"[[ 468 1245]
  [ 145 1568]]",smscorpus,0.5476465583963335,37.0,"{'n_classes': 2, 'kernel_size': [3, 4, 5], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6405984420690001,0.6091488817265268
-0.5,"[[1725    0]
+0.5,"[[1725    0]
  [1725    0]]",smscorpus,0.3333333333333333,38.0,"{'n_classes': 2, 'kernel_size': [3, 4, 5], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7342510712177404,0.6931648254394531
-0.5,"[[   0 1717]
+0.5,"[[   0 1717]
  [   0 1717]]",smscorpus,0.3333333333333333,39.0,"{'n_classes': 2, 'kernel_size': [3, 4, 5], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7406117399943244,0.6931478572614265
-0.6282126168224299,"[[ 871  841]
+0.6282126168224299,"[[ 871  841]
  [ 432 1280]]",smscorpus,0.6228309708090559,40.0,"{'n_classes': 2, 'kernel_size': [3, 4, 5], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4383, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.669261624878746,0.6758514862047152
-0.6614195764167143,"[[ 926  821]
+0.6614195764167143,"[[ 926  821]
  [ 362 1385]]",smscorpus,0.6554738940374774,41.0,"{'n_classes': 2, 'kernel_size': [3, 4, 5], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4309, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6307319596104914,0.6472524445239312
-0.5,"[[1722    0]
+0.5,"[[1722    0]
  [1722    0]]",smscorpus,0.3333333333333333,42.0,"{'n_classes': 2, 'kernel_size': [3, 4, 5], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935964414907485,0.6931539565853818
-0.60466472303207,"[[ 505 1210]
+0.60466472303207,"[[ 505 1210]
  [ 146 1569]]",smscorpus,0.562572581983078,43.0,"{'n_classes': 2, 'kernel_size': [3, 4, 5], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6482068450003863,0.6477411908633781
-0.6473317865429234,"[[1096  628]
+0.6473317865429234,"[[1096  628]
  [ 588 1136]]",smscorpus,0.6472843175259508,44.0,"{'n_classes': 2, 'kernel_size': [3, 4, 5], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6303506034063843,0.6416368215850421
-0.6300461361014994,"[[ 731 1003]
+0.6300461361014994,"[[ 731 1003]
  [ 280 1454]]",smscorpus,0.6132362739307363,45.0,"{'n_classes': 2, 'kernel_size': [3, 4, 5], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6160475443953367,0.6336347232600288
-0.6090074584050488,"[[ 514 1229]
+0.6090074584050488,"[[ 514 1229]
  [ 134 1609]]",smscorpus,0.5662061698845021,46.0,"{'n_classes': 2, 'kernel_size': [3, 4, 5], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4484, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6388991738661868,0.647701913697852
-0.5,"[[1732    0]
+0.5,"[[1732    0]
  [1732    0]]",smscorpus,0.3333333333333333,47.0,"{'n_classes': 2, 'kernel_size': [3, 4, 5], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4594, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.8234980230656813,0.693084881715248
-0.5,"[[   0 1726]
+0.5,"[[   0 1726]
  [   0 1726]]",smscorpus,0.3333333333333333,48.0,"{'n_classes': 2, 'kernel_size': [7, 8, 9], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7273774901452738,0.6902819832405412
-0.6286464410735122,"[[ 732  982]
+0.6286464410735122,"[[ 732  982]
  [ 291 1423]]",smscorpus,0.6129183108691083,49.0,"{'n_classes': 2, 'kernel_size': [7, 8, 9], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6798186589737719,0.693534237078645
-0.5,"[[   0 1736]
+0.5,"[[   0 1736]
  [   0 1736]]",smscorpus,0.3333333333333333,50.0,"{'n_classes': 2, 'kernel_size': [7, 8, 9], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935019172737529,0.6932207942008972
-0.5,"[[   0 1723]
+0.5,"[[   0 1723]
  [   0 1723]]",smscorpus,0.3333333333333333,51.0,"{'n_classes': 2, 'kernel_size': [7, 8, 9], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7254050364872863,0.6931671500205994
-0.6153179190751445,"[[ 809  921]
+0.6153179190751445,"[[ 809  921]
  [ 410 1320]]",smscorpus,0.6067402537505083,52.0,"{'n_classes': 2, 'kernel_size': [7, 8, 9], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4479, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6592491933617729,0.6708129951503219
-0.6172011661807579,"[[1154  561]
+0.6172011661807579,"[[1154  561]
  [ 752  963]]",smscorpus,0.6160104784796654,53.0,"{'n_classes': 2, 'kernel_size': [7, 8, 9], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4261, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6644309979356849,0.634586549964216
-0.6168305378831694,"[[1152  577]
+0.6168305378831694,"[[1152  577]
  [ 748  981]]",smscorpus,0.6158912549357536,54.0,"{'n_classes': 2, 'kernel_size': [7, 8, 9], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6584601117111504,0.6668586084947866
-0.591589861751152,"[[ 662 1074]
+0.591589861751152,"[[ 662 1074]
  [ 344 1392]]",smscorpus,0.572700436838281,55.0,"{'n_classes': 2, 'kernel_size': [7, 8, 9], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6553417468394465,0.6521853183427554
-0.5871100647439671,"[[ 433 1266]
+0.5871100647439671,"[[ 433 1266]
  [ 137 1562]]",smscorpus,0.535873831979963,56.0,"{'n_classes': 2, 'kernel_size': [7, 8, 9], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6810937805318987,0.6814500616406495
-0.6514886164623468,"[[ 929  784]
+0.6514886164623468,"[[ 929  784]
  [ 410 1303]]",smscorpus,0.6472853004069807,57.0,"{'n_classes': 2, 'kernel_size': [7, 8, 9], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6342151548797837,0.6498351692261096
-0.5942285041224971,"[[ 459 1239]
+0.5942285041224971,"[[ 459 1239]
  [ 139 1559]]",smscorpus,0.5466655610252086,58.0,"{'n_classes': 2, 'kernel_size': [7, 8, 9], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4255, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6759355526225519,0.6839588839197304
-0.5,"[[   0 1716]
+0.5,"[[   0 1716]
  [   0 1716]]",smscorpus,0.3333333333333333,59.0,"{'n_classes': 2, 'kernel_size': [7, 8, 9], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4486, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6934612856033914,0.6931604743003845
-0.5,"[[   0 1709]
+0.5,"[[   0 1709]
  [   0 1709]]",smscorpus,0.3333333333333333,60.0,"{'n_classes': 2, 'kernel_size': [3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935824861631629,0.6931656795347522
-0.5,"[[1687    0]
+0.5,"[[1687    0]
  [1687    0]]",smscorpus,0.3333333333333333,61.0,"{'n_classes': 2, 'kernel_size': [3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936163895549964,0.693153977394104
-0.5,"[[1696    0]
+0.5,"[[1696    0]
  [1696    0]]",smscorpus,0.3333333333333333,62.0,"{'n_classes': 2, 'kernel_size': [3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935104372140322,0.6931501030921936
-0.6463553530751709,"[[1118  638]
+0.6463553530751709,"[[1118  638]
  [ 604 1152]]",smscorpus,0.6463222051298516,63.0,"{'n_classes': 2, 'kernel_size': [3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6585310667019988,0.662182307745541
-0.5,"[[1719    0]
+0.5,"[[1719    0]
  [1719    0]]",smscorpus,0.3333333333333333,64.0,"{'n_classes': 2, 'kernel_size': [3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4414, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935444025374039,0.6931481157579731
-0.6204784130688448,"[[ 724  990]
+0.6204784130688448,"[[ 724  990]
  [ 311 1403]]",smscorpus,0.6049803797879265,65.0,"{'n_classes': 2, 'kernel_size': [3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4444, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6397748712738691,0.6574765495998037
-0.5,"[[1738    0]
+0.5,"[[1738    0]
  [1738    0]]",smscorpus,0.3333333333333333,66.0,"{'n_classes': 2, 'kernel_size': [3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935057582661831,0.6931472018361091
-0.5,"[[   0 1741]
+0.5,"[[   0 1741]
  [   0 1741]]",smscorpus,0.3333333333333333,67.0,"{'n_classes': 2, 'kernel_size': [3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936413122628607,0.6931491494178772
-0.5,"[[1735    0]
+0.5,"[[1735    0]
  [1735    0]]",smscorpus,0.3333333333333333,68.0,"{'n_classes': 2, 'kernel_size': [3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935491972982464,0.6931484721557438
-0.5790711346266901,"[[1297  404]
+0.5790711346266901,"[[1297  404]
  [1028  673]]",smscorpus,0.5644166052408803,69.0,"{'n_classes': 2, 'kernel_size': [3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.679220582109261,0.6828978775413173
-0.5,"[[   0 1745]
+0.5,"[[   0 1745]
  [   0 1745]]",smscorpus,0.3333333333333333,70.0,"{'n_classes': 2, 'kernel_size': [3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4491, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6934850375465408,0.6931502819061279
-0.6087328767123288,"[[ 559 1193]
+0.6087328767123288,"[[ 559 1193]
  [ 178 1574]]",smscorpus,0.5728953356263466,71.0,"{'n_classes': 2, 'kernel_size': [3], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4518, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6591611444666272,0.6507585764268023
-0.5,"[[   0 1749]
+0.5,"[[   0 1749]
  [   0 1749]]",smscorpus,0.3333333333333333,72.0,"{'n_classes': 2, 'kernel_size': [8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7050052132017276,0.6931532621383667
-0.5,"[[   0 1720]
+0.5,"[[   0 1720]
  [   0 1720]]",smscorpus,0.3333333333333333,73.0,"{'n_classes': 2, 'kernel_size': [8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935784043429734,0.6931497070524427
-0.5,"[[   0 1743]
+0.5,"[[   0 1743]
  [   0 1743]]",smscorpus,0.3333333333333333,74.0,"{'n_classes': 2, 'kernel_size': [8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935508147646219,0.693148753800235
-0.5,"[[   0 1720]
+0.5,"[[   0 1720]
  [   0 1720]]",smscorpus,0.3333333333333333,75.0,"{'n_classes': 2, 'kernel_size': [8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6934871642455833,0.6931485139897892
-0.5,"[[   0 1722]
+0.5,"[[   0 1722]
  [   0 1722]]",smscorpus,0.3333333333333333,76.0,"{'n_classes': 2, 'kernel_size': [8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4272, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935407559639857,0.6931482365443593
-0.5,"[[1751    0]
+0.5,"[[1751    0]
  [1751    0]]",smscorpus,0.3333333333333333,77.0,"{'n_classes': 2, 'kernel_size': [8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4419, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935555644243709,0.6931599176418014
-0.5,"[[1709    0]
+0.5,"[[1709    0]
  [1709    0]]",smscorpus,0.3333333333333333,78.0,"{'n_classes': 2, 'kernel_size': [8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935475702768837,0.6931473229850471
-0.6340895869691682,"[[ 971  748]
+0.6340895869691682,"[[ 971  748]
  [ 510 1209]]",smscorpus,0.6323275979325353,79.0,"{'n_classes': 2, 'kernel_size': [8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6191611533493612,0.6138192840797061
-0.6151202749140894,"[[ 518 1228]
+0.6151202749140894,"[[ 518 1228]
  [ 116 1630]]",smscorpus,0.5716870240711402,80.0,"{'n_classes': 2, 'kernel_size': [8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6677426265430207,0.6352289703706008
-0.6509324009324009,"[[1027  689]
+0.6509324009324009,"[[1027  689]
  [ 509 1207]]",smscorpus,0.6499695561739671,81.0,"{'n_classes': 2, 'kernel_size': [8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6359850308593052,0.6436650424105365
-0.5871428571428572,"[[ 413 1337]
+0.5871428571428572,"[[ 413 1337]
  [ 108 1642]]",smscorpus,0.5290774975024579,82.0,"{'n_classes': 2, 'kernel_size': [8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4697, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6774843139888528,0.684281276405187
-0.5,"[[1730    0]
+0.5,"[[1730    0]
  [1730    0]]",smscorpus,0.3333333333333333,83.0,"{'n_classes': 2, 'kernel_size': [8], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4478, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936509230376061,0.6931523311397304
-0.6244226327944573,"[[ 769  963]
+0.6244226327944573,"[[ 769  963]
  [ 338 1394]]",smscorpus,0.6117846737150188,84.0,"{'n_classes': 2, 'kernel_size': [2], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6418160765722748,0.6331176574347336
-0.6248558246828143,"[[ 691 1043]
+0.6248558246828143,"[[ 691 1043]
  [ 258 1476]]",smscorpus,0.6045966632135049,85.0,"{'n_classes': 2, 'kernel_size': [2], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6506445692975029,0.6174403418074635
-0.613126079447323,"[[ 965  772]
+0.613126079447323,"[[ 965  772]
  [ 572 1165]]",smscorpus,0.6118395740312567,86.0,"{'n_classes': 2, 'kernel_size': [2], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6777069023745075,0.6807154989884999
-0.6083528037383178,"[[1087  625]
+0.6083528037383178,"[[1087  625]
  [ 716  996]]",smscorpus,0.6080759711817554,87.0,"{'n_classes': 2, 'kernel_size': [2], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6614326243455447,0.6569403527283121
-0.5894097222222222,"[[ 602 1126]
+0.5894097222222222,"[[ 602 1126]
  [ 293 1435]]",smscorpus,0.5640850211559116,88.0,"{'n_classes': 2, 'kernel_size': [2], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4447, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6748484660598818,0.6437181556640671
-0.5,"[[1709    0]
+0.5,"[[1709    0]
  [1709    0]]",smscorpus,0.3333333333333333,89.0,"{'n_classes': 2, 'kernel_size': [2], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4279, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6934499385921905,0.6931510169145673
-0.5,"[[1715    0]
+0.5,"[[1715    0]
  [1715    0]]",smscorpus,0.3333333333333333,90.0,"{'n_classes': 2, 'kernel_size': [2], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6939591873427591,0.6931473211672321
-0.6268961493582264,"[[1023  691]
+0.6268961493582264,"[[1023  691]
  [ 588 1126]]",smscorpus,0.6265590058408553,91.0,"{'n_classes': 2, 'kernel_size': [2], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6270511104060071,0.6460019931967916
-0.5993699885452463,"[[ 716 1030]
+0.5993699885452463,"[[ 716 1030]
  [ 369 1377]]",smscorpus,0.584481706142385,92.0,"{'n_classes': 2, 'kernel_size': [2], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6818672162185704,0.676719647187453
-0.5,"[[   0 1694]
+0.5,"[[   0 1694]
  [   0 1694]]",smscorpus,0.3333333333333333,93.0,"{'n_classes': 2, 'kernel_size': [2], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7512470307275017,0.6931650891023524
-0.5,"[[   0 1752]
+0.5,"[[   0 1752]
  [   0 1752]]",smscorpus,0.3333333333333333,94.0,"{'n_classes': 2, 'kernel_size': [2], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4529, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935699994863018,0.6931471824645996
-0.6288184438040346,"[[ 700 1035]
+0.6288184438040346,"[[ 700 1035]
  [ 253 1482]]",smscorpus,0.6089585293195359,95.0,"{'n_classes': 2, 'kernel_size': [2], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4419, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6305514796158493,0.6654643568697132
-0.5,"[[1746    0]
+0.5,"[[1746    0]
  [1746    0]]",smscorpus,0.3333333333333333,96.0,"{'n_classes': 2, 'kernel_size': [3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936346028640772,0.6931496858596802
-0.5,"[[   0 1732]
+0.5,"[[   0 1732]
  [   0 1732]]",smscorpus,0.3333333333333333,97.0,"{'n_classes': 2, 'kernel_size': [3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6934717397215753,0.6931471605222304
-0.5,"[[   0 1721]
+0.5,"[[   0 1721]
  [   0 1721]]",smscorpus,0.3333333333333333,98.0,"{'n_classes': 2, 'kernel_size': [3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7258927495199807,0.6931477785110474
-0.5,"[[   0 1733]
+0.5,"[[   0 1733]
  [   0 1733]]",smscorpus,0.3333333333333333,99.0,"{'n_classes': 2, 'kernel_size': [3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936359366087402,0.6931471228599548
-0.5,"[[   0 1762]
+0.5,"[[   0 1762]
  [   0 1762]]",smscorpus,0.3333333333333333,100.0,"{'n_classes': 2, 'kernel_size': [3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4436, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6934633992663874,0.6931644465491088
-0.5,"[[1735    0]
+0.5,"[[1735    0]
  [1735    0]]",smscorpus,0.3333333333333333,101.0,"{'n_classes': 2, 'kernel_size': [3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4373, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936818894688196,0.6931524498215138
-0.630447247706422,"[[ 576 1168]
+0.630447247706422,"[[ 576 1168]
  [ 121 1623]]",smscorpus,0.5938519964209366,102.0,"{'n_classes': 2, 'kernel_size': [3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6559902821805289,0.6537683488641466
-0.5,"[[   0 1749]
+0.5,"[[   0 1749]
  [   0 1749]]",smscorpus,0.3333333333333333,103.0,"{'n_classes': 2, 'kernel_size': [3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935061549383497,0.6931927800178528
-0.5,"[[1720    0]
+0.5,"[[1720    0]
  [1720    0]]",smscorpus,0.3333333333333333,104.0,"{'n_classes': 2, 'kernel_size': [3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6936365568899677,0.693148830948874
-0.5,"[[1729    0]
+0.5,"[[1729    0]
  [1729    0]]",smscorpus,0.3333333333333333,105.0,"{'n_classes': 2, 'kernel_size': [3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7809565271282687,0.6931483955545858
-0.6296189376443418,"[[1045  687]
+0.6296189376443418,"[[1045  687]
  [ 596 1136]]",smscorpus,0.6293631523269715,106.0,"{'n_classes': 2, 'kernel_size': [3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4275, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6159304561114997,0.6440745876382359
-0.5,"[[   0 1719]
+0.5,"[[   0 1719]
  [   0 1719]]",smscorpus,0.3333333333333333,107.0,"{'n_classes': 2, 'kernel_size': [3, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4361, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935395643934849,0.6931472420692444
-0.6166569936157864,"[[ 872  851]
+0.6166569936157864,"[[ 872  851]
  [ 470 1253]]",smscorpus,0.6119129512935266,108.0,"{'n_classes': 2, 'kernel_size': [2, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6318162845193935,0.6267853457395031
-0.5,"[[   0 1733]
+0.5,"[[   0 1733]
  [   0 1733]]",smscorpus,0.3333333333333333,109.0,"{'n_classes': 2, 'kernel_size': [2, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6934807689393309,0.6931506174837234
-0.5,"[[   0 1722]
+0.5,"[[   0 1722]
  [   0 1722]]",smscorpus,0.3333333333333333,110.0,"{'n_classes': 2, 'kernel_size': [2, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935399037318664,0.6931931972503662
-0.5,"[[1726    0]
+0.5,"[[1726    0]
  [1726    0]]",smscorpus,0.3333333333333333,111.0,"{'n_classes': 2, 'kernel_size': [2, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935445976826086,0.6931474410939491
-0.6318840579710145,"[[ 708 1017]
+0.6318840579710145,"[[ 708 1017]
  [ 253 1472]]",smscorpus,0.6129007976461117,112.0,"{'n_classes': 2, 'kernel_size': [2, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4465, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6037426399192183,0.6310991827631369
-0.5,"[[1737    0]
+0.5,"[[1737    0]
  [1737    0]]",smscorpus,0.3333333333333333,113.0,"{'n_classes': 2, 'kernel_size': [2, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [10, 10], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4377, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935886742567158,0.693149209022522
-0.6217647058823529,"[[ 833  867]
+0.6217647058823529,"[[ 833  867]
  [ 419 1281]]",smscorpus,0.615081779715926,114.0,"{'n_classes': 2, 'kernel_size': [2, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6840617365048374,0.6786599011903398
-0.6032069970845481,"[[ 613 1102]
+0.6032069970845481,"[[ 613 1102]
  [ 259 1456]]",smscorpus,0.5776982085896185,115.0,"{'n_classes': 2, 'kernel_size': [2, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 1000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.7877007341121356,0.6766098541292277
-0.6277648428405123,"[[ 709 1009]
+0.6277648428405123,"[[ 709 1009]
  [ 270 1448]]",smscorpus,0.6097110339943028,116.0,"{'n_classes': 2, 'kernel_size': [2, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6597885529211429,0.6782115011504202
-0.5,"[[   0 1718]
+0.5,"[[   0 1718]
  [   0 1718]]",smscorpus,0.3333333333333333,117.0,"{'n_classes': 2, 'kernel_size': [2, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 10000, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6935777828957955,0.6931502606909153
-0.6300813008130082,"[[ 736  986]
+0.6300813008130082,"[[ 736  986]
  [ 288 1434]]",smscorpus,0.6142357805550447,118.0,"{'n_classes': 2, 'kernel_size': [2, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4480, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.6667417715369693,0.6452467341346351
-0.642692750287687,"[[ 956  782]
+0.642692750287687,"[[ 956  782]
  [ 460 1278]]",smscorpus,0.6396000564993825,119.0,"{'n_classes': 2, 'kernel_size': [2, 4], 'embedding_dim': 100, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'features_maps': [50, 50], 'dense_units': [128], 'strides': [1], 'batch_size': 2, 'max_num_words': 4326, 'optimizer': None, 'dropout_rate': 0.2, 'epochs': 100}",gender,test channels,_grid,nilc-fasttext-100dim,en,0.5848510498497194,0.6009623661891303
-0.5642973174693771,"[[17413  5364]
+0.5642973174693771,"[[17413  5364]
  [14484  8293]]",smscorpus,0.5461048248235487,0.0,"{'kernel_size': [2, 3], 'features_maps': [10, 10], 'optimizer': None, 'epochs': 100, 'dropout_rate': 0.2, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'dense_units': [128], 'max_num_words': 1000, 'embedding_dim': 100, 'n_classes': 2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6765343104948409,0.6630049747011069
-0.6361241603371822,"[[10769 12008]
+0.6361241603371822,"[[10769 12008]
  [ 4568 18209]]",smscorpus,0.6261520319633341,1.0,"{'kernel_size': [2, 3], 'features_maps': [10, 10], 'optimizer': None, 'epochs': 100, 'dropout_rate': 0.2, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'dense_units': [128], 'max_num_words': 1000, 'embedding_dim': 100, 'n_classes': 2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6543032042489761,0.6368214856109222
-0.575492821706107,"[[16334  6443]
+0.575492821706107,"[[16334  6443]
  [12895  9882]]",smscorpus,0.5668027905633886,2.0,"{'kernel_size': [2, 3], 'features_maps': [10, 10], 'optimizer': None, 'epochs': 100, 'dropout_rate': 0.2, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'dense_units': [128], 'max_num_words': 10000, 'embedding_dim': 100, 'n_classes': 2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6635505347350359,0.6515310567563206
-0.6170698511656496,"[[ 8736 14041]
+0.6170698511656496,"[[ 8736 14041]
  [ 3403 19374]]",smscorpus,0.5949826565534047,3.0,"{'kernel_size': [2, 3], 'features_maps': [10, 10], 'optimizer': None, 'epochs': 100, 'dropout_rate': 0.2, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'dense_units': [128], 'max_num_words': 10000, 'embedding_dim': 100, 'n_classes': 2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6608654241828891,0.6442685684489413
-0.6148087983492119,"[[ 7041 15736]
+0.6148087983492119,"[[ 7041 15736]
  [ 1811 20966]]",smscorpus,0.5751063173286757,4.0,"{'kernel_size': [2, 3], 'features_maps': [10, 10], 'optimizer': None, 'epochs': 100, 'dropout_rate': 0.2, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'dense_units': [128], 'max_num_words': 14195, 'embedding_dim': 100, 'n_classes': 2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.658964114686893,0.64642303801765
-0.5603679150019757,"[[18655  4122]
+0.5603679150019757,"[[18655  4122]
  [15905  6872]]",smscorpus,0.5288452991901356,5.0,"{'kernel_size': [2, 3], 'features_maps': [10, 10], 'optimizer': None, 'epochs': 100, 'dropout_rate': 0.2, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'dense_units': [128], 'max_num_words': 14222, 'embedding_dim': 100, 'n_classes': 2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6676092895540752,0.6618373216746716
-0.5602142512183342,"[[ 4186 18591]
+0.5602142512183342,"[[ 4186 18591]
  [ 1443 21334]]",smscorpus,0.487607563444155,6.0,"{'kernel_size': [2, 3], 'features_maps': [50, 50], 'optimizer': None, 'epochs': 100, 'dropout_rate': 0.2, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'dense_units': [128], 'max_num_words': 1000, 'embedding_dim': 100, 'n_classes': 2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6703816176723989,0.6638312667516844
-0.6326777011897967,"[[10574 12203]
+0.6326777011897967,"[[10574 12203]
  [ 4530 18247]]",smscorpus,0.6219520352634322,7.0,"{'kernel_size': [2, 3], 'features_maps': [50, 50], 'optimizer': None, 'epochs': 100, 'dropout_rate': 0.2, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'dense_units': [128], 'max_num_words': 1000, 'embedding_dim': 100, 'n_classes': 2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6500714394875551,0.6401231901322355
-0.5630680072002459,"[[15386  7391]
+0.5630680072002459,"[[15386  7391]
  [12513 10264]]",smscorpus,0.5574734535654913,8.0,"{'kernel_size': [2, 3], 'features_maps': [50, 50], 'optimizer': None, 'epochs': 100, 'dropout_rate': 0.2, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3], 'max_seq_length': 100, 'dense_units': [128], 'max_num_words': 10000, 'embedding_dim': 100, 'n_classes': 2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6824451408947956,0.6628030389352816
-0.6477367519866531,"[[12655 10122]
+0.6477367519866531,"[[12655 10122]
  [ 5925 16852]]",smscorpus,0.6447210082733521,9.0,"{'kernel_size': [2, 3], 'features_maps': [50, 50], 'optimizer': None, 'epochs': 100, 'dropout_rate': 0.2, 'strides': [1], 'batch_size': 2, 'pool_size': [3, 3, 3], 'max_seq_length': 50, 'dense_units': [128], 'max_num_words': 10000, 'embedding_dim': 100, 'n_classes': 2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6367845874651978,0.6402329661931947
-0.5688413750713439,"[[ 5009 17768]
+0.5688413750713439,"[[ 5009 17768]
  [ 1873 20904]]",smscorpus,0.5090708846938663,0.0,"{'epochs': 100, 'batch_size': 2, 'max_seq_length': 15, 'kernel_size': [2, 3, 4], 'strides': [1], 'embedding_dim': 100, 'dense_units': [128], 'n_classes': 2, 'optimizer': None, 'max_num_words': 1000, 'features_maps': [10, 10, 10], 'pool_size': [3, 3, 3], 'dropout_rate': 0.2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6769660343924844,0.6586249318832302
-0.5636607103657199,"[[ 4243 18534]
+0.5636607103657199,"[[ 4243 18534]
  [ 1343 21434]]",smscorpus,0.4912012138029755,1.0,"{'epochs': 100, 'batch_size': 2, 'max_seq_length': 50, 'kernel_size': [2, 3, 4], 'strides': [1], 'embedding_dim': 100, 'dense_units': [128], 'n_classes': 2, 'optimizer': None, 'max_num_words': 1000, 'features_maps': [10, 10, 10], 'pool_size': [3, 3, 3], 'dropout_rate': 0.2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6723912420097797,0.6638585913842081
-0.5595117882074022,"[[ 7144 15633]
+0.5595117882074022,"[[ 7144 15633]
  [ 4433 18344]]",smscorpus,0.5311720033719839,2.0,"{'epochs': 100, 'batch_size': 2, 'max_seq_length': 15, 'kernel_size': [2, 3, 4], 'strides': [1], 'embedding_dim': 100, 'dense_units': [128], 'n_classes': 2, 'optimizer': None, 'max_num_words': 14249, 'features_maps': [10, 10, 10], 'pool_size': [3, 3, 3], 'dropout_rate': 0.2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6763978232191987,0.6605457356231903
-0.5,"[[    0 22777]
+0.5,"[[    0 22777]
  [    0 22777]]",smscorpus,0.3333333333333333,3.0,"{'epochs': 100, 'batch_size': 2, 'max_seq_length': 50, 'kernel_size': [2, 3, 4], 'strides': [1], 'embedding_dim': 100, 'dense_units': [128], 'n_classes': 2, 'optimizer': None, 'max_num_words': 14203, 'features_maps': [10, 10, 10], 'pool_size': [3, 3, 3], 'dropout_rate': 0.2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6934222848816775,0.6931582691113212
-0.5726829696623787,"[[ 5488 17289]
+0.5726829696623787,"[[ 5488 17289]
  [ 2177 20600]]",smscorpus,0.5198414195730503,4.0,"{'epochs': 100, 'batch_size': 2, 'max_seq_length': 15, 'kernel_size': [2, 3, 4], 'strides': [1], 'embedding_dim': 100, 'dense_units': [128], 'n_classes': 2, 'optimizer': None, 'max_num_words': 1000, 'features_maps': [50, 50, 50], 'pool_size': [3, 3, 3], 'dropout_rate': 0.2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6676545523639865,0.6551455275890075
-0.6298019932387935,"[[ 9530 13247]
+0.6298019932387935,"[[ 9530 13247]
  [ 3617 19160]]",smscorpus,0.6124843501158932,5.0,"{'epochs': 100, 'batch_size': 2, 'max_seq_length': 50, 'kernel_size': [2, 3, 4], 'strides': [1], 'embedding_dim': 100, 'dense_units': [128], 'n_classes': 2, 'optimizer': None, 'max_num_words': 1000, 'features_maps': [50, 50, 50], 'pool_size': [3, 3, 3], 'dropout_rate': 0.2}",gender,fulldata,_grid,nilc-fasttext-100dim,en,0.6485165225162173,0.6391563262063771
+0.697370154102823,"[[14568  8209]
+ [ 5577 17200]]",smscorpus,0.6963565165305334,0.0,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",gender,lstm lstm attention,_grid,nilc-fasttext-100dim,en,0.5190752100040714,0.5583948157311011
+0.6515807424898334,"[[13378  1912  2497]
+ [ 3279 11248  3260]
+ [ 4431  3213 10143]]",smscorpus,0.649665333390794,0.0,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",age,lstm lstm attention,_grid,nilc-fasttext-100dim,en,0.6890236551246218,0.8147230291242261

@@ -1,0 +1,40 @@
+v,tunning,n,dataset,task,params,acc,f1,cm,embeddings,lang,loss,val_loss
+_grid,lstm alstm attention,0.0,brblogset,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.726027397260274,0.7256338628962617,"[[948 293]
+ [387 854]]",nilc-fasttext-100dim,pt,0.4454534282178023,0.5212847353875476
+_grid,lstm alstm attention,0.0,brblogset,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.4536923704610363,0.4490141996996986,"[[427 279 111]
+ [231 430 156]
+ [188 374 255]]",nilc-fasttext-100dim,pt,1.0174891421760337,1.0492360261926277
+_grid,lstm alstm attention,0.0,brblogset,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.42105263157894735,0.4142426585752592,"[[480 225 112]
+ [333 279 205]
+ [280 264 273]]",nilc-fasttext-100dim,pt,1.0812111934783353,1.0825964460469255
+_grid,lstm alstm attention,0.0,brblogset,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.3178191489361702,0.316146900818944,"[[ 87  60  98 131]
+ [ 31 138 134  73]
+ [ 55  87 143  91]
+ [ 65  88 113 110]]",nilc-fasttext-100dim,pt,1.3148835017490337,1.3479247054496368
+_grid,lstm lstm attention,0.0,brblogset,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.6341659951651893,0.6313741603240477,"[[895 346]
+ [562 679]]",nilc-fasttext-100dim,pt,0.6617537823588358,0.6026412994187682
+_grid,lstm lstm attention,0.0,brblogset,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.3745410036719706,0.3516108779054768,"[[419 107 291]
+ [360 115 342]
+ [339  94 384]]",nilc-fasttext-100dim,pt,1.0897839403928622,1.0763929979264897
+_grid,lstm lstm attention,0.0,brblogset,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.3091755319148936,0.2236673174828281,"[[232 124  15   5]
+ [145 217   9   5]
+ [186 177  11   2]
+ [190 177   4   5]]",nilc-fasttext-100dim,pt,1.377825338689238,1.3674378690093456
+_grid,lstm lstm attention,0.0,brblogset,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.6897663174858985,0.6873987923452828,"[[964 277]
+ [493 748]]",nilc-fasttext-100dim,pt,0.61491635237836,0.5836033849043561
+_grid,lstm lstm attention,0.0,brblogset,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.39208486332109344,0.37644386841644617,"[[503 153 161]
+ [409 191 217]
+ [374 176 267]]",nilc-fasttext-100dim,pt,1.0856304073527832,1.0818022345026688
+_grid,lstm lstm attention,0.0,brblogset,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.3098404255319149,0.2309421841964205,"[[242 104   7  23]
+ [152 202   3  19]
+ [203 153   7  13]
+ [206 148   7  15]]",nilc-fasttext-100dim,pt,1.3753488769000672,1.3691727030990473
+_grid,lstm lstm attention,0.0,brblogset,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.6720386784850927,0.6638233013521295,"[[1028  213]
+ [ 601  640]]",nilc-fasttext-100dim,pt,0.6328060052628914,0.6119215717007348
+_grid,lstm lstm attention,0.0,brblogset,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.3875968992248062,0.3587718305374021,"[[543  91 183]
+ [455 127 235]
+ [410 127 280]]",nilc-fasttext-100dim,pt,1.0851770860272627,1.1013616630208425
+_grid,lstm lstm attention,0.0,brblogset,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.31316489361702127,0.23834686801119268,"[[262  83   0  31]
+ [174 174   1  27]
+ [211 138   1  26]
+ [211 131   0  34]]",nilc-fasttext-100dim,pt,1.378996747846741,1.3611953891677298

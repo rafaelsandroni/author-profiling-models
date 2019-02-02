@@ -15,7 +15,7 @@ from Models.functions.preprocessing import clean, labelEncoder
 from Models.functions.datasets import loadTrainTest
 from Models.functions.utils import checkFolder, listProblems
 
-from keras.layers import Activation, Input, Dense, Flatten, Dropout, Embedding
+from keras.layers import Activation, Input, Dense, Flatten, Dropout, Embedding, multiply
 from keras.layers.convolutional import Conv1D, MaxPooling1D
 from keras.layers.merge import concatenate
 from keras.layers.recurrent import GRU
@@ -70,9 +70,9 @@ set_session(sess)  # set this TensorFlow session as the default session for Kera
 
 
 
-from keras.layers import merge, concatenate
+from keras.layers import merge, concatenate, multiply, dot
 from keras.layers.core import *
-from keras.layers.recurrent import LSTM
+from keras.layers.recurrent import LSTM, GRU
 from keras.models import *
 
 from attention_utils import get_activations, get_data_recurrent
@@ -83,20 +83,25 @@ TIME_STEPS = 20
 SINGLE_ATTENTION_VECTOR = False
 APPLY_ATTENTION_BEFORE_LSTM = False
 
-def attention_3d_block(inputs):
+def attention_3d_block(inputs, input_dim):
     # inputs.shape = (batch_size, time_steps, input_dim)
     print(inputs.shape)
     
-    #input_dim = int(inputs.shape[2])
+    # input_dim = int(inputs.shape[2])
     
     a = Permute((2, 1))(inputs)
-    #a = Reshape((input_dim, TIME_STEPS))(a) # this line is not useful. It's just to know which dimension is what.
-    a = Dense(TIME_STEPS, activation='softmax')(a)
-    if SINGLE_ATTENTION_VECTOR:
+    # a = Reshape((input_dim, ))(a) # this line is not useful. It's just to know which dimension is what.
+    a = Dense(input_dim, activation='softmax')(a)
+    if False:
         a = Lambda(lambda x: K.mean(x, axis=1), name='dim_reduction')(a)
         a = RepeatVector(input_dim)(a)
+
     a_probs = Permute((2, 1), name='attention_vec')(a)
-    output_attention_mul = concatenate([inputs, a_probs], axis=1, name='attention_mul')#, mode='mul')
+    # output_attention_mul = concatenate([inputs, a_probs], axis=1, name='attention_mul')
+    # output_attention_mul = multiply([inputs, a_probs], name='attention_mul')
+    output_attention_mul = dot([inputs, a_probs], axes=1, name='attention_mul', normalize=False)
+    # output_attention_mul = merge([inputs, a_probs], name='attention_mul', mode='mul')
+    
     return output_attention_mul
 
 def model_attention_applied_after_lstm(embedding_layer, max_seq_length, n_classes = 2):
@@ -107,18 +112,9 @@ def model_attention_applied_after_lstm(embedding_layer, max_seq_length, n_classe
 
     lstm_units = 32
     lstm_out = LSTM(lstm_units, return_sequences=True)(emb_layer)
-    attention_mul = attention_3d_block(lstm_out)
+    attention_mul = attention_3d_block(lstm_out, max_seq_length)
     attention_mul = Flatten()(attention_mul)
     output = Dense(n_classes, activation='sigmoid')(attention_mul)
-    model = Model(input=[inputs], output=output)
-    return model
-
-def model_attention_applied_before_lstm():
-    inputs = Input(shape=(TIME_STEPS, INPUT_DIM,))
-    attention_mul = attention_3d_block(inputs)
-    lstm_units = 32
-    attention_mul = LSTM(lstm_units, return_sequences=False)(attention_mul)
-    output = Dense(1, activation='sigmoid')(attention_mul)
     model = Model(input=[inputs], output=output)
     return model
 
@@ -206,11 +202,11 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
             kernel_size = [3,4,5],
             strides = [1,1,1],
             dropout_rate = 0.5,
-            epochs = 1,
+            epochs = 2,
             batch_size = 32,
             embedding_dim = 100,
             max_seq_length = None,
-            max_num_words = 13000,
+            max_num_words = None,
         )
     
     histories = []
@@ -248,11 +244,8 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
 
     if mean_length < 50:
         mean_length = 50
-
-    if params['max_num_words'] == None:
-        MAX_NUM_WORDS = None
-    else:
-        MAX_NUM_WORDS = params['max_num_words']
+    
+    MAX_NUM_WORDS = params['max_num_words']
 
     if params['max_seq_length'] == None:
         MAX_SEQ_LENGTH = int(mean_length)
@@ -268,8 +261,10 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         #train_vectors(X, name=dataset_name, embedding_dim=params['embedding_dim'])
         pass
 
-    K = StratifiedKFold(n_splits=2)
+    K = StratifiedKFold(n_splits=3)
     idx = 0
+
+    _, _, _, vect_all  = tokenizer_pad_sequence(X, MAX_NUM_WORDS,  MAX_SEQ_LENGTH)    
 
     # 0. Define cross validation KFolds
     for train_index, test_index in K.split(X, y):
@@ -308,7 +303,7 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         # 7. Update params
         params['max_seq_length'] = _MAX_SEQ_LENGTH
         if params['max_num_words'] == None:
-            params['max_num_words'] = _MAX_NUM_WORDS + 1        
+            params['max_num_words'] = _MAX_NUM_WORDS + 1000
         
         # vectors_filename = '\home/rafael/GDrive/Embeddings/fasttext_skip_s100.txt'
         # if params['embedding_type'] is not None and params['embedding_type'] == 1:
@@ -318,15 +313,15 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         else:
             ds_name = dataset_name
 
-        vectors_filename = r'/home/rafael/GDrive/Embeddings/fasttext/'+ ds_name +'_sg_'+ str(params['embedding_dim']) +'dim.model'
+        # vectors_filename = r'/home/rafael/GDrive/Embeddings/fasttext/'+ ds_name +'_sg_'+ str(params['embedding_dim']) +'dim.model'
         # vectors_filename = r'/home/rafael/GDrive/Embeddings/en_wordvectors/wiki-news-300d-1M.vec'
         # vectors_filename = r'/home/rafael/GDrive/Embeddings/nilc/fasttext_pt_skip_s'+ str(params['embedding_dim']) +r'.txt'        
         # WINDOWS
-        # vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/fasttext/'+dataset_name+r'_sg_100dim.model'
+        vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/fasttext/'+dataset_name+r'_sg_'+ str(params["embedding_dim"]) + 'dim.model'
         # vectors_filename = r'/home/rafael/GDrive/Embeddings/nilc/fasttext_pt_skip_s'+ str(params['embedding_dim']) +r'.txt'        
         embedding_type = 1
 
-        embedding_layer = create_embeddings(vect, params['max_num_words'], params['max_seq_length'], name=dataset_name, embedding_dim=params['embedding_dim'], filename=vectors_filename, type=embedding_type)
+        embedding_layer = create_embeddings(vect_all, params['max_num_words'], params['max_seq_length'], name=dataset_name, embedding_dim=params['embedding_dim'], filename=vectors_filename, type=embedding_type)
 
         # 8. Create the CNN model with the best params        
         model = None        
@@ -364,14 +359,11 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
                             validation_data=(X_val, y_val),                            
                             verbose = 1,
                             batch_size=params['batch_size'],                                
-                            epochs=params['epochs']
-                           )
-        """
+                            epochs=params['epochs'],
                             callbacks=[
                                 #ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
                                 EarlyStopping(monitor='val_loss', min_delta=0.01, patience=4, verbose=0)
-                        ])        
-        """
+                        ])
         
         # 9. Get predict probabilistic results
         y_pred_proba = model.predict(X_test, batch_size=params['batch_size'])

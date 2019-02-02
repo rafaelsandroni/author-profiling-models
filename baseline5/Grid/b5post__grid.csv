@@ -1,0 +1,33 @@
+v,tunning,n,dataset,task,params,acc,f1,cm,embeddings,lang,loss,val_loss
+_grid,lstm lstm attention,0.0,b5post,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5279569892473118,0.4848581583997759,"[[380  85]
+ [354 111]]",nilc-fasttext-100dim,pt,0.6910541923836366,0.6854399967761267
+_grid,lstm lstm attention,0.0,b5post,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.3620309050772627,0.3595253411013677,"[[42 58 51]
+ [29 64 58]
+ [33 60 58]]",nilc-fasttext-100dim,pt,1.0990838838298855,1.0834835767745972
+_grid,lstm lstm attention,0.0,b5post,religion,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.38666666666666666,0.32702891601514883,"[[ 37  26 112]
+ [ 24  20 131]
+ [ 19  10 146]]",nilc-fasttext-100dim,pt,1.091505130610193,1.0775632262229922
+_grid,lstm lstm attention,0.0,b5post,it,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5051282051282051,0.4432692307692308,"[[327  63]
+ [323  67]]",nilc-fasttext-100dim,pt,0.6928470770378641,0.6863235533237457
+_grid,lstm lstm attention,0.0,b5post,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.567741935483871,0.5669408085254257,"[[244 221]
+ [181 284]]",nilc-fasttext-100dim,pt,0.6901134359877282,0.6911333223738563
+_grid,lstm lstm attention,0.0,b5post,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.3863134657836644,0.3675703292141648,"[[63 72 16]
+ [39 86 26]
+ [44 81 26]]",nilc-fasttext-100dim,pt,1.0944468462641124,1.0959800481796265
+_grid,lstm lstm attention,0.0,b5post,religion,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.38666666666666666,0.3016326218613445,"[[ 62   0 113]
+ [ 46   1 128]
+ [ 35   0 140]]",nilc-fasttext-100dim,pt,1.095843685745562,1.0883994889179065
+_grid,lstm lstm attention,0.0,b5post,it,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5217948717948718,0.5115432205509788,"[[260 130]
+ [243 147]]",nilc-fasttext-100dim,pt,0.6937025574066112,0.6936226774528983
+_grid,lstm lstm attention,0.0,b5post,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5602150537634408,0.5573361263856158,"[[298 167]
+ [242 223]]",nilc-fasttext-100dim,pt,0.6896819919035663,0.6869892061213424
+_grid,lstm lstm attention,0.0,b5post,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.33995584988962474,0.3029548422363266,"[[ 24  95  32]
+ [ 22 102  27]
+ [ 24  99  28]]",nilc-fasttext-100dim,pt,1.0998195769117611,1.0947364293611968
+_grid,lstm lstm attention,0.0,b5post,religion,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.37904761904761897,0.3190552296289662,"[[ 48  21 106]
+ [ 39  12 124]
+ [ 22  14 139]]",nilc-fasttext-100dim,pt,1.0901132548078436,1.0874241281438757
+_grid,lstm lstm attention,0.0,b5post,it,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5615384615384615,0.5613048368953881,"[[210 180]
+ [162 228]]",nilc-fasttext-100dim,pt,0.6923262477862909,0.6911662469969856
+_grid,lstm lstm attention,0.0,b5post,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5688172043010753,0.5688047405694465,"[[267 198]
+ [203 262]]",nilc-fasttext-100dim,pt,0.6885682773474909,0.6806118051211039
