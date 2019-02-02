@@ -75,5 +75,5 @@ def create_embeddings(tokenizer, max_num_words, max_seq_length, name='prebuild',
     return Embedding(input_dim=max_num_words, output_dim=embedding_dim,
                      input_length=max_seq_length,
                      weights=[embedding_matrix],
-                     trainable=True
+                     trainable=True                     
                     )

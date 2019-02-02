@@ -1,0 +1,8 @@
+acc,cm,dataset,f1,n,params,task,tunning,v,embeddings,lang,loss,val_loss
+0.4259485924112607,"[[306 348 163]
+ [178 430 209]
+ [167 342 308]]",brblogset,0.4241229745284323,0.0,"{'embedding_dim': 100, 'strides': [1], 'kernel_size': [3, 4], 'batch_size': 2, 'features_maps': [10, 10], 'dense_units': [128], 'max_num_words': 10000, 'max_seq_length': None, 'optimizer': None, 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'epochs': 100}",age,HATT,_grid,nilc-fasttext-100dim,pt,1.0062384302374656,1.088876457064302
+0.30518617021276595,"[[ 94  39 115 128]
+ [ 49  81 131 115]
+ [ 61  67 146 102]
+ [ 80  46 112 138]]",brblogset,0.3009950901399458,0.0,"{'epochs': 100, 'embedding_dim': 100, 'dense_units': [128], 'features_maps': [10, 10], 'pool_size': [3, 3, 3], 'dropout_rate': 0.2, 'batch_size': 2, 'optimizer': None, 'kernel_size': [3, 4], 'max_seq_length': None, 'max_num_words': 10000, 'strides': [1]}",education,HATT,_grid,nilc-fasttext-100dim,pt,1.3612819569998997,1.4191694895426432

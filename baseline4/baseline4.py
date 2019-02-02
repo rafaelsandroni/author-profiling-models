@@ -60,6 +60,8 @@ from Models.functions.vectors import create_embeddings, train_vectors
 import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
 
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True  # dynamically grow the memory used on the GPU
 
@@ -215,8 +217,8 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
     print("original len(X)", len(X))
 
     # small sample
-    if len(X) > 6000:
-        X, _, y, _ = train_test_split(X, y, train_size = 6000)
+    if len(X) > 5000:
+        # X, _, y, _ = train_test_split(X, y, train_size = 5000)
         print("sample len(X)", len(X))
 
     X = X.apply(clean, lang=lang)
@@ -256,6 +258,7 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
 
     # 0. Define cross validation KFolds
     for train_index, test_index in K.split(X, y):
+        # avoid two or more loops
 
         # 1. Define train and test sets
         X_train, X_test = X[train_index], X[test_index]
@@ -294,11 +297,21 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         
         # vectors_filename = '\home/rafael/GDrive/Embeddings/fasttext_skip_s100.txt'
         # if params['embedding_type'] is not None and params['embedding_type'] == 1:
-        # vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/fasttext/'+dataset_name+r'_sg_100dim.model'
-        vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/nilc/fasttext_pt_skip_s'+ str(params['embedding_dim']) +r'.txt'
-        embedding_type = 0
+        # LINUX
+        if lang == 'es' and dataset_name == 'pan13':
+            ds_name = 'pan13_train_es'
+        else:
+            ds_name = dataset_name
 
-        embedding_layer = None #create_embeddings(vect, params['max_num_words'], params['max_seq_length'], name=dataset_name, embedding_dim=params['embedding_dim'], filename=vectors_filename, type=embedding_type)
+        vectors_filename = r'/home/rafael/GDrive/Embeddings/fasttext/'+ ds_name +'_sg_'+ str(params['embedding_dim']) +'dim.model'
+        # vectors_filename = r'/home/rafael/GDrive/Embeddings/en_wordvectors/wiki-news-300d-1M.vec'
+        # vectors_filename = r'/home/rafael/GDrive/Embeddings/nilc/fasttext_pt_skip_s'+ str(params['embedding_dim']) +r'.txt'        
+        # WINDOWS
+        # vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/fasttext/'+dataset_name+r'_sg_100dim.model'
+        # vectors_filename = r'/home/rafael/GDrive/Embeddings/nilc/fasttext_pt_skip_s'+ str(params['embedding_dim']) +r'.txt'        
+        embedding_type = 1
+
+        embedding_layer = create_embeddings(vect, params['max_num_words'], params['max_seq_length'], name=dataset_name, embedding_dim=params['embedding_dim'], filename=vectors_filename, type=embedding_type)
 
         # 8. Create the CNN model with the best params        
         model = None        
