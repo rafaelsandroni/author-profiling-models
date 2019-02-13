@@ -25,7 +25,7 @@ from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, EarlyStopping
 from keras.wrappers.scikit_learn import KerasClassifier
 from keras.wrappers.scikit_learn import KerasClassifier
 from keras.utils import to_categorical
-from keras.optimizers import Adadelta
+from keras.optimizers import Adadelta, RMSprop, SGD, Adam
 
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
@@ -64,96 +64,10 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True  # dynamically grow the memory used on the GPU
+config.gpu_options.per_process_gpu_memory_fraction = 0.9
 
 sess = tf.Session(config=config)
 set_session(sess)  # set this TensorFlow session as the default session for Keras
-
-def create_rnn(embedding_layer, num_words = 1000, embedding_dim = 100, filter_sizes = [100], feature_maps = [15], strides = [100], 
-                 dropout_rate = 0.5, pool_size = [1], dense_units = 512, max_seq_length = 1000, n_classes = 2):
-
-    model = Sequential()    
-
-    if embedding_layer is None:        
-        embedding_layer = Embedding(input_dim=num_words, output_dim=embedding_dim,
-                                    input_length=max_seq_length,
-                                    weights=None,
-                                    trainable=True
-                                   )
-        print("Using no trained embeddings")                        
-    else:
-        print("Using pre-trained embeddings")
-
-    model.add(embedding_layer)
-
-    # model.add(GRU(input_dim=256, output_dim=256, return_sequences=True))
-    model.add(GRU(units=512, return_sequences=False, activation='relu'))
-    model.add(Dense(units = n_classes, activation = 'softmax'))
-
-    return model
-
-
-def create_cnn(embedding_layer, num_words = 1000, embedding_dim = 100, filter_sizes = [100], feature_maps = [4], strides = [100], 
-                 dropout_rate = 0.5, pool_size = [1], dense_units = [512], max_seq_length = 1000, n_classes = 2):
-
-    model = Sequential()    
-
-    if embedding_layer is None:        
-        embedding_layer = Embedding(input_dim=num_words, output_dim=embedding_dim,
-                                    input_length=max_seq_length,
-                                    weights=None,
-                                    trainable=True
-                                   )
-        print("Using no trained embeddings")                        
-    else:
-        print("Using pre-trained embeddings")
-
-    model.add(embedding_layer)
-    
-    # conv 1
-    model.add(Conv1D(filters = feature_maps[0],
-                    kernel_size = filter_sizes[0],
-                    strides = strides[0], 
-                    activation = 'relu',
-                    padding='same',
-                    activity_regularizer = regularizers.l2(0.3)))
-
-    # pooling layer 1
-    
-    model.add(MaxPooling1D(pool_size = pool_size[0], strides = 1, padding='valid'))
-    model.add(Activation('relu'))
-    """
-    model.add(Conv1D(filters = feature_maps[1], 
-                     kernel_size = filter_sizes[1],
-                     strides = strides[0], 
-                     activation = 'relu',
-                     padding='same',
-                     activity_regularizer = regularizers.l2(0.3)))
-    
-    model.add(MaxPooling1D(pool_size = pool_size[1], strides = 1, padding='valid'))
-    model.add(Activation('relu'))
-    
-    model.add(Conv1D(filters = filters[2], 
-                     kernel_size = kernel_size[2],
-                     strides = strides[0], 
-                     activation = 'relu',
-                     activity_regularizer = regularizers.l2(0.2)))
-    
-    model.add(MaxPooling1D(pool_size = pool_size[2], strides = 1))
-    model.add(Activation('relu'))
-    """
-    model.add(Flatten())
-    
-    if dropout_rate is not None:
-        model.add(Dropout(dropout_rate))
-        
-    model.add(Dense(units = dense_units[0], activation = 'relu'))
-    model.add(Dense(units = n_classes, activation = 'softmax'))
-
-    #TODO: test others foss functions: https://keras.io/losses/
-    # model.compile(optimizer = 'adadelta', loss='categorical_crossentropy', metrics = ['accuracy'])
-    return model
-
-
 
 def garbage_collection(): 
     gc.collect()
@@ -187,15 +101,16 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
 
     if params == None:
         params = dict(
-            features_maps = [100,10,10],
-            kernel_size = [3,4,5],
-            strides = [1,1,1],
+            features_maps = [50,50],
+            kernel_size = [3,4],
+            strides = [1,1],
             dropout_rate = 0.5,
             epochs = 100,
             batch_size = 32,
             embedding_dim = 100,
             max_seq_length = None,
-            max_num_words = None,
+            max_num_words = 150000,
+            pool_size = [2,2,2]
         )
     
     histories = []
@@ -217,9 +132,6 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
     print("original len(X)", len(X))
 
     # small sample
-    if len(X) > 5000:
-        # X, _, y, _ = train_test_split(X, y, train_size = 5000)
-        print("sample len(X)", len(X))
 
     X = X.apply(clean, lang=lang)
     X = X.values # mandatory for pan13
@@ -247,8 +159,8 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
     print("max: ", max_length, " / mean: ", mean_length, " / median: ", median_length, " / DEFINED: ", MAX_SEQ_LENGTH)
 
     # if word vectors is not created for the dataset
-    #if not os.path.exists('/home/rafael/GDrive/Embeddings/'+dataset_name):
-    if not os.path.exists(r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/'+dataset_name):
+    if not os.path.exists('/home/rafael/GDrive/Embeddings/'+dataset_name):
+    #if not os.path.exists(r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/'+dataset_name):
         
         #train_vectors(X, name=dataset_name, embedding_dim=params['embedding_dim'])
         pass
@@ -303,7 +215,9 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         else:
             ds_name = dataset_name
 
-        vectors_filename = r'/home/rafael/GDrive/Embeddings/fasttext/'+ ds_name +'_sg_'+ str(params['embedding_dim']) +'dim.model'
+
+        # vectors_filename = r'/home/rafael/GDrive/Embeddings/fasttext/'+ ds_name +'_sg_'+ str(params['embedding_dim']) +'dim.model'
+        vectors_filename = r'/home/rafael/GDrive/Embeddings/word2vec/'+ ds_name +'_sg_'+ str(params['embedding_dim']) +'dim.model'
         # vectors_filename = r'/home/rafael/GDrive/Embeddings/en_wordvectors/wiki-news-300d-1M.vec'
         # vectors_filename = r'/home/rafael/GDrive/Embeddings/nilc/fasttext_pt_skip_s'+ str(params['embedding_dim']) +r'.txt'        
         # WINDOWS
@@ -328,7 +242,16 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
                 n_classes=params['n_classes'],
                 pool_size=params['pool_size']
         )
-        optimizer = Adadelta(clipvalue=3)
+
+        if params['optimizer'] == 'adadelta':
+            optimizer = Adadelta(lr=params['lr'])
+        elif params['optimizer'] == 'rmsprop':
+            optimizer = RMSprop(lr=params['lr'])
+        elif params['optimizer'] == 'sgd':
+            optimizer = SGD(lr=params['lr'])
+        else:
+            optimizer = Adam(lr=params['lr'])
+
         model.compile(
                 loss='categorical_crossentropy',
                 optimizer=optimizer,
@@ -346,7 +269,7 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
                             epochs=params['epochs'],
                             callbacks=[
                                 #ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=4, min_lr=0.01),
-                                EarlyStopping(monitor='val_loss', min_delta=0.01, patience=4, verbose=0)
+                                EarlyStopping(monitor='val_loss', patience=4, verbose=0)
                         ])        
         
         # 9. Get predict probabilistic results

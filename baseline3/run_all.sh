@@ -2,7 +2,7 @@
 
 ROOT='/home/rafael/Dataframe'
 
-declare -a ds=('esic' 'enblog' 'pan13')
+declare -a ds=('esic' 'enblog' 'pan13','brmoral','b5post','smscorpus','brblogset')
 declare -a t=('gender' 'age')
 # 'education' 'religion' 'profession' 'region' 'city' 'politics' 'it')
 

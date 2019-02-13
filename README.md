@@ -6,6 +6,8 @@
 
 ### baseline3 (wv_cnn):: word vectors + 1D conv net
 
+### baseline3 (lstm-attention):: word vectors + LSTM + attention mechanism
+
 ## TODO
 
 word vectors + 2d conv net

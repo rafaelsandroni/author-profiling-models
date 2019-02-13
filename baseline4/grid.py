@@ -3,11 +3,12 @@ import baseline4
 from Models.functions.utils import listProblems
 import copy
 
-filter_task = ['gender']#None#['gender','age']
-filter_dataset_name = "smscorpus"
+filter_task = ['age']#None#['gender','age']
+filter_dataset_name = "enblog"
 #g_root = r"C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Dataframe/"
 g_root = r"/home/rafael/Dataframe/"
 g_lang = "en"
+
 report_version = '_grid'
 
 if report_version is None:
@@ -15,7 +16,7 @@ if report_version is None:
 else:    
     rp_file = r"Grid/"+ filter_dataset_name+"_"+ report_version +".csv"
 
-tunning = 'fulldata'
+tunning = 'x2 tuning optimizer and lr'
 
 #brmoral (turned on age task)
 """ Results parameters
@@ -36,13 +37,21 @@ THREE CLASSES:
     max_seq_length = 302
     dense_units = 512
 
-enblogs: (long texts and large data)
-    kernel_size = 
-    features_maps = 
-    batch_size = 
-    max_num_words = 
-    max_seq_length = 
-    dense_units = 
+b5post:
+params = dict(
+            features_maps = [10,10,10],
+            kernel_size = [3,4,5],
+            strides = [1,1,1],
+            dropout_rate = 0.2,
+            epochs = 100,
+            batch_size = 2,
+            embedding_dim = 100,
+            max_seq_length = None,
+            max_num_words = 1000,
+            dense_units = [128],
+            optimizer = None,
+            pool_size = [1,1,1]
+        )
 
 smscorpus: (too short texts)
 
@@ -51,54 +60,38 @@ pan13: (too large data)
 esic: (too large data)
 """
 params = dict(
-            features_maps = [10,10],
+            features_maps = [50, 50],
             kernel_size = [3,4],
-            strides = [1],
-            dropout_rate = 0.2,
+            strides = [1,1],
+            dropout_rate = 0.1,
             epochs = 100,
-            batch_size = 2,
+            batch_size = 32,
             embedding_dim = 100,
             max_seq_length = None,
-            max_num_words = 10000,
-            dense_units = [128],
+            max_num_words = 15000,
+            dense_units = [512],
             optimizer = None,
-            pool_size = [3,3,3]
+            pool_size = [2,2,2],
+            lr = 0.00
         )
 
 #max_num_words = [ 20, 500 ]
-kernel_size = [[2,3,4],[3,4,5],[3,4],[2,4]]
-features_maps1 = [[10],[50]]
-features_maps2 = [[10,10],[50,50]]
-features_maps3 = [[10,10,10],[50,50,50]]
-max_num_words = [1000, 15000]
-max_seq_length = [None]
 #strides = [1]
 #embedding_dim = [100]
 # set params
+optimizer = ['adadelta','adam','sgd','rmsprop']
+lr = [0.1, 0.01, 0.001, 0.0001]
+
 list_params = []
-#list_params.append(params)
 
-for i in range(len(kernel_size)):
+for i in range(len(optimizer)):        
+    for j in range(len(lr)):
+        #for emb in range(len(embedding_dim)):
+        params1 = copy.deepcopy(params)
+        params1["optimizer"] = optimizer[i]
+        params1["lr"] = lr[j]
+        list_params.append(params1)
 
-    if len(kernel_size[i]) == 1:
-        features_maps = features_maps1
-    elif len(kernel_size[i]) == 2:
-        features_maps = features_maps2
-    elif len(kernel_size[i]) == 3:
-        features_maps = features_maps3
-
-    for j in range(len(features_maps)):
-        for words in range(len(max_num_words)):
-            for seq in range(len(max_seq_length)):
-                #for emb in range(len(embedding_dim)):
-                params1 = copy.deepcopy(params)
-                params1["kernel_size"] = kernel_size[i]
-                #params1["embedding_dim"] = embedding_dim[emb]
-                params1["features_maps"] = features_maps[j]
-                params1["max_num_words"] = max_num_words[words]    
-                params1["max_seq_length"] = max_seq_length[seq]
-                list_params.append(params1)
-    
 print("params", len(list_params))
 print(list_params)
 
@@ -140,7 +133,7 @@ if __name__ == '__main__':
                 "cm": cm,
                 "loss": loss,
                 "val_loss": val_loss,
-                "embeddings": "nilc-fasttext-100dim"
+                "embeddings": "nilc-word2vec-50dim"
             }
             rp = rp.append(a, ignore_index=True)
     

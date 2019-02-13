@@ -1,0 +1,117 @@
+v,tunning,n,dataset,task,params,acc,f1,cm,embeddings,lang,loss,val_loss
+_grid,lstm alstm attention,0.0,esic,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.6895227485928705,0.6894559407060963,"[[34531 16637]
+ [15136 36032]]",nilc-fasttext-100dim,pt,0.6014354525871151,0.5393641510602762
+_grid,lstm alstm attention,0.0,esic,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.6871189024390244,0.6869460034163053,"[[36361 14807]
+ [17212 33956]]",nilc-fasttext-100dim,pt,0.5245656309215191,0.5389268317229703
+_grid,lstm alstm attention,0.0,esic,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.4826157666864465,0.4823018682277735,"[[15118  9978  5238]
+ [10332 11722  8280]
+ [ 4994  8261 17079]]",nilc-fasttext-100dim,pt,0.9858134601897632,0.9543121079009746
+_grid,lstm alstm attention,0.0,esic,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.4723888935838568,0.4711447134632008,"[[19353  9134  7012]
+ [ 9808 16541  9150]
+ [ 8901 12184 14414]]",nilc-fasttext-100dim,pt,1.0058989046166902,0.9800076654274008
+_grid,lstm alstm attention,0.0,esic,profession,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.4031677110573839,0.3987430160528216,"[[ 8254  3229  6005  2779]
+ [ 3719  5629  5297  5622]
+ [ 3857  2777 10890  2743]
+ [ 2761  4883  4712  7911]]",nilc-fasttext-100dim,pt,1.2844413688204972,1.2415112467971134
+_grid,lstm alstm attention,0.0,esic,region,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.3558717817061542,0.3459628245332577,"[[ 8947 13419  5091  7569  5873]
+ [ 6196 17932  5753  8036  2982]
+ [ 5545 12627  9456  6738  6533]
+ [ 5953 13795  4942 10174  6035]
+ [ 3900  2519  3600  4615 26265]]",nilc-fasttext-100dim,pt,1.2659368222320864,1.3690283666393406
+_grid,lstm alstm attention,0.0,esic,city,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.6003352490421456,0.6003057805271985,"[[25947 17901]
+ [17148 26700]]",nilc-fasttext-100dim,pt,0.6544399307108337,0.6369704686576678
+_grid,lstm alstm attention,0.0,esic,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.690881019387117,0.6908792039771758,"[[35227 15941]
+ [15693 35475]]",nilc-fasttext-100dim,pt,0.6016239221106914,0.5436522825228229
+_grid,lstm alstm attention,0.0,esic,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.4858244873739039,0.4847393924507184,"[[16288  9227  4819]
+ [11377 11232  7725]
+ [ 5724  7919 16691]]",nilc-fasttext-100dim,pt,0.9864344302490984,0.9577613989026194
+_grid,lstm alstm attention,0.0,esic,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.4678347746884889,0.4661121128501358,"[[19723  8003  7773]
+ [10412 14534 10553]
+ [ 9330 10603 15566]]",nilc-fasttext-100dim,pt,1.0045682658810162,0.980058580476734
+_grid,lstm alstm attention,0.0,esic,profession,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.40176148418611535,0.40089367465845066,"[[8959 3569 4162 3577]
+ [3958 6212 3637 6460]
+ [4507 3474 8707 3579]
+ [3048 5323 3204 8692]]",nilc-fasttext-100dim,pt,1.2843115149150672,1.2364928284433474
+_grid,lstm alstm attention,0.0,esic,region,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.3575295239492408,0.3485372047432155,"[[10803 14471  4410  6108  5107]
+ [ 7619 19509  4576  6558  2637]
+ [ 6768 13691  9043  5366  6031]
+ [ 7256 14998  4204  8848  5593]
+ [ 5556  2621  4149  3663 24910]]",nilc-fasttext-100dim,pt,1.3642143480604436,1.3708887554567553
+_grid,lstm alstm attention,0.0,esic,city,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5977923736544426,0.5960228677342351,"[[23310 20538]
+ [14734 29114]]",nilc-fasttext-100dim,pt,0.6536405913684372,0.6333742818258874
+_grid,lstm alstm attention,0.0,esic,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.7055483896185115,0.7055312388169697,"[[36492 14676]
+ [15457 35711]]",nilc-fasttext-100dim,pt,0.4593305592024705,0.5304026422196003
+_grid,lstm alstm attention,0.0,esic,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5209336058548164,0.5138202385975854,"[[16905  7769  5660]
+ [10578 10442  9314]
+ [ 4089  6186 20059]]",nilc-fasttext-100dim,pt,0.9853274230822568,0.9631131993877317
+_grid,lstm alstm attention,0.0,esic,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5063147318703813,0.5071440934262942,"[[18634  9619  7246]
+ [ 8020 17423 10056]
+ [ 6482 11153 17864]]",nilc-fasttext-100dim,pt,1.0063060380321756,0.9917026451266996
+_grid,lstm alstm attention,0.0,esic,profession,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.4460576306310751,0.4439547151182006,"[[ 9318  3446  4776  2727]
+ [ 3155  6589  4547  5976]
+ [ 3622  3162 10893  2590]
+ [ 2174  4698  4034  9361]]",nilc-fasttext-100dim,pt,1.2814094123696371,1.2260174593283182
+_grid,lstm alstm attention,0.0,esic,region,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.3965573730409057,0.3557027099090102,"[[ 6357 22430  2270  3076  6766]
+ [ 2526 29182  2447  3265  3479]
+ [ 2227 20297  8069  2693  7613]
+ [ 2501 22974  1968  6180  7276]
+ [ 2591  2742  2310  1950 31306]]",nilc-fasttext-100dim,pt,1.3690505562932482,1.3647993529716052
+_grid,lstm alstm attention,0.0,esic,city,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.6263797664659734,0.6263387319290624,"[[27925 15923]
+ [16842 27006]]",nilc-fasttext-100dim,pt,0.6545912096578099,0.6315647926144201
+_grid,lstm lstm attention,0.0,esic,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.7066819105691057,0.7065783024192839,"[[37121 14047]
+ [15970 35198]]",nilc-fasttext-100dim,pt,0.5290253833712051,0.5453680001342396
+_grid,lstm lstm attention,0.0,esic,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5171974242324344,0.5127473788235316,"[[17062  8438  4834]
+ [11062 10954  8318]
+ [ 4929  6355 19050]]",nilc-fasttext-100dim,pt,0.9885390978932456,0.9632879408884087
+_grid,lstm lstm attention,0.0,esic,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5109721400602834,0.5096709346647739,"[[20249  7345  7905]
+ [ 9374 15210 10915]
+ [ 6978  9563 18958]]",nilc-fasttext-100dim,pt,1.0068951639514752,0.9789400135313212
+_grid,lstm lstm attention,0.0,esic,profession,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.4383727241328267,0.4388954756826647,"[[ 9232  4028  4647  2360]
+ [ 3402  7677  3939  5249]
+ [ 3483  4121 10299  2364]
+ [ 2250  6051  3636  8330]]",nilc-fasttext-100dim,pt,1.2821620339147215,1.2372345359641934
+_grid,lstm lstm attention,0.0,esic,region,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.3947138071835497,0.3626288635237408,"[[ 8997 15758  2587  4968  8589]
+ [ 6231 22013  2732  5567  4356]
+ [ 4796 15166  7892  4089  8956]
+ [ 5475 16839  2296  7809  8480]
+ [ 1630  1707  2032  1524 34006]]",nilc-fasttext-100dim,pt,1.3703215960631858,1.3734304692942774
+_grid,lstm lstm attention,0.0,esic,city,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.62779374201788,0.6277894151709998,"[[27378 16470]
+ [16171 27677]]",nilc-fasttext-100dim,pt,0.6534391473943739,0.6451563839130767
+_grid,lstm lstm attention,0.0,esic,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.7178900875547217,0.7177309330412074,"[[35518 15650]
+ [13220 37948]]",nilc-fasttext-100dim,pt,0.5411275878254656,0.5263351684688075
+_grid,lstm lstm attention,0.0,esic,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5241423265422738,0.5212248108715428,"[[16813  8744  4777]
+ [10210 11715  8409]
+ [ 4109  7055 19170]]",nilc-fasttext-100dim,pt,0.9796165640939865,0.9421680755414106
+_grid,lstm lstm attention,0.0,esic,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5142116679343081,0.5146047620351633,"[[19622  8982  6895]
+ [ 8256 17744  9499]
+ [ 6927 11176 17396]]",nilc-fasttext-100dim,pt,0.999361697394284,0.9716236286141928
+_grid,lstm lstm attention,0.0,esic,profession,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.4549267281788129,0.4475993761651888,"[[10021  2524  4180  3542]
+ [ 3533  5286  3941  7507]
+ [ 3948  2507 10242  3570]
+ [ 2368  3222  3346 11331]]",nilc-fasttext-100dim,pt,1.207411881653738,1.2152524797082018
+_grid,lstm lstm attention,0.0,esic,region,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.4071004181031321,0.37052819739635995,"[[ 8936 19742  2177  2914  7130]
+ [ 4947 26999  2363  3172  3418]
+ [ 3996 18546  8081  2425  7851]
+ [ 4500 20733  2093  6261  7312]
+ [ 2468  1900  1928  1630 32973]]",nilc-fasttext-100dim,pt,1.3104413730482214,1.34100803150944
+_grid,lstm lstm attention,0.0,esic,city,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.6360495347564313,0.6359636491524208,"[[27216 16632]
+ [15285 28563]]",nilc-fasttext-100dim,pt,0.6489126844111083,0.632109344349942
+_grid,lstm lstm attention,0.0,esic,gender,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.714098655409631,0.7140969763534241,"[[36663 14505]
+ [14753 36415]]",nilc-fasttext-100dim,pt,0.5822493723852605,0.5269644457467302
+_grid,lstm lstm attention,0.0,esic,age,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5219335838772774,0.5179502104335129,"[[17148  8421  4765]
+ [10836 11225  8273]
+ [ 4576  6634 19124]]",nilc-fasttext-100dim,pt,0.9762764778556084,0.9511922571540424
+_grid,lstm lstm attention,0.0,esic,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.5143994666516428,0.5134640911630424,"[[20689  8062  6748]
+ [ 9163 15987 10349]
+ [ 7691  9702 18106]]",nilc-fasttext-100dim,pt,0.9990003074361457,0.96919924454384
+_grid,lstm lstm attention,0.0,esic,profession,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.4502269699511521,0.4472647210345526,"[[ 9319  3258  4053  3637]
+ [ 3033  6266  3484  7484]
+ [ 3704  3193  9806  3564]
+ [ 1853  4132  3174 11108]]",nilc-fasttext-100dim,pt,1.2680540113136551,1.2188461217971478
+_grid,lstm lstm attention,0.0,esic,region,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.4034377368639821,0.3725725132398864,"[[ 9837 16413  3538  3441  7670]
+ [ 6226 22478  4058  4067  4070]
+ [ 4733 15410  9381  3020  8355]
+ [ 5417 17362  3398  6758  7964]
+ [ 2093  1154  2491  1114 34047]]",nilc-fasttext-100dim,pt,1.2505809371280014,1.340244165588943
+_grid,lstm lstm attention,0.0,esic,city,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': None, 'max_num_words': None, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3]}",0.6387976646597336,0.6387967441080888,"[[28080 15768]
+ [15908 27940]]",nilc-fasttext-100dim,pt,0.6487421783228252,0.6321706468775993

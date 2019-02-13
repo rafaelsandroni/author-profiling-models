@@ -92,6 +92,26 @@ def loadTrainTest(task, dataset_name, root, lang = "pt", full_data = False, nrow
     return (X_train, X_test, y_train, y_test)
 
 
+## sidequest SPLIT.zip
+
+def load(filename):
+    file = open(filename+'.pkl','rb')
+    unpickler = pickle.Unpickler(file)
+    obj = unpickler.load()
+    return obj
+
+def load_tmp(folder, task, lang):
+    
+    subset = ['train','test']
+
+    X_train = load(folder+'_'.join([task, lang, 'x', subset[0]]))
+    X_test = load(folder+'_'.join([task, lang, 'x', subset[1]]))
+    y_train = load(folder+'_'.join([task, lang, 'Y', subset[0]]))
+    y_test = load(folder+'_'.join([task, lang, 'Y', subset[1]]))
+    
+    return (X_train, X_test, y_train, y_test)
+
+
 #if __name__ == '__main__':
 
     #X,_,y,_ = loadTrainTest(task='gender',dataset_name='pan13',root='/home/rafael/USP/drive/Data/Dataframe',lang='es',nrows=100)

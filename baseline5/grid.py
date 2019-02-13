@@ -1,21 +1,14 @@
 import pandas as pd
-import baseline4
+import baseline5
 from Models.functions.utils import listProblems
 import copy
 
-filter_task = ['gender']#None#['gender','age']
-filter_dataset_name = "smscorpus"
-#g_root = r"C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Dataframe/"
-g_root = r"/home/rafael/Dataframe/"
-g_lang = "en"
+filter_task = None#['age','education']
+filter_dataset_name = None#'esic'#,'esic','b5post','brmoral']
+g_root = r"C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Dataframe/"
+#g_root = r"/home/rafael/Dataframe/"
+#g_lang = "pt"
 report_version = '_grid'
-
-if report_version is None:
-    rp_file = r"Results/"+ filter_dataset_name+".csv"
-else:    
-    rp_file = r"Grid/"+ filter_dataset_name+"_"+ report_version +".csv"
-
-tunning = 'fulldata'
 
 #brmoral (turned on age task)
 """ Results parameters
@@ -59,12 +52,16 @@ params = dict(
             batch_size = 2,
             embedding_dim = 100,
             max_seq_length = None,
-            max_num_words = 10000,
+            max_num_words = None,
             dense_units = [128],
             optimizer = None,
             pool_size = [3,3,3]
         )
 
+list_params = []
+list_params.append(params)
+
+"""
 #max_num_words = [ 20, 500 ]
 kernel_size = [[2,3,4],[3,4,5],[3,4],[2,4]]
 features_maps1 = [[10],[50]]
@@ -101,31 +98,41 @@ for i in range(len(kernel_size)):
     
 print("params", len(list_params))
 print(list_params)
+"""
 
 import os
 if __name__ == '__main__':
 
-    if os.path.exists(rp_file):
-        rp = pd.read_csv(rp_file)
-    else:
-        rp = pd.DataFrame({"v": [], "tunning": [], "n": [], "dataset": [], "task": [], "params": [], "acc": [], "f1": [], "cm": []})
 
     problems = listProblems(filter_dataset_name, filter_task)
     print("############################################")
     print(" RUNNING {0} PROBLEMS".format(len(problems)))
 
     for task, dataset_name, lang in problems:
-        if lang != g_lang: continue
+        #if lang != g_lang: continue
+        if dataset_name == 'enblog': continue
+
+        if report_version is None:
+            rp_file = r"Results/"+ dataset_name+".csv"
+        else:    
+            rp_file = r"Grid/"+ dataset_name+"_"+ report_version +".csv"
+
+        if os.path.exists(rp_file):
+            rp = pd.read_csv(rp_file)
+        else:
+            rp = pd.DataFrame({"v": [], "tunning": [], "n": [], "dataset": [], "task": [], "params": [], "acc": [], "f1": [], "cm": []})
+
+        tunning = 'lstm lstm attention'
 
         print(" Dataset: ",dataset_name," / Task:",task," / Lang:",lang)
         for n in range(len(list_params)):
             print(n, list_params[n])
             parameters = list_params[n]
-            import baseline4
+            import baseline5
             
-            acc, f1, cm, loss, val_loss = baseline4.run(task, dataset_name, g_root, lang, parameters, report_version)
+            acc, f1, cm, loss, val_loss = baseline5.run(task, dataset_name, g_root, lang, parameters, report_version)
 
-            baseline4 = None
+            baseline5 = None
 
             a = {
                 "v": report_version,

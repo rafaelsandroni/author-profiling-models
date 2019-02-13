@@ -241,8 +241,8 @@ def run(task, dataset_name, root, lang):
     print("y", y_train.shape, y_test.shape, y_val.shape)
 
     params = dict(
-        filters = [100, 100, 100],
-        kernel_size = [10],
+        filters = [10, 10, 10],
+        kernel_size = [3,4,5],
         strides = [1, 1, 1],
         dropout_rate = 0.4,
         pool_size = [4, 4, 4],
@@ -324,7 +324,7 @@ if __name__ == '__main__':
     USE_EMBEDDINGS = True
 
     # MODEL
-    FILTER_SIZES   = [1,2,3]
+    FILTER_SIZES   = [2,3,4]
     FEATURE_MAPS   = [10,10,10]
     DROPOUT_RATE   = 0.5
 
