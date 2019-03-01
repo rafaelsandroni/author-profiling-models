@@ -3,14 +3,13 @@ import baseline5
 from Models.functions.utils import listProblems
 import copy
 
-filter_task = ['education']#None#['age','education']
-filter_dataset_name = 'esic'#None#'esic'#,'esic','b5post','brmoral']
-#g_root = r"C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Dataframe/"
-g_root = r"/home/rafael/Dataframe/"
+filter_task = ['education']
+filter_dataset_name = 'brblogset'#None#'esic'#,'esic','b5post','brmoral']
+g_root = r"C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Dataframe/"
+#g_root = r"/home/rafael/Dataframe/"
 #g_lang = "pt"
 report_version = '_grid'
-tunning = 'dot => multiply'
-
+tunning = 'without attention'
 #brmoral (turned on age task)
 """ Results parameters
 brmoral: (short texts and small data)
@@ -44,23 +43,21 @@ pan13: (too large data)
 
 esic: (too large data)
 """
-params = dict(
-            features_maps = [10,10],
-            kernel_size = [3,4],
-            strides = [1],
-            dropout_rate = 0.2,
+params = dict(            
+            dropout_rate = 0.1,
             epochs = 100,
-            batch_size = 2,
-            embedding_dim = 100,
+            batch_size = 32,
+            embedding_dim = 50,
             max_seq_length = None,
-            max_num_words = None,
+            max_num_words = 50000,
             dense_units = [128],
-            optimizer = None,
-            pool_size = [3,3,3]
+            optimizer = 'rmsprop',
+            pool_size = [3,3,3],
+            units=128,
+            lr=1e-4            
         )
 
 list_params = []
-list_params.append(params)
 
 """
 #max_num_words = [ 20, 500 ]
@@ -75,31 +72,28 @@ max_seq_length = [None]
 # set params
 list_params = []
 #list_params.append(params)
-
-for i in range(len(kernel_size)):
-
-    if len(kernel_size[i]) == 1:
-        features_maps = features_maps1
-    elif len(kernel_size[i]) == 2:
-        features_maps = features_maps2
-    elif len(kernel_size[i]) == 3:
-        features_maps = features_maps3
-
-    for j in range(len(features_maps)):
-        for words in range(len(max_num_words)):
-            for seq in range(len(max_seq_length)):
-                #for emb in range(len(embedding_dim)):
-                params1 = copy.deepcopy(params)
-                params1["kernel_size"] = kernel_size[i]
-                #params1["embedding_dim"] = embedding_dim[emb]
-                params1["features_maps"] = features_maps[j]
-                params1["max_num_words"] = max_num_words[words]    
-                params1["max_seq_length"] = max_seq_length[seq]
-                list_params.append(params1)
-    
+"""
+"""
+embedding_dim = [100, 50]
+optimizer = ['rmsprop', 'adam']#,'sgd','adam','adadelta']#,'sgd']#'adadelta','adam','sgd','rmsprop']
+lr = [1e-3, 1e-4, 1e-5]
+"""
+list_params = []
+params1 = copy.deepcopy(params)
+list_params.append(params1)
+"""
+for i in range(len(optimizer)):
+    for j in range(len(lr)):
+        for emb in range(len(embedding_dim)):
+            params1 = copy.deepcopy(params)
+            params1["optimizer"] = optimizer[i]
+            params1["lr"] = lr[j]
+            params1["optimizer"] = embedding_dim[emb]
+            list_params.append(params1)
+"""
 print("params", len(list_params))
 print(list_params)
-"""
+
 
 import os
 if __name__ == '__main__':
@@ -122,6 +116,8 @@ if __name__ == '__main__':
             rp = pd.read_csv(rp_file)
         else:
             rp = pd.DataFrame({"v": [], "tunning": [], "n": [], "dataset": [], "task": [], "params": [], "acc": [], "f1": [], "cm": []})
+
+        #tunning = 'lstm lstm attention'
 
         print(" Dataset: ",dataset_name," / Task:",task," / Lang:",lang)
         for n in range(len(list_params)):

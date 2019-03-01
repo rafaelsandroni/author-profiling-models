@@ -25,7 +25,8 @@ from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, EarlyStopping
 from keras.wrappers.scikit_learn import KerasClassifier
 from keras.wrappers.scikit_learn import KerasClassifier
 from keras.utils import to_categorical
-from keras.optimizers import Adadelta
+from keras.optimizers import Adadelta, RMSprop, SGD, Adam
+
 
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
@@ -104,24 +105,28 @@ def attention_3d_block(inputs, input_dim):
     
     return output_attention_mul
 
-def model_attention_applied_after_lstm(embedding_layer, max_seq_length, n_classes = 2):
+def model_attention_applied_after_lstm(embedding_layer, max_seq_length, units = 32, n_classes = 2):
     # old: inputs = Input(shape=(TIME_STEPS, INPUT_DIM,))
     inputs = Input(shape=(max_seq_length,), dtype='int32')  
     
     emb_layer = embedding_layer(inputs)
 
-    lstm_units = 128
+    lstm_units = units
     lstm_out = LSTM(lstm_units, return_sequences=True)(emb_layer)
-    attention_mul = attention_3d_block(lstm_out, max_seq_length)
-    attention_mul = Flatten()(attention_mul)
-    output = Dense(n_classes, activation='sigmoid')(attention_mul)
+    #attention_mul = attention_3d_block(lstm_out, max_seq_length)
+    #attention_mul = Flatten()(attention_mul)
+    #dropout = Dropout(0.12)(attention_mul)
+    flatten = Flatten()(lstm_out)
+    dropout = Dropout(0.12)(flatten)
+    deep = Dense(512, activation='relu')(dropout)
+    output = Dense(n_classes, activation='softmax')(deep)
     model = Model(input=[inputs], output=output)
     return model
 
-def create_rnn(embedding_layer, max_seq_length, n_classes):
+def create_rnn(embedding_layer, max_seq_length, units, n_classes):
     print(max_seq_length)
     
-    m = model_attention_applied_after_lstm(embedding_layer, max_seq_length, n_classes)
+    m = model_attention_applied_after_lstm(embedding_layer, max_seq_length, units, n_classes)
     return m
 
 """
@@ -196,7 +201,7 @@ def get_avg(histories, his_key):
     
 def run(task, dataset_name, root, lang, params = None, report_version = None):
 
-    if True: #params == None:
+    if params == None:
         params = dict(
             features_maps = [100,10,10],
             kernel_size = [3,4,5],
@@ -317,7 +322,8 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         # vectors_filename = r'/home/rafael/GDrive/Embeddings/en_wordvectors/wiki-news-300d-1M.vec'
         # vectors_filename = r'/home/rafael/GDrive/Embeddings/nilc/fasttext_pt_skip_s'+ str(params['embedding_dim']) +r'.txt'        
         # WINDOWS
-        vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/fasttext/'+dataset_name+r'_sg_'+ str(params["embedding_dim"]) + 'dim.model'
+        #vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/fasttext/'+dataset_name+r'_sg_'+ str(params["embedding_dim"]) + 'dim.model'
+        vectors_filename = r'C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Embeddings/word2vec/'+dataset_name+r'_sg_'+ str(params["embedding_dim"]) + 'dim.model'
         # vectors_filename = r'/home/rafael/GDrive/Embeddings/nilc/fasttext_pt_skip_s'+ str(params['embedding_dim']) +r'.txt'        
         embedding_type = 1
 
@@ -328,26 +334,23 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         #build_cnn1
         model = create_rnn(embedding_layer=embedding_layer,
                            max_seq_length=params['max_seq_length'],
+                           units=params['units'],
                            n_classes=params['n_classes']
                           )
         
-        """
-        (
-                embedding_layer=embedding_layer,
-                num_words=params['max_num_words'],
-                embedding_dim=params['embedding_dim'],
-                filter_sizes=params['kernel_size'],
-                feature_maps=params['features_maps'],
-                max_seq_length=params['max_seq_length'],
-                dropout_rate=params['dropout_rate'],
-                dense_units=params['dense_units'],
-                n_classes=params['n_classes'],
-                pool_size=params['pool_size']
-        )
-        """        
+        if params['optimizer'] == 'adadelta':
+            optimizer = Adadelta(lr=params['lr'])
+        elif params['optimizer'] == 'rmsprop':
+            optimizer = RMSprop(lr=params['lr'])
+        elif params['optimizer'] == 'sgd':
+            optimizer = SGD(lr=params['lr'])
+        else:
+            optimizer = Adam(lr=params['lr'])
+
+
         model.compile(
                 loss='categorical_crossentropy',
-                optimizer='adam',
+                optimizer=params['optimizer'],
                 metrics=['accuracy']
         )
 
