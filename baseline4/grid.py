@@ -13,7 +13,7 @@ if report_version is None:
     rp_file = r"Results/"+ filter_dataset_name+".csv"
 else:    
     rp_file = r"Grid/"+ filter_dataset_name+"_"+ report_version +".csv"
-tunning = '3 channels'
+tunning = 'w2v 50 dim'
 
 #brmoral (turned on age task)
 """ Results parameters
@@ -61,50 +61,19 @@ params = dict(
             kernel_size = [3],
             strides = [1,1,1],
             dropout_rate = 0.2,
-            epochs = 100,
+            epochs = 2,
             batch_size = 2,
             embedding_dim = 100,
             max_seq_length = None,
-            max_num_words = 10000,
-            dense_units = [128],
+            max_num_words = None,
+            units = 32,
             optimizer = None,
             pool_size = [3,3,3]
         )
 
-#max_num_words = [ 20, 500 ]
-kernel_size = [[7,8,9],[3,4],[2,3,4],[3]]
 
-features_maps1 = [[10],[40]]
-features_maps2 = [[10,10],[40,40]]
-features_maps3 = [[10,10,10],[40,40,40]]
-
-max_num_words = [1000, 5000, 10000, 20000]
-#max_seq_length = [10, 50, None]
-#strides = [1]
-embedding_dim = [100]
-# set params
 list_params = []
-#list_params.append(params)
-
-for i in range(len(kernel_size)):        
-
-    if len(kernel_size[i]) == 1:
-        features_maps = features_maps1
-    elif len(kernel_size[i]) == 2:
-        features_maps = features_maps2
-    elif len(kernel_size[i]) == 3:
-        features_maps = features_maps3
-
-    for j in range(len(features_maps)):
-        for words in range(len(max_num_words)):
-            #for seq in range(len(max_seq_length)):
-            params1 = copy.deepcopy(params)
-            params1["kernel_size"] = kernel_size[i]
-            #params1["embedding_dim"] = embedding_dim[i]
-            params1["features_maps"] = features_maps[j]
-            params1["max_num_words"] = max_num_words[words]    
-            #params1["max_seq_length"] = max_seq_length[seq]
-            list_params.append(params1)
+list_params.append(params)
     
 print("params", len(list_params))
 
