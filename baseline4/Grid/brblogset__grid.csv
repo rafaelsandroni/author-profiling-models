@@ -343,14 +343,14 @@ _grid,3 channels,19.0,brblogset,education,"{'features_maps': [40, 40, 40], 'kern
  [  1   0   0 360]
  [  0   0   0 361]
  [  0   0   0 361]]",nilc-fasttext-100dim,pt,1.38998322750193,1.3837930813431738
-_grid,3 channels,20.0,brblogset,education,"{'features_maps': [10, 10, 10], 'kernel_size': [2, 3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3742, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2651098901098901,0.21822570095892532,"[[129  43   4 188]
+_grid,3 channels,20.0,brblogset,education,"{'features_maps': [10, 10, 10], 'kernel_size': [2, 3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3742, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2651098901098901,0.21822570095892527,"[[129  43   4 188]
  [103  64   3 194]
  [114  62   0 188]
  [121  49   1 193]]",nilc-fasttext-100dim,pt,1.3753970069848376,1.3860590722956676
 _grid,3 channels,21.0,brblogset,education,"{'features_maps': [10, 10, 10], 'kernel_size': [2, 3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3613, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.28958333333333336,0.24141992456581696,"[[261  49  36  14]
  [215  78  54  13]
  [200  87  55  18]
- [241  57  39  23]]",nilc-fasttext-100dim,pt,1.373450951271742,1.361401373746269
+ [241  57  39  23]]",nilc-fasttext-100dim,pt,1.373450951271742,1.3614013737462691
 _grid,3 channels,22.0,brblogset,education,"{'features_maps': [40, 40, 40], 'kernel_size': [2, 3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3629, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2826388888888889,0.2516236921201168,"[[ 57  51  40 212]
  [ 10 113  29 208]
  [ 21 112  24 203]
@@ -362,7 +362,7 @@ _grid,3 channels,23.0,brblogset,education,"{'features_maps': [40, 40, 40], 'kern
 _grid,3 channels,24.0,brblogset,education,"{'features_maps': [10], 'kernel_size': [2], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3283, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.26785714285714285,0.15927733513656542,"[[ 70 294   0   0]
  [ 44 320   0   0]
  [ 62 302   0   0]
- [ 62 302   0   0]]",nilc-fasttext-100dim,pt,1.385793949298337,1.3841417213280995
+ [ 62 302   0   0]]",nilc-fasttext-100dim,pt,1.3857939492983369,1.3841417213280995
 _grid,3 channels,25.0,brblogset,education,"{'features_maps': [10], 'kernel_size': [2], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3775, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.27361111111111114,0.216031660512066,"[[  0 114 201  45]
  [  0 158 193   9]
  [  0 157 195   8]
@@ -375,7 +375,7 @@ _grid,3 channels,27.0,brblogset,education,"{'features_maps': [40], 'kernel_size'
  [ 89 139   6 127]
  [ 88 148   3 122]
  [114 104   3 140]]",nilc-fasttext-100dim,pt,1.3890691781681603,1.3948812444743357
-_grid,3 channels,28.0,brblogset,education,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3471, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2659722222222222,0.20534174944937295,"[[104 207   0  49]
+_grid,3 channels,28.0,brblogset,education,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3471, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2659722222222222,0.20534174944937286,"[[104 207   0  49]
  [ 60 237   0  63]
  [ 86 225   0  49]
  [109 209   0  42]]",nilc-fasttext-100dim,pt,1.3765091624597972,1.373478178273548
@@ -387,7 +387,7 @@ _grid,3 channels,30.0,brblogset,education,"{'features_maps': [40], 'kernel_size'
  [122 114  85  40]
  [135 102  94  30]
  [147  74  95  45]]",nilc-fasttext-100dim,pt,1.3775943927535856,1.376977356771628
-_grid,3 channels,31.0,brblogset,education,"{'features_maps': [40], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3294, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.29930555555555555,0.22196956933685055,"[[264  74  22   0]
+_grid,3 channels,31.0,brblogset,education,"{'features_maps': [40], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3294, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.29930555555555555,0.22196956933685053,"[[264  74  22   0]
  [189 140  31   0]
  [197 136  27   0]
  [236  89  35   0]]",nilc-fasttext-100dim,pt,1.3829684912809852,1.373472227818436
@@ -395,35 +395,35 @@ _grid,3 channels,0.0,brblogset,education,"{'features_maps': [10, 10, 10], 'kerne
  [ 76  28 145 112]
  [ 89  21 126 125]
  [ 78  13 101 169]]",nilc-fasttext-100dim,pt,1.3983808611345816,1.3910796737846207
-_grid,3 channels,1.0,brblogset,education,"{'features_maps': [10, 10, 10], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3584, 'max_num_words': 5000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.26239669421487605,0.16563122138292563,"[[320  12   0  31]
+_grid,3 channels,1.0,brblogset,education,"{'features_maps': [10, 10, 10], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3584, 'max_num_words': 5000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.26239669421487605,0.16563122138292566,"[[320  12   0  31]
  [280  30   1  52]
  [277  32   1  53]
  [321  12   0  30]]",nilc-fasttext-100dim,pt,1.3917379960869298,1.371983399324947
 _grid,3 channels,2.0,brblogset,education,"{'features_maps': [10, 10, 10], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3642, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.275,0.2217306701402143,"[[137  12 204   7]
  [ 90  41 222   7]
  [114  20 214  12]
- [129  14 213   4]]",nilc-fasttext-100dim,pt,1.3839237359501881,1.3839162298374705
-_grid,3 channels,3.0,brblogset,education,"{'features_maps': [10, 10, 10], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3576, 'max_num_words': 20000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.27924791086350975,0.22392038076274207,"[[  0  25 196 138]
+ [129  14 213   4]]",nilc-fasttext-100dim,pt,1.3839237359501881,1.3839162298374703
+_grid,3 channels,3.0,brblogset,education,"{'features_maps': [10, 10, 10], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3576, 'max_num_words': 20000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2792479108635097,0.22392038076274207,"[[  0  25 196 138]
  [  0  52 200 107]
  [  0  36 212 111]
  [  0  20 202 137]]",nilc-fasttext-100dim,pt,1.364933019190398,1.3768241424113512
 _grid,3 channels,4.0,brblogset,education,"{'features_maps': [40, 40, 40], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3602, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2957650273224044,0.25815713697954396,"[[  5  88 122 151]
  [ 11 183  79  93]
  [  6 133 116 111]
- [  6 117 114 129]]",nilc-fasttext-100dim,pt,1.3612170132725199,1.3677507040519563
-_grid,3 channels,5.0,brblogset,education,"{'features_maps': [40, 40, 40], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3475, 'max_num_words': 5000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.3188202247191011,0.24861893071055619,"[[262  76   3  15]
+ [  6 117 114 129]]",nilc-fasttext-100dim,pt,1.36121701327252,1.3677507040519563
+_grid,3 channels,5.0,brblogset,education,"{'features_maps': [40, 40, 40], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3475, 'max_num_words': 5000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.3188202247191011,0.24861893071055616,"[[262  76   3  15]
  [155 155  22  24]
  [206 125  11  14]
  [240  83   7  26]]",nilc-fasttext-100dim,pt,1.4024247951737585,1.3916776763068306
-_grid,3 channels,6.0,brblogset,education,"{'features_maps': [40, 40, 40], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3650, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2803867403314917,0.21318991948551122,"[[268  21   0  73]
+_grid,3 channels,6.0,brblogset,education,"{'features_maps': [40, 40, 40], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3650, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2803867403314917,0.2131899194855112,"[[268  21   0  73]
  [197  50   0 115]
  [223  36   0 103]
- [251  23   0  88]]",nilc-fasttext-100dim,pt,1.395023165761955,1.3884080243607362
+ [251  23   0  88]]",nilc-fasttext-100dim,pt,1.3950231657619552,1.3884080243607362
 _grid,3 channels,7.0,brblogset,education,"{'features_maps': [40, 40, 40], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3603, 'max_num_words': 20000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2881944444444444,0.27981159772046776,"[[156  25  71 108]
  [127  59 123  51]
  [138  41 116  65]
  [159  25  92  84]]",nilc-fasttext-100dim,pt,1.3666475982631021,1.3777769152075052
-_grid,3 channels,8.0,brblogset,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3552, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2535112359550562,0.17921293375793917,"[[ 10   0 168 178]
+_grid,3 channels,8.0,brblogset,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3552, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2535112359550562,0.17921293375793915,"[[ 10   0 168 178]
  [  4   0 174 178]
  [  5   0 173 178]
  [  2   0 176 178]]",nilc-fasttext-100dim,pt,1.3890791519030237,1.3871246726675466
@@ -438,12 +438,12 @@ _grid,3 channels,10.0,brblogset,education,"{'features_maps': [10, 10], 'kernel_s
 _grid,3 channels,11.0,brblogset,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3586, 'max_num_words': 20000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.25,0.16666666666666666,"[[  0   0 180 180]
  [  0   0 180 180]
  [  0   0 180 180]
- [  0   0 180 180]]",nilc-fasttext-100dim,pt,1.3873795764686219,1.3862973689883573
-_grid,3 channels,12.0,brblogset,education,"{'features_maps': [40, 40], 'kernel_size': [3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3540, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.29464285714285715,0.24591134769110298,"[[ 96 140 128   0]
+ [  0   0 180 180]]",nilc-fasttext-100dim,pt,1.387379576468622,1.3862973689883569
+_grid,3 channels,12.0,brblogset,education,"{'features_maps': [40, 40], 'kernel_size': [3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3540, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.29464285714285715,0.2459113476911029,"[[ 96 140 128   0]
  [ 47 215 102   0]
  [ 55 191 118   0]
  [ 76 163 125   0]]",nilc-fasttext-100dim,pt,1.3765261169857403,1.38486531102139
-_grid,3 channels,13.0,brblogset,education,"{'features_maps': [40, 40], 'kernel_size': [3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3610, 'max_num_words': 5000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.25,0.16666638559022257,"[[  0 182   0 181]
+_grid,3 channels,13.0,brblogset,education,"{'features_maps': [40, 40], 'kernel_size': [3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3610, 'max_num_words': 5000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.25,0.16666638559022254,"[[  0 182   0 181]
  [  0 182   0 181]
  [  0 182   0 181]
  [  0 182   0 181]]",nilc-fasttext-100dim,pt,1.387453740497144,1.3863039176572451
@@ -454,12 +454,12 @@ _grid,3 channels,14.0,brblogset,education,"{'features_maps': [40, 40], 'kernel_s
 _grid,3 channels,15.0,brblogset,education,"{'features_maps': [40, 40], 'kernel_size': [3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3636, 'max_num_words': 20000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.25,0.16666666666666666,"[[180   0 180   0]
  [180   0 180   0]
  [180   0 180   0]
- [180   0 180   0]]",nilc-fasttext-100dim,pt,1.3877125722156163,1.386354071603102
+ [180   0 180   0]]",nilc-fasttext-100dim,pt,1.3877125722156165,1.386354071603102
 _grid,3 channels,16.0,brblogset,education,"{'features_maps': [10, 10, 10], 'kernel_size': [2, 3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3639, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.3070054945054945,0.2708149961295706,"[[224   7  98  35]
  [160  39 150  15]
  [173  32 139  20]
  [191  22 106  45]]",nilc-fasttext-100dim,pt,1.3800685528141416,1.3784620059948218
-_grid,3 channels,17.0,brblogset,education,"{'features_maps': [10, 10, 10], 'kernel_size': [2, 3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3672, 'max_num_words': 5000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2604456824512535,0.22630953272435692,"[[132 180  10  37]
+_grid,3 channels,17.0,brblogset,education,"{'features_maps': [10, 10, 10], 'kernel_size': [2, 3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3672, 'max_num_words': 5000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2604456824512535,0.2263095327243569,"[[132 180  10  37]
  [104 180  18  57]
  [ 90 180  21  68]
  [125 180  13  41]]",nilc-fasttext-100dim,pt,1.3812289669618376,1.382143990529908
@@ -486,16 +486,16 @@ _grid,3 channels,22.0,brblogset,education,"{'features_maps': [40, 40, 40], 'kern
 _grid,3 channels,23.0,brblogset,education,"{'features_maps': [40, 40, 40], 'kernel_size': [2, 3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3651, 'max_num_words': 20000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.27785515320334264,0.2176991857169274,"[[209   5 121  24]
  [184   6 147  22]
  [182   7 155  15]
- [212   2 116  29]]",nilc-fasttext-100dim,pt,1.3890340831992543,1.3873486155401105
-_grid,3 channels,24.0,brblogset,education,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3597, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.26536312849162014,0.1720686680059677,"[[299  47   0  12]
+ [212   2 116  29]]",nilc-fasttext-100dim,pt,1.3890340831992545,1.3873486155401105
+_grid,3 channels,24.0,brblogset,education,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3597, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2653631284916201,0.1720686680059677,"[[299  47   0  12]
  [282  70   0   6]
  [292  57   0   9]
  [302  45   0  11]]",nilc-fasttext-100dim,pt,1.374360865439788,1.3735520909814274
-_grid,3 channels,25.0,brblogset,education,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3631, 'max_num_words': 5000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2804709141274238,0.21180931979928183,"[[248  78   0  35]
+_grid,3 channels,25.0,brblogset,education,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3631, 'max_num_words': 5000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2804709141274238,0.21180931979928186,"[[248  78   0  35]
  [206 125   0  30]
  [230 111   0  20]
- [241  88   0  32]]",nilc-fasttext-100dim,pt,1.3695219553845785,1.3698493372379006
-_grid,3 channels,26.0,brblogset,education,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3644, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2918994413407821,0.23991917391303783,"[[269  19  53  17]
+ [241  88   0  32]]",nilc-fasttext-100dim,pt,1.3695219553845783,1.3698493372379006
+_grid,3 channels,26.0,brblogset,education,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3644, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2918994413407821,0.23991917391303785,"[[269  19  53  17]
  [214  56  72  16]
  [225  45  74  14]
  [257  33  49  19]]",nilc-fasttext-100dim,pt,1.3750806690893154,1.3798265046484413
@@ -503,10 +503,10 @@ _grid,3 channels,27.0,brblogset,education,"{'features_maps': [10], 'kernel_size'
  [  0   0 180 180]
  [  0   0 180 180]
  [  0   0 180 180]]",nilc-fasttext-100dim,pt,1.3872900458400768,1.3863096723431036
-_grid,3 channels,28.0,brblogset,education,"{'features_maps': [40], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3598, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.3100828729281768,0.25263147758682974,"[[293  26  30  13]
+_grid,3 channels,28.0,brblogset,education,"{'features_maps': [40], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3598, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.3100828729281768,0.2526314775868297,"[[293  26  30  13]
  [181  80  72  29]
  [216  64  59  23]
- [250  40  55  17]]",nilc-fasttext-100dim,pt,1.3699811829734987,1.3704060188778975
+ [250  40  55  17]]",nilc-fasttext-100dim,pt,1.3699811829734987,1.3704060188778977
 _grid,3 channels,29.0,brblogset,education,"{'features_maps': [40], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3524, 'max_num_words': 5000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.25,0.16666637929176453,"[[  0 179   0 180]
  [  0 179   0 180]
  [  0 179   0 180]
@@ -514,8 +514,140 @@ _grid,3 channels,29.0,brblogset,education,"{'features_maps': [40], 'kernel_size'
 _grid,3 channels,30.0,brblogset,education,"{'features_maps': [40], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3566, 'max_num_words': 10000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.25,0.16666637929176453,"[[179 180   0   0]
  [179 180   0   0]
  [179 180   0   0]
- [179 180   0   0]]",nilc-fasttext-100dim,pt,1.3875386778926437,1.386320612334966
+ [179 180   0   0]]",nilc-fasttext-100dim,pt,1.3875386778926435,1.3863206123349658
 _grid,3 channels,31.0,brblogset,education,"{'features_maps': [40], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 3641, 'max_num_words': 20000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 4}",0.2726027397260274,0.2407215923017076,"[[ 70  46 225  24]
  [ 31  74 243  17]
  [ 54  66 226  19]
- [ 58  51 228  28]]",nilc-fasttext-100dim,pt,1.3917539307143332,1.38776623227057
+ [ 58  51 228  28]]",nilc-fasttext-100dim,pt,1.3917539307143332,1.3877662322705702
+_grid,x3 tuning optimizer and lr,0.0,brblogset,education,"{'optimizer': 'adam', 'kernel_size': [3, 4], 'dropout_rate': 0.1, 'strides': [1, 1], 'max_seq_length': 3224, 'pool_size': [2, 2, 2], 'embedding_dim': 100, 'epochs': 100, 'batch_size': 32, 'features_maps': [50, 50], 'dense_units': [512], 'n_classes': 4, 'max_num_words': 15000, 'lr': 0.001}",0.3384308510638298,0.33321691565011885,"[[155  22 117  82]
+ [ 90 106 145  35]
+ [112  50 170  44]
+ [137  40 121  78]]",nilc-word2vec-50dim,pt,1.3615860727620244,1.4735617396424847
+_grid,x3 tuning optimizer and lr,1.0,brblogset,education,"{'optimizer': 'adam', 'kernel_size': [3, 4], 'dropout_rate': 0.1, 'strides': [1, 1], 'max_seq_length': 3224, 'pool_size': [2, 2, 2], 'embedding_dim': 100, 'epochs': 100, 'batch_size': 32, 'features_maps': [50, 50], 'dense_units': [512], 'n_classes': 4, 'max_num_words': 15000, 'lr': 0.0001}",0.355718085106383,0.3568769017821912,"[[147  30  74 125]
+ [ 81 139  92  64]
+ [101  83 125  67]
+ [130  57  65 124]]",nilc-word2vec-50dim,pt,0.2723139220926942,1.5322603493025808
+_grid,x3 tuning optimizer and lr,2.0,brblogset,education,"{'optimizer': 'adam', 'kernel_size': [3, 4], 'dropout_rate': 0.1, 'strides': [1, 1], 'max_seq_length': 3224, 'pool_size': [2, 2, 2], 'embedding_dim': 100, 'epochs': 100, 'batch_size': 32, 'features_maps': [50, 50], 'dense_units': [512], 'n_classes': 4, 'max_num_words': 15000, 'lr': 1e-05}",0.31183510638297873,0.27635924211288343,"[[ 30  84  44 218]
+ [ 12 147  49 168]
+ [ 18 117  63 178]
+ [ 16  93  38 229]]",nilc-word2vec-50dim,pt,3.5047386210681712,3.567345741833226
+_grid,x3 tuning optimizer and lr,3.0,brblogset,education,"{'optimizer': 'rmsprop', 'kernel_size': [3, 4], 'dropout_rate': 0.1, 'strides': [1, 1], 'max_seq_length': 3224, 'pool_size': [2, 2, 2], 'embedding_dim': 100, 'epochs': 100, 'batch_size': 32, 'features_maps': [50, 50], 'dense_units': [512], 'n_classes': 4, 'max_num_words': 15000, 'lr': 0.001}",0.2898936170212766,0.20155954820390165,"[[ 31   6   1 338]
+ [  9  48   1 318]
+ [ 11  28  11 326]
+ [ 13  15   2 346]]",nilc-word2vec-50dim,pt,1.434832787752749,1.4983551480151989
+_grid,x3 tuning optimizer and lr,4.0,brblogset,education,"{'optimizer': 'rmsprop', 'kernel_size': [3, 4], 'dropout_rate': 0.1, 'strides': [1, 1], 'max_seq_length': 3224, 'pool_size': [2, 2, 2], 'embedding_dim': 100, 'epochs': 100, 'batch_size': 32, 'features_maps': [50, 50], 'dense_units': [512], 'n_classes': 4, 'max_num_words': 15000, 'lr': 0.0001}",0.3796542553191489,0.3794782758412441,"[[164  40  79  93]
+ [ 56 149 105  66]
+ [ 88  86 137  65]
+ [109  63  83 121]]",nilc-word2vec-50dim,pt,0.8180130658993734,1.5937540229709668
+_grid,x3 tuning optimizer and lr,5.0,brblogset,education,"{'optimizer': 'rmsprop', 'kernel_size': [3, 4], 'dropout_rate': 0.1, 'strides': [1, 1], 'max_seq_length': 3224, 'pool_size': [2, 2, 2], 'embedding_dim': 100, 'epochs': 100, 'batch_size': 32, 'features_maps': [50, 50], 'dense_units': [512], 'n_classes': 4, 'max_num_words': 15000, 'lr': 1e-05}",0.3045212765957447,0.2684073439687397,"[[ 48 137  20 171]
+ [ 21 220  12 123]
+ [ 39 172  36 129]
+ [ 36 170  16 154]]",nilc-word2vec-50dim,pt,3.432110939161188,3.4686613449683565
+_grid,x3 tuning optimizer and lr,0.0,brblogset,education,"{'epochs': 100, 'n_classes': 4, 'kernel_size': [3, 4], 'dense_units': [512], 'optimizer': 'rmsprop', 'features_maps': [50, 50], 'pool_size': [2, 2, 2], 'strides': [1, 1], 'batch_size': 32, 'embedding_dim': 100, 'max_num_words': 15000, 'dropout_rate': 0.1, 'max_seq_length': 3224, 'lr': 0.0001}",0.3610372340425532,0.34669862526265194,"[[223  22  74  57]
+ [105 105 122  44]
+ [131  67 144  34]
+ [174  43  88  71]]",nilc-word2vec-50dim,pt,0.5093564788033075,1.5590444586493752
+_grid,x3 tuning optimizer and lr,1.0,brblogset,education,"{'epochs': 100, 'n_classes': 4, 'kernel_size': [3, 4], 'dense_units': [512], 'optimizer': 'rmsprop', 'features_maps': [50, 50], 'pool_size': [2, 2, 2], 'strides': [1, 1], 'batch_size': 32, 'embedding_dim': 100, 'max_num_words': 15000, 'dropout_rate': 0.1, 'max_seq_length': 3224, 'lr': 1e-05}",0.3065159574468085,0.2769156180340204,"[[ 71 106  27 172]
+ [ 34 158  22 162]
+ [ 46 117  30 183]
+ [ 45 114  15 202]]",nilc-word2vec-50dim,pt,3.4307801108563183,3.4710520209059883
+_grid,x3 tuning optimizer and lr,0.0,brblogset,education,"{'pool_size': [2, 2, 2], 'epochs': 100, 'dense_units': [512], 'max_num_words': 15000, 'features_maps': [50, 50], 'embedding_dim': 100, 'dropout_rate': 0.1, 'max_seq_length': 3224, 'strides': [1, 1], 'optimizer': 'adadelta', 'batch_size': 32, 'n_classes': 4, 'kernel_size': [3, 4], 'lr': 0.1}",0.36236702127659576,0.3084984604426945,"[[252  79  24  21]
+ [ 88 217  34  37]
+ [139 158  52  27]
+ [207 119  26  24]]",nilc-word2vec-50dim,pt,1.2998719165491504,1.3929441034793857
+_grid,x3 tuning optimizer and lr,1.0,brblogset,education,"{'pool_size': [2, 2, 2], 'epochs': 100, 'dense_units': [512], 'max_num_words': 15000, 'features_maps': [50, 50], 'embedding_dim': 100, 'dropout_rate': 0.1, 'max_seq_length': 3224, 'strides': [1, 1], 'optimizer': 'adadelta', 'batch_size': 32, 'n_classes': 4, 'kernel_size': [3, 4], 'lr': 0.01}",0.3045212765957447,0.27639623821702364,"[[ 22 123  98 133]
+ [  4 185  98  89]
+ [  7 150 113 106]
+ [ 12 127  99 138]]",nilc-word2vec-50dim,pt,2.4931227830642047,2.491116946676504
+_grid,x3 tuning optimizer and lr,2.0,brblogset,education,"{'pool_size': [2, 2, 2], 'epochs': 100, 'dense_units': [512], 'max_num_words': 15000, 'features_maps': [50, 50], 'embedding_dim': 100, 'dropout_rate': 0.1, 'max_seq_length': 3224, 'strides': [1, 1], 'optimizer': 'adadelta', 'batch_size': 32, 'n_classes': 4, 'kernel_size': [3, 4], 'lr': 1.0}",0.2852393617021277,0.23071534567270824,"[[270   9   6  91]
+ [232  45  13  86]
+ [264  33  15  64]
+ [245  22  10  99]]",nilc-word2vec-50dim,pt,1.3847414657839905,1.4016980300679729
+_grid,x3 tuning optimizer and lr,0.0,brblogset,education,"{'embedding_dim': 100, 'dropout_rate': 0.4, 'pool_size': [2, 2, 2], 'optimizer': 'rmsprop', 'lr': 0.0005, 'epochs': 100, 'batch_size': 32, 'n_classes': 4, 'max_num_words': 15000, 'max_seq_length': 3224, 'strides': [1, 1], 'kernel_size': [3, 4], 'dense_units': [1024, 512], 'features_maps': [100, 100]}",0.3703457446808511,0.342237927121992,"[[ 85 154  39  98]
+ [ 28 292  40  16]
+ [ 33 230  88  25]
+ [ 59 179  46  92]]",nilc-word2vec-50dim,pt,1.1706195525432357,1.5625536481539408
+_grid,x3 tuning optimizer and lr,1.0,brblogset,education,"{'embedding_dim': 100, 'dropout_rate': 0.4, 'pool_size': [2, 2, 2], 'optimizer': 'rmsprop', 'lr': 0.0001, 'epochs': 100, 'batch_size': 32, 'n_classes': 4, 'max_num_words': 15000, 'max_seq_length': 3224, 'strides': [1, 1], 'kernel_size': [3, 4], 'dense_units': [1024, 512], 'features_maps': [100, 100]}",0.3164893617021277,0.30713691082115313,"[[185  31  27 133]
+ [151  93  32 100]
+ [172  54  64  86]
+ [169  38  35 134]]",nilc-word2vec-50dim,pt,1.1260965433782126,1.876268307367961
+_grid,x3 tuning optimizer and lr,2.0,brblogset,education,"{'embedding_dim': 100, 'dropout_rate': 0.4, 'pool_size': [2, 2, 2], 'optimizer': 'rmsprop', 'lr': 0.0009, 'epochs': 100, 'batch_size': 32, 'n_classes': 4, 'max_num_words': 15000, 'max_seq_length': 3224, 'strides': [1, 1], 'kernel_size': [3, 4], 'dense_units': [1024, 512], 'features_maps': [100, 100]}",0.3610372340425532,0.3268616649083764,"[[ 51  48 220  57]
+ [  2 186 181   7]
+ [  7 115 250   4]
+ [ 34  85 201  56]]",nilc-word2vec-50dim,pt,1.2909044797611473,1.3684799046743483
+_grid_rmsprop,x3 tuning optimizer and lr,0.0,brblogset,education,"{'dense_units': [1024, 512], 'lr': 0.0005, 'features_maps': [100, 100], 'max_seq_length': 3224, 'dropout_rate': 0.4, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2], 'max_num_words': 15000, 'strides': [1, 1], 'epochs': 1000, 'batch_size': 32, 'embedding_dim': 100, 'n_classes': 4, 'optimizer': 'rmsprop'}",0.3377659574468085,0.32402599273896776,"[[220  20  54  82]
+ [146  87 110  33]
+ [159  51 127  39]
+ [188  27  87  74]]",nilc-word2vec-50dim,pt,1.2170037744664457,1.6001052941594804
+_grid_rmsprop,x3 tuning optimizer and lr,0.0,brblogset,education,"{'dense_units': [1024, 512], 'dropout_rate': 0.2, 'embedding_dim': 100, 'n_classes': 4, 'max_num_words': 15000, 'kernel_size': [3, 4], 'epochs': 1000, 'lr': 0.0005, 'max_seq_length': 3224, 'optimizer': 'rmsprop', 'strides': [1, 1], 'batch_size': 32, 'features_maps': [100, 100], 'pool_size': [2, 2, 2]}",0.3031914893617021,0.26578409683192145,"[[191   0 139  46]
+ [167  33 175   1]
+ [176  11 187   2]
+ [187   2 142  45]]",nilc-word2vec-50dim,pt,1.4308251435316723,1.747989919450548
+_grid_rmsprop,x3 tuning optimizer and lr,1.0,brblogset,education,"{'dense_units': [1024, 512], 'dropout_rate': 0.2, 'embedding_dim': 100, 'n_classes': 4, 'max_num_words': 15000, 'kernel_size': [3, 4], 'epochs': 1000, 'lr': 0.0001, 'max_seq_length': 3224, 'optimizer': 'rmsprop', 'strides': [1, 1], 'batch_size': 32, 'features_maps': [100, 100], 'pool_size': [2, 2, 2]}",0.31981382978723405,0.26455988871693265,"[[ 55  19  14 288]
+ [ 17  74  22 263]
+ [ 40  30  31 275]
+ [ 25  19  11 321]]",nilc-word2vec-50dim,pt,1.175236684717507,2.187606764216172
+_grid_rmsprop,x3 tuning optimizer and lr,2.0,brblogset,education,"{'dense_units': [1024, 512], 'dropout_rate': 0.2, 'embedding_dim': 100, 'n_classes': 4, 'max_num_words': 15000, 'kernel_size': [3, 4], 'epochs': 1000, 'lr': 0.0009, 'max_seq_length': 3224, 'optimizer': 'rmsprop', 'strides': [1, 1], 'batch_size': 32, 'features_maps': [100, 100], 'pool_size': [2, 2, 2]}",0.3011968085106383,0.2327128934125921,"[[270   0  80  26]
+ [180  14 146  36]
+ [197   5 147  27]
+ [254   2  98  22]]",nilc-word2vec-50dim,pt,1.3478197389259867,1.363755122923748
+_grid_rmsprop,x3 tuning optimizer and lr,3.0,brblogset,education,"{'dense_units': [1024, 512], 'dropout_rate': 0.2, 'embedding_dim': 100, 'n_classes': 4, 'max_num_words': 15000, 'kernel_size': [3, 4], 'epochs': 1000, 'lr': 1e-05, 'max_seq_length': 3224, 'optimizer': 'rmsprop', 'strides': [1, 1], 'batch_size': 32, 'features_maps': [100, 100], 'pool_size': [2, 2, 2]}",0.3889627659574468,0.3842252295025361,"[[181  56  36 103]
+ [ 89 173  46  68]
+ [ 81 103  97  95]
+ [120  75  47 134]]",nilc-word2vec-50dim,pt,1.0986523524861571,2.1016018441144158
+_grid_sgd,x3 tuning optimizer and lr,4.0,brblogset,education,"{'dense_units': [1024, 512], 'dropout_rate': 0.2, 'embedding_dim': 100, 'n_classes': 4, 'max_num_words': 15000, 'kernel_size': [3, 4], 'epochs': 1000, 'lr': 0.0005, 'max_seq_length': 3224, 'optimizer': 'sgd', 'strides': [1, 1], 'batch_size': 32, 'features_maps': [100, 100], 'pool_size': [2, 2, 2]}",0.2945478723404255,0.2607158653337233,"[[ 60 187  39  90]
+ [ 22 256  39  59]
+ [ 39 228  46  63]
+ [ 29 224  42  81]]",nilc-word2vec-50dim,pt,2.993407079552402,2.9962513667565807
+_grid_sgd,x3 tuning optimizer and lr,5.0,brblogset,education,"{'dense_units': [1024, 512], 'dropout_rate': 0.2, 'embedding_dim': 100, 'n_classes': 4, 'max_num_words': 15000, 'kernel_size': [3, 4], 'epochs': 1000, 'lr': 0.0001, 'max_seq_length': 3224, 'optimizer': 'sgd', 'strides': [1, 1], 'batch_size': 32, 'features_maps': [100, 100], 'pool_size': [2, 2, 2]}",0.2632978723404255,0.21074123046991666,"[[ 29  77  21 249]
+ [ 23 101   9 243]
+ [ 29  88  18 241]
+ [ 21  98   9 248]]",nilc-word2vec-50dim,pt,6.016331240616387,6.017489334042562
+_grid_sgd,x3 tuning optimizer and lr,6.0,brblogset,education,"{'dense_units': [1024, 512], 'dropout_rate': 0.2, 'embedding_dim': 100, 'n_classes': 4, 'max_num_words': 15000, 'kernel_size': [3, 4], 'epochs': 1000, 'lr': 0.0009, 'max_seq_length': 3224, 'optimizer': 'sgd', 'strides': [1, 1], 'batch_size': 32, 'features_maps': [100, 100], 'pool_size': [2, 2, 2]}",0.3484042553191489,0.33247517199696996,"[[ 82 130  77  87]
+ [ 35 233  78  30]
+ [ 44 184 123  25]
+ [ 51 165  74  86]]",nilc-word2vec-50dim,pt,1.9056880785941448,1.91610621043614
+_grid_sgd,x3 tuning optimizer and lr,7.0,brblogset,education,"{'dense_units': [1024, 512], 'dropout_rate': 0.2, 'embedding_dim': 100, 'n_classes': 4, 'max_num_words': 15000, 'kernel_size': [3, 4], 'epochs': 1000, 'lr': 1e-05, 'max_seq_length': 3224, 'optimizer': 'sgd', 'strides': [1, 1], 'batch_size': 32, 'features_maps': [100, 100], 'pool_size': [2, 2, 2]}",0.25199468085106386,0.21839769634266648,"[[ 24  40 183 129]
+ [ 29  37 186 124]
+ [ 30  43 184 119]
+ [ 27  28 187 134]]",nilc-word2vec-50dim,pt,7.2293429046957955,7.226618834635015
+_grid_adam,x3 tuning optimizer and lr,8.0,brblogset,education,"{'dense_units': [1024, 512], 'dropout_rate': 0.2, 'embedding_dim': 100, 'n_classes': 4, 'max_num_words': 15000, 'kernel_size': [3, 4], 'epochs': 1000, 'lr': 0.0005, 'max_seq_length': 3224, 'optimizer': 'adam', 'strides': [1, 1], 'batch_size': 32, 'features_maps': [100, 100], 'pool_size': [2, 2, 2]}",0.36236702127659576,0.3492431675154315,"[[120  39 156  61]
+ [ 35 147 178  16]
+ [ 55  87 216  18]
+ [103  59 152  62]]",nilc-word2vec-50dim,pt,1.1822655195536749,1.724272342522939
+_grid_adam,x3 tuning optimizer and lr,9.0,brblogset,education,"{'dense_units': [1024, 512], 'dropout_rate': 0.2, 'embedding_dim': 100, 'n_classes': 4, 'max_num_words': 15000, 'kernel_size': [3, 4], 'epochs': 1000, 'lr': 0.0001, 'max_seq_length': 3224, 'optimizer': 'adam', 'strides': [1, 1], 'batch_size': 32, 'features_maps': [100, 100], 'pool_size': [2, 2, 2]}",0.3570478723404255,0.3513171534634941,"[[200  29  31 116]
+ [ 98 113  75  90]
+ [146  61  94  75]
+ [149  40  57 130]]",nilc-word2vec-50dim,pt,0.4640129515405237,1.8429233238810585
+_grid_adam,x3 tuning optimizer and lr,10.0,brblogset,education,"{'dense_units': [1024, 512], 'dropout_rate': 0.2, 'embedding_dim': 100, 'n_classes': 4, 'max_num_words': 15000, 'kernel_size': [3, 4], 'epochs': 1000, 'lr': 0.0009, 'max_seq_length': 3224, 'optimizer': 'adam', 'strides': [1, 1], 'batch_size': 32, 'features_maps': [100, 100], 'pool_size': [2, 2, 2]}",0.3271276595744681,0.2670057414539607,"[[117 189  69   1]
+ [ 29 288  57   2]
+ [ 37 252  85   2]
+ [ 87 229  58   2]]",nilc-word2vec-50dim,pt,1.3268139846510831,1.4934838790642588
+_grid_adam,x3 tuning optimizer and lr,11.0,brblogset,education,"{'dense_units': [1024, 512], 'dropout_rate': 0.2, 'embedding_dim': 100, 'n_classes': 4, 'max_num_words': 15000, 'kernel_size': [3, 4], 'epochs': 1000, 'lr': 1e-05, 'max_seq_length': 3224, 'optimizer': 'adam', 'strides': [1, 1], 'batch_size': 32, 'features_maps': [100, 100], 'pool_size': [2, 2, 2]}",0.3371010638297872,0.3369817567031128,"[[117  42  72 145]
+ [ 66 125  65 120]
+ [ 77  85 112 102]
+ [ 81  62  80 153]]",nilc-word2vec-50dim,pt,1.3954213264184596,2.6318839562021075
+_grid_rmsprop,x3 tuning optimizer and lr,0.0,brblogset,education,"{'strides': [1, 1], 'dense_units': [1024, 512], 'optimizer': 'rmsprop', 'pool_size': [2, 2, 2], 'max_seq_length': 3224, 'embedding_dim': 100, 'features_maps': [100, 100], 'n_classes': 4, 'batch_size': 32, 'dropout_rate': 0.5, 'lr': 0.0001, 'epochs': 1000, 'kernel_size': [3, 4], 'max_num_words': 15000}",0.35638297872340424,0.3386579872542612,"[[ 60  69  60 187]
+ [ 19 193  70  94]
+ [ 32 135  95 114]
+ [ 33 100  55 188]]",nilc-word2vec-50dim,pt,1.0668230900153597,1.7891879081726074
+_grid_rmsprop,x3 tuning optimizer and lr,1.0,brblogset,education,"{'strides': [1, 1], 'dense_units': [1024, 512], 'optimizer': 'rmsprop', 'pool_size': [2, 2, 2], 'max_seq_length': 3224, 'embedding_dim': 100, 'features_maps': [100, 100], 'n_classes': 4, 'batch_size': 32, 'dropout_rate': 0.5, 'lr': 1e-05, 'epochs': 1000, 'kernel_size': [3, 4], 'max_num_words': 15000}",0.3710106382978723,0.3643720032948349,"[[ 99  60  38 179]
+ [ 30 192  53 101]
+ [ 52 113  97 114]
+ [ 64  92  50 170]]",nilc-word2vec-50dim,pt,1.1970845551580545,1.714234237463578
+_grid_adam,x3 tuning optimizer and lr,2.0,brblogset,education,"{'strides': [1, 1], 'dense_units': [1024, 512], 'optimizer': 'adam', 'pool_size': [2, 2, 2], 'max_seq_length': 3224, 'embedding_dim': 100, 'features_maps': [100, 100], 'n_classes': 4, 'batch_size': 32, 'dropout_rate': 0.5, 'lr': 0.0001, 'epochs': 1000, 'kernel_size': [3, 4], 'max_num_words': 15000}",0.3663563829787234,0.3526775665495854,"[[196  13  96  71]
+ [ 76  80 152  68]
+ [ 91  42 188  55]
+ [146  24 119  87]]",nilc-word2vec-50dim,pt,0.7278165844122834,1.8066653116889624
+_grid_adam,x3 tuning optimizer and lr,3.0,brblogset,education,"{'strides': [1, 1], 'dense_units': [1024, 512], 'optimizer': 'adam', 'pool_size': [2, 2, 2], 'max_seq_length': 3224, 'embedding_dim': 100, 'features_maps': [100, 100], 'n_classes': 4, 'batch_size': 32, 'dropout_rate': 0.5, 'lr': 1e-05, 'epochs': 1000, 'kernel_size': [3, 4], 'max_num_words': 15000}",0.35970744680851063,0.3594423370767947,"[[124  31  95 126]
+ [ 45 113 112 106]
+ [ 65  68 155  88]
+ [ 91  42  94 149]]",nilc-word2vec-50dim,pt,1.1538827075528522,1.984992455300831
+_grid_rmsprop,x3 tuning optimizer and lr,0.0,brblogset,education,"{'pool_size': [1, 1, 1], 'batch_size': 32, 'kernel_size': [3, 4], 'dropout_rate': 0.2, 'strides': [1, 1, 1], 'max_num_words': 15000, 'lr': 0.0001, 'max_seq_length': 3224, 'embedding_dim': 100, 'features_maps': [100, 100], 'dense_units': [1024, 512], 'n_classes': 4, 'optimizer': 'rmsprop', 'epochs': 1000}",0.28324468085106386,0.25067098999619586,"[[196  15   4 161]
+ [179  53   7 137]
+ [179  29  28 140]
+ [190  32   5 149]]",nilc-word2vec-50dim,pt,0.06795194552581318,0.23664063811302186
+_grid_rmsprop,x3 tuning optimizer and lr,1.0,brblogset,education,"{'pool_size': [1, 1, 1], 'batch_size': 32, 'kernel_size': [3, 4], 'dropout_rate': 0.2, 'strides': [1, 1, 1], 'max_num_words': 15000, 'lr': 1e-05, 'max_seq_length': 3224, 'embedding_dim': 100, 'features_maps': [100, 100], 'dense_units': [1024, 512], 'n_classes': 4, 'optimizer': 'rmsprop', 'epochs': 1000}",0.36436170212765956,0.36288834442361295,"[[107  35  86 148]
+ [ 32 117 126 101]
+ [ 54  64 152 106]
+ [ 62  39 103 172]]",nilc-word2vec-50dim,pt,0.10217263705508653,0.2603120172307605

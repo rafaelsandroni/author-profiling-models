@@ -108,8 +108,8 @@ def attention_3d_block(inputs, input_dim):
 
     a_probs = Permute((2, 1), name='attention_vec')(a)
     # output_attention_mul = concatenate([inputs, a_probs], axis=1, name='attention_mul')
-    # output_attention_mul = multiply([inputs, a_probs], name='attention_mul')
-    output_attention_mul = dot([inputs, a_probs], axes=1, name='attention_mul', normalize=False)
+    output_attention_mul = multiply([inputs, a_probs], axes=1, name='attention_mul', normalize=False)
+    # output_attention_mul = dot([inputs, a_probs], axes=1, name='attention_mul', normalize=False)
     # output_attention_mul = merge([inputs, a_probs], name='attention_mul', mode='mul')
     
     return output_attention_mul

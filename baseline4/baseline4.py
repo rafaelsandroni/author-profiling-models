@@ -104,7 +104,7 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
             features_maps = [50,50],
             kernel_size = [3,4],
             strides = [1,1],
-            dropout_rate = 0.5,
+            dropout_rate = 0.3,
             epochs = 100,
             batch_size = 32,
             embedding_dim = 100,
@@ -253,9 +253,10 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
             optimizer = Adam(lr=params['lr'])
 
         model.compile(
-                loss='categorical_crossentropy',
+                #loss='categorical_crossentropy',
+                loss='mean_squared_error',
                 optimizer=optimizer,
-                metrics=['accuracy']
+                metrics=['accuracy','mae']
         )
 
         model.summary()

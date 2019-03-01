@@ -3,11 +3,11 @@ import baseline4
 from Models.functions.utils import listProblems
 import copy
 
-filter_task = ['age']#None#['gender','age']
-filter_dataset_name = "enblog"
+filter_task = ['education']#,'profession','region']#None#['gender','age']
+filter_dataset_name = "brblogset"
 #g_root = r"C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Dataframe/"
 g_root = r"/home/rafael/Dataframe/"
-g_lang = "en"
+g_lang = "pt"
 
 report_version = '_grid'
 
@@ -16,7 +16,7 @@ if report_version is None:
 else:    
     rp_file = r"Grid/"+ filter_dataset_name+"_"+ report_version +".csv"
 
-tunning = 'x2 tuning optimizer and lr'
+tunning = 'x3 tuning optimizer and lr'
 
 #brmoral (turned on age task)
 """ Results parameters
@@ -60,18 +60,18 @@ pan13: (too large data)
 esic: (too large data)
 """
 params = dict(
-            features_maps = [50, 50],
+            features_maps = [100, 100],
             kernel_size = [3,4],
-            strides = [1,1],
-            dropout_rate = 0.1,
-            epochs = 100,
+            strides = [1,1,1],
+            dropout_rate = 0.2,
+            epochs = 1000,
             batch_size = 32,
             embedding_dim = 100,
             max_seq_length = None,
             max_num_words = 15000,
-            dense_units = [512],
+            dense_units = [1024,512],
             optimizer = None,
-            pool_size = [2,2,2],
+            pool_size = [1,1,1],
             lr = 0.00
         )
 
@@ -79,8 +79,8 @@ params = dict(
 #strides = [1]
 #embedding_dim = [100]
 # set params
-optimizer = ['adadelta','adam','sgd','rmsprop']
-lr = [0.1, 0.01, 0.001, 0.0001]
+optimizer = ['rmsprop']#,'sgd']#'adadelta','adam','sgd','rmsprop']
+lr = [1e-4, 1e-5]
 
 list_params = []
 
@@ -115,7 +115,8 @@ if __name__ == '__main__':
             print(n, list_params[n])
             parameters = list_params[n]
             import baseline4
-            
+            report_version = '_grid_'+parameters['optimizer']
+
             acc, f1, cm, loss, val_loss = baseline4.run(task, dataset_name, g_root, lang, parameters, report_version)
 
             baseline4 = None

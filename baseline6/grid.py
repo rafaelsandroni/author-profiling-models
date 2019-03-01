@@ -3,7 +3,7 @@ import baseline6
 from Models.functions.utils import listProblems
 import copy
 
-filter_task = ['education','profession','region','age']#None#['gender','age']
+filter_task = ['education']#None#['gender','age']
 filter_dataset_name = "esic"
 #g_root = r"C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Dataframe/"
 g_root = r"/home/rafael/Dataframe/"
@@ -15,7 +15,7 @@ if report_version is None:
 else:    
     rp_file = r"Grid/"+ filter_dataset_name+"_"+ report_version +".csv"
 
-tunning = 'emb channels'
+tunning = 'dot => multiply'
 
 #brmoral (turned on age task)
 """ Results parameters

@@ -201,9 +201,9 @@ def run(task, dataset_name, root, lang):
 
         params = dict(
             filters = [100, 100, 100],
-            kernel_size = [10],
+            kernel_size = [3],
             strides = [1, 1, 1],
-            dropout_rate = 0.4,
+            dropout_rate = 0.15,
             pool_size = [4, 4, 4],
             epochs = 100,
             batch_size = 12

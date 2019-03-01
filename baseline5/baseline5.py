@@ -99,7 +99,7 @@ def attention_3d_block(inputs, input_dim):
     a_probs = Permute((2, 1), name='attention_vec')(a)
     # output_attention_mul = concatenate([inputs, a_probs], axis=1, name='attention_mul')
     # output_attention_mul = multiply([inputs, a_probs], name='attention_mul')
-    output_attention_mul = dot([inputs, a_probs], axes=1, name='attention_mul', normalize=False)
+    output_attention_mul = multiply([inputs, a_probs], axes=1, name='attention_mul', normalize=False)
     # output_attention_mul = merge([inputs, a_probs], name='attention_mul', mode='mul')
     
     return output_attention_mul
@@ -110,7 +110,7 @@ def model_attention_applied_after_lstm(embedding_layer, max_seq_length, n_classe
     
     emb_layer = embedding_layer(inputs)
 
-    lstm_units = 32
+    lstm_units = 128
     lstm_out = LSTM(lstm_units, return_sequences=True)(emb_layer)
     attention_mul = attention_3d_block(lstm_out, max_seq_length)
     attention_mul = Flatten()(attention_mul)

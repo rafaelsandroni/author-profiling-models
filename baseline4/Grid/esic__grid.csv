@@ -31,7 +31,7 @@ _grid,3 channels,7.0,esic,education,"{'features_maps': [40], 'kernel_size': [7],
  [ 32 150 202]]",nilc-fasttext-100dim,pt,1.0500771191713791,1.3459049639376728
 _grid,3 channels,8.0,esic,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 83, 'max_num_words': 1000, 'dense_units': None, 'optimizer': None, 'pool_size': [1, 1, 1], 'n_classes': 3}",0.4278728606356968,0.421438652780316,"[[236  83  90]
  [158 130 121]
- [133 117 159]]",nilc-fasttext-100dim,pt,0.957543796626452,1.163222549154844
+ [133 117 159]]",nilc-fasttext-100dim,pt,0.9575437966264521,1.163222549154844
 _grid,3 channels,9.0,esic,education,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 72, 'max_num_words': 7199, 'dense_units': None, 'optimizer': None, 'pool_size': [1, 1, 1], 'n_classes': 3}",0.4521674140508221,0.4522210169114375,"[[219 128  99]
  [125 198 123]
  [106 152 188]]",nilc-fasttext-100dim,pt,0.9348391999401688,1.2271854497384336
@@ -41,7 +41,7 @@ _grid,3 channels,10.0,esic,education,"{'features_maps': [40, 40], 'kernel_size':
 _grid,3 channels,11.0,esic,education,"{'features_maps': [40, 40], 'kernel_size': [3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 94, 'max_num_words': 7903, 'dense_units': None, 'optimizer': None, 'pool_size': [1, 1, 1], 'n_classes': 3}",0.459480122324159,0.43463126721046574,"[[304 101  31]
  [177 208  51]
  [199 148  89]]",nilc-fasttext-100dim,pt,1.0371053523888891,1.2395930866400402
-_grid,3 channels,12.0,esic,education,"{'features_maps': [10, 10], 'kernel_size': [7, 8], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 89, 'max_num_words': 1000, 'dense_units': None, 'optimizer': None, 'pool_size': [1, 1, 1], 'n_classes': 3}",0.4726027397260274,0.451967992380925,"[[241 141  56]
+_grid,3 channels,12.0,esic,education,"{'features_maps': [10, 10], 'kernel_size': [7, 8], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 89, 'max_num_words': 1000, 'dense_units': None, 'optimizer': None, 'pool_size': [1, 1, 1], 'n_classes': 3}",0.4726027397260274,0.45196799238092494,"[[241 141  56]
  [107 284  47]
  [131 211  96]]",nilc-fasttext-100dim,pt,1.0172294166379006,1.238482426977964
 _grid,3 channels,13.0,esic,education,"{'features_maps': [10, 10], 'kernel_size': [7, 8], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 88, 'max_num_words': 7847, 'dense_units': None, 'optimizer': None, 'pool_size': [1, 1, 1], 'n_classes': 3}",0.4676034348165496,0.4651849355197977,"[[175 176  76]
@@ -76,7 +76,7 @@ _grid,3 channels,22.0,esic,education,"{'features_maps': [40, 40, 40], 'kernel_si
  [ 90  74 259]]",nilc-fasttext-100dim,pt,1.2256657827175277,1.3541710793025912
 _grid,3 channels,23.0,esic,education,"{'features_maps': [40, 40, 40], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 87, 'max_num_words': 7068, 'dense_units': None, 'optimizer': None, 'pool_size': [1, 1, 1], 'n_classes': 3}",0.40238704177323104,0.38466108990864817,"[[ 72 194 125]
  [ 37 201 153]
- [ 35 157 199]]",nilc-fasttext-100dim,pt,1.1448511446683147,1.375392603384458
+ [ 35 157 199]]",nilc-fasttext-100dim,pt,1.1448511446683147,1.3753926033844581
 _grid,3 channels,0.0,esic,gender,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 76, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [1, 1, 1], 'n_classes': 2}",0.5830324909747292,0.5819646427031476,"[[295 259]
  [203 351]]",nilc-fasttext-100dim,pt,0.5880630305817274,0.6685242119202247
 _grid,3 channels,1.0,esic,gender,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 75, 'max_num_words': 7173, 'dense_units': [128], 'optimizer': None, 'pool_size': [1, 1, 1], 'n_classes': 2}",0.5345454545454545,0.5239640809261062,"[[212 338]
@@ -139,7 +139,7 @@ _grid,3 channels,1.0,esic,age,"{'features_maps': [10], 'kernel_size': [3], 'stri
  [ 83 115 155]]",nilc-fasttext-100dim,pt,1.065902218646753,1.083971681518587
 _grid,3 channels,2.0,esic,age,"{'features_maps': [40], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 65, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.3947606142728094,0.3947376728117352,"[[159 174  36]
  [146 169  54]
- [ 82 178 109]]",nilc-fasttext-100dim,pt,1.1233672370490204,1.1682234495878219
+ [ 82 178 109]]",nilc-fasttext-100dim,pt,1.1233672370490204,1.168223449587822
 _grid,3 channels,3.0,esic,age,"{'features_maps': [40], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 75, 'max_num_words': 7901, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.4278892072588348,0.4013142085562394,"[[ 86 116 147]
  [ 77 101 171]
  [ 25  63 261]]",nilc-fasttext-100dim,pt,1.12441977298493,1.1810352266698645
@@ -196,14 +196,14 @@ _grid,3 channels,20.0,esic,age,"{'features_maps': [10, 10, 10], 'kernel_size': [
  [127  64 163]]",nilc-fasttext-100dim,pt,1.1449720651491178,1.1840193523101838
 _grid,3 channels,21.0,esic,age,"{'features_maps': [10, 10, 10], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 71, 'max_num_words': 6743, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.4638095238095238,0.4604949981181039,"[[133 125  92]
  [106 145  99]
- [ 50  91 209]]",nilc-fasttext-100dim,pt,1.145977629704531,1.167068394234306
+ [ 50  91 209]]",nilc-fasttext-100dim,pt,1.145977629704531,1.1670683942343059
 _grid,3 channels,22.0,esic,age,"{'features_maps': [40, 40, 40], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 65, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.4230019493177388,0.4085664137538056,"[[ 94 116 132]
  [ 64 116 162]
  [ 33  85 224]]",nilc-fasttext-100dim,pt,1.1720324381945637,1.2464212703484074
 _grid,3 channels,23.0,esic,age,"{'features_maps': [40, 40, 40], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 89, 'max_num_words': 7137, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.4045584045584046,0.4057663979600297,"[[138 144  69]
  [100 155  96]
  [ 69 149 133]]",nilc-fasttext-100dim,pt,1.2066583373789677,1.271586316256296
-_grid,3 channels,0.0,esic,education,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 68, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.4487804878048781,0.448311073422373,"[[222 141  47]
+_grid,3 channels,0.0,esic,education,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 68, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.4487804878048781,0.44831107342237303,"[[222 141  47]
  [125 180 105]
  [ 91 169 150]]",nilc-fasttext-100dim,pt,1.149838308169358,1.1599860205536796
 _grid,3 channels,1.0,esic,education,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 71, 'max_num_words': 6251, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.4336917562724014,0.4158153237415853,"[[177  63 132]
@@ -218,7 +218,7 @@ _grid,3 channels,3.0,esic,education,"{'features_maps': [40], 'kernel_size': [3],
 _grid,3 channels,4.0,esic,education,"{'features_maps': [10], 'kernel_size': [7], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 95, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.4281200631911533,0.4277937521083369,"[[212 135  75]
  [122 184 116]
  [ 87 189 146]]",nilc-fasttext-100dim,pt,1.0539830195103277,1.1100585254622093
-_grid,3 channels,5.0,esic,education,"{'features_maps': [10], 'kernel_size': [7], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 96, 'max_num_words': 7819, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.4421613394216134,0.43646150737971795,"[[259 118  61]
+_grid,3 channels,5.0,esic,education,"{'features_maps': [10], 'kernel_size': [7], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 96, 'max_num_words': 7819, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.4421613394216134,0.436461507379718,"[[259 118  61]
  [178 182  78]
  [111 187 140]]",nilc-fasttext-100dim,pt,0.9755222413444652,1.1313453309734662
 _grid,3 channels,6.0,esic,education,"{'features_maps': [40], 'kernel_size': [7], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 92, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.4623397435897436,0.4606217583462726,"[[202 107 107]
@@ -260,7 +260,7 @@ _grid,3 channels,17.0,esic,education,"{'features_maps': [10, 10, 10], 'kernel_si
 _grid,3 channels,18.0,esic,education,"{'features_maps': [40, 40, 40], 'kernel_size': [3, 4, 5], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 111, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.4377610693400167,0.43782560695437023,"[[155 135 109]
  [ 86 178 135]
  [ 70 138 191]]",nilc-fasttext-100dim,pt,1.0193447021230329,1.088448431331014
-_grid,3 channels,19.0,esic,education,"{'features_maps': [40, 40, 40], 'kernel_size': [3, 4, 5], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 94, 'max_num_words': 6639, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.452724358974359,0.4457288744740533,"[[183  99 134]
+_grid,3 channels,19.0,esic,education,"{'features_maps': [40, 40, 40], 'kernel_size': [3, 4, 5], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 94, 'max_num_words': 6639, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.45272435897435903,0.4457288744740533,"[[183  99 134]
  [ 98 129 189]
  [ 71  92 253]]",nilc-fasttext-100dim,pt,1.1108521155481084,1.186999928103134
 _grid,3 channels,20.0,esic,education,"{'features_maps': [10, 10, 10], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 133, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.4288150042625746,0.4163514969153969,"[[253  95  43]
@@ -370,7 +370,7 @@ _grid,3 channels,22.0,esic,profession,"{'features_maps': [40, 40, 40], 'kernel_s
 _grid,3 channels,23.0,esic,profession,"{'features_maps': [40, 40, 40], 'kernel_size': [7, 8, 9], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 89, 'max_num_words': 7137, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.352124183006536,0.3383956486492355,"[[122  59 106  19]
  [ 38  95 126  47]
  [ 60  68 169   9]
- [ 41 119 101  45]]",nilc-fasttext-100dim,pt,1.4613269889558258,1.5005816733464599
+ [ 41 119 101  45]]",nilc-fasttext-100dim,pt,1.4613269889558258,1.50058167334646
 _grid,3 channels,0.0,esic,region,"{'features_maps': [10], 'kernel_size': [3], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 68, 'max_num_words': 1000, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.2590717299578059,0.24182907586269306,"[[134 152  93  30  65]
  [139 151  93  13  78]
  [110 137 107  15 105]
@@ -415,7 +415,7 @@ _grid,3 channels,8.0,esic,region,"{'features_maps': [10, 10], 'kernel_size': [3,
  [ 44 224 100  71  28]
  [ 31 138 122  84  92]
  [ 33 161 113  86  74]
- [ 15  22 108  78 244]]",nilc-fasttext-100dim,pt,1.5400263088565564,1.514119095101076
+ [ 15  22 108  78 244]]",nilc-fasttext-100dim,pt,1.5400263088565564,1.5141190951010761
 _grid,3 channels,9.0,esic,region,"{'features_maps': [10, 10], 'kernel_size': [3, 4], 'strides': [1, 1, 1], 'dropout_rate': 0.2, 'epochs': 100, 'batch_size': 2, 'embedding_dim': 100, 'max_seq_length': 79, 'max_num_words': 6923, 'dense_units': [128], 'optimizer': None, 'pool_size': [3, 3, 3], 'n_classes': 2}",0.2741228070175439,0.2461797114786707,"[[ 37 161 165  15  78]
  [ 66 191 143  15  41]
  [ 59 157 138  16  86]
@@ -562,7 +562,7 @@ _grid,tuning params w2v 100,2.0,esic,education,"{'features_maps': [50, 50, 50], 
  [ 7022 16688 11789]]",nilc-fasttext-100dim,pt,0.980609968324348,0.9773066940356724
 _grid,tuning params w2v 100,3.0,esic,education,"{'features_maps': [50, 50, 50], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [2, 3, 4], 'optimizer': None, 'n_classes': 4}",0.5010000281698076,0.4861698682120602,"[[25690  6787  3022]
  [12317 16901  6281]
- [11634 13101 10764]]",nilc-fasttext-100dim,pt,0.9745849004355704,0.978530801144212
+ [11634 13101 10764]]",nilc-fasttext-100dim,pt,0.9745849004355704,0.9785308011442121
 _grid,tuning params w2v 100,4.0,esic,education,"{'features_maps': [5, 5, 5], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [2, 3, 4], 'optimizer': None, 'n_classes': 4}",0.5068875179582524,0.4988629417820592,"[[20167 11027  4305]
  [ 8214 22286  4999]
  [ 7751 16219 11529]]",nilc-fasttext-100dim,pt,0.9794008713291468,0.9923578369015482
@@ -575,12 +575,12 @@ _grid,tuning params w2v 100,6.0,esic,education,"{'features_maps': [10, 10, 10], 
 _grid,tuning params w2v 100,7.0,esic,education,"{'features_maps': [10, 10, 10], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [3, 4, 5], 'optimizer': None, 'n_classes': 4}",0.5159394161337878,0.5164667204082842,"[[16880 10990  7629]
  [ 5819 20773  8907]
  [ 4987 13219 17293]]",nilc-fasttext-100dim,pt,0.9570534056228954,0.9777533958151948
-_grid,tuning params w2v 100,8.0,esic,education,"{'features_maps': [50, 50, 50], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [3, 4, 5], 'optimizer': None, 'n_classes': 4}",0.4987840033052574,0.48418982828952095,"[[25659  6683  3157]
+_grid,tuning params w2v 100,8.0,esic,education,"{'features_maps': [50, 50, 50], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [3, 4, 5], 'optimizer': None, 'n_classes': 4}",0.4987840033052574,0.484189828289521,"[[25659  6683  3157]
  [13452 16579  5468]
  [12475 12143 10881]]",nilc-fasttext-100dim,pt,0.9834420940652456,0.9895312730468104
 _grid,tuning params w2v 100,9.0,esic,education,"{'features_maps': [50, 50, 50], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [3, 4, 5], 'optimizer': None, 'n_classes': 4}",0.5002112735570016,0.5007004059383986,"[[15555 11052  8892]
  [ 5394 18071 12034]
- [ 4760 11094 19645]]",nilc-fasttext-100dim,pt,0.937995284454638,0.9853787175398216
+ [ 4760 11094 19645]]",nilc-fasttext-100dim,pt,0.9379952844546379,0.9853787175398216
 _grid,tuning params w2v 100,10.0,esic,education,"{'features_maps': [5, 5, 5], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [3, 4, 5], 'optimizer': None, 'n_classes': 4}",0.5017700029108801,0.5021403789175224,"[[19202  8845  7452]
  [ 8411 16471 10617]
  [ 6859 10876 17764]]",nilc-fasttext-100dim,pt,0.9931924863157834,1.0013787351947858
@@ -607,7 +607,7 @@ _grid,tuning params w2v 100,17.0,esic,education,"{'features_maps': [5, 5], 'max_
  [ 9815 13221 12463]]",nilc-fasttext-100dim,pt,0.9438998442344572,0.988287113230174
 _grid,tuning params w2v 100,18.0,esic,education,"{'features_maps': [10, 10], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [2, 4], 'optimizer': None, 'n_classes': 4}",0.4962675004929717,0.4966412389289565,"[[18127  9023  8349]
  [ 7732 15858 11909]
- [ 6345 10288 18866]]",nilc-fasttext-100dim,pt,0.984511927288468,0.99548505882547
+ [ 6345 10288 18866]]",nilc-fasttext-100dim,pt,0.984511927288468,0.9954850588254699
 _grid,tuning params w2v 100,19.0,esic,education,"{'features_maps': [10, 10], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [2, 4], 'optimizer': None, 'n_classes': 4}",0.5133853535780349,0.5077196616989995,"[[22007  8878  4614]
  [ 9361 19803  6335]
  [ 8772 13863 12864]]",nilc-fasttext-100dim,pt,0.9482014716488196,0.9880962576294112
@@ -622,7 +622,7 @@ _grid,tuning params w2v 100,22.0,esic,education,"{'features_maps': [5, 5], 'max_
  [ 8065 15974 11460]]",nilc-fasttext-100dim,pt,0.9931163082074934,0.9921474997447028
 _grid,tuning params w2v 100,23.0,esic,education,"{'features_maps': [5, 5], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [2, 4], 'optimizer': None, 'n_classes': 4}",0.4926899349277444,0.4922971121302011,"[[17726  8310  9463]
  [ 6445 14524 14530]
- [ 5954  9325 20220]]",nilc-fasttext-100dim,pt,0.960591303668588,0.9877389652403684
+ [ 5954  9325 20220]]",nilc-fasttext-100dim,pt,0.9605913036685879,0.9877389652403684
 _grid,tuning params w2v 100,24.0,esic,education,"{'features_maps': [10], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [1], 'optimizer': None, 'n_classes': 4}",0.4618064358620431,0.4469731152333045,"[[23051  5421  7027]
  [15823  8935 10741]
  [10764  7540 17195]]",nilc-fasttext-100dim,pt,1.030110894025194,1.0325560072757172
@@ -676,7 +676,7 @@ _grid,tuning params w2v 100,40.0,esic,education,"{'features_maps': [5], 'max_num
  [12275  9100 14124]]",nilc-fasttext-100dim,pt,0.9971668095100132,1.0053648689649135
 _grid,tuning params w2v 100,41.0,esic,education,"{'features_maps': [5], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [3], 'optimizer': None, 'n_classes': 4}",0.5001361540700677,0.4942015321774349,"[[20160 10258  5081]
  [ 8689 21049  5761]
- [ 7594 15851 12054]]",nilc-fasttext-100dim,pt,0.9660811482951759,0.9903266339030552
+ [ 7594 15851 12054]]",nilc-fasttext-100dim,pt,0.966081148295176,0.9903266339030552
 _grid,tuning params w2v 100,42.0,esic,education,"{'features_maps': [10], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [4], 'optimizer': None, 'n_classes': 4}",0.5042113862362321,0.5042972790866426,"[[18363 10769  6367]
  [ 7770 19731  7998]
  [ 6411 13485 15603]]",nilc-fasttext-100dim,pt,0.9934096503569856,0.9943292182319908
@@ -689,7 +689,7 @@ _grid,tuning params w2v 100,44.0,esic,education,"{'features_maps': [50], 'max_nu
 _grid,tuning params w2v 100,45.0,esic,education,"{'features_maps': [50], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [4], 'optimizer': None, 'n_classes': 4}",0.5134510831291023,0.5015127135452203,"[[23498  8435  3566]
  [10244 20314  4941]
  [ 9749 14881 10869]]",nilc-fasttext-100dim,pt,0.9785638765627914,0.9960571922142925
-_grid,tuning params w2v 100,46.0,esic,education,"{'features_maps': [5], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [4], 'optimizer': None, 'n_classes': 4}",0.49464304158802597,0.4892295540016318,"[[22887  7769  4843]
+_grid,tuning params w2v 100,46.0,esic,education,"{'features_maps': [5], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [4], 'optimizer': None, 'n_classes': 4}",0.494643041588026,0.4892295540016318,"[[22887  7769  4843]
  [11122 15976  8401]
  [10214 11470 13815]]",nilc-fasttext-100dim,pt,0.9928781964611898,1.00420158668737
 _grid,tuning params w2v 100,47.0,esic,education,"{'features_maps': [5], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [4], 'optimizer': None, 'n_classes': 4}",0.4942862240250899,0.4684794779123846,"[[24764  8493  2242]
@@ -715,7 +715,7 @@ _grid,tuning params w2v 100,53.0,esic,education,"{'features_maps': [5, 5, 5], 'm
  [ 7413 11333 16753]]",nilc-fasttext-100dim,pt,0.9641758916707028,0.986861024781035
 _grid,tuning params w2v 100,54.0,esic,education,"{'features_maps': [10, 10], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [4, 1], 'optimizer': None, 'n_classes': 3}",0.5032536127778248,0.5027591542118803,"[[19685  8470  7344]
  [ 8647 15590 11262]
- [ 7412  9767 18320]]",nilc-fasttext-100dim,pt,0.990458749657078,0.9985598584080648
+ [ 7412  9767 18320]]",nilc-fasttext-100dim,pt,0.9904587496570779,0.9985598584080648
 _grid,tuning params w2v 100,55.0,esic,education,"{'features_maps': [10, 10], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [4, 1], 'optimizer': None, 'n_classes': 3}",0.5048592918110371,0.5046677991519017,"[[19353  8100  8046]
  [ 7894 15643 11962]
  [ 6978  9751 18770]]",nilc-fasttext-100dim,pt,0.9779131432891884,0.9828127809931556
@@ -724,11 +724,11 @@ _grid,tuning params w2v 100,56.0,esic,education,"{'features_maps': [50, 50], 'ma
  [ 9366 15055 11078]]",nilc-fasttext-100dim,pt,0.9877612673217516,0.986619538747728
 _grid,tuning params w2v 100,57.0,esic,education,"{'features_maps': [50, 50], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [4, 1], 'optimizer': None, 'n_classes': 3}",0.5176296045898007,0.5063741246048421,"[[19350 11843  4306]
  [ 7028 24781  3690]
- [ 6654 17850 10995]]",nilc-fasttext-100dim,pt,0.9719363783923156,0.9814943993890941
+ [ 6654 17850 10995]]",nilc-fasttext-100dim,pt,0.9719363783923156,0.981494399389094
 _grid,tuning params w2v 100,58.0,esic,education,"{'features_maps': [5, 5], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [4, 1], 'optimizer': None, 'n_classes': 3}",0.4952815572269642,0.4907013596400958,"[[22406  7767  5326]
  [11043 16420  8036]
  [ 9706 11873 13920]]",nilc-fasttext-100dim,pt,0.9913523043294274,0.9988334241084832
-_grid,tuning params w2v 100,59.0,esic,education,"{'features_maps': [5, 5], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [4, 1], 'optimizer': None, 'n_classes': 3}",0.5051597697587725,0.499575432687092,"[[23148  7570  4781]
+_grid,tuning params w2v 100,59.0,esic,education,"{'features_maps': [5, 5], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [4, 1], 'optimizer': None, 'n_classes': 3}",0.5051597697587725,0.49957543268709204,"[[23148  7570  4781]
  [10382 16839  8278]
  [10468 11220 13811]]",nilc-fasttext-100dim,pt,0.967009900302737,0.9791975830421475
 _grid,tuning params w2v 100,0.0,esic,profession,"{'features_maps': [10, 10, 10], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [2, 3, 4], 'optimizer': None, 'n_classes': 4}",0.4183031529086693,0.4090736332643552,"[[ 7353  3993  3561  5360]
@@ -819,7 +819,7 @@ _grid,tuning params w2v 100,21.0,esic,profession,"{'features_maps': [50, 50], 'm
  [ 3081  8635  1520  7031]
  [ 4927  6308  6408  2624]
  [ 1620  6707  1154 10786]]",nilc-fasttext-100dim,pt,1.2126467347040373,1.2458387210146422
-_grid,tuning params w2v 100,22.0,esic,profession,"{'features_maps': [5, 5], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [2, 4], 'optimizer': None, 'n_classes': 4}",0.4113830364632161,0.4001653949846,"[[10266  2610  3052  4339]
+_grid,tuning params w2v 100,22.0,esic,profession,"{'features_maps': [5, 5], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [2, 4], 'optimizer': None, 'n_classes': 4}",0.4113830364632161,0.40016539498459996,"[[10266  2610  3052  4339]
  [ 4127  4134  2986  9020]
  [ 5038  3143  7282  4804]
  [ 2594  3544  2461 11668]]",nilc-fasttext-100dim,pt,1.2591585477336031,1.2778477214375543
@@ -834,7 +834,7 @@ _grid,tuning params w2v 100,24.0,esic,profession,"{'features_maps': [10], 'max_n
 _grid,tuning params w2v 100,25.0,esic,profession,"{'features_maps': [10], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [1], 'optimizer': None, 'n_classes': 4}",0.4103838752652095,0.410506760735784,"[[9895 3876 3815 2681]
  [3960 7267 3894 5146]
  [4508 4585 8723 2451]
- [2988 6503 3392 7384]]",nilc-fasttext-100dim,pt,1.2434085648802249,1.2808488345128821
+ [2988 6503 3392 7384]]",nilc-fasttext-100dim,pt,1.2434085648802249,1.280848834512882
 _grid,tuning params w2v 100,26.0,esic,profession,"{'features_maps': [50], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [1], 'optimizer': None, 'n_classes': 4}",0.4076454334632654,0.4086194167090447,"[[9845 4977 3023 2422]
  [3712 8427 2974 5154]
  [4805 5446 7583 2433]
@@ -874,7 +874,7 @@ _grid,tuning params w2v 100,34.0,esic,profession,"{'features_maps': [5], 'max_nu
 _grid,tuning params w2v 100,35.0,esic,profession,"{'features_maps': [5], 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [2], 'optimizer': None, 'n_classes': 4}",0.419314649430108,0.4040388911091727,"[[ 8205  2421  4142  5499]
  [ 2134  3710  3630 10793]
  [ 3550  3105  8280  5332]
- [ 1207  2764  2498 13798]]",nilc-fasttext-100dim,pt,1.2481635191896014,1.256782228509156
+ [ 1207  2764  2498 13798]]",nilc-fasttext-100dim,pt,1.2481635191896014,1.2567822285091559
 _grid,tuning params w2v 100,36.0,esic,profession,"{'features_maps': [10], 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'epochs': 100, 'strides': [1, 1, 1], 'batch_size': 32, 'embedding_dim': 100, 'dropout_rate': 0.1, 'dense_units': [1024], 'max_seq_length': 91, 'kernel_size': [3], 'optimizer': None, 'n_classes': 4}",0.4153180046380816,0.3979679078939289,"[[ 7423  2682  4613  5549]
  [ 2343  3432  3558 10934]
  [ 2956  2673  9086  5552]
@@ -961,7 +961,7 @@ _grid,tuning params w2v 100,3.0,esic,education,"{'max_num_words': 15000, 'featur
  [ 7196 17692 10611]]",nilc-fasttext-100dim,pt,0.994655568663104,1.014395776992705
 _grid,tuning params w2v 100,4.0,esic,education,"{'max_num_words': 1000, 'features_maps': [5, 5, 5], 'max_seq_length': 91, 'kernel_size': [2, 3, 4], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4954036263932317,0.4943008274989184,"[[20152  7872  7475]
  [ 9903 15199 10397]
- [ 7691 10400 17408]]",nilc-fasttext-100dim,pt,1.0109808135178449,1.0114119203443759
+ [ 7691 10400 17408]]",nilc-fasttext-100dim,pt,1.0109808135178449,1.011411920344376
 _grid,tuning params w2v 100,5.0,esic,education,"{'max_num_words': 15000, 'features_maps': [5, 5, 5], 'max_seq_length': 91, 'kernel_size': [2, 3, 4], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4916758218541367,0.4738296173071895,"[[26201  6103  3195]
  [14789 16129  4581]
  [12817 12650 10032]]",nilc-fasttext-100dim,pt,1.0019579366127005,1.0077556768738642
@@ -1042,7 +1042,7 @@ _grid,tuning params w2v 100,30.0,esic,education,"{'max_num_words': 1000, 'featur
  [10171 12378 12950]]",nilc-fasttext-100dim,pt,1.0110268750544007,1.0092413279561698
 _grid,tuning params w2v 100,31.0,esic,education,"{'max_num_words': 15000, 'features_maps': [10], 'max_seq_length': 91, 'kernel_size': [2], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4879104575715748,0.4791739801545185,"[[21769  9854  3876]
  [10752 19206  5541]
- [ 9409 15104 10986]]",nilc-fasttext-100dim,pt,0.994697104995688,1.0107727755011044
+ [ 9409 15104 10986]]",nilc-fasttext-100dim,pt,0.9946971049956881,1.0107727755011044
 _grid,tuning params w2v 100,32.0,esic,education,"{'max_num_words': 1000, 'features_maps': [50], 'max_seq_length': 91, 'kernel_size': [2], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4848399485431514,0.4643992039367146,"[[21986 10656  2857]
  [11170 21642  2687]
  [ 9825 17668  8006]]",nilc-fasttext-100dim,pt,1.021799045117197,1.0125378599260562
@@ -1055,7 +1055,7 @@ _grid,tuning params w2v 100,34.0,esic,education,"{'max_num_words': 1000, 'featur
 _grid,tuning params w2v 100,35.0,esic,education,"{'max_num_words': 15000, 'features_maps': [5], 'max_seq_length': 91, 'kernel_size': [2], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4828117223959361,0.4834384479397331,"[[17998  9684  7817]
  [ 9092 17254  9153]
  [ 6656 12677 16166]]",nilc-fasttext-100dim,pt,1.0062623747263553,1.0211425820325837
-_grid,tuning params w2v 100,36.0,esic,education,"{'max_num_words': 1000, 'features_maps': [10], 'max_seq_length': 91, 'kernel_size': [3], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4811590936833902,0.45933135865578706,"[[24796  8211  2492]
+_grid,tuning params w2v 100,36.0,esic,education,"{'max_num_words': 1000, 'features_maps': [10], 'max_seq_length': 91, 'kernel_size': [3], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4811590936833902,0.4593313586557871,"[[24796  8211  2492]
  [13577 18301  3621]
  [12026 15328  8145]]",nilc-fasttext-100dim,pt,1.011153263266312,1.0093906248014064
 _grid,tuning params w2v 100,37.0,esic,education,"{'max_num_words': 15000, 'features_maps': [10], 'max_seq_length': 91, 'kernel_size': [3], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4926054255049438,0.493643116114183,"[[18008  9238  8253]
@@ -1063,7 +1063,7 @@ _grid,tuning params w2v 100,37.0,esic,education,"{'max_num_words': 15000, 'featu
  [ 6337 11544 17618]]",nilc-fasttext-100dim,pt,0.9907746304935888,0.9887688955944828
 _grid,tuning params w2v 100,38.0,esic,education,"{'max_num_words': 1000, 'features_maps': [50], 'max_seq_length': 91, 'kernel_size': [3], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4915631426237359,0.4841203171458373,"[[20237 10537  4725]
  [ 9674 20766  5059]
- [ 8270 15882 11347]]",nilc-fasttext-100dim,pt,1.0052055422702997,1.006009266008934
+ [ 8270 15882 11347]]",nilc-fasttext-100dim,pt,1.0052055422702997,1.0060092660089341
 _grid,tuning params w2v 100,39.0,esic,education,"{'max_num_words': 15000, 'features_maps': [50], 'max_seq_length': 91, 'kernel_size': [3], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.5051503798229058,0.5048807418603011,"[[20085  9067  6347]
  [ 8430 17571  9498]
  [ 7751 11607 16141]]",nilc-fasttext-100dim,pt,0.9921955032025844,0.9964016955782592
@@ -1078,7 +1078,7 @@ _grid,tuning params w2v 100,42.0,esic,education,"{'max_num_words': 1000, 'featur
  [ 9427 12898 13174]]",nilc-fasttext-100dim,pt,1.0165072281279377,1.0202849804980072
 _grid,tuning params w2v 100,43.0,esic,education,"{'max_num_words': 15000, 'features_maps': [10], 'max_seq_length': 91, 'kernel_size': [4], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4903518408969267,0.4811680422648006,"[[21124 10467  3908]
  [ 9804 20281  5414]
- [ 9380 15303 10816]]",nilc-fasttext-100dim,pt,1.0192967495944152,1.014265845284548
+ [ 9380 15303 10816]]",nilc-fasttext-100dim,pt,1.0192967495944152,1.0142658452845479
 _grid,tuning params w2v 100,44.0,esic,education,"{'max_num_words': 1000, 'features_maps': [50], 'max_seq_length': 91, 'kernel_size': [4], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4870935331511686,0.4841416909546192,"[[21449  7935  6115]
  [10672 15530  9297]
  [ 9287 11317 14895]]",nilc-fasttext-100dim,pt,1.0133226430017237,1.0223796216696988
@@ -1099,10 +1099,10 @@ _grid,tuning params w2v 100,49.0,esic,education,"{'max_num_words': 15000, 'featu
  [10429 12241 12829]]",nilc-fasttext-100dim,pt,0.9955393910348956,1.0030567295402442
 _grid,tuning params w2v 100,50.0,esic,education,"{'max_num_words': 1000, 'features_maps': [50, 50, 50], 'max_seq_length': 91, 'kernel_size': [2, 2, 2], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4790745279209743,0.4728479849368374,"[[19527  6838  9134]
  [ 9634 11504 14361]
- [ 8101  7409 19989]]",nilc-fasttext-100dim,pt,1.0154395446828328,1.003068847200094
+ [ 8101  7409 19989]]",nilc-fasttext-100dim,pt,1.0154395446828328,1.0030688472000941
 _grid,tuning params w2v 100,51.0,esic,education,"{'max_num_words': 15000, 'features_maps': [50, 50, 50], 'max_seq_length': 91, 'kernel_size': [2, 2, 2], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4994131290083289,0.4997338533350794,"[[17045 11175  7279]
  [ 7233 19920  8346]
- [ 5757 13521 16221]]",nilc-fasttext-100dim,pt,0.991699438924314,1.0046090369739584
+ [ 5757 13521 16221]]",nilc-fasttext-100dim,pt,0.9916994389243141,1.0046090369739584
 _grid,tuning params w2v 100,52.0,esic,education,"{'max_num_words': 1000, 'features_maps': [5, 5, 5], 'max_seq_length': 91, 'kernel_size': [2, 2, 2], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4832906091251397,0.4823276034668823,"[[18761  9715  7023]
  [ 9635 18313  7551]
  [ 7504 13600 14395]]",nilc-fasttext-100dim,pt,1.0201615876780594,1.0118412205665757
@@ -1117,7 +1117,7 @@ _grid,tuning params w2v 100,55.0,esic,education,"{'max_num_words': 15000, 'featu
  [ 5024 14853 15622]]",nilc-fasttext-100dim,pt,0.9994756338116296,1.0032884029136864
 _grid,tuning params w2v 100,56.0,esic,education,"{'max_num_words': 1000, 'features_maps': [50, 50], 'max_seq_length': 91, 'kernel_size': [4, 1], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4904081805121271,0.4788566770775416,"[[25367  5339  4793]
  [14760 13414  7325]
- [12101  9952 13446]]",nilc-fasttext-100dim,pt,1.0075855778970693,1.012083869944007
+ [12101  9952 13446]]",nilc-fasttext-100dim,pt,1.0075855778970693,1.0120838699440071
 _grid,tuning params w2v 100,57.0,esic,education,"{'max_num_words': 15000, 'features_maps': [50, 50], 'max_seq_length': 91, 'kernel_size': [4, 1], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 3, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4976478210653821,0.4933818406437915,"[[22561  7165  5773]
  [11206 15296  8997]
  [ 9772 10586 15141]]",nilc-fasttext-100dim,pt,0.9936477574315932,0.9960440775751508
@@ -1167,7 +1167,7 @@ _grid,tuning params w2v 100,9.0,esic,profession,"{'max_num_words': 15000, 'featu
  [ 1888  5779  7454  5146]
  [ 2437  3004 13182  1644]
  [ 1105  5623  6130  7409]]",nilc-fasttext-100dim,pt,1.2465698827617095,1.2732536518066362
-_grid,tuning params w2v 100,10.0,esic,profession,"{'max_num_words': 1000, 'features_maps': [5, 5, 5], 'max_seq_length': 91, 'kernel_size': [3, 4, 5], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.39454531997828973,0.3790360818279331,"[[10345  2348  3407  4167]
+_grid,tuning params w2v 100,10.0,esic,profession,"{'max_num_words': 1000, 'features_maps': [5, 5, 5], 'max_seq_length': 91, 'kernel_size': [3, 4, 5], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.3945453199782897,0.3790360818279331,"[[10345  2348  3407  4167]
  [ 4503  3538  3406  8820]
  [ 6361  2987  6601  4318]
  [ 3201  2974  2591 11501]]",nilc-fasttext-100dim,pt,1.2889351696668894,1.295688358872392
@@ -1186,7 +1186,7 @@ _grid,tuning params w2v 100,13.0,esic,profession,"{'max_num_words': 15000, 'feat
 _grid,tuning params w2v 100,14.0,esic,profession,"{'max_num_words': 1000, 'features_maps': [50, 50], 'max_seq_length': 91, 'kernel_size': [3, 4], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4022919030936991,0.3815947529112591,"[[ 5806  2963  6270  5228]
  [ 1478  3232  5248 10309]
  [ 1943  2212 10696  5416]
- [  723  2503  4162 12879]]",nilc-fasttext-100dim,pt,1.2846211416403401,1.2841038234506748
+ [  723  2503  4162 12879]]",nilc-fasttext-100dim,pt,1.28462114164034,1.2841038234506748
 _grid,tuning params w2v 100,15.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [50, 50], 'max_seq_length': 91, 'kernel_size': [3, 4], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.4157003996644792,0.4115651112447207,"[[ 8072  4531  2934  4730]
  [ 2224  5683  2585  9775]
  [ 3556  4886  7307  4518]
@@ -1203,7 +1203,7 @@ _grid,tuning params w2v 100,18.0,esic,profession,"{'max_num_words': 1000, 'featu
  [4261 4652 4681 6673]
  [5362 3414 8192 3299]
  [3355 4365 3558 8989]]",nilc-fasttext-100dim,pt,1.2961637985778975,1.2906530159053222
-_grid,tuning params w2v 100,19.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [10, 10], 'max_seq_length': 91, 'kernel_size': [2, 4], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.39544579858883905,0.3758303960250616,"[[10534  3303  1710  4720]
+_grid,tuning params w2v 100,19.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [10, 10], 'max_seq_length': 91, 'kernel_size': [2, 4], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.3954457985888391,0.3758303960250616,"[[10534  3303  1710  4720]
  [ 3879  5039  1677  9672]
  [ 7099  4391  3938  4839]
  [ 2592  3875  1253 12547]]",nilc-fasttext-100dim,pt,1.2956960301234104,1.2834395583225866
@@ -1219,7 +1219,7 @@ _grid,tuning params w2v 100,22.0,esic,profession,"{'max_num_words': 1000, 'featu
  [2669 6501 4475 6622]
  [3540 4971 8671 3085]
  [1833 5973 3768 8693]]",nilc-fasttext-100dim,pt,1.2966846396283231,1.310810377016718
-_grid,tuning params w2v 100,23.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [5, 5], 'max_seq_length': 91, 'kernel_size': [2, 4], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.3772018552326442,0.378510940488388,"[[8107 4653 3180 4327]
+_grid,tuning params w2v 100,23.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [5, 5], 'max_seq_length': 91, 'kernel_size': [2, 4], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.3772018552326442,0.37851094048838796,"[[8107 4653 3180 4327]
  [2773 9084 2285 6125]
  [3658 7131 6043 3435]
  [2370 8679 1873 7345]]",nilc-fasttext-100dim,pt,1.2993822649405276,1.3063231814499543
@@ -1246,12 +1246,12 @@ _grid,tuning params w2v 100,28.0,esic,profession,"{'max_num_words': 1000, 'featu
 _grid,tuning params w2v 100,29.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [5], 'max_seq_length': 91, 'kernel_size': [1], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.28846153846153844,0.2747986332833103,"[[ 4830 10534  1969  2934]
  [ 3868 10550  1620  4229]
  [ 3975 10494  2878  2920]
- [ 2973 10541  1626  5127]]",nilc-fasttext-100dim,pt,1.3775178702177238,1.3789490884430047
+ [ 2973 10541  1626  5127]]",nilc-fasttext-100dim,pt,1.3775178702177238,1.378949088443005
 _grid,tuning params w2v 100,30.0,esic,profession,"{'max_num_words': 1000, 'features_maps': [10], 'max_seq_length': 91, 'kernel_size': [2], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.36697587210736665,0.33775287601019643,"[[ 9476  1550  2480  6761]
  [ 4104  2449  2161 11553]
  [ 6137  1940  4614  7576]
  [ 3446  1851  1759 13211]]",nilc-fasttext-100dim,pt,1.3229661704986513,1.3172949007140364
-_grid,tuning params w2v 100,31.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [10], 'max_seq_length': 91, 'kernel_size': [2], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.415749740958208,0.4187349587861602,"[[9138 4744 4088 2297]
+_grid,tuning params w2v 100,31.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [10], 'max_seq_length': 91, 'kernel_size': [2], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.41574974095820794,0.4187349587861602,"[[9138 4744 4088 2297]
  [3102 8366 3514 5285]
  [4244 5943 8407 1673]
  [2249 7544 2681 7793]]",nilc-fasttext-100dim,pt,1.2535581887322227,1.258201554906015
@@ -1278,7 +1278,7 @@ _grid,tuning params w2v 100,36.0,esic,profession,"{'max_num_words': 1000, 'featu
 _grid,tuning params w2v 100,37.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [10], 'max_seq_length': 91, 'kernel_size': [3], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.3560467755464548,0.33732540449704906,"[[10739  2480  2489  4559]
  [ 6478  3708  1541  8540]
  [ 7048  3716  4150  5353]
- [ 5947  2895  1158 10267]]",nilc-fasttext-100dim,pt,1.314755539246126,1.3128928412652872
+ [ 5947  2895  1158 10267]]",nilc-fasttext-100dim,pt,1.3147555392461259,1.3128928412652872
 _grid,tuning params w2v 100,38.0,esic,profession,"{'max_num_words': 1000, 'features_maps': [50], 'max_seq_length': 91, 'kernel_size': [3], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.3925840035525732,0.3791196692208401,"[[ 8524  2595  4136  5012]
  [ 3172  3640  3641  9814]
  [ 4526  3197  7311  5233]
@@ -1286,7 +1286,7 @@ _grid,tuning params w2v 100,38.0,esic,profession,"{'max_num_words': 1000, 'featu
 _grid,tuning params w2v 100,39.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [50], 'max_seq_length': 91, 'kernel_size': [3], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.39629693590565945,0.3909133209417637,"[[ 8328  3051  3489  5399]
  [ 2667  4845  3360  9395]
  [ 3557  3657  7376  5677]
- [ 1758  4304  2627 11578]]",nilc-fasttext-100dim,pt,1.2910201537452488,1.2960265713347099
+ [ 1758  4304  2627 11578]]",nilc-fasttext-100dim,pt,1.2910201537452488,1.29602657133471
 _grid,tuning params w2v 100,40.0,esic,profession,"{'max_num_words': 1000, 'features_maps': [5], 'max_seq_length': 91, 'kernel_size': [3], 'optimizer': None, 'epochs': 100, 'batch_size': 10, 'dropout_rate': 0.1, 'n_classes': 4, 'embedding_dim': 100, 'strides': [1, 1, 1], 'pool_size': [1, 1, 1], 'dense_units': [1024]}",0.3539621058864164,0.35345699597430125,"[[6114 3703 6958 3492]
  [2226 6074 5940 6027]
  [3153 4173 8992 3949]
@@ -1359,7 +1359,7 @@ _grid,tuning params w2v 100,0.0,esic,profession,"{'batch_size': 10, 'features_ma
  [ 2736  5245  2907  9379]
  [ 4020  3923  7662  4662]
  [ 1554  4131  2488 12094]]",nilc-fasttext-100dim,pt,1.2722082309514249,1.2662482402519206
-_grid,tuning params w2v 100,1.0,esic,profession,"{'batch_size': 10, 'features_maps': [10, 10, 10], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 3, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.3995287906448907,0.40278167321093195,"[[8130 4888 3526 3723]
+_grid,tuning params w2v 100,1.0,esic,profession,"{'batch_size': 10, 'features_maps': [10, 10, 10], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 3, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.3995287906448907,0.402781673210932,"[[8130 4888 3526 3723]
  [2575 8810 2509 6373]
  [3714 6710 7095 2748]
  [1841 8246 1826 8354]]",nilc-fasttext-100dim,pt,1.2697893210742155,1.2845007028691715
@@ -1379,23 +1379,23 @@ _grid,tuning params w2v 100,5.0,esic,profession,"{'batch_size': 10, 'features_ma
  [ 3534  3774  2189 10770]
  [ 4659  3324  5939  6345]
  [ 2600  2964  1668 13035]]",nilc-fasttext-100dim,pt,1.2878040755598752,1.2996507141675289
-_grid,tuning params w2v 100,6.0,esic,profession,"{'batch_size': 10, 'features_maps': [50, 50], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.42179404943997634,0.41662065630172,"[[ 7041  3346  6071  3809]
+_grid,tuning params w2v 100,6.0,esic,profession,"{'batch_size': 10, 'features_maps': [50, 50], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.4217940494399763,0.41662065630172,"[[ 7041  3346  6071  3809]
  [ 1912  5629  4921  7805]
  [ 2547  3263 10754  3703]
  [  965  4621  3911 10770]]",nilc-fasttext-100dim,pt,1.282106831309982,1.2821726755263776
-_grid,tuning params w2v 100,7.0,esic,profession,"{'batch_size': 10, 'features_maps': [50, 50], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.4131963290077466,0.39116879093426904,"[[ 9019  1300  7297  2651]
+_grid,tuning params w2v 100,7.0,esic,profession,"{'batch_size': 10, 'features_maps': [50, 50], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.4131963290077466,0.39116879093426893,"[[ 9019  1300  7297  2651]
  [ 3475  2580  7229  6983]
  [ 3822  1636 12629  2180]
  [ 2565  2397  6036  9269]]",nilc-fasttext-100dim,pt,1.2306253766496429,1.2591082190851088
 _grid,tuning params w2v 100,8.0,esic,profession,"{'batch_size': 10, 'features_maps': [10], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [1], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.3007721912468545,0.25601986564332285,"[[ 3426 13296  2640   905]
  [ 1179 15374  2305  1409]
  [ 1781 13755  3911   820]
- [ 1101 15235  2259  1672]]",nilc-fasttext-100dim,pt,1.363036425622547,1.3583045203730881
+ [ 1101 15235  2259  1672]]",nilc-fasttext-100dim,pt,1.363036425622547,1.358304520373088
 _grid,tuning params w2v 100,9.0,esic,profession,"{'batch_size': 10, 'features_maps': [10], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [1], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.2900404598608575,0.2780865816839049,"[[ 5409 10134  1991  2733]
  [ 4227 10134  1620  4286]
  [ 4223 10134  2906  3004]
  [ 3427 10134  1642  5064]]",nilc-fasttext-100dim,pt,1.377211608471197,1.3715569606813407
-_grid,tuning params w2v 100,10.0,esic,profession,"{'batch_size': 10, 'features_maps': [50], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [1], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.37219371391917894,0.3640751249255181,"[[9562 5336 3788 1581]
+_grid,tuning params w2v 100,10.0,esic,profession,"{'batch_size': 10, 'features_maps': [50], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [1], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.3721937139191789,0.3640751249255181,"[[9562 5336 3788 1581]
  [4602 9021 3790 2854]
  [4639 6316 7765 1547]
  [4048 8633 3761 3825]]",nilc-fasttext-100dim,pt,1.318225744016995,1.308485163420822
@@ -1403,14 +1403,14 @@ _grid,tuning params w2v 100,11.0,esic,profession,"{'batch_size': 10, 'features_m
  [ 1035 12750  3301  3181]
  [ 1570 11978  5314  1405]
  [  830 12319  2868  4250]]",nilc-fasttext-100dim,pt,1.331046809018424,1.3430970574742738
-_grid,tuning params w2v 100,12.0,esic,profession,"{'batch_size': 10, 'features_maps': [10], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [3], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.35845216361573,0.3101707138100629,"[[ 7833   205  5541  6688]
+_grid,tuning params w2v 100,12.0,esic,profession,"{'batch_size': 10, 'features_maps': [10], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [3], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.35845216361572996,0.3101707138100629,"[[ 7833   205  5541  6688]
  [ 3573   393  4058 12243]
  [ 4271   234  7243  8519]
  [ 3009   377  3291 13590]]",nilc-fasttext-100dim,pt,1.3158612023217402,1.3143939478846982
 _grid,tuning params w2v 100,13.0,esic,profession,"{'batch_size': 10, 'features_maps': [10], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [3], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.4095204026249568,0.3975204578253453,"[[ 7791  2414  5338  4724]
  [ 2305  3782  5320  8860]
  [ 3239  2996  9900  4132]
- [ 1522  3039  3980 11726]]",nilc-fasttext-100dim,pt,1.2892447566230723,1.2913728814706547
+ [ 1522  3039  3980 11726]]",nilc-fasttext-100dim,pt,1.2892447566230725,1.2913728814706549
 _grid,tuning params w2v 100,14.0,esic,profession,"{'batch_size': 10, 'features_maps': [50], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [3], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.4094217200374994,0.4019115188464444,"[[ 8160  3108  4530  4469]
  [ 2449  4590  3835  9393]
  [ 3877  3488  8528  4374]
@@ -1424,7 +1424,7 @@ _grid,tuning params w2v 100,0.0,esic,region,"{'batch_size': 10, 'features_maps':
  [ 1524 14315  7786  1330 15944]
  [ 1683 16366  6474  1837 14539]
  [  187  1827  2844   408 35633]]",nilc-fasttext-100dim,pt,1.4730754234016226,1.450960073302221
-_grid,tuning params w2v 100,1.0,esic,region,"{'batch_size': 10, 'features_maps': [10, 10, 10], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 3, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.36874740213697155,0.29480324164760213,"[[ 3967 24502   980  1806  9644]
+_grid,tuning params w2v 100,1.0,esic,region,"{'batch_size': 10, 'features_maps': [10, 10, 10], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 3, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.3687474021369716,0.2948032416476021,"[[ 3967 24502   980  1806  9644]
  [ 2459 29722   945  2131  5642]
  [ 2225 22008  4385  1779 10502]
  [ 2174 24921   803  2973 10028]
@@ -1434,17 +1434,17 @@ _grid,tuning params w2v 100,2.0,esic,region,"{'batch_size': 10, 'features_maps':
  [ 4383 19652  3422  1116 12326]
  [ 4331 22014  1840  1532 11182]
  [ 1588  3314  1795   734 33468]]",nilc-fasttext-100dim,pt,1.4691280360852472,1.4550439221421274
-_grid,tuning params w2v 100,3.0,esic,region,"{'batch_size': 10, 'features_maps': [50, 50, 50], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 3, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.38335900633267317,0.33991585439558625,"[[ 5798 18723  1741  5723  8914]
+_grid,tuning params w2v 100,3.0,esic,region,"{'batch_size': 10, 'features_maps': [50, 50, 50], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 3, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.3833590063326732,0.33991585439558625,"[[ 5798 18723  1741  5723  8914]
  [ 3561 23957  2047  6541  4793]
  [ 2680 17432  6310  4844  9633]
  [ 2939 19488  1653  7834  8985]
  [ 1113  2436  1951   903 34496]]",nilc-fasttext-100dim,pt,1.3957565835088133,1.38813109164141
-_grid,tuning params w2v 100,4.0,esic,region,"{'batch_size': 10, 'features_maps': [10, 10], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.3206875473727964,0.25230825487819886,"[[ 4733 17909  3641  1185 13431]
+_grid,tuning params w2v 100,4.0,esic,region,"{'batch_size': 10, 'features_maps': [10, 10], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.3206875473727964,0.2523082548781989,"[[ 4733 17909  3641  1185 13431]
  [ 4170 21126  4250  1305 10048]
  [ 3497 15788  4451  1035 16128]
  [ 3455 18025  3617  1372 14430]
- [  874  2742  2821   565 33897]]",nilc-fasttext-100dim,pt,1.5103064206885044,1.4942632143385381
-_grid,tuning params w2v 100,5.0,esic,region,"{'batch_size': 10, 'features_maps': [10, 10], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.33539206337563265,0.26772703884867627,"[[ 8257 20367  1525   264 10486]
+ [  874  2742  2821   565 33897]]",nilc-fasttext-100dim,pt,1.5103064206885044,1.494263214338538
+_grid,tuning params w2v 100,5.0,esic,region,"{'batch_size': 10, 'features_maps': [10, 10], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.33539206337563265,0.2677270388486763,"[[ 8257 20367  1525   264 10486]
  [ 6897 24208  1407   302  8085]
  [ 5945 18403  3635   234 12682]
  [ 6392 21094  1185   829 11399]
@@ -1454,32 +1454,32 @@ _grid,tuning params w2v 100,6.0,esic,region,"{'batch_size': 10, 'features_maps':
  [ 8026 16879  2871  1659 11464]
  [ 7904 19280  1410  2141 10164]
  [ 2250  3380  1657  1122 32490]]",nilc-fasttext-100dim,pt,1.4737692186582945,1.4438674316269893
-_grid,tuning params w2v 100,7.0,esic,region,"{'batch_size': 10, 'features_maps': [50, 50], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.37613144575661994,0.32463490629816516,"[[ 7654 19034  1717  2761  9733]
+_grid,tuning params w2v 100,7.0,esic,region,"{'batch_size': 10, 'features_maps': [50, 50], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [2, 4], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.37613144575662,0.3246349062981652,"[[ 7654 19034  1717  2761  9733]
  [ 5666 24273  1964  2916  6080]
  [ 4636 17734  5635  2176 10718]
  [ 4804 20116  1639  4441  9899]
- [ 1768  1798  1774   645 34914]]",nilc-fasttext-100dim,pt,1.4213858845653031,1.4122079526764875
+ [ 1768  1798  1774   645 34914]]",nilc-fasttext-100dim,pt,1.4213858845653031,1.4122079526764877
 _grid,tuning params w2v 100,8.0,esic,region,"{'batch_size': 10, 'features_maps': [10], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [1], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.2823736521675347,0.241063874079118,"[[13927  6762  3391  2836 13983]
  [13298  6956  3759  2760 14126]
  [11043  5602  4689  2322 17243]
  [12073  6022  3317  2917 16570]
  [ 3890  1919  3435  2400 29255]]",nilc-fasttext-100dim,pt,1.5575963848758392,1.5504609796266444
-_grid,tuning params w2v 100,9.0,esic,region,"{'batch_size': 10, 'features_maps': [10], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [1], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.2881341842098829,0.23727415770739319,"[[ 9873 17247   896  2302 10581]
+_grid,tuning params w2v 100,9.0,esic,region,"{'batch_size': 10, 'features_maps': [10], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [1], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.2881341842098829,0.2372741577073932,"[[ 9873 17247   896  2302 10581]
  [ 9349 17937   998  2365 10250]
  [ 8431 15208  1432  2110 13718]
  [ 8388 16529   891  2468 12623]
- [ 3463  7167  1101  1956 27212]]",nilc-fasttext-100dim,pt,1.5421747930842051,1.539879249005435
-_grid,tuning params w2v 100,10.0,esic,region,"{'batch_size': 10, 'features_maps': [50], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [1], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.31165065160517375,0.28082146735812763,"[[ 6751 16172  3969  5076  8931]
+ [ 3463  7167  1101  1956 27212]]",nilc-fasttext-100dim,pt,1.5421747930842051,1.5398792490054352
+_grid,tuning params w2v 100,10.0,esic,region,"{'batch_size': 10, 'features_maps': [50], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [1], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.3116506516051737,0.28082146735812763,"[[ 6751 16172  3969  5076  8931]
  [ 5633 18222  4315  5199  7530]
  [ 4922 14125  5627  4554 11671]
  [ 5204 15771  3839  5411 10674]
- [ 2911  3466  3468  3334 27720]]",nilc-fasttext-100dim,pt,1.5195286914510207,1.5131075207671012
-_grid,tuning params w2v 100,11.0,esic,region,"{'batch_size': 10, 'features_maps': [50], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [1], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.33077092349446197,0.30580041173302447,"[[ 9157 17046  4875  3157  6664]
+ [ 2911  3466  3468  3334 27720]]",nilc-fasttext-100dim,pt,1.5195286914510209,1.5131075207671012
+_grid,tuning params w2v 100,11.0,esic,region,"{'batch_size': 10, 'features_maps': [50], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [1], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.330770923494462,0.3058004117330245,"[[ 9157 17046  4875  3157  6664]
  [ 7275 19859  5371  3078  5316]
  [ 5813 15438  8530  2552  8566]
  [ 7123 16886  4927  3897  8066]
- [ 2694  4288  5130  2589 26198]]",nilc-fasttext-100dim,pt,1.4844405190057146,1.4835717286440697
-_grid,tuning params w2v 100,12.0,esic,region,"{'batch_size': 10, 'features_maps': [10], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [3], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.3351377784297905,0.25882627911176276,"[[ 4806 18897  3567   772 12857]
+ [ 2694  4288  5130  2589 26198]]",nilc-fasttext-100dim,pt,1.4844405190057146,1.4835717286440695
+_grid,tuning params w2v 100,12.0,esic,region,"{'batch_size': 10, 'features_maps': [10], 'n_classes': 5, 'max_num_words': 1000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [3], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.3351377784297905,0.2588262791117628,"[[ 4806 18897  3567   772 12857]
  [ 4393 23174  3468   995  8869]
  [ 3742 16749  4109   828 15471]
  [ 3628 19497  2865  1068 13841]
@@ -1494,8 +1494,80 @@ _grid,tuning params w2v 100,14.0,esic,region,"{'batch_size': 10, 'features_maps'
  [ 8003 12692  2801  6560 10843]
  [ 7756 13842  1858  7215 10228]
  [ 3454  3008  2291  2316 29830]]",nilc-fasttext-100dim,pt,1.4796444240172208,1.4623140515277373
-_grid,tuning params w2v 100,15.0,esic,region,"{'batch_size': 10, 'features_maps': [50], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [3], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.37094794493752903,0.3226119110426745,"[[12602 12243  2170  1859 12025]
+_grid,tuning params w2v 100,15.0,esic,region,"{'batch_size': 10, 'features_maps': [50], 'n_classes': 5, 'max_num_words': 15000, 'pool_size': [1, 1, 1], 'dense_units': [512], 'strides': [1, 1, 1], 'epochs': 100, 'kernel_size': [3], 'optimizer': None, 'embedding_dim': 100, 'max_seq_length': 98, 'dropout_rate': 0.1}",0.370947944937529,0.3226119110426745,"[[12602 12243  2170  1859 12025]
  [11410 16778  2733  2151  7827]
  [ 8321 12031  5745  1594 13208]
  [ 9340 13832  2243  3976 11508]
- [  831  1753  1195   364 36756]]",nilc-fasttext-100dim,pt,1.4243013398857314,1.4149559534326441
+ [  831  1753  1195   364 36756]]",nilc-fasttext-100dim,pt,1.4243013398857314,1.414955953432644
+_grid,x3 tuning optimizer and lr,0.0,esic,education,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'rmsprop', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 0.0001, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.528803628271219,0.5295713062315308,"[[19326  9284  6889]
+ [ 6882 19233  9384]
+ [ 6418 11324 17757]]",nilc-word2vec-50dim,pt,0.9087532009399264,0.9644599266446825
+_grid,x3 tuning optimizer and lr,1.0,esic,education,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'rmsprop', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 1e-05, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.5325220428744472,0.5320986555485998,"[[21219  8295  5985]
+ [ 7917 18310  9272]
+ [ 7538 10778 17183]]",nilc-word2vec-50dim,pt,0.8749267922127082,0.960661823238553
+_grid,x3 tuning optimizer and lr,2.0,esic,education,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'sgd', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 0.0001, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.4474961736011343,0.39609878180504204,"[[18927  2321 14251]
+ [12476  3076 19947]
+ [ 7742  2103 25654]]",nilc-word2vec-50dim,pt,1.7518317525713623,1.7457907588272237
+_grid,x3 tuning optimizer and lr,3.0,esic,education,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'sgd', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 1e-05, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.3583575124181902,0.272344357113834,"[[ 1399  8563 25537]
+ [  597  6658 28244]
+ [  324  5068 30107]]",nilc-word2vec-50dim,pt,4.44063497188187,4.4375340816090345
+_grid,x3 tuning optimizer and lr,4.0,esic,education,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'adam', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 0.0001, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.5137327812051043,0.5141809949860119,"[[19248  8734  7517]
+ [ 7570 17352 10577]
+ [ 7124 10264 18111]]",nilc-word2vec-50dim,pt,0.9531881503333077,0.9811452200398403
+_grid,x3 tuning optimizer and lr,5.0,esic,education,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'adam', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 1e-05, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.5279585340432125,0.527443013668997,"[[21120  8387  5992]
+ [ 8079 18178  9242]
+ [ 7668 10903 16928]]",nilc-word2vec-50dim,pt,0.881931469445273,0.9712733559064886
+_grid,x3 tuning optimizer and lr,0.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'rmsprop', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 0.0001, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.47509498199042777,0.47018483546595063,"[[10302  3259  4262  2444]
+ [ 3192  5914  3842  7319]
+ [ 4099  3126 10730  2312]
+ [ 1728  3935  3035 11569]]",nilc-word2vec-50dim,pt,1.1194296628204574,1.18270914204542
+_grid,x3 tuning optimizer and lr,1.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'rmsprop', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 1e-05, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.47366408447229486,0.4704122225038784,"[[10139  3516  4235  2377]
+ [ 3021  6139  3572  7535]
+ [ 4028  3778 10358  2103]
+ [ 1472  4361  2671 11763]]",nilc-word2vec-50dim,pt,1.1244873292638635,1.2301730436967273
+_grid,x3 tuning optimizer and lr,2.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'sgd', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 0.0001, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.311886317659249,0.2930607404013818,"[[11942  2619  3991  1715]
+ [ 8870  4378  4339  2680]
+ [ 9238  3468  5640  1921]
+ [ 8829  3693  4421  3324]]",nilc-word2vec-50dim,pt,2.4102329779670075,2.4030885734347454
+_grid,x3 tuning optimizer and lr,3.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'sgd', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 1e-05, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.25798095426062073,0.24830982347907535,"[[8360 3106 5807 2994]
+ [7556 3430 6023 3258]
+ [7668 3609 5835 3155]
+ [7461 3588 5929 3289]]",nilc-word2vec-50dim,pt,4.873625008570976,4.870705139543224
+_grid,x3 tuning optimizer and lr,4.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'adam', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 0.0001, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.4580599003305867,0.45948705991050365,"[[ 8638  4777  5184  1668]
+ [ 2500  7664  4368  5735]
+ [ 3097  4397 11349  1424]
+ [ 1356  5985  3443  9483]]",nilc-word2vec-50dim,pt,1.1647086637678363,1.2349977944161132
+_grid,x3 tuning optimizer and lr,5.0,esic,profession,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'adam', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 1e-05, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.4652883998618444,0.46102859544054015,"[[10437  3224  4395  2211]
+ [ 3395  5737  3957  7178]
+ [ 4359  3490 10491  1927]
+ [ 1898  4374  2940 11055]]",nilc-word2vec-50dim,pt,1.1127557238923642,1.2281018935295398
+_grid,x3 tuning optimizer and lr,0.0,esic,region,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'rmsprop', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 0.0001, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.40097312892735765,0.3737647106903183,"[[10233 17340  2976  3861  6489]
+ [ 6729 23322  3381  4703  2764]
+ [ 5161 15660  9074  3658  7346]
+ [ 6181 18188  2747  6774  7009]
+ [ 2720   472  3373  1740 32594]]",nilc-word2vec-50dim,pt,1.3057179154939518,1.3577867352017305
+_grid,x3 tuning optimizer and lr,1.0,esic,region,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'rmsprop', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 1e-05, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.38665493043839705,0.3592477584465684,"[[ 9378 14931  5355  4099  7136]
+ [ 6988 19993  5858  5116  2944]
+ [ 5300 13710 10347  3837  7705]
+ [ 6884 16206  4497  5864  7448]
+ [ 2075   168  3808  1361 33487]]",nilc-word2vec-50dim,pt,1.301013064665113,1.3855264616900052
+_grid,x3 tuning optimizer and lr,2.0,esic,region,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'sgd', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 0.0001, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.29958678696300645,0.25157094090797755,"[[20015  8059  2569  1347  8909]
+ [17419 10126  3467  1538  8349]
+ [15532  7932  3207  1237 12991]
+ [16638  8787  2798  1472 11204]
+ [ 9890  2486  1269   810 26444]]",nilc-word2vec-50dim,pt,1.7294493408277765,1.7265832761326154
+_grid,x3 tuning optimizer and lr,3.0,esic,region,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'sgd', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 1e-05, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.22038191642827454,0.19958187658238363,"[[21798  3622  5229  8367  1883]
+ [20647  4687  5593  7916  2056]
+ [20042  4541  6047  7620  2649]
+ [20858  4102  5693  7883  2363]
+ [18800  4336  6301  6810  4652]]",nilc-word2vec-50dim,pt,4.4428161789224685,4.437702982048977
+_grid,x3 tuning optimizer and lr,4.0,esic,region,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'adam', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 0.0001, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.38288955720188755,0.3648201657800926,"[[11240 15181  3726  4715  6037]
+ [ 8026 20400  4465  5601  2407]
+ [ 6032 13992 10117  4189  6569]
+ [ 8062 16171  3793  6583  6290]
+ [ 3795   301  4485  2359 29959]]",nilc-word2vec-50dim,pt,1.3410280403961428,1.3865713746774908
+_grid,x3 tuning optimizer and lr,5.0,esic,region,"{'max_num_words': 15000, 'features_maps': [50, 50], 'epochs': 100, 'dense_units': [512], 'optimizer': 'adam', 'embedding_dim': 100, 'dropout_rate': 0.1, 'strides': [1, 1], 'lr': 1e-05, 'max_seq_length': 91, 'n_classes': 5, 'batch_size': 32, 'kernel_size': [3, 4], 'pool_size': [2, 2, 2]}",0.37701166287684296,0.33213525748060224,"[[ 6828 18916  5302  2577  7276]
+ [ 5430 24209  4889  3409  2962]
+ [ 4479 16959  8838  2528  8095]
+ [ 5718 20021  4457  3114  7589]
+ [ 1732   208  3767  1084 34108]]",nilc-word2vec-50dim,pt,1.3388154232783158,1.3992431293891676

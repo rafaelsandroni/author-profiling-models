@@ -3,12 +3,13 @@ import baseline5
 from Models.functions.utils import listProblems
 import copy
 
-filter_task = None#['age','education']
-filter_dataset_name = None#'esic'#,'esic','b5post','brmoral']
-g_root = r"C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Dataframe/"
-#g_root = r"/home/rafael/Dataframe/"
+filter_task = ['education']#None#['age','education']
+filter_dataset_name = 'esic'#None#'esic'#,'esic','b5post','brmoral']
+#g_root = r"C:/Users/Rafael Sandroni/Google Drive/Mestrado/Data/Dataframe/"
+g_root = r"/home/rafael/Dataframe/"
 #g_lang = "pt"
 report_version = '_grid'
+tunning = 'dot => multiply'
 
 #brmoral (turned on age task)
 """ Results parameters
@@ -121,8 +122,6 @@ if __name__ == '__main__':
             rp = pd.read_csv(rp_file)
         else:
             rp = pd.DataFrame({"v": [], "tunning": [], "n": [], "dataset": [], "task": [], "params": [], "acc": [], "f1": [], "cm": []})
-
-        tunning = 'lstm lstm attention'
 
         print(" Dataset: ",dataset_name," / Task:",task," / Lang:",lang)
         for n in range(len(list_params)):
