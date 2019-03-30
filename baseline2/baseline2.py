@@ -54,6 +54,7 @@ except:
 import numpy as np
 from keras.callbacks import Callback
 from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score
+from sklearn.feature_selection import SelectKBest, chi2, f_regression, f_classif
 
 
 def create_model(filters = [100], kernel_size = [50], strides = [100], 
@@ -139,7 +140,9 @@ def get_avg(histories, his_key):
     for history in histories:
         tmp.append(history[his_key][np.argmin(history['val_loss'])])
     return np.mean(tmp)
-    
+
+
+
 def run(task, dataset_name, root, lang):
 
     histories = []
@@ -150,7 +153,7 @@ def run(task, dataset_name, root, lang):
     predicted_y_proba = []
     expected_y = []
 
-    directory='./Reports/'+task+'/'+dataset_name+'_'+lang+'/'
+    directory='./Reports_kbest/'+task+'/'+dataset_name+'_'+lang+'/'
     checkFolder(directory)
 
     X, _, y, _ = loadTrainTest(task, dataset_name, root, lang)
@@ -182,12 +185,22 @@ def run(task, dataset_name, root, lang):
         
         # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2) 
         vect = None
-        vect = TfidfVectorizer(max_features=int(mean_length))        
+        vect = TfidfVectorizer(max_features=50000) #int(mean_length))        
         X_train = vect.fit_transform(X_train).toarray()
         X_test = vect.transform(X_test).toarray()
 
         X_train, y_train = oversampling(X_train, y_train)
         X_test,  y_test  = oversampling(X_test, y_test)
+
+        # KBEST
+        kvalue = 30000
+        k_best_func = f_regression#chi2, #, f_classif
+        # feature selection
+        sel = SelectKBest(k_best_func,k=kvalue)
+        ft = sel.fit(X_train, y_train)
+        X_train = ft.transform(X_train)
+        X_test = ft.transform(X_test)
+
 
         y_train = to_categorical(y_train, n_classes)
         y_test  = to_categorical(y_test, n_classes)
@@ -200,15 +213,22 @@ def run(task, dataset_name, root, lang):
         X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size = validation_split) 
 
         params = dict(
-            filters = [100, 100, 100],
+            filters = [50],
             kernel_size = [3],
-            strides = [1, 1, 1],
+            strides = [1],
             dropout_rate = 0.15,
-            pool_size = [4, 4, 4],
+            pool_size = [2],
             epochs = 100,
             batch_size = 12
-        )
+        )        
+        """
+
         
+        vectors_filename = r'/home/rafael/GDrive/Embeddings/word2vec/'+ ds_name +'_sg_'+ str(params['embedding_dim']) +'dim.model'        
+        embedding_type = 1
+        embedding_matrix = create_embeddings(vect, params['max_num_words'], params['max_seq_length'], name=dataset_name, embedding_dim=params['embedding_dim'], filename=vectors_filename, type=embedding_type, return_matrix=True)        
+        """
+
         ## create the model with the best params found
         #model = KerasClassifier(build_fn=create_model,
         model = None
