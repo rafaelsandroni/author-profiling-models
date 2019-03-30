@@ -44,6 +44,7 @@ from imblearn.over_sampling import SMOTE, ADASYN
 import collections, numpy
 import gc
 from time import time, sleep
+from sklearn.feature_selection import SelectKBest, chi2, f_regression, f_classif
 
 # In[4]:
 
@@ -176,6 +177,8 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]        
         vect = None        
+        # k-best
+
         # 2. Oversampling
         #X_test,  y_test  = oversampling(X_test, y_test)
 
@@ -191,7 +194,8 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         X_train, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect  = tokenizer_pad_sequence(X_train, MAX_NUM_WORDS,  MAX_SEQ_LENGTH)    
         X_val, _, _, _                                  = tokenizer_pad_sequence(X_val,  _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
         X_test, _, _, _                                 = tokenizer_pad_sequence(X_test, _MAX_NUM_WORDS, _MAX_SEQ_LENGTH, vect)
-        
+
+        # Oversampling
         X_train, y_train = oversampling(X_train, y_train)
         X_test, y_test = oversampling(X_test, y_test)
         X_val, y_val = oversampling(X_val, y_val)
@@ -200,12 +204,12 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
         y_test = to_categorical(y_test, n_classes)
         y_val = to_categorical(y_val, n_classes)
 
-        # 6. Create the embedding layer from trained vectors
+        # 6. Create the embedding layer from trained vectors 
 
         # 7. Update params
         params['max_seq_length'] = _MAX_SEQ_LENGTH
         if params['max_num_words'] == None:
-            params['max_num_words'] = _MAX_NUM_WORDS + 1        
+            params['max_num_words'] = _MAX_NUM_WORDS + 1
         
         # vectors_filename = '\home/rafael/GDrive/Embeddings/fasttext_skip_s100.txt'
         # if params['embedding_type'] is not None and params['embedding_type'] == 1:
@@ -253,8 +257,8 @@ def run(task, dataset_name, root, lang, params = None, report_version = None):
             optimizer = Adam(lr=params['lr'])
 
         model.compile(
-                #loss='categorical_crossentropy',
-                loss='mean_squared_error',
+                loss='categorical_crossentropy',
+                #loss='mean_squared_error',
                 optimizer=optimizer,
                 metrics=['accuracy','mae']
         )

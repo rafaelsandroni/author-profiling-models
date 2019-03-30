@@ -16,7 +16,7 @@ if report_version is None:
 else:    
     rp_file = r"Grid/"+ filter_dataset_name+"_"+ report_version +".csv"
 
-tunning = 'x3 tuning optimizer and lr'
+tunning = 'kbest'
 
 #brmoral (turned on age task)
 """ Results parameters
@@ -60,16 +60,16 @@ pan13: (too large data)
 esic: (too large data)
 """
 params = dict(
-            features_maps = [100, 100],
+            features_maps = [50, 50],
             kernel_size = [3,4],
             strides = [1,1,1],
             dropout_rate = 0.2,
             epochs = 1000,
             batch_size = 32,
             embedding_dim = 100,
-            max_seq_length = None,
-            max_num_words = 15000,
-            dense_units = [1024,512],
+            max_seq_length = 10000,
+            max_num_words = None,
+            dense_units = [512],
             optimizer = None,
             pool_size = [1,1,1],
             lr = 0.00

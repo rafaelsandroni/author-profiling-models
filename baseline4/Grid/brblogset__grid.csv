@@ -642,12 +642,24 @@ _grid_adam,x3 tuning optimizer and lr,2.0,brblogset,education,"{'strides': [1, 1
 _grid_adam,x3 tuning optimizer and lr,3.0,brblogset,education,"{'strides': [1, 1], 'dense_units': [1024, 512], 'optimizer': 'adam', 'pool_size': [2, 2, 2], 'max_seq_length': 3224, 'embedding_dim': 100, 'features_maps': [100, 100], 'n_classes': 4, 'batch_size': 32, 'dropout_rate': 0.5, 'lr': 1e-05, 'epochs': 1000, 'kernel_size': [3, 4], 'max_num_words': 15000}",0.35970744680851063,0.3594423370767947,"[[124  31  95 126]
  [ 45 113 112 106]
  [ 65  68 155  88]
- [ 91  42  94 149]]",nilc-word2vec-50dim,pt,1.1538827075528522,1.984992455300831
+ [ 91  42  94 149]]",nilc-word2vec-50dim,pt,1.1538827075528522,1.9849924553008311
 _grid_rmsprop,x3 tuning optimizer and lr,0.0,brblogset,education,"{'pool_size': [1, 1, 1], 'batch_size': 32, 'kernel_size': [3, 4], 'dropout_rate': 0.2, 'strides': [1, 1, 1], 'max_num_words': 15000, 'lr': 0.0001, 'max_seq_length': 3224, 'embedding_dim': 100, 'features_maps': [100, 100], 'dense_units': [1024, 512], 'n_classes': 4, 'optimizer': 'rmsprop', 'epochs': 1000}",0.28324468085106386,0.25067098999619586,"[[196  15   4 161]
  [179  53   7 137]
  [179  29  28 140]
- [190  32   5 149]]",nilc-word2vec-50dim,pt,0.06795194552581318,0.23664063811302186
-_grid_rmsprop,x3 tuning optimizer and lr,1.0,brblogset,education,"{'pool_size': [1, 1, 1], 'batch_size': 32, 'kernel_size': [3, 4], 'dropout_rate': 0.2, 'strides': [1, 1, 1], 'max_num_words': 15000, 'lr': 1e-05, 'max_seq_length': 3224, 'embedding_dim': 100, 'features_maps': [100, 100], 'dense_units': [1024, 512], 'n_classes': 4, 'optimizer': 'rmsprop', 'epochs': 1000}",0.36436170212765956,0.36288834442361295,"[[107  35  86 148]
+ [190  32   5 149]]",nilc-word2vec-50dim,pt,0.06795194552581317,0.23664063811302186
+_grid_rmsprop,x3 tuning optimizer and lr,1.0,brblogset,education,"{'pool_size': [1, 1, 1], 'batch_size': 32, 'kernel_size': [3, 4], 'dropout_rate': 0.2, 'strides': [1, 1, 1], 'max_num_words': 15000, 'lr': 1e-05, 'max_seq_length': 3224, 'embedding_dim': 100, 'features_maps': [100, 100], 'dense_units': [1024, 512], 'n_classes': 4, 'optimizer': 'rmsprop', 'epochs': 1000}",0.3643617021276596,0.36288834442361295,"[[107  35  86 148]
  [ 32 117 126 101]
  [ 54  64 152 106]
  [ 62  39 103 172]]",nilc-word2vec-50dim,pt,0.10217263705508653,0.2603120172307605
+_grid_rmsprop,kbest,0.0,brblogset,education,"{'optimizer': 'rmsprop', 'max_num_words': 50000, 'max_seq_length': 3224, 'kernel_size': [3, 4], 'dropout_rate': 0.2, 'dense_units': [512], 'strides': [1, 1, 1], 'features_maps': [50, 50], 'pool_size': [1, 1, 1], 'embedding_dim': 100, 'batch_size': 32, 'n_classes': 4, 'lr': 0.0001, 'epochs': 1000}",0.3191489361702128,0.28703116834204195,"[[143  70   4 159]
+ [ 72 166   8 130]
+ [110 116  14 136]
+ [124  93   2 157]]",nilc-word2vec-50dim,pt,0.18047201583947853,0.19347626227934334
+_grid_rmsprop,kbest,0.0,brblogset,education,"{'kernel_size': [3, 4], 'max_num_words': 50000, 'batch_size': 32, 'max_seq_length': 3224, 'lr': 0.0001, 'features_maps': [50, 50], 'epochs': 1000, 'strides': [1, 1, 1], 'optimizer': 'rmsprop', 'pool_size': [1, 1, 1], 'n_classes': 4, 'dense_units': [512], 'embedding_dim': 100, 'dropout_rate': 0.2}",0.3191489361702128,0.300626180147385,"[[151  20   8 197]
+ [106  79  16 175]
+ [126  37  48 165]
+ [137  23  14 202]]",nilc-word2vec-50dim,pt,0.6000266035467561,1.5570066571235657
+_grid_rmsprop,kbest,1.0,brblogset,education,"{'kernel_size': [3, 4], 'max_num_words': 50000, 'batch_size': 32, 'max_seq_length': 3224, 'lr': 1e-05, 'features_maps': [50, 50], 'epochs': 1000, 'strides': [1, 1, 1], 'optimizer': 'rmsprop', 'pool_size': [1, 1, 1], 'n_classes': 4, 'dense_units': [512], 'embedding_dim': 100, 'dropout_rate': 0.2}",0.3716755319148936,0.37119181174701343,"[[170  33  53 120]
+ [ 58 152  70  96]
+ [ 80  80  99 117]
+ [115  59  64 138]]",nilc-word2vec-50dim,pt,0.9072080104057971,1.6054747073681324
