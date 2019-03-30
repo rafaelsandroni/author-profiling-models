@@ -157,7 +157,7 @@ def plot_confusion_matrix(cm, classes, directory = '/', normalize=True, title='C
 
 
 
-def plot_history(history, directory = ''):
+def plot_history(history, directory = '', show = False):
     loss_list = [s for s in history.history.keys() if 'loss' in s and 'val' not in s]
     val_loss_list = [s for s in history.history.keys() if 'loss' in s and 'val' in s]
 
@@ -186,8 +186,9 @@ def plot_history(history, directory = ''):
     plt.ylabel('Erro')
     plt.legend()
     plt.savefig(directory + '/loss.pdf')
-    #plt.show()
-    #plt.gcf().clear()
+    if show:
+        plt.show()
+        plt.gcf().clear()
 
     ## F2
     plt.figure(2)
@@ -201,10 +202,10 @@ def plot_history(history, directory = ''):
     plt.ylabel('Acurácia')
     plt.legend()
     plt.savefig(directory + '/accuracy.pdf')
-
-    #plt.show()
-    plt.gcf().clear()
-    
+    if show:
+        plt.show()
+        
+    plt.gcf().clear()    
 
     
 ## multiclass or binary report
@@ -224,8 +225,12 @@ def full_multiclass_report(model,
         y_true = np.argmax(y_true,axis=1)
     
     # 2. Predict classes and stores in y_pred
-    y_pred = model.predict_classes(x, batch_size=batch_size)
-    # y_pred = model.predict(x, batch_size=batch_size)
+    try:
+        y_pred = model.predict_classes(x, batch_size=batch_size)
+    except:
+        y_pred = model.predict(x, batch_size=batch_size)
+        y_pred = np.argmax(y_pred,axis=1)
+        
 
     # 3. Print accuracy score
     print("Accuracy : "+ str(accuracy_score(y_true,y_pred)))

@@ -37,7 +37,7 @@ def train_vectors(X, name = 'tmp', embedding_dim = 100):
     model_ug_sg.save(vectorName)
 
 
-def create_embeddings(tokenizer, max_num_words, max_seq_length, name='prebuild', embedding_dim=100, filename=None, type=1):
+def create_embeddings(tokenizer, max_num_words, max_seq_length, name='prebuild', embedding_dim=100, filename=None, type=1, return_matrix = False):
 
     print('loading embeddings...')
     vectorName = vectorFilename(name, embedding_dim)
@@ -71,8 +71,11 @@ def create_embeddings(tokenizer, max_num_words, max_seq_length, name='prebuild',
             embedding_matrix[i] = np.zeros(embedding_dim)
 
     print("weights", len(embedding_matrix))
-
-    return Embedding(input_dim=max_num_words, output_dim=embedding_dim,
+    
+    if return_matrix:
+        return embedding_matrix
+    else:
+        return Embedding(input_dim=max_num_words, output_dim=embedding_dim,
                      input_length=max_seq_length,
                      weights=[embedding_matrix],
                      trainable=True                     
