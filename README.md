@@ -14,3 +14,10 @@
 
 ### baseline9 (lstm_attention_char):: LSTM self attention mechanism + char vectors
 
+# functions
+
+-- utils
+-- plot
+-- word vectors
+-- etc
+
