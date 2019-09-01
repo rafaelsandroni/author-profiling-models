@@ -10,7 +10,7 @@
 
 ### baseline5 (lstm_attention_wv):: LSTM self attention mechanism + word vectors
 
-### baseline6 (cnn_char):: multichannel 1D conv net + char vectors
+### baseline9 (cnn_char):: multichannel 1D conv net + char vectors
 
-### baseline7 (lstm_attention_char):: LSTM self attention mechanism + char vectors
+### baseline9 (lstm_attention_char):: LSTM self attention mechanism + char vectors
 
