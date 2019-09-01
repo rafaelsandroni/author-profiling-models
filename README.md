@@ -1,3 +1,8 @@
+# Get started
+
+$ python setup models
+
+
 # models
 
 ### baseline1 (lr_tfidf): tfidf + logistic regression
