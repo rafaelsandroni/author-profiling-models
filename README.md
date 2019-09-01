@@ -1,14 +1,16 @@
 # models
 
-### baseline1 (tfidf_lr): tfidf + logistic regression
+### baseline1 (lr_tfidf): tfidf + logistic regression
 
-### baseline2 (tfidf_cnn): tfidf + 1D conv net
+### baseline2 (cnn_tfidf): 1D conv net + tfidf
 
-### baseline3 (wv_cnn):: word vectors + 1D conv net
+### baseline3 (cnn_wv): multichannel 1D conv net + word vectors
 
-### baseline3 (lstm-attention):: word vectors + LSTM + attention mechanism
+### baseline4 (cnn_wv, Kim hyperparameters): multichannel word vectors + 1D conv net
 
-## TODO
+### baseline5 (lstm_attention_wv):: LSTM self attention mechanism + word vectors
 
-word vectors + 2d conv net
-word vectors + word features + 1d conv net
+### baseline6 (cnn_char):: multichannel 1D conv net + char vectors
+
+### baseline7 (lstm_attention_char):: LSTM self attention mechanism + char vectors
+
