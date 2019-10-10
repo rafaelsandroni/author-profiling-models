@@ -11,7 +11,7 @@ problems, however, for author profiling, presents a varied level of success. Thi
 to organize, define and explore various authorial characterization tasks from the textual
 corpus considered, covering three languages (i.e, Portuguese, English and Spanish) and
 five textual domains (ie, social networks, questionnaires, SMS etc). Six models based on
-neural networks and word embeddings were proposed, performance of theses models are compared with baseline systems.
+neural networks and word embeddings were proposed, performance of models are compared with baseline systems.
 
 # Implementation models
 
@@ -35,7 +35,7 @@ neural networks and word embeddings were proposed, performance of theses models 
 
 # Corpus
 
-Theses textual datasets supports six author profiling tasks: gender, age, education level, religious, IT formation and politics position, in three languages: portuguese, english and spanish.
+Those textual datasets supports six author profiling tasks: gender, age, education level, religious, IT formation and politics position, in three languages: portuguese, english and spanish.
 
 This dissertation have structured and defined datasets to author profiling tasks, such as classes distribution and definition of the problems.
 
