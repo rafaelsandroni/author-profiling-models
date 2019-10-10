@@ -17,13 +17,17 @@ neural networks and Wword embeddings were proposed, compared with baseline syste
 
 - **lr_tfidf**: logistic regression + tfidf, /baseline1
 
-- **cnn_tfidf**: 1D conv net + tfidf /baseline2
+- **cnn_tfidf**: 1D conv net + tfidf, /baseline2
 
 - **cnn_wv**: multichannel 1D conv net + word vectors, /baseline3
 
 - **cnn_wv, Kim implementation**: multichannel 1D conv net + word vectors, /baseline4
 
-- **lstm_attention_wv**: LSTM self attention mechanism + word vectors, /baseline5
+- **lstm_wv**: LSTM + word vectors, /baseline5
+
+- **lstm_attention_wv**: LSTM self attention mechanism + word vectors, /baseline6
+
+- **gru_wv**: GRU + word vectors, /baseline7
 
 - **cnn_char**: multichannel 1D conv net + char vectors, /baseline9
 
