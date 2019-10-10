@@ -15,24 +15,24 @@ neural networks and Wword embeddings were proposed, compared with baseline syste
 
 # Implementation models
 
-- Baseline1 (lr_tfidf): tfidf + logistic regression
+- **lr_tfidf**: logistic regression + tfidf, /baseline1
 
-### baseline2 (cnn_tfidf): 1D conv net + tfidf
+- **cnn_tfidf**: 1D conv net + tfidf /baseline2
 
-### baseline3 (cnn_wv): multichannel 1D conv net + word vectors
+- **cnn_wv**: multichannel 1D conv net + word vectors, /baseline3
 
-### baseline4 (cnn_wv, Kim hyperparameters): multichannel word vectors + 1D conv net
+- **cnn_wv, Kim implementation**: multichannel 1D conv net + word vectors, /baseline4
 
-### baseline5 (lstm_attention_wv):: LSTM self attention mechanism + word vectors
+- **lstm_attention_wv**: LSTM self attention mechanism + word vectors, /baseline5
 
-### baseline9 (cnn_char):: multichannel 1D conv net + char vectors
+- **cnn_char**: multichannel 1D conv net + char vectors, /baseline9
 
-### baseline9 (lstm_attention_char):: LSTM self attention mechanism + char vectors
+- **lstm_attention_char**: LSTM self attention mechanism + char vectors, /baseline9
 
-# functions
+# Utils evaluation functions
 
--- utils
--- plot
--- word vectors
--- etc
+- utils: related to helpers functions
+- plot: related to plot functions, using matplotlib and metrics calc
+- word vectors: related to embeddings algorithms, training and load pre trained models
+- etc
 
