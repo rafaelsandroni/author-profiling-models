@@ -33,6 +33,23 @@ neural networks and Wword embeddings were proposed, compared with baseline syste
 
 - **lstm_attention_char**: LSTM self attention mechanism + char vectors, /baseline9
 
+# Corpus
+
+Theses textual datasets supports six author profiling tasks: gender, age, education level, religious, IT formation and politics position, in three languages: portuguese, english and spanish.
+
+This dissertation have structured and defined datasets to author profiling tasks, such as classes distribution and definition of the problems.
+
+- b5-post
+- BRMoral
+- BlogSet-BR
+- Nus-SMS
+- The Blog Authorship
+- PAN 2013 (PAN-CLEF)
+
+Dataset are splited into stratificated training and test subsets
+
+You can request access to structured datasets to the author.
+
 # Utils evaluation functions
 
 - utils: related to helpers functions
