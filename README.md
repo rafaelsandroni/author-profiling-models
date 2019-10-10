@@ -11,7 +11,7 @@ problems, however, for author profiling, presents a varied level of success. Thi
 to organize, define and explore various authorial characterization tasks from the textual
 corpus considered, covering three languages (i.e, Portuguese, English and Spanish) and
 five textual domains (ie, social networks, questionnaires, SMS etc). Six models based on
-neural networks and Wword embeddings were proposed, compared with baseline systems.
+neural networks and word embeddings were proposed, performance of theses models are compared with baseline systems.
 
 # Implementation models
 
