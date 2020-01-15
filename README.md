@@ -14,9 +14,7 @@ five textual domains (ie, social networks, questionnaires, SMS etc). Six models 
 neural networks and word embeddings were proposed, performance of models are compared with baseline systems.
 
 # Masters dissertation
-You can find the latest version of masters dissertation at directory:
-
-/dissertation/
+[Download masters dissertation latest version](../blob/master/dissertation/dissertation-2019-12-09-vc.pdf)
 
 # Implementation models
 Here you can find implemented models with containing both data pipeline and machine learning pipeline.
