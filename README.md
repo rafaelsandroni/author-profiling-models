@@ -66,6 +66,7 @@ Utils functions build to help implementations, pre-build models, reports etc
 
 # Reference
 
+```
 @MASTERSDISSERTATION{sandroni-dias,
   title        = "Author profiling from texts using artificial neural networks",
   author       = "Rafael Felipe Sandroni Dias",
@@ -74,4 +75,5 @@ Utils functions build to help implementations, pre-build models, reports etc
   school       = "University of São Paulo",
   address      = "São Paulo, SP, Brazil",
 }
+```
 
