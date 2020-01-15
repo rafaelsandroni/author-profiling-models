@@ -1,3 +1,3 @@
 #!/bin/bash
 
-#nohup python3 baseline1-tfidf-lr.py
+#nohup python3 src/models/baseline1-tfidf-lr.py
