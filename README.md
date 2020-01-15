@@ -63,3 +63,15 @@ Utils functions build to help implementations, pre-build models, reports etc
 - word vectors: related to embeddings algorithms, training and load pre trained models
 - etc
 
+
+# Reference
+
+@MASTERSDISSERTATION{sandroni-dias,
+  title        = "Author profiling from texts using artificial neural networks",
+  author       = "Rafael Felipe Sandroni Dias",
+  year         = "2019",
+  type         = "Master's Dissertation",
+  school       = "University of São Paulo",
+  address      = "São Paulo, SP, Brazil",
+}
+
